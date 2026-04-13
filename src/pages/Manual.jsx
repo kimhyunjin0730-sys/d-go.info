@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Download, PlayCircle, ShieldInfo, HelpCircle } from 'lucide-react'
+import { Download, PlayCircle, ShieldQuestion, HelpCircle } from 'lucide-react'
 
 const Manual = () => {
   const faqs = [
@@ -58,7 +58,7 @@ const Manual = () => {
 
             <div className="glass-card" style={{ padding: '3rem' }}>
               <h3 style={{ fontSize: '1.8rem', marginBottom: '2rem', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                <ShieldInfo color="var(--color-primary)" />
+                <ShieldQuestion color="var(--color-primary)" />
                 초기 설정 3단계
               </h3>
               <div style={{ padding: '2rem', background: 'rgba(255,255,255,0.02)', borderRadius: '16px', marginBottom: '2rem' }}>

@@ -1,11 +1,11 @@
 import { Routes, Route } from 'react-router-dom'
-import Header from './components/Header'
-import Footer from './components/Footer'
-import Home from './pages/Home'
-import Product from './pages/Product'
-import Manual from './pages/Manual'
-import Purchase from './pages/Purchase'
-import Support from './pages/Support'
+import Header from './components/Header.jsx'
+import Footer from './components/Footer.jsx'
+import Home from './pages/Home.jsx'
+import Product from './pages/Product.jsx'
+import Manual from './pages/Manual.jsx'
+import Purchase from './pages/Purchase.jsx'
+import Support from './pages/Support.jsx'
 
 function App() {
   return (
