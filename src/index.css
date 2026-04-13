@@ -37,8 +37,12 @@ body {
   font-family: var(--font-body);
   background-color: var(--color-bg);
   color: var(--color-text);
-  line-height: 1.7;
+  font-size: 16px;
+  line-height: 1.75;
+  letter-spacing: 0.005em;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
   overflow-x: hidden;
   /* Hex-grid ambient pattern */
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%2300ffc8' fill-opacity='0.04'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81v-2.3zM15 0v7.5L27.99 15H28v-2.31h-.01L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31h-.01L17 42.15V49h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
@@ -228,6 +232,151 @@ section {
   .hide-mobile {
     display: none !important;
   }
+}
+
+/* =======================================================================
+   TABLET (641–1024px) — iPad portrait / iPad mini / landscape phones
+   Goal: roomy, breathable, 2-col max on most grids, not desktop-cramped
+   ======================================================================= */
+@media (min-width: 641px) and (max-width: 1024px) {
+  body {
+    font-size: 17px;
+    line-height: 1.8;
+  }
+  .container {
+    padding: 0 2rem;
+    max-width: 760px;
+  }
+  section {
+    padding: 6rem 0;
+  }
+  /* Cap heavy inline headings */
+  h1 { font-size: clamp(2.75rem, 6vw, 3.75rem) !important; }
+  h2 { font-size: clamp(2rem, 5vw, 2.75rem) !important; }
+  h3 { font-size: clamp(1.2rem, 3.2vw, 1.6rem) !important; }
+  /* Tame oversized inline paddings on cards */
+  .glass-card[style*="padding: 3rem"],
+  .glass-card[style*="padding: 5rem"],
+  .glass-card[style*="padding:3rem"],
+  .glass-card[style*="padding:5rem"] {
+    padding: 2.25rem !important;
+  }
+}
+
+/* =======================================================================
+   MOBILE (≤640px) — app-like readability
+   Goal: comfortable body text, tight hierarchy, full-bleed sections,
+   single-column, generous line-height, larger touch targets
+   ======================================================================= */
+@media (max-width: 640px) {
+  :root {
+    --glass-border: rgba(0, 255, 200, 0.18);
+  }
+  body {
+    font-size: 16.5px;
+    line-height: 1.78;
+    letter-spacing: 0.008em;
+  }
+  .container {
+    padding: 0 1.25rem;
+  }
+  section {
+    padding: 4rem 0 !important;
+  }
+
+  /* Typography scale — override inline heading sizes aggressively */
+  h1,
+  .home-page h1,
+  .product-page h1 {
+    font-size: clamp(2rem, 9vw, 2.75rem) !important;
+    line-height: 1.12 !important;
+    letter-spacing: -0.01em !important;
+  }
+  h2 {
+    font-size: clamp(1.65rem, 7vw, 2.1rem) !important;
+    line-height: 1.2 !important;
+  }
+  h3 {
+    font-size: 1.15rem !important;
+    line-height: 1.35 !important;
+  }
+  h4 {
+    font-size: 1.05rem !important;
+  }
+
+  /* Paragraphs — app-like reading comfort */
+  p {
+    font-size: 0.98rem;
+    line-height: 1.78;
+  }
+
+  /* Card padding normalization — collapse heavy inline paddings */
+  .glass-card[style*="padding: 3rem"],
+  .glass-card[style*="padding: 5rem"],
+  .glass-card[style*="padding:3rem"],
+  .glass-card[style*="padding:5rem"],
+  .glass-card[style*="padding: 2.5rem"],
+  .glass-card[style*="padding:2.5rem"] {
+    padding: 1.75rem !important;
+  }
+
+  /* Button full-width on mobile for unambiguous tap target */
+  .btn-primary,
+  .btn-outline {
+    width: 100%;
+    justify-content: center;
+    min-height: 52px;
+    font-size: 0.95rem;
+  }
+  /* Button rows stack */
+  .btn-primary + .btn-outline,
+  .btn-outline + .btn-primary {
+    margin-top: 0;
+  }
+
+  /* Bento grid — true single column, consistent rhythm */
+  .bento-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0.9rem !important;
+  }
+  .bento-grid > * {
+    grid-column: 1 / -1 !important;
+    grid-row: auto !important;
+    padding: 1.5rem !important;
+  }
+
+  /* Reduce inline gap-heavy grid sections */
+  .container > div[style*="gap: 4rem"],
+  .container > div[style*="gap:4rem"] {
+    gap: 2.25rem !important;
+  }
+
+  /* Margin reset for section headers that use huge bottom margins */
+  div[style*="marginBottom: '6rem'"],
+  div[style*="marginBottom: '5rem'"] {
+    margin-bottom: 2.5rem !important;
+  }
+
+  /* Hero vault illustration — smaller on phones */
+  .anim-float {
+    max-width: 220px !important;
+  }
+}
+
+/* Narrow phones ≤380 — iPhone SE / compact view */
+@media (max-width: 380px) {
+  body { font-size: 16px; }
+  .container { padding: 0 1rem; }
+  h1 { font-size: 1.9rem !important; }
+  h2 { font-size: 1.5rem !important; }
+}
+
+/* =======================================================================
+   Landscape phones — avoid letterbox cramping
+   ======================================================================= */
+@media (max-width: 900px) and (orientation: landscape) and (max-height: 500px) {
+  section { padding: 3rem 0 !important; }
+  .hero { min-height: auto !important; padding-top: 5rem !important; padding-bottom: 3rem !important; }
 }
 
 /* === Keyframes === */
