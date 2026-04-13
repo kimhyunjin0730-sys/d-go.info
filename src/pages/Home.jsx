@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { ArrowRight, ShieldCheck, Cpu, Clock, HardDrive, Download, ChevronRight } from 'lucide-react'
+import { ArrowRight, ShieldCheck, Cpu, Clock, HardDrive, ChevronRight, Lock } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 const Home = () => {
@@ -19,32 +19,58 @@ const Home = () => {
   return (
     <div className="home-page">
       {/* Hero Section */}
-      <section className="hero" style={{ 
-        minHeight: '100vh', 
-        display: 'flex', 
-        alignItems: 'center', 
+      <section className="hero" style={{
+        minHeight: '100vh',
+        display: 'flex',
+        alignItems: 'center',
         paddingTop: '6rem',
         position: 'relative',
         overflow: 'hidden'
       }}>
-        {/* Background Gradients */}
-        <div style={{
-          position: 'absolute',
-          top: '-20%',
-          right: '-10%',
-          width: '60%',
-          height: '60%',
-          background: 'radial-gradient(circle, rgba(255, 176, 0, 0.05) 0%, transparent 70%)',
-          zIndex: -1
-        }} />
-        
+        {/* Animated background decorations */}
+        <div aria-hidden="true" style={{ position: 'absolute', inset: 0, pointerEvents: 'none' }}>
+          <div className="anim-rotate" style={{
+            position: 'absolute',
+            width: '560px', height: '560px',
+            top: '-120px', right: '-160px',
+            border: '1px solid rgba(0, 255, 200, 0.06)',
+            borderRadius: '50%'
+          }} />
+          <div className="anim-rotate" style={{
+            position: 'absolute',
+            width: '380px', height: '380px',
+            bottom: '-100px', left: '-120px',
+            border: '1px solid rgba(0, 212, 255, 0.07)',
+            borderRadius: '50%',
+            animationDirection: 'reverse',
+            animationDuration: '15s'
+          }} />
+          <div className="anim-glow" style={{
+            position: 'absolute',
+            width: '320px', height: '320px',
+            top: '18%', left: '8%',
+            background: 'radial-gradient(circle, rgba(0, 255, 200, 0.08), transparent 70%)',
+            borderRadius: '50%'
+          }} />
+          <div className="anim-glow" style={{
+            position: 'absolute',
+            width: '260px', height: '260px',
+            bottom: '18%', right: '12%',
+            background: 'radial-gradient(circle, rgba(124, 58, 237, 0.09), transparent 70%)',
+            borderRadius: '50%',
+            animationDelay: '1.5s'
+          }} />
+        </div>
+
         <div className="container" style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))',
           alignItems: 'center',
-          gap: '4rem'
+          gap: '4rem',
+          position: 'relative',
+          zIndex: 1
         }}>
-          <motion.div 
+          <motion.div
             initial="hidden"
             animate="visible"
             variants={containerVariants}
@@ -52,68 +78,126 @@ const Home = () => {
             <motion.div variants={itemVariants} style={{
               display: 'inline-flex',
               alignItems: 'center',
-              gap: '0.5rem',
-              padding: '0.5rem 1rem',
-              background: 'rgba(255, 176, 0, 0.1)',
+              gap: '0.6rem',
+              padding: '0.55rem 1.1rem',
+              background: 'rgba(0, 255, 200, 0.08)',
               borderRadius: '100px',
               color: 'var(--color-primary)',
-              fontSize: '0.85rem',
+              fontSize: '0.75rem',
               fontWeight: 700,
-              marginBottom: '1.5rem',
-              border: '1px solid rgba(255, 176, 0, 0.2)'
+              letterSpacing: '0.15em',
+              textTransform: 'uppercase',
+              marginBottom: '1.75rem',
+              border: '1px solid rgba(0, 255, 200, 0.2)',
+              fontFamily: 'var(--font-heading)'
             }}>
-              <ShieldCheck size={16} />
-              <span>No Data Server. Pure Physical Vault.</span>
+              <span className="anim-glow" style={{
+                width: '8px', height: '8px', borderRadius: '50%',
+                background: '#00ffc8', boxShadow: '0 0 10px #00ffc8'
+              }} />
+              No Data Server · Self-Sovereign Data
             </motion.div>
-            
+
             <motion.h1 variants={itemVariants} style={{
-              fontSize: 'clamp(3rem, 8vw, 5rem)',
-              lineHeight: 1.1,
-              marginBottom: '2rem',
-              maxWidth: '600px'
+              fontSize: 'clamp(3rem, 8vw, 5.5rem)',
+              lineHeight: 1.05,
+              marginBottom: '1.25rem',
+              maxWidth: '640px',
+              fontFamily: 'var(--font-heading)',
+              letterSpacing: '-0.01em'
             }}>
-              당신의 데이터,<br />
-              <span className="text-gradient">오직 당신의 손안에.</span>
+              <span className="shimmer-text">QUANTUM</span><br />
+              <span style={{ color: '#fff' }}>DATA VAULT</span>
             </motion.h1>
-            
+
             <motion.p variants={itemVariants} style={{
-              fontSize: '1.25rem',
+              fontSize: '1.15rem',
               color: 'var(--color-text-dim)',
-              marginBottom: '3rem',
-              maxWidth: '540px'
+              marginBottom: '2.75rem',
+              maxWidth: '540px',
+              lineHeight: 1.8
             }}>
-              D-GO는 외부 서버가 없는 완전 폐쇄형 데이터 금고입니다. 
-              클라우드 해킹의 위협에서 벗어나, 당신의 소중한 자산을 직접 지키세요.
+              내 손안의 완벽한 데이터 요새.<br />
+              엣지 컴퓨팅 기반의 폐쇄형 데이터 금고로,
+              클라우드 해킹의 위협에서 당신의 자산을 직접 지키세요.
             </motion.p>
-            
-            <motion.div variants={itemVariants} style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
+
+            <motion.div variants={itemVariants} style={{ display: 'flex', gap: '1.25rem', alignItems: 'center', flexWrap: 'wrap' }}>
               <Link to="/purchase" className="btn-primary">
-                지금 구매하기 <ArrowRight size={20} />
+                지금 구매하기 <ArrowRight size={18} />
               </Link>
               <Link to="/product" className="btn-outline">
-                제품 알아보기
+                <ShieldCheck size={16} style={{ marginRight: '0.4rem' }} />
+                자세히 보기
               </Link>
             </motion.div>
           </motion.div>
-          
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
-            animate={{ opacity: 1, scale: 1, rotate: 0 }}
+
+          {/* Floating Vault Illustration */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.85 }}
+            animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
-            style={{ position: 'relative' }}
-          >
-            <div style={{
+            style={{
               position: 'relative',
-              borderRadius: '32px',
-              overflow: 'hidden',
-              boxShadow: '0 40px 100px rgba(0,0,0,0.5), 0 0 50px rgba(255, 176, 0, 0.1)',
-              border: '1px solid var(--glass-border)'
+              width: '100%',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center'
+            }}
+            aria-hidden="true"
+          >
+            <div className="anim-float" style={{
+              position: 'relative',
+              width: 'min(320px, 80%)',
+              aspectRatio: '1 / 1'
             }}>
-              <img 
-                src="/images/hero.png" 
-                alt="D-GO Vault" 
-                style={{ width: '100%', display: 'block', transform: 'scale(1.02)' }} 
-              />
+              {/* Outer frame */}
+              <div style={{
+                position: 'absolute',
+                inset: 0,
+                borderRadius: '32px',
+                background: 'linear-gradient(145deg, rgba(0, 255, 200, 0.14), rgba(0, 212, 255, 0.06))',
+                border: '1.5px solid rgba(0, 255, 200, 0.28)',
+                transform: 'perspective(600px) rotateY(-8deg) rotateX(5deg)',
+                boxShadow: '0 30px 80px rgba(0, 255, 200, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.1)',
+                overflow: 'hidden'
+              }}>
+                {/* Inner bezel */}
+                <div style={{
+                  position: 'absolute',
+                  inset: '1.25rem',
+                  borderRadius: '24px',
+                  border: '1px solid rgba(0, 255, 200, 0.18)',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '0.75rem',
+                  background: 'radial-gradient(circle at center, rgba(0, 255, 200, 0.05), transparent 70%)'
+                }}>
+                  <Lock size={56} color="#00ffc8" strokeWidth={1.4} />
+                  <span style={{
+                    fontFamily: 'var(--font-heading)',
+                    fontSize: '0.72rem',
+                    letterSpacing: '0.35em',
+                    color: '#00ffc8',
+                    fontWeight: 700
+                  }}>
+                    VAULT
+                  </span>
+                </div>
+                {/* Scan line */}
+                <div className="anim-scan" style={{
+                  position: 'absolute',
+                  left: '0.75rem',
+                  right: '0.75rem',
+                  height: '2px',
+                  background: 'linear-gradient(90deg, transparent, #00ffc8, transparent)',
+                  opacity: 0.55,
+                  boxShadow: '0 0 12px #00ffc8'
+                }} />
+              </div>
             </div>
           </motion.div>
         </div>
