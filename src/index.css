@@ -68,8 +68,39 @@ button {
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 clamp(1.25rem, 4vw, 2rem);
 }
+
+/* Subtle grain overlay — premium texture, sits above bg but below content */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.5;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.08 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Ensure app content sits above grain */
+#root { position: relative; z-index: 2; }
+
+/* Section top hairline — rhythmic separator */
+section { position: relative; }
+
+/* Focus visible — accessible + aesthetic */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+  border-radius: 4px;
+  box-shadow: 0 0 0 6px rgba(0, 255, 200, 0.12);
+}
+
+/* Headings — responsive clamp defaults so inline font-size still wins if larger */
+h1 { font-size: clamp(2.25rem, 7vw, 4.5rem); }
+h2 { font-size: clamp(1.75rem, 5vw, 3rem); }
+h3 { font-size: clamp(1.15rem, 3vw, 1.6rem); }
 
 /* === Utilities === */
 .text-gradient {
@@ -159,9 +190,44 @@ button {
   box-shadow: 0 0 20px rgba(0, 255, 200, 0.2);
 }
 
-/* Section spacing */
+/* Section spacing — responsive */
 section {
-  padding: 8rem 0;
+  padding: clamp(4rem, 10vw, 8rem) 0;
+}
+
+/* Button touch targets — 44px min on mobile */
+.btn-primary,
+.btn-outline {
+  min-height: 48px;
+}
+
+@media (max-width: 640px) {
+  .btn-primary,
+  .btn-outline {
+    padding: 0.85rem 1.5rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* === Responsive nav === */
+@media (max-width: 900px) {
+  .nav-desktop,
+  .lang-desktop {
+    display: none !important;
+  }
+  .nav-burger {
+    display: inline-flex !important;
+  }
+}
+
+/* === Mobile polish === */
+@media (max-width: 640px) {
+  .glass-card {
+    border-radius: 16px;
+  }
+  .hide-mobile {
+    display: none !important;
+  }
 }
 
 /* === Keyframes === */

@@ -64,9 +64,9 @@ const Home = () => {
 
         <div className="container" style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 360px), 1fr))',
           alignItems: 'center',
-          gap: '4rem',
+          gap: 'clamp(2rem, 5vw, 4rem)',
           position: 'relative',
           zIndex: 1
         }}>
@@ -504,19 +504,53 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section style={{ padding: '10rem 0' }}>
+      <section style={{ padding: 'clamp(5rem, 12vw, 10rem) 0' }}>
         <div className="container">
-          <div className="glass-card" style={{ 
-            padding: '5rem', 
+          <div className="glass-card" style={{
+            padding: 'clamp(2.5rem, 6vw, 5rem)',
             textAlign: 'center',
-            background: 'linear-gradient(135deg, rgba(255, 176, 0, 0.1) 0%, rgba(5, 5, 5, 0.4) 100%)',
-            border: '1px solid rgba(255, 176, 0, 0.2)'
+            background: 'linear-gradient(135deg, rgba(0, 255, 200, 0.08) 0%, rgba(124, 58, 237, 0.06) 50%, rgba(8, 12, 20, 0.4) 100%)',
+            border: '1px solid rgba(0, 255, 200, 0.22)',
+            position: 'relative',
+            overflow: 'hidden'
           }}>
-            <h2 style={{ fontSize: '3.5rem', marginBottom: '2rem' }}>보안, 이제 당신이 주도하세요.</h2>
-            <p style={{ fontSize: '1.2rem', color: 'var(--color-text-dim)', marginBottom: '3rem', maxWidth: '700px', marginInline: 'auto' }}>
-              D-GO는 단순한 저장소가 아닙니다. 당신의 주권과 프라이버시를 지키는 가장 강력한 방패입니다.
+            <div aria-hidden="true" style={{
+              position: 'absolute',
+              top: '-40%',
+              left: '50%',
+              transform: 'translateX(-50%)',
+              width: '80%',
+              height: '120%',
+              background: 'radial-gradient(ellipse at top, rgba(0, 255, 200, 0.14), transparent 60%)',
+              pointerEvents: 'none'
+            }} />
+            <h2 style={{
+              fontSize: 'clamp(1.75rem, 5.5vw, 3.25rem)',
+              marginBottom: '1.25rem',
+              position: 'relative',
+              lineHeight: 1.15
+            }}>
+              보안, 이제 <span className="shimmer-text">당신이 주도</span>하세요.
+            </h2>
+            <p style={{
+              fontSize: 'clamp(0.95rem, 2.4vw, 1.15rem)',
+              color: 'var(--color-text-dim)',
+              marginBottom: '2.5rem',
+              maxWidth: '640px',
+              marginInline: 'auto',
+              lineHeight: 1.75,
+              position: 'relative'
+            }}>
+              D-GO는 단순한 저장소가 아닙니다. <br className="hide-mobile" />
+              당신의 주권과 프라이버시를 지키는 가장 강력한 방패입니다.
             </p>
-            <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center' }}>
+            <div style={{
+              display: 'flex',
+              gap: '1rem',
+              justifyContent: 'center',
+              flexWrap: 'wrap',
+              position: 'relative'
+            }}>
               <Link to="/purchase" className="btn-primary">구매 상담 신청</Link>
               <Link to="/manual" className="btn-outline">매뉴얼 다운로드</Link>
             </div>
