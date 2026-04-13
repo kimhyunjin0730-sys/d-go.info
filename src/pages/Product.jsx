@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Shield, Layers, Zap, Lock, Database, FileText } from 'lucide-react'
+import { Shield, Layers, Zap, Lock, Database, FileText, Box, Fingerprint, KeyRound, ScanLine, Aperture, Gem, Disc3, Key, Hand, CircuitBoard } from 'lucide-react'
 
 const Product = () => {
   const specs = [
@@ -32,10 +32,390 @@ const Product = () => {
           >
             <h1 style={{ fontSize: '4rem', marginBottom: '1.5rem' }}>Tech Behind <span className="text-gradient">Security</span></h1>
             <p style={{ color: 'var(--color-text-dim)', fontSize: '1.2rem', maxWidth: '800px', margin: '0 auto' }}>
-              D-GO는 하드웨어와 소프트웨어가 결합된 고도의 보안 생태계입니다. 
+              D-GO는 하드웨어와 소프트웨어가 결합된 고도의 보안 생태계입니다.
               단순한 저장 장치를 넘어 데이터 주권을 실현하는 핵심 기지입니다.
             </p>
           </motion.div>
+
+          {/* Product Design Gallery */}
+          <div style={{ marginBottom: '8rem' }}>
+            <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
+              <div style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.5rem',
+                padding: '0.5rem 1rem',
+                background: 'rgba(255, 176, 0, 0.1)',
+                borderRadius: '100px',
+                color: 'var(--color-primary)',
+                fontSize: '0.85rem',
+                fontWeight: 700,
+                marginBottom: '1.5rem',
+                border: '1px solid rgba(255, 176, 0, 0.2)'
+              }}>
+                <Gem size={16} />
+                <span>Industrial Design</span>
+              </div>
+              <h2 style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>Crafted for <span className="text-gradient">Trust</span></h2>
+              <p style={{ color: 'var(--color-text-dim)', fontSize: '1.1rem', maxWidth: '720px', margin: '0 auto' }}>
+                프리미엄 소재와 정밀한 메커니즘. 손에 닿는 순간부터 금고의 무게를 느낄 수 있도록 설계되었습니다.
+              </p>
+            </div>
+
+            {/* Hero Render */}
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+              style={{
+                position: 'relative',
+                borderRadius: '32px',
+                overflow: 'hidden',
+                marginBottom: '2rem',
+                boxShadow: '0 40px 100px rgba(0,0,0,0.5), 0 0 60px rgba(255, 176, 0, 0.08)',
+                border: '1px solid var(--glass-border)',
+                aspectRatio: '16 / 9',
+                background: '#0a0a0a'
+              }}
+            >
+              <img
+                src="/images/renders/render-00.jpg"
+                alt="D-GO 금고 대표 렌더링"
+                style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                loading="lazy"
+              />
+              <div style={{
+                position: 'absolute',
+                inset: 0,
+                background: 'linear-gradient(180deg, transparent 55%, rgba(5,5,5,0.85) 100%)',
+                pointerEvents: 'none'
+              }} />
+              <div style={{
+                position: 'absolute',
+                left: '2.5rem',
+                bottom: '2rem',
+                right: '2.5rem',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                flexWrap: 'wrap',
+                gap: '1rem'
+              }}>
+                <div>
+                  <div style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--color-primary)', letterSpacing: '0.1em', marginBottom: '0.25rem' }}>
+                    FLAGSHIP
+                  </div>
+                  <div style={{ fontSize: '1.5rem', fontWeight: 800 }}>D-GO Vault · Matte Edition</div>
+                </div>
+                <div style={{ display: 'flex', gap: '1.5rem', color: 'var(--color-text-dim)', fontSize: '0.85rem' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                    <Aperture size={16} color="var(--color-primary)" />
+                    Precision CNC
+                  </div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                    <Shield size={16} color="var(--color-primary)" />
+                    Tamper-Proof
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Render Thumbnails */}
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+              gap: '1.25rem'
+            }}>
+              {[
+                { src: '/images/renders/render-01.jpg', icon: <Box size={18} />, label: 'Exterior', desc: '알루미늄 유니바디' },
+                { src: '/images/renders/render-02.jpg', icon: <ScanLine size={18} />, label: 'Docking Port', desc: 'PUF 접점부' },
+                { src: '/images/renders/render-03.jpg', icon: <Fingerprint size={18} />, label: 'Auth Surface', desc: '생체인증 영역' },
+                { src: '/images/renders/render-04.jpg', icon: <KeyRound size={18} />, label: 'Vault Chamber', desc: '내장 금고 구조' },
+                { src: '/images/renders/render-05.jpg', icon: <Layers size={18} />, label: 'Cross Section', desc: '다층 보안 설계' },
+              ].map((item, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.08 }}
+                  className="glass-card"
+                  style={{
+                    padding: 0,
+                    overflow: 'hidden',
+                    borderRadius: '20px'
+                  }}
+                >
+                  <div style={{
+                    aspectRatio: '4 / 3',
+                    background: '#0a0a0a',
+                    overflow: 'hidden'
+                  }}>
+                    <img
+                      src={item.src}
+                      alt={`D-GO ${item.label}`}
+                      loading="lazy"
+                      style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                    />
+                  </div>
+                  <div style={{ padding: '1.25rem 1.5rem' }}>
+                    <div style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '0.6rem',
+                      color: 'var(--color-primary)',
+                      marginBottom: '0.35rem'
+                    }}>
+                      {item.icon}
+                      <span style={{ fontSize: '0.95rem', fontWeight: 700 }}>{item.label}</span>
+                    </div>
+                    <div style={{ fontSize: '0.85rem', color: 'var(--color-text-dim)' }}>{item.desc}</div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* Dual Physical Interface — Diptych */}
+          <div style={{ marginBottom: '8rem' }}>
+            <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
+              <div style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.5rem',
+                padding: '0.5rem 1rem',
+                background: 'rgba(255, 176, 0, 0.1)',
+                borderRadius: '100px',
+                color: 'var(--color-primary)',
+                fontSize: '0.85rem',
+                fontWeight: 700,
+                marginBottom: '1.5rem',
+                border: '1px solid rgba(255, 176, 0, 0.2)'
+              }}>
+                <Hand size={16} />
+                <span>Physical Interface</span>
+              </div>
+              <h2 style={{ fontSize: '2.5rem', marginBottom: '1rem', lineHeight: 1.2 }}>
+                Two Ways In. <span className="text-gradient">Both Physical.</span>
+              </h2>
+              <p style={{ color: 'var(--color-text-dim)', fontSize: '1.1rem', maxWidth: '720px', margin: '0 auto' }}>
+                화면도, 비밀번호도 아닙니다. 손으로 돌리고, 손으로 꽂습니다.
+                소프트웨어가 뚫릴 수 없는 유일한 방법 — 아예 소프트웨어가 아닌 것.
+              </p>
+            </div>
+
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))',
+              gap: '2rem'
+            }}>
+              {/* Card A: Rotary Dial */}
+              <motion.article
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-80px' }}
+                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                className="glass-card"
+                style={{
+                  padding: 0,
+                  overflow: 'hidden',
+                  borderRadius: '24px',
+                  display: 'flex',
+                  flexDirection: 'column'
+                }}
+                aria-labelledby="iface-dial-title"
+              >
+                <div style={{
+                  position: 'relative',
+                  aspectRatio: '16 / 10',
+                  background: '#0a0a0a',
+                  overflow: 'hidden'
+                }}>
+                  <img
+                    src="/images/renders/render-02.jpg"
+                    alt="D-GO 금고 전면의 로터리 다이얼. 금속 노브 주위에 시안 컬러 인덱스 마커가 4방향으로 배치되어 있음"
+                    loading="lazy"
+                    style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                  />
+                  <div style={{
+                    position: 'absolute',
+                    inset: 0,
+                    background: 'linear-gradient(180deg, rgba(5,5,5,0) 40%, rgba(5,5,5,0.75) 100%)',
+                    pointerEvents: 'none'
+                  }} />
+                  <div style={{
+                    position: 'absolute',
+                    top: '1.25rem',
+                    left: '1.25rem',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '0.5rem',
+                    padding: '0.4rem 0.85rem',
+                    background: 'rgba(10,10,10,0.7)',
+                    backdropFilter: 'blur(8px)',
+                    borderRadius: '100px',
+                    border: '1px solid rgba(255,255,255,0.08)',
+                    fontSize: '0.75rem',
+                    fontWeight: 700,
+                    letterSpacing: '0.08em',
+                    color: 'var(--color-primary)'
+                  }}>
+                    <Disc3 size={14} />
+                    INPUT · 01
+                  </div>
+                </div>
+                <div style={{ padding: '2rem 2rem 2.25rem' }}>
+                  <h3 id="iface-dial-title" style={{
+                    fontSize: '1.6rem',
+                    marginBottom: '0.5rem',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.6rem'
+                  }}>
+                    <Disc3 size={22} color="var(--color-primary)" />
+                    Rotary Dial
+                  </h3>
+                  <p style={{ color: 'var(--color-text-dim)', fontSize: '0.95rem', marginBottom: '1.25rem', lineHeight: 1.6 }}>
+                    촉각 피드백이 있는 정밀 인코더. 화면 UI 없이 4방향 인덱스만으로
+                    금고의 모든 모드를 전환합니다. 원격 탈취가 불가능한 물리 조작계.
+                  </p>
+                  <dl style={{
+                    display: 'grid',
+                    gridTemplateColumns: '1fr 1fr',
+                    gap: '0.75rem 1.5rem',
+                    fontSize: '0.82rem',
+                    margin: 0
+                  }}>
+                    {[
+                      { k: 'Haptic', v: '24-step click' },
+                      { k: 'Material', v: 'CNC Aluminum' },
+                      { k: 'Indicator', v: 'Cyan LED × 4' },
+                      { k: 'Interface', v: 'Offline-only' },
+                    ].map((r) => (
+                      <div key={r.k}>
+                        <dt style={{ color: 'var(--color-text-dim)', marginBottom: '0.15rem' }}>{r.k}</dt>
+                        <dd style={{ margin: 0, fontWeight: 700 }}>{r.v}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                </div>
+              </motion.article>
+
+              {/* Card B: Physical Key */}
+              <motion.article
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-80px' }}
+                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
+                className="glass-card"
+                style={{
+                  padding: 0,
+                  overflow: 'hidden',
+                  borderRadius: '24px',
+                  display: 'flex',
+                  flexDirection: 'column'
+                }}
+                aria-labelledby="iface-key-title"
+              >
+                <div style={{
+                  position: 'relative',
+                  aspectRatio: '16 / 10',
+                  background: '#0a0a0a',
+                  overflow: 'hidden'
+                }}>
+                  <img
+                    src="/images/renders/render-03.jpg"
+                    alt="D-GO 금고 전면의 물리 키홀에 금속 실린더 키가 삽입되어 있는 모습"
+                    loading="lazy"
+                    style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                  />
+                  <div style={{
+                    position: 'absolute',
+                    inset: 0,
+                    background: 'linear-gradient(180deg, rgba(5,5,5,0) 40%, rgba(5,5,5,0.75) 100%)',
+                    pointerEvents: 'none'
+                  }} />
+                  <div style={{
+                    position: 'absolute',
+                    top: '1.25rem',
+                    left: '1.25rem',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '0.5rem',
+                    padding: '0.4rem 0.85rem',
+                    background: 'rgba(10,10,10,0.7)',
+                    backdropFilter: 'blur(8px)',
+                    borderRadius: '100px',
+                    border: '1px solid rgba(255,255,255,0.08)',
+                    fontSize: '0.75rem',
+                    fontWeight: 700,
+                    letterSpacing: '0.08em',
+                    color: 'var(--color-primary)'
+                  }}>
+                    <Key size={14} />
+                    AUTH · 02
+                  </div>
+                </div>
+                <div style={{ padding: '2rem 2rem 2.25rem' }}>
+                  <h3 id="iface-key-title" style={{
+                    fontSize: '1.6rem',
+                    marginBottom: '0.5rem',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.6rem'
+                  }}>
+                    <Key size={22} color="var(--color-primary)" />
+                    Physical Key
+                  </h3>
+                  <p style={{ color: 'var(--color-text-dim)', fontSize: '0.95rem', marginBottom: '1.25rem', lineHeight: 1.6 }}>
+                    PUF 칩이 새겨진 금속 실린더 키. 물리적으로 꽂아야만 열리며,
+                    복제 불가능한 반도체 지문으로 소유자만 금고를 개방할 수 있습니다.
+                  </p>
+                  <dl style={{
+                    display: 'grid',
+                    gridTemplateColumns: '1fr 1fr',
+                    gap: '0.75rem 1.5rem',
+                    fontSize: '0.82rem',
+                    margin: 0
+                  }}>
+                    {[
+                      { k: 'Auth Core', v: 'PUF Chip' },
+                      { k: 'Form', v: 'Steel Cylinder' },
+                      { k: 'Cloning', v: 'Impossible' },
+                      { k: 'Pairing', v: '1 Key / 1 Vault' },
+                    ].map((r) => (
+                      <div key={r.k}>
+                        <dt style={{ color: 'var(--color-text-dim)', marginBottom: '0.15rem' }}>{r.k}</dt>
+                        <dd style={{ margin: 0, fontWeight: 700 }}>{r.v}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                </div>
+              </motion.article>
+            </div>
+
+            {/* Footer stripe */}
+            <div style={{
+              marginTop: '2rem',
+              padding: '1.25rem 1.5rem',
+              background: 'rgba(255, 176, 0, 0.04)',
+              border: '1px solid rgba(255, 176, 0, 0.15)',
+              borderRadius: '16px',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.85rem',
+              flexWrap: 'wrap',
+              justifyContent: 'center',
+              textAlign: 'center'
+            }}>
+              <CircuitBoard size={18} color="var(--color-primary)" />
+              <span style={{ fontSize: '0.92rem', color: 'var(--color-text-dim)' }}>
+                두 입력 모두 <strong style={{ color: 'var(--color-text)' }}>네트워크에 연결되지 않은 물리 채널</strong>입니다 —
+                원격에서 가로챌 표면 자체가 존재하지 않습니다.
+              </span>
+            </div>
+          </div>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem', marginBottom: '8rem' }}>
             <div className="glass-card" style={{ padding: '3rem' }}>
