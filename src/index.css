@@ -201,6 +201,37 @@ section {
 .anim-rotate { animation: rotateSlow 20s linear infinite; }
 .anim-scan { animation: scanLine 3s ease-in-out infinite; }
 
+/* Bento tile — subtle lift (no layout shift) */
+.bento-tile {
+  cursor: default;
+  transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+}
+.bento-tile:hover {
+  transform: translateY(-3px);
+}
+
+/* Responsive bento grid */
+@media (max-width: 960px) {
+  .bento-grid {
+    grid-template-columns: repeat(4, 1fr) !important;
+  }
+  .bento-grid > * {
+    grid-column: span 4 !important;
+    grid-row: auto !important;
+  }
+  .bento-grid > *:nth-child(2),
+  .bento-grid > *:nth-child(3),
+  .bento-grid > *:nth-child(4),
+  .bento-grid > *:nth-child(6) {
+    grid-column: span 2 !important;
+  }
+}
+@media (max-width: 560px) {
+  .bento-grid > * {
+    grid-column: span 4 !important;
+  }
+}
+
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   .text-gradient,

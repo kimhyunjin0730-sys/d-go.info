@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { ArrowRight, ShieldCheck, Cpu, Clock, HardDrive, ChevronRight, Lock } from 'lucide-react'
+import { ArrowRight, ShieldCheck, Cpu, Clock, HardDrive, ChevronRight, Lock, Fingerprint, WifiOff, KeyRound, ScanLine, Database } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 const Home = () => {
@@ -261,6 +261,211 @@ const Home = () => {
                 <p style={{ color: 'var(--color-text-dim)' }}>{card.desc}</p>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Bento Grid - Key Features */}
+      <section style={{ padding: '8rem 0' }}>
+        <div className="container">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            style={{ textAlign: 'center', marginBottom: '4rem' }}
+          >
+            <span style={{
+              display: 'inline-block',
+              fontSize: '0.75rem',
+              fontWeight: 700,
+              letterSpacing: '0.25em',
+              color: 'var(--color-primary)',
+              fontFamily: 'var(--font-heading)',
+              textTransform: 'uppercase',
+              marginBottom: '1rem'
+            }}>
+              · Core Architecture ·
+            </span>
+            <h2 style={{ fontSize: 'clamp(2.25rem, 5vw, 3.5rem)', marginBottom: '1.25rem', letterSpacing: '-0.01em' }}>
+              하나의 장치, <span className="shimmer-text">완전한 주권</span>
+            </h2>
+            <p style={{ color: 'var(--color-text-dim)', fontSize: '1.1rem', maxWidth: '620px', margin: '0 auto', lineHeight: 1.7 }}>
+              클라우드가 아닌 당신의 손안에서 작동하는 6가지 핵심 기술
+            </p>
+          </motion.div>
+
+          <div
+            className="bento-grid"
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(6, 1fr)',
+              gridAutoRows: 'minmax(180px, auto)',
+              gap: '1.25rem'
+            }}
+          >
+            {/* Feature 1 — Large hero tile: Closed Network */}
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="glass-card bento-tile bento-xl"
+              style={{
+                gridColumn: 'span 4',
+                gridRow: 'span 2',
+                padding: '3rem',
+                position: 'relative',
+                overflow: 'hidden',
+                background: 'linear-gradient(135deg, rgba(0, 255, 200, 0.08) 0%, rgba(8, 12, 20, 0.6) 60%)',
+                border: '1px solid rgba(0, 255, 200, 0.18)'
+              }}
+            >
+              <div aria-hidden="true" style={{
+                position: 'absolute',
+                top: '-80px', right: '-80px',
+                width: '320px', height: '320px',
+                borderRadius: '50%',
+                background: 'radial-gradient(circle, rgba(0, 255, 200, 0.12), transparent 70%)',
+                pointerEvents: 'none'
+              }} />
+              <WifiOff size={36} color="var(--color-primary)" strokeWidth={1.6} />
+              <h3 style={{ fontSize: '1.9rem', margin: '1.5rem 0 1rem', maxWidth: '480px', lineHeight: 1.2 }}>
+                네트워크는 끊고, <br />보안은 잇습니다
+              </h3>
+              <p style={{ color: 'var(--color-text-dim)', maxWidth: '460px', lineHeight: 1.75, fontSize: '1rem' }}>
+                외부 인터넷과 완전히 단절된 폐쇄형 구조. 모든 연산은 기기 내부에서 완결되어,
+                원격 침투와 클라우드 유출의 가능성을 원천 차단합니다.
+              </p>
+              <div style={{
+                marginTop: '2rem',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.5rem',
+                fontSize: '0.8rem',
+                fontWeight: 700,
+                letterSpacing: '0.15em',
+                color: 'var(--color-primary)',
+                fontFamily: 'var(--font-heading)',
+                textTransform: 'uppercase'
+              }}>
+                AIR-GAPPED VAULT <ArrowRight size={14} />
+              </div>
+            </motion.div>
+
+            {/* Feature 2 — PUF */}
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.05 }}
+              className="glass-card bento-tile"
+              style={{ gridColumn: 'span 2', gridRow: 'span 1', padding: '2rem' }}
+            >
+              <Fingerprint size={30} color="var(--color-primary)" strokeWidth={1.6} />
+              <h3 style={{ fontSize: '1.2rem', margin: '1rem 0 0.5rem' }}>PUF 인증</h3>
+              <p style={{ color: 'var(--color-text-dim)', fontSize: '0.9rem', lineHeight: 1.6 }}>
+                반도체 지문 기반 복제 불가능 키
+              </p>
+            </motion.div>
+
+            {/* Feature 3 — AES-256 */}
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="glass-card bento-tile"
+              style={{
+                gridColumn: 'span 2',
+                gridRow: 'span 1',
+                padding: '2rem',
+                background: 'linear-gradient(135deg, rgba(124, 58, 237, 0.1), rgba(8, 12, 20, 0.5))',
+                border: '1px solid rgba(124, 58, 237, 0.22)'
+              }}
+            >
+              <KeyRound size={30} color="var(--color-accent)" strokeWidth={1.6} />
+              <h3 style={{ fontSize: '1.2rem', margin: '1rem 0 0.5rem' }}>AES-256</h3>
+              <p style={{ color: 'var(--color-text-dim)', fontSize: '0.9rem', lineHeight: 1.6 }}>
+                군사 등급 이중 암호화 저장
+              </p>
+            </motion.div>
+
+            {/* Feature 4 — Timestamp */}
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.15 }}
+              className="glass-card bento-tile"
+              style={{ gridColumn: 'span 2', gridRow: 'span 1', padding: '2rem' }}
+            >
+              <Clock size={30} color="var(--color-primary)" strokeWidth={1.6} />
+              <h3 style={{ fontSize: '1.2rem', margin: '1rem 0 0.5rem' }}>시점 인증</h3>
+              <p style={{ color: 'var(--color-text-dim)', fontSize: '0.9rem', lineHeight: 1.6 }}>
+                SHA-256 해시 + 타임스탬프
+              </p>
+            </motion.div>
+
+            {/* Feature 5 — Malware scan (wide) */}
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="glass-card bento-tile"
+              style={{
+                gridColumn: 'span 4',
+                gridRow: 'span 1',
+                padding: '2.25rem 2.5rem',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '1.75rem',
+                position: 'relative',
+                overflow: 'hidden'
+              }}
+            >
+              <div aria-hidden="true" className="anim-scan" style={{
+                position: 'absolute',
+                left: 0, right: 0,
+                height: '1.5px',
+                background: 'linear-gradient(90deg, transparent, var(--color-primary), transparent)',
+                opacity: 0.35,
+                boxShadow: '0 0 12px var(--color-primary)',
+                pointerEvents: 'none'
+              }} />
+              <div style={{
+                flexShrink: 0,
+                width: '64px', height: '64px',
+                borderRadius: '16px',
+                background: 'rgba(0, 255, 200, 0.08)',
+                border: '1px solid rgba(0, 255, 200, 0.22)',
+                display: 'flex', alignItems: 'center', justifyContent: 'center'
+              }}>
+                <ScanLine size={30} color="var(--color-primary)" strokeWidth={1.6} />
+              </div>
+              <div style={{ flex: 1, minWidth: 0 }}>
+                <h3 style={{ fontSize: '1.3rem', marginBottom: '0.35rem' }}>실시간 악성코드 스캔</h3>
+                <p style={{ color: 'var(--color-text-dim)', fontSize: '0.95rem', lineHeight: 1.6 }}>
+                  유입되는 모든 파일을 장치 내부에서 즉시 검사합니다. 위협은 격리, 데이터는 무결성 유지.
+                </p>
+              </div>
+            </motion.div>
+
+            {/* Feature 6 — ID/PW Vault */}
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.25 }}
+              className="glass-card bento-tile"
+              style={{ gridColumn: 'span 2', gridRow: 'span 1', padding: '2rem' }}
+            >
+              <Database size={30} color="var(--color-primary)" strokeWidth={1.6} />
+              <h3 style={{ fontSize: '1.2rem', margin: '1rem 0 0.5rem' }}>오프라인 ID 금고</h3>
+              <p style={{ color: 'var(--color-text-dim)', fontSize: '0.9rem', lineHeight: 1.6 }}>
+                계정 · OTP · 인증서 로컬 보관
+              </p>
+            </motion.div>
           </div>
         </div>
       </section>
