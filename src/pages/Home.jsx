@@ -473,7 +473,7 @@ const Home = () => {
       {/* === Physical Authentication Sequence === */}
       <section style={{
         position: 'relative',
-        background: 'radial-gradient(ellipse at 50% 0%, rgba(0, 255, 200, 0.05) 0%, transparent 50%), var(--color-bg)',
+        background: 'radial-gradient(ellipse at 50% 0%, rgba(0, 255, 200, 0.08) 0%, transparent 55%), var(--color-bg-secondary)',
         overflow: 'hidden'
       }}>
         <div aria-hidden="true" style={{
