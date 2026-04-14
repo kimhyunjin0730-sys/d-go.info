@@ -470,6 +470,287 @@ const Home = () => {
         </div>
       </section>
 
+      {/* === Physical Authentication Sequence === */}
+      <section style={{
+        position: 'relative',
+        background: 'radial-gradient(ellipse at 50% 0%, rgba(0, 255, 200, 0.05) 0%, transparent 50%), var(--color-bg)',
+        overflow: 'hidden'
+      }}>
+        <div aria-hidden="true" style={{
+          position: 'absolute',
+          top: '8%', left: '-5%',
+          width: '380px', height: '380px',
+          background: 'radial-gradient(circle, rgba(255, 122, 0, 0.07), transparent 70%)',
+          borderRadius: '50%',
+          pointerEvents: 'none'
+        }} />
+        <div className="container" style={{ position: 'relative' }}>
+          {/* Eyebrow + heading */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            style={{ textAlign: 'center', marginBottom: '4.5rem' }}
+          >
+            <div style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.6rem',
+              padding: '0.5rem 1.1rem',
+              background: 'rgba(255, 122, 0, 0.08)',
+              border: '1px solid rgba(255, 122, 0, 0.25)',
+              borderRadius: '100px',
+              color: 'var(--color-ember)',
+              fontSize: '0.72rem',
+              fontWeight: 800,
+              letterSpacing: '0.18em',
+              textTransform: 'uppercase',
+              fontFamily: 'var(--font-heading)',
+              marginBottom: '1.5rem'
+            }}>
+              <span style={{
+                width: '6px', height: '6px', borderRadius: '50%',
+                background: 'var(--color-ember)',
+                boxShadow: '0 0 10px var(--color-ember)'
+              }} />
+              Physical Authentication
+            </div>
+            <h2 style={{
+              fontSize: 'clamp(2rem, 5.5vw, 3.5rem)',
+              marginBottom: '1.25rem',
+              lineHeight: 1.15
+            }}>
+              열쇠부터 다이얼까지, <br className="hide-mobile" />
+              <span className="shimmer-text">완벽한 2단계 물리 인증</span>
+            </h2>
+            <p style={{
+              color: 'var(--color-text-dim)',
+              fontSize: 'clamp(0.95rem, 2.2vw, 1.1rem)',
+              maxWidth: '640px',
+              margin: '0 auto',
+              lineHeight: 1.8
+            }}>
+              화면도, 비밀번호도 아닙니다. 오직 손으로만 열립니다.
+              복제 불가능한 PUF 키를 꽂고, 로터리 다이얼을 돌리세요.
+            </p>
+          </motion.div>
+
+          {/* Diptych — Step 01 & Step 02 */}
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 380px), 1fr))',
+            gap: '1.75rem',
+            position: 'relative'
+          }}>
+            {/* === STEP 01 — Key Insertion === */}
+            <motion.article
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-60px' }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              className="glass-card"
+              style={{
+                padding: 0,
+                overflow: 'hidden',
+                borderRadius: '24px',
+                display: 'flex',
+                flexDirection: 'column',
+                border: '1px solid rgba(255, 122, 0, 0.18)'
+              }}
+              aria-labelledby="auth-step-01-title"
+            >
+              <div style={{
+                position: 'relative',
+                aspectRatio: '16 / 10',
+                background: 'linear-gradient(145deg, #eef2f5 0%, #c8d0d8 100%)',
+                overflow: 'hidden'
+              }}>
+                <img
+                  src="/images/renders/render-03.jpg"
+                  alt="D-GO 전용 PUF 실린더 키가 전면 키홀에 절반 삽입된 상태"
+                  loading="lazy"
+                  style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', mixBlendMode: 'multiply' }}
+                />
+                {/* Step badge */}
+                <div style={{
+                  position: 'absolute',
+                  top: '1.25rem',
+                  left: '1.25rem',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.55rem',
+                  padding: '0.5rem 0.9rem',
+                  background: '#080c14',
+                  border: '1px solid rgba(255, 122, 0, 0.4)',
+                  borderRadius: '100px',
+                  fontSize: '0.7rem',
+                  fontWeight: 800,
+                  letterSpacing: '0.15em',
+                  color: 'var(--color-ember)',
+                  fontFamily: 'var(--font-heading)',
+                  boxShadow: '0 8px 24px rgba(0, 0, 0, 0.4)'
+                }}>
+                  <span>STEP 01</span>
+                  <span style={{ color: '#fff', opacity: 0.7 }}>KEY INSERT</span>
+                </div>
+              </div>
+              <div style={{ padding: '2rem 2rem 2.25rem' }}>
+                <h3 id="auth-step-01-title" style={{
+                  fontSize: '1.5rem',
+                  marginBottom: '0.65rem',
+                  color: '#fff'
+                }}>
+                  전용 PUF 키를 삽입하세요
+                </h3>
+                <p style={{
+                  color: 'var(--color-text-dim)',
+                  fontSize: '0.95rem',
+                  lineHeight: 1.75,
+                  marginBottom: '1.5rem'
+                }}>
+                  반도체 지문(PUF)이 새겨진 전용 실린더 키를 전면 포트에 꽂습니다.
+                  ICTK PUF 칩이 장치와의 1:1 하드웨어 바인딩을 즉시 인증합니다 —
+                  복제도, 우회도 불가능합니다.
+                </p>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
+                  {['ICTK PUF 칩', '복제 불가', '1키 = 1금고'].map((t) => (
+                    <span key={t} style={{
+                      padding: '0.35rem 0.75rem',
+                      background: 'rgba(255, 122, 0, 0.1)',
+                      border: '1px solid rgba(255, 122, 0, 0.25)',
+                      borderRadius: '100px',
+                      fontSize: '0.72rem',
+                      fontWeight: 700,
+                      color: 'var(--color-ember)',
+                      fontFamily: 'var(--font-heading)',
+                      letterSpacing: '0.03em'
+                    }}>
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </motion.article>
+
+            {/* === STEP 02 — Rotary Dial === */}
+            <motion.article
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-60px' }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
+              className="glass-card"
+              style={{
+                padding: 0,
+                overflow: 'hidden',
+                borderRadius: '24px',
+                display: 'flex',
+                flexDirection: 'column',
+                border: '1px solid rgba(0, 255, 200, 0.2)'
+              }}
+              aria-labelledby="auth-step-02-title"
+            >
+              <div style={{
+                position: 'relative',
+                aspectRatio: '16 / 10',
+                background: 'linear-gradient(145deg, #eef2f5 0%, #c8d0d8 100%)',
+                overflow: 'hidden'
+              }}>
+                <img
+                  src="/images/renders/render-02.jpg"
+                  alt="D-GO 전면 로터리 다이얼과 4방향 시안 LED 인덱스 마커가 점등된 모습"
+                  loading="lazy"
+                  style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', mixBlendMode: 'multiply' }}
+                />
+                <div style={{
+                  position: 'absolute',
+                  top: '1.25rem',
+                  left: '1.25rem',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.55rem',
+                  padding: '0.5rem 0.9rem',
+                  background: '#080c14',
+                  border: '1px solid rgba(0, 255, 200, 0.4)',
+                  borderRadius: '100px',
+                  fontSize: '0.7rem',
+                  fontWeight: 800,
+                  letterSpacing: '0.15em',
+                  color: 'var(--color-primary)',
+                  fontFamily: 'var(--font-heading)',
+                  boxShadow: '0 8px 24px rgba(0, 0, 0, 0.4)'
+                }}>
+                  <span>STEP 02</span>
+                  <span style={{ color: '#fff', opacity: 0.7 }}>ROTATE</span>
+                </div>
+              </div>
+              <div style={{ padding: '2rem 2rem 2.25rem' }}>
+                <h3 id="auth-step-02-title" style={{
+                  fontSize: '1.5rem',
+                  marginBottom: '0.65rem',
+                  color: '#fff'
+                }}>
+                  로터리 다이얼을 회전하세요
+                </h3>
+                <p style={{
+                  color: 'var(--color-text-dim)',
+                  fontSize: '0.95rem',
+                  lineHeight: 1.75,
+                  marginBottom: '1.5rem'
+                }}>
+                  인증이 완료되면 4방향 시안 LED 인덱서가 점등됩니다.
+                  화면 UI 없이 촉각 클릭감과 LED 피드백만으로 저장·출력·
+                  감사 모드를 전환합니다. 네트워크 경로 자체가 존재하지 않습니다.
+                </p>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
+                  {['24-step Click', '4-way LED', 'Offline Only'].map((t) => (
+                    <span key={t} style={{
+                      padding: '0.35rem 0.75rem',
+                      background: 'rgba(0, 255, 200, 0.08)',
+                      border: '1px solid rgba(0, 255, 200, 0.22)',
+                      borderRadius: '100px',
+                      fontSize: '0.72rem',
+                      fontWeight: 700,
+                      color: 'var(--color-primary)',
+                      fontFamily: 'var(--font-heading)',
+                      letterSpacing: '0.03em'
+                    }}>
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </motion.article>
+          </div>
+
+          {/* Bottom strip — unified guarantee */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+            style={{
+              marginTop: '2rem',
+              padding: '1.25rem 1.75rem',
+              background: 'rgba(8, 12, 20, 0.5)',
+              border: '1px solid rgba(0, 255, 200, 0.12)',
+              borderRadius: '16px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '0.85rem',
+              flexWrap: 'wrap',
+              textAlign: 'center'
+            }}
+          >
+            <Lock size={18} color="var(--color-primary)" />
+            <span style={{ fontSize: '0.92rem', color: 'var(--color-text-dim)', lineHeight: 1.6 }}>
+              두 단계 모두 <strong style={{ color: '#fff' }}>네트워크에 연결되지 않은 물리 채널</strong>입니다 —
+              원격에서 가로챌 표면 자체가 존재하지 않습니다.
+            </span>
+          </motion.div>
+        </div>
+      </section>
+
       {/* 4 Steps Section */}
       <section style={{ background: 'var(--color-bg-secondary)' }}>
         <div className="container">
