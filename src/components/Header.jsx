@@ -30,10 +30,10 @@ const Header = () => {
         width: '100%',
         zIndex: 1000,
         padding: '1rem 0',
-        background: 'rgba(8, 12, 20, 0.85)',
-        backdropFilter: 'blur(14px)',
-        WebkitBackdropFilter: 'blur(14px)',
-        borderBottom: '1px solid rgba(0, 255, 200, 0.08)'
+        background: 'rgba(238, 242, 247, 0.82)',
+        backdropFilter: 'blur(14px) saturate(180%)',
+        WebkitBackdropFilter: 'blur(14px) saturate(180%)',
+        borderBottom: '1px solid rgba(15, 26, 46, 0.08)'
       }}>
         <div className="container" style={{
           display: 'flex',
@@ -49,20 +49,20 @@ const Header = () => {
             fontWeight: 800,
             fontFamily: 'var(--font-heading)',
             letterSpacing: '0.08em',
-            color: 'var(--color-primary)',
+            color: 'var(--color-ink)',
             flexShrink: 0
           }}>
             <div style={{
               width: '34px',
               height: '34px',
               borderRadius: '10px',
-              background: 'linear-gradient(135deg, #00ffc8, #00d4ff)',
+              background: 'linear-gradient(135deg, #0f1a2e, #1a2a45)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              boxShadow: '0 0 20px rgba(0, 255, 200, 0.4)'
+              boxShadow: '0 6px 16px rgba(15, 26, 46, 0.25), 0 0 20px rgba(0, 255, 200, 0.18)'
             }}>
-              <Shield size={18} color="#080c14" strokeWidth={2.5} />
+              <Shield size={18} color="#00ffc8" strokeWidth={2.5} />
             </div>
             <span>D-GO</span>
           </Link>
@@ -78,12 +78,13 @@ const Header = () => {
                   style={{
                     fontSize: '0.9rem',
                     fontWeight: 600,
-                    color: isActive ? 'var(--color-primary)' : 'var(--color-text-dim)',
+                    color: isActive ? 'var(--color-ink)' : 'var(--color-text-dim)',
                     transition: 'var(--transition-smooth)',
-                    textShadow: isActive ? '0 0 12px rgba(0, 255, 200, 0.5)' : 'none'
+                    borderBottom: isActive ? '2px solid var(--color-primary)' : '2px solid transparent',
+                    paddingBottom: '2px'
                   }}
-                  onMouseOver={(e) => (e.currentTarget.style.color = 'var(--color-primary)')}
-                  onMouseOut={(e) => (e.currentTarget.style.color = isActive ? 'var(--color-primary)' : 'var(--color-text-dim)')}
+                  onMouseOver={(e) => (e.currentTarget.style.color = 'var(--color-ink)')}
+                  onMouseOut={(e) => (e.currentTarget.style.color = isActive ? 'var(--color-ink)' : 'var(--color-text-dim)')}
                 >
                   {item.name}
                 </Link>
@@ -100,7 +101,7 @@ const Header = () => {
             fontFamily: 'var(--font-heading)',
             letterSpacing: '0.08em'
           }}>
-            <button style={{ color: 'var(--color-primary)' }}>KO</button>
+            <button style={{ color: 'var(--color-ink)' }}>KO</button>
             <span style={{ color: 'var(--color-text-muted)' }}>|</span>
             <button style={{ color: 'var(--color-text-muted)' }}>EN</button>
           </div>
@@ -118,9 +119,9 @@ const Header = () => {
               alignItems: 'center',
               justifyContent: 'center',
               borderRadius: '10px',
-              border: '1px solid rgba(0, 255, 200, 0.2)',
-              background: 'rgba(0, 255, 200, 0.05)',
-              color: 'var(--color-primary)'
+              border: '1px solid rgba(15, 26, 46, 0.15)',
+              background: 'rgba(255, 255, 255, 0.6)',
+              color: 'var(--color-ink)'
             }}
           >
             {menuOpen ? <X size={22} /> : <Menu size={22} />}
@@ -138,9 +139,9 @@ const Header = () => {
           position: 'fixed',
           inset: 0,
           zIndex: 999,
-          background: 'rgba(8, 12, 20, 0.96)',
-          backdropFilter: 'blur(20px)',
-          WebkitBackdropFilter: 'blur(20px)',
+          background: 'rgba(238, 242, 247, 0.97)',
+          backdropFilter: 'blur(20px) saturate(160%)',
+          WebkitBackdropFilter: 'blur(20px) saturate(160%)',
           display: menuOpen ? 'flex' : 'none',
           flexDirection: 'column',
           alignItems: 'stretch',
@@ -162,9 +163,9 @@ const Header = () => {
                 letterSpacing: '0.02em',
                 padding: '1.1rem 1.25rem',
                 borderRadius: '14px',
-                border: '1px solid rgba(0, 255, 200, 0.12)',
-                color: isActive ? 'var(--color-primary)' : 'var(--color-text)',
-                background: isActive ? 'rgba(0, 255, 200, 0.08)' : 'transparent',
+                border: '1px solid rgba(15, 26, 46, 0.1)',
+                color: isActive ? 'var(--color-ink)' : 'var(--color-text-dim)',
+                background: isActive ? 'rgba(0, 168, 143, 0.08)' : 'rgba(255, 255, 255, 0.5)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'space-between',
@@ -185,7 +186,7 @@ const Header = () => {
         <div style={{
           marginTop: '2rem',
           paddingTop: '1.5rem',
-          borderTop: '1px solid rgba(0, 255, 200, 0.1)',
+          borderTop: '1px solid rgba(15, 26, 46, 0.1)',
           display: 'flex',
           gap: '1rem',
           fontSize: '0.8rem',

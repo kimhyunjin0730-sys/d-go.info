@@ -107,7 +107,7 @@ const Home = () => {
               letterSpacing: '-0.01em'
             }}>
               <span className="shimmer-text">QUANTUM</span><br />
-              <span style={{ color: '#fff' }}>DATA VAULT</span>
+              <span style={{ color: 'var(--color-ink)' }}>DATA VAULT</span>
             </motion.h1>
 
             <motion.p variants={itemVariants} style={{
@@ -598,7 +598,7 @@ const Home = () => {
                 <h3 id="auth-step-01-title" style={{
                   fontSize: '1.5rem',
                   marginBottom: '0.65rem',
-                  color: '#fff'
+                  color: 'var(--color-ink)'
                 }}>
                   전용 PUF 키를 삽입하세요
                 </h3>
@@ -687,7 +687,7 @@ const Home = () => {
                 <h3 id="auth-step-02-title" style={{
                   fontSize: '1.5rem',
                   marginBottom: '0.65rem',
-                  color: '#fff'
+                  color: 'var(--color-ink)'
                 }}>
                   로터리 다이얼을 회전하세요
                 </h3>
@@ -731,8 +731,8 @@ const Home = () => {
             style={{
               marginTop: '2rem',
               padding: '1.25rem 1.75rem',
-              background: 'rgba(8, 12, 20, 0.5)',
-              border: '1px solid rgba(0, 255, 200, 0.12)',
+              background: 'rgba(255, 255, 255, 0.6)',
+              border: '1px solid rgba(15, 26, 46, 0.1)',
               borderRadius: '16px',
               display: 'flex',
               alignItems: 'center',
@@ -744,7 +744,7 @@ const Home = () => {
           >
             <Lock size={18} color="var(--color-primary)" />
             <span style={{ fontSize: '0.92rem', color: 'var(--color-text-dim)', lineHeight: 1.6 }}>
-              두 단계 모두 <strong style={{ color: '#fff' }}>네트워크에 연결되지 않은 물리 채널</strong>입니다 —
+              두 단계 모두 <strong style={{ color: 'var(--color-ink)' }}>네트워크에 연결되지 않은 물리 채널</strong>입니다 —
               원격에서 가로챌 표면 자체가 존재하지 않습니다.
             </span>
           </motion.div>
