@@ -95,7 +95,7 @@ const Home = () => {
                 width: '8px', height: '8px', borderRadius: '50%',
                 background: '#00ffc8', boxShadow: '0 0 10px #00ffc8'
               }} />
-              No Data Server · Self-Sovereign Data
+              서버 없음. 내 손에 보관.
             </motion.div>
 
             <motion.h1 variants={itemVariants} style={{
@@ -117,9 +117,9 @@ const Home = () => {
               maxWidth: '540px',
               lineHeight: 1.8
             }}>
-              내 손안의 완벽한 데이터 요새.<br />
-              엣지 컴퓨팅 기반의 폐쇄형 데이터 금고로,
-              클라우드 해킹의 위협에서 당신의 자산을 직접 지키세요.
+              D-GO는 인터넷에 연결되지 않는 데이터 금고입니다.
+              파일은 이 장치 안에만 머물고, 꺼낼 때도 직접 손으로 꺼냅니다.
+              해킹당할 외부 통로 자체가 없는 구조입니다.
             </motion.p>
 
             <motion.div variants={itemVariants} style={{ display: 'flex', gap: '1.25rem', alignItems: 'center', flexWrap: 'wrap' }}>
@@ -233,8 +233,8 @@ const Home = () => {
             viewport={{ once: true }}
             style={{ textAlign: 'center', marginBottom: '5rem' }}
           >
-            <h2 style={{ fontSize: '3rem', marginBottom: '1.5rem' }}>Security Redefined.</h2>
-            <p style={{ color: 'var(--color-text-dim)', fontSize: '1.2rem' }}>D-GO가 제공하는 타협 없는 보안 기술</p>
+            <h2 style={{ fontSize: '3rem', marginBottom: '1.5rem' }}>왜 다른가</h2>
+            <p style={{ color: 'var(--color-text-dim)', fontSize: '1.2rem' }}>클라우드 보안과는 출발점부터 다릅니다</p>
           </motion.div>
 
           <div style={{
@@ -243,9 +243,9 @@ const Home = () => {
             gap: '2rem'
           }}>
             {[
-              { icon: <HardDrive size={32} />, title: "완전 폐쇄형", desc: "외부 네트워크 미연결. 클라우드에 어떤 데이터 흔적도 남지 않습니다." },
-              { icon: <Cpu size={32} />, title: "PUF 인증", desc: "반도체 지문 기반의 복제 불가능한 고유 인증키로 장치를 보호합니다." },
-              { icon: <Clock size={32} />, title: "시점인증", desc: "SHA-256 해시와 타임스탬프로 법적 효력 있는 원본 증명을 지원합니다." }
+              { icon: <HardDrive size={32} />, title: "인터넷 없이 동작", desc: "Wi-Fi도, LAN도 연결하지 않습니다. 그래서 원격에서 들여다볼 방법이 없습니다." },
+              { icon: <Cpu size={32} />, title: "PUF 칩으로 잠금", desc: "반도체마다 다르게 새겨지는 고유 패턴이 열쇠가 됩니다. 같은 칩은 두 번 만들 수 없습니다." },
+              { icon: <Clock size={32} />, title: "시점 증명", desc: "파일을 저장한 순간을 SHA-256 해시와 타임스탬프로 묶어 둡니다. 나중에 원본 증명이 필요할 때 쓸 수 있습니다." }
             ].map((card, i) => (
               <motion.div 
                 key={i}
@@ -284,13 +284,13 @@ const Home = () => {
               textTransform: 'uppercase',
               marginBottom: '1rem'
             }}>
-              · Core Architecture ·
+              · 안에 들어 있는 것 ·
             </span>
             <h2 style={{ fontSize: 'clamp(2.25rem, 5vw, 3.5rem)', marginBottom: '1.25rem', letterSpacing: '-0.01em' }}>
-              하나의 장치, <span className="shimmer-text">완전한 주권</span>
+              한 대 안에 <span className="shimmer-text">전부 있습니다</span>
             </h2>
             <p style={{ color: 'var(--color-text-dim)', fontSize: '1.1rem', maxWidth: '620px', margin: '0 auto', lineHeight: 1.7 }}>
-              클라우드가 아닌 당신의 손안에서 작동하는 6가지 핵심 기술
+              네트워크, 인증, 암호화, 스캔까지. 외부에 의존하지 않고 장치 안에서 끝납니다.
             </p>
           </motion.div>
 
@@ -330,11 +330,11 @@ const Home = () => {
               }} />
               <WifiOff size={36} color="var(--color-primary)" strokeWidth={1.6} />
               <h3 style={{ fontSize: '1.9rem', margin: '1.5rem 0 1rem', maxWidth: '480px', lineHeight: 1.2 }}>
-                네트워크는 끊고, <br />보안은 잇습니다
+                인터넷과 끊어져 있습니다
               </h3>
               <p style={{ color: 'var(--color-text-dim)', maxWidth: '460px', lineHeight: 1.75, fontSize: '1rem' }}>
-                외부 인터넷과 완전히 단절된 폐쇄형 구조. 모든 연산은 기기 내부에서 완결되어,
-                원격 침투와 클라우드 유출의 가능성을 원천 차단합니다.
+                Wi-Fi 모듈도, 셀룰러도 없습니다. 파일 처리는 전부 장치 안에서 일어나기 때문에,
+                밖에서 들어올 수 있는 길 자체가 존재하지 않습니다.
               </p>
               <div style={{
                 marginTop: '2rem',
@@ -520,8 +520,8 @@ const Home = () => {
               marginBottom: '1.25rem',
               lineHeight: 1.15
             }}>
-              열쇠부터 다이얼까지, <br className="hide-mobile" />
-              <span className="shimmer-text">완벽한 2단계 물리 인증</span>
+              여는 방법은 <br className="hide-mobile" />
+              <span className="shimmer-text">두 단계뿐입니다</span>
             </h2>
             <p style={{
               color: 'var(--color-text-dim)',
@@ -530,8 +530,8 @@ const Home = () => {
               margin: '0 auto',
               lineHeight: 1.8
             }}>
-              화면도, 비밀번호도 아닙니다. 오직 손으로만 열립니다.
-              복제 불가능한 PUF 키를 꽂고, 로터리 다이얼을 돌리세요.
+              비밀번호도, 지문 등록도 필요 없습니다.
+              전용 키를 꽂고, 다이얼을 돌리면 됩니다.
             </p>
           </motion.div>
 
@@ -600,7 +600,7 @@ const Home = () => {
                   marginBottom: '0.65rem',
                   color: 'var(--color-ink)'
                 }}>
-                  전용 PUF 키를 삽입하세요
+                  키를 꽂는다
                 </h3>
                 <p style={{
                   color: 'var(--color-text-dim)',
@@ -608,9 +608,9 @@ const Home = () => {
                   lineHeight: 1.75,
                   marginBottom: '1.5rem'
                 }}>
-                  반도체 지문(PUF)이 새겨진 전용 실린더 키를 전면 포트에 꽂습니다.
-                  ICTK PUF 칩이 장치와의 1:1 하드웨어 바인딩을 즉시 인증합니다 —
-                  복제도, 우회도 불가능합니다.
+                  내 D-GO에 맞는 전용 키를 앞면 포트에 꽂습니다.
+                  키 안의 PUF 칩이 이 한 대의 금고하고만 짝지어져 있어서,
+                  다른 키로는 절대 열리지 않습니다.
                 </p>
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
                   {['ICTK PUF 칩', '복제 불가', '1키 = 1금고'].map((t) => (
@@ -689,7 +689,7 @@ const Home = () => {
                   marginBottom: '0.65rem',
                   color: 'var(--color-ink)'
                 }}>
-                  로터리 다이얼을 회전하세요
+                  다이얼을 돌린다
                 </h3>
                 <p style={{
                   color: 'var(--color-text-dim)',
@@ -697,9 +697,9 @@ const Home = () => {
                   lineHeight: 1.75,
                   marginBottom: '1.5rem'
                 }}>
-                  인증이 완료되면 4방향 시안 LED 인덱서가 점등됩니다.
-                  화면 UI 없이 촉각 클릭감과 LED 피드백만으로 저장·출력·
-                  감사 모드를 전환합니다. 네트워크 경로 자체가 존재하지 않습니다.
+                  인증이 끝나면 다이얼 주변의 LED 네 개가 켜집니다.
+                  화면을 보지 않고도 손끝 감각과 불빛만으로 저장·출력·기록 모드를
+                  바꿀 수 있습니다. 처음 써도 어렵지 않습니다.
                 </p>
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
                   {['24-step Click', '4-way LED', 'Offline Only'].map((t) => (
@@ -744,8 +744,8 @@ const Home = () => {
           >
             <Lock size={18} color="var(--color-primary)" />
             <span style={{ fontSize: '0.92rem', color: 'var(--color-text-dim)', lineHeight: 1.6 }}>
-              두 단계 모두 <strong style={{ color: 'var(--color-ink)' }}>네트워크에 연결되지 않은 물리 채널</strong>입니다 —
-              원격에서 가로챌 표면 자체가 존재하지 않습니다.
+              두 단계 다 <strong style={{ color: 'var(--color-ink)' }}>인터넷을 거치지 않습니다.</strong>
+              그래서 멀리서 가로챌 방법이 아예 없습니다.
             </span>
           </motion.div>
         </div>
@@ -755,8 +755,8 @@ const Home = () => {
       <section style={{ background: 'var(--color-bg-secondary)' }}>
         <div className="container">
           <div style={{ textAlign: 'center', marginBottom: '5rem' }}>
-            <h2 style={{ fontSize: '3rem', marginBottom: '1.5rem' }}>Step into Security.</h2>
-            <p style={{ color: 'var(--color-text-dim)', fontSize: '1.2rem' }}>데이터 자산 관리 4단계 프로세스</p>
+            <h2 style={{ fontSize: '3rem', marginBottom: '1.5rem' }}>실제로 어떻게 쓰나요</h2>
+            <p style={{ color: 'var(--color-text-dim)', fontSize: '1.2rem' }}>받은 날부터 나가는 날까지, 네 단계로 정리했습니다</p>
           </div>
 
           <div style={{
@@ -765,10 +765,10 @@ const Home = () => {
             gap: '1.5rem'
           }}>
             {[
-              { step: "01", title: "데이터 접수", sub: "Digital Notary", desc: "스캐너·음성기기로 데이터 유입" },
-              { step: "02", title: "도킹 인증", sub: "Docking Auth", desc: "물리적 결합 & PUF 인증" },
-              { step: "03", title: "금고 보관", sub: "Secure Storage", desc: "Vault 이중 암호화 저장" },
-              { step: "04", title: "감사 추적", sub: "Audit Control", desc: "실시간 접근 이력 모니터링" }
+              { step: "01", title: "파일 넣기", sub: "Digital Notary", desc: "스캐너나 녹음기로 받은 파일을 D-GO 안으로 옮깁니다" },
+              { step: "02", title: "도킹 인증", sub: "Docking Auth", desc: "키를 꽂으면 PUF 칩이 알아서 본인을 확인합니다" },
+              { step: "03", title: "금고 보관", sub: "Secure Storage", desc: "두 겹으로 암호화해서 장치 안 별도 영역에 저장합니다" },
+              { step: "04", title: "이력 보기", sub: "Audit Control", desc: "누가 언제 무엇을 열었는지 전부 기록으로 남습니다" }
             ].map((item, i) => (
               <div key={i} style={{ position: 'relative' }}>
                 <div className="glass-card" style={{ padding: '2.5rem', height: '100%', borderTop: '4px solid var(--color-primary)' }}>
@@ -811,7 +811,7 @@ const Home = () => {
               position: 'relative',
               lineHeight: 1.15
             }}>
-              보안, 이제 <span className="shimmer-text">당신이 주도</span>하세요.
+              내 데이터는 <span className="shimmer-text">내가 쥐고 있을 때</span> 가장 안전합니다.
             </h2>
             <p style={{
               fontSize: 'clamp(0.95rem, 2.4vw, 1.15rem)',
@@ -822,8 +822,8 @@ const Home = () => {
               lineHeight: 1.75,
               position: 'relative'
             }}>
-              D-GO는 단순한 저장소가 아닙니다. <br className="hide-mobile" />
-              당신의 주권과 프라이버시를 지키는 가장 강력한 방패입니다.
+              계약서, 회의 녹음, 개인 사진, 법인 기밀 — <br className="hide-mobile" />
+              남의 서버에 맡기지 않고 직접 보관하고 싶은 파일이 있다면 한 번 보러 오세요.
             </p>
             <div style={{
               display: 'flex',
