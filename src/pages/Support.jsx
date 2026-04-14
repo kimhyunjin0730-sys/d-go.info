@@ -11,8 +11,8 @@ const Support = () => {
             animate={{ opacity: 1, y: 0 }}
             style={{ textAlign: 'center', marginBottom: '6rem' }}
           >
-            <h1 style={{ fontSize: '4rem', marginBottom: '1.5rem' }}>We're Here to <span className="text-gradient">Help</span></h1>
-            <p style={{ color: 'var(--color-text-dim)', fontSize: '1.2rem' }}>D-GO 사용 중 궁금한 점이나 도입 문의를 남겨주세요.</p>
+            <h1 style={{ fontSize: '4rem', marginBottom: '1.5rem' }}>편하게 물어보세요</h1>
+            <p style={{ color: 'var(--color-text-dim)', fontSize: '1.2rem' }}>제품 사용 중에 막힌 부분이든, 도입 상담이든 한 줄만 남겨 주시면 됩니다</p>
           </motion.div>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))', gap: '4rem' }}>
@@ -43,7 +43,7 @@ const Support = () => {
 
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
                   <label style={{ fontSize: '0.9rem', fontWeight: 700 }}>문의 내용 *</label>
-                  <textarea rows="5" placeholder="궁금하신 내용을 상세히 적어주세요." style={{ padding: '1rem', background: 'rgba(255,255,255,0.03)', border: '1px solid var(--glass-border)', borderRadius: '12px', color: '#fff', resize: 'none' }} required></textarea>
+                  <textarea rows="5" placeholder="어떤 점이 궁금하신지 편하게 적어주세요" style={{ padding: '1rem', background: 'rgba(255,255,255,0.03)', border: '1px solid var(--glass-border)', borderRadius: '12px', color: '#fff', resize: 'none' }} required></textarea>
                 </div>
 
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
@@ -60,43 +60,43 @@ const Support = () => {
             {/* Contact Info */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
               <div className="glass-card" style={{ padding: '3rem' }}>
-                <h3 style={{ fontSize: '1.5rem', marginBottom: '2.5rem' }}>Contact Channels</h3>
+                <h3 style={{ fontSize: '1.5rem', marginBottom: '2.5rem' }}>연락 방법</h3>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
                   <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'flex-start' }}>
                     <div style={{ color: 'var(--color-primary)' }}><Mail size={24} /></div>
                     <div>
-                      <h4 style={{ marginBottom: '0.25rem' }}>Email Support</h4>
+                      <h4 style={{ marginBottom: '0.25rem' }}>이메일</h4>
                       <p style={{ color: 'var(--color-text-dim)', fontSize: '0.95rem' }}>support@d-go.info</p>
                     </div>
                   </div>
                   <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'flex-start' }}>
                     <div style={{ color: 'var(--color-primary)' }}><Phone size={24} /></div>
                     <div>
-                      <h4 style={{ marginBottom: '0.25rem' }}>Customer Hotline</h4>
-                      <p style={{ color: 'var(--color-text-dim)', fontSize: '0.95rem' }}>상담 준비 중 (이메일 문의 권장)</p>
+                      <h4 style={{ marginBottom: '0.25rem' }}>전화 상담</h4>
+                      <p style={{ color: 'var(--color-text-dim)', fontSize: '0.95rem' }}>준비 중입니다. 그동안은 이메일로 부탁드려요</p>
                     </div>
                   </div>
                   <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'flex-start' }}>
                     <div style={{ color: 'var(--color-primary)' }}><Clock size={24} /></div>
                     <div>
-                      <h4 style={{ marginBottom: '0.25rem' }}>Operating Hours</h4>
-                      <p style={{ color: 'var(--color-text-dim)', fontSize: '0.95rem' }}>평일 09:00 – 18:00 (KST)</p>
+                      <h4 style={{ marginBottom: '0.25rem' }}>응대 시간</h4>
+                      <p style={{ color: 'var(--color-text-dim)', fontSize: '0.95rem' }}>평일 오전 9시 ~ 오후 6시</p>
                     </div>
                   </div>
                   <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'flex-start' }}>
                     <div style={{ color: 'var(--color-primary)' }}><MapPin size={24} /></div>
                     <div>
-                      <h4 style={{ marginBottom: '0.25rem' }}>Location</h4>
-                      <p style={{ color: 'var(--color-text-dim)', fontSize: '0.95rem' }}>서울시 강남구 테헤란로 (D-GO Security Hub)</p>
+                      <h4 style={{ marginBottom: '0.25rem' }}>오시는 길</h4>
+                      <p style={{ color: 'var(--color-text-dim)', fontSize: '0.95rem' }}>서울시 강남구 테헤란로</p>
                     </div>
                   </div>
                 </div>
               </div>
 
               <div className="glass-card" style={{ padding: '3rem', background: 'rgba(0, 255, 171, 0.05)', border: '1px solid rgba(0, 255, 171, 0.2)' }}>
-                <h4 style={{ color: 'var(--color-accent)', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>⚡ Fast Response</h4>
+                <h4 style={{ color: 'var(--color-accent)', marginBottom: '1rem' }}>답변까지 보통 하루 안</h4>
                 <p style={{ fontSize: '0.9rem', color: 'var(--color-text-dim)' }}>
-                  영업일 기준 평균 24시간 이내에 답변을 드립니다. 급한 기술 문의는 제품 시리얼 번호를 함께 남겨주시면 더욱 빠른 처리가 가능합니다.
+                  평일에 보내주시면 24시간 안에 답변드리고 있어요. 기기에 문제가 생긴 경우라면 시리얼 번호도 함께 적어주시면 더 빨리 봐드릴 수 있습니다.
                 </p>
               </div>
             </div>

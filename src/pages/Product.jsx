@@ -30,10 +30,10 @@ const Product = () => {
             animate={{ opacity: 1, y: 0 }}
             style={{ textAlign: 'center', marginBottom: '6rem' }}
           >
-            <h1 style={{ fontSize: '4rem', marginBottom: '1.5rem' }}>Tech Behind <span className="text-gradient">Security</span></h1>
+            <h1 style={{ fontSize: '4rem', marginBottom: '1.5rem' }}>안에는 무엇이 있나</h1>
             <p style={{ color: 'var(--color-text-dim)', fontSize: '1.2rem', maxWidth: '800px', margin: '0 auto' }}>
-              D-GO는 하드웨어와 소프트웨어가 결합된 고도의 보안 생태계입니다.
-              단순한 저장 장치를 넘어 데이터 주권을 실현하는 핵심 기지입니다.
+              D-GO 한 대 안에 들어 있는 부품과 작동 방식을 정리했습니다.
+              하드웨어와 소프트웨어가 어떻게 맞물려서 외부 통로를 만들지 않는지 보여드립니다.
             </p>
           </motion.div>
 
@@ -56,9 +56,9 @@ const Product = () => {
                 <Gem size={16} />
                 <span>Industrial Design</span>
               </div>
-              <h2 style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>Crafted for <span className="text-gradient">Trust</span></h2>
+              <h2 style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>실제 모습</h2>
               <p style={{ color: 'var(--color-text-dim)', fontSize: '1.1rem', maxWidth: '720px', margin: '0 auto' }}>
-                프리미엄 소재와 정밀한 메커니즘. 손에 닿는 순간부터 금고의 무게를 느낄 수 있도록 설계되었습니다.
+                알루미늄 본체에 도킹 포트와 잠금 메커니즘이 들어 있습니다. 손으로 들면 금고답게 묵직합니다.
               </p>
             </div>
 
@@ -197,11 +197,11 @@ const Product = () => {
                 <span>Physical Interface</span>
               </div>
               <h2 style={{ fontSize: '2.5rem', marginBottom: '1rem', lineHeight: 1.2 }}>
-                Two Ways In. <span className="text-gradient">Both Physical.</span>
+                금고를 여는 두 가지 방법
               </h2>
               <p style={{ color: 'var(--color-text-dim)', fontSize: '1.1rem', maxWidth: '720px', margin: '0 auto' }}>
-                화면도, 비밀번호도 아닙니다. 손으로 돌리고, 손으로 꽂습니다.
-                소프트웨어가 뚫릴 수 없는 유일한 방법 — 아예 소프트웨어가 아닌 것.
+                다이얼을 돌리거나, 키를 꽂거나. 둘 다 직접 손으로 해야 합니다.
+                네트워크를 거치지 않으니 멀리서 뚫을 수 있는 길이 없습니다.
               </p>
             </div>
 
@@ -277,8 +277,8 @@ const Product = () => {
                     Rotary Dial
                   </h3>
                   <p style={{ color: 'var(--color-text-dim)', fontSize: '0.95rem', marginBottom: '1.25rem', lineHeight: 1.6 }}>
-                    촉각 피드백이 있는 정밀 인코더. 화면 UI 없이 4방향 인덱스만으로
-                    금고의 모든 모드를 전환합니다. 원격 탈취가 불가능한 물리 조작계.
+                    돌릴 때마다 손끝에 클릭감이 옵니다. 화면 없이 다이얼만으로
+                    저장·출력·기록 모드를 바꿀 수 있어서 익숙해지면 보지 않고도 조작할 수 있습니다.
                   </p>
                   <dl style={{
                     display: 'grid',
@@ -369,8 +369,8 @@ const Product = () => {
                     Physical Key
                   </h3>
                   <p style={{ color: 'var(--color-text-dim)', fontSize: '0.95rem', marginBottom: '1.25rem', lineHeight: 1.6 }}>
-                    PUF 칩이 새겨진 금속 실린더 키. 물리적으로 꽂아야만 열리며,
-                    복제 불가능한 반도체 지문으로 소유자만 금고를 개방할 수 있습니다.
+                    금속 실린더 안에 PUF 칩이 들어 있습니다. 이 키는 내 D-GO 한 대하고만
+                    짝지어져 있어서, 다른 사람이 똑같이 만들 수 없습니다.
                   </p>
                   <dl style={{
                     display: 'grid',
@@ -411,8 +411,8 @@ const Product = () => {
             }}>
               <CircuitBoard size={18} color="var(--color-primary)" />
               <span style={{ fontSize: '0.92rem', color: 'var(--color-text-dim)' }}>
-                두 입력 모두 <strong style={{ color: 'var(--color-text)' }}>네트워크에 연결되지 않은 물리 채널</strong>입니다 —
-                원격에서 가로챌 표면 자체가 존재하지 않습니다.
+                둘 다 <strong style={{ color: 'var(--color-text)' }}>인터넷을 거치지 않습니다.</strong>
+                그래서 멀리서 가로챌 방법이 없습니다.
               </span>
             </div>
           </div>
