@@ -137,7 +137,25 @@ h3 { font-size: clamp(1.15rem, 3vw, 1.6rem); }
 .glass-card:hover {
   border-color: rgba(0, 255, 200, 0.4);
   box-shadow: var(--shadow-neon);
-  transform: translateY(-4px);
+}
+
+/* Skip link — keyboard a11y */
+.skip-link {
+  position: absolute;
+  top: -200px;
+  left: 1rem;
+  background: var(--color-primary);
+  color: #080c14;
+  padding: 0.75rem 1.25rem;
+  border-radius: 10px;
+  font-weight: 800;
+  font-family: var(--font-heading);
+  letter-spacing: 0.05em;
+  z-index: 10000;
+  transition: top 0.2s ease;
+}
+.skip-link:focus {
+  top: 1rem;
 }
 
 .btn-primary {
@@ -351,9 +369,12 @@ section {
     gap: 2.25rem !important;
   }
 
-  /* Margin reset for section headers that use huge bottom margins */
-  div[style*="marginBottom: '6rem'"],
-  div[style*="marginBottom: '5rem'"] {
+  /* Margin reset for section headers that use huge bottom margins.
+     React renders margin-bottom as kebab-case in the DOM style attribute. */
+  div[style*="margin-bottom: 6rem"],
+  div[style*="margin-bottom: 5rem"],
+  div[style*="margin-bottom:6rem"],
+  div[style*="margin-bottom:5rem"] {
     margin-bottom: 2.5rem !important;
   }
 

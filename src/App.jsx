@@ -10,8 +10,9 @@ import Support from './pages/Support.jsx'
 function App() {
   return (
     <div className="app-container">
+      <a href="#main" className="skip-link">메인 콘텐츠로 건너뛰기</a>
       <Header />
-      <main>
+      <main id="main">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/product" element={<Product />} />

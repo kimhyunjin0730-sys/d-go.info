@@ -73,7 +73,7 @@ const Product = () => {
                 borderRadius: '32px',
                 overflow: 'hidden',
                 marginBottom: '2rem',
-                boxShadow: '0 40px 100px rgba(0,0,0,0.5), 0 0 60px rgba(255, 176, 0, 0.08)',
+                boxShadow: '0 40px 100px rgba(0,0,0,0.5), 0 0 60px rgba(0, 255, 200, 0.1)',
                 border: '1px solid var(--glass-border)',
                 aspectRatio: '16 / 9',
                 background: '#0a0a0a'
@@ -124,7 +124,7 @@ const Product = () => {
             {/* Render Thumbnails */}
             <div style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 240px), 1fr))',
               gap: '1.25rem'
             }}>
               {[
@@ -207,7 +207,7 @@ const Product = () => {
 
             <div style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 360px), 1fr))',
               gap: '2rem'
             }}>
               {/* Card A: Rotary Dial */}
@@ -417,7 +417,7 @@ const Product = () => {
             </div>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem', marginBottom: '8rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: '2rem', marginBottom: '8rem' }}>
             <div className="glass-card" style={{ padding: '3rem' }}>
               <h3 style={{ fontSize: '1.8rem', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
                 <Layers color="var(--color-primary)" />
