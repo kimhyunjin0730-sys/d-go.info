@@ -47,7 +47,7 @@ export default function Home() {
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/20 to-blue-600/20 rounded-3xl blur-3xl"></div>
               <img
-                src="/images/renders/render-02.jpg"
+                src="/d-go.info/images/renders/render-02.jpg"
                 alt="D-GO Vault 45도 정면, 노브 LED 점등"
                 className="relative rounded-2xl shadow-2xl w-full h-auto"
               />
@@ -60,8 +60,8 @@ export default function Home() {
       <section className="border-y border-[var(--border-hairline)] bg-[var(--bg-elevated)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
-            <img src="/logo/ICTK.png" alt="ICTK PUF" className="h-8 w-auto opacity-70 hover:opacity-100 transition-opacity hover:opacity-100 transition-opacity" />
-            <img src="/logo/KC인증.svg" alt="KC 인증" className="h-8 w-auto opacity-70 hover:opacity-100 transition-opacity hover:opacity-100 transition-opacity" />
+            <img src="/d-go.info/logo/ICTK.png" alt="ICTK PUF" className="h-8 w-auto opacity-70 hover:opacity-100 transition-opacity hover:opacity-100 transition-opacity" />
+            <img src="/d-go.info/logo/KC인증.svg" alt="KC 인증" className="h-8 w-auto opacity-70 hover:opacity-100 transition-opacity hover:opacity-100 transition-opacity" />
             <div className="badge text-[var(--text-secondary)]">UL CLASS 125</div>
             <div className="badge text-[var(--text-secondary)]">MADE IN KOREA</div>
           </div>
@@ -205,7 +205,7 @@ export default function Home() {
             <div className="relative">
               <div className="glass-card p-8">
                 <img
-                  src="/images/renders/render-03.jpg"
+                  src="/d-go.info/images/renders/render-03.jpg"
                   alt="D-GO Vault USB 보안키 삽입"
                   className="rounded-lg w-full h-auto"
                 />

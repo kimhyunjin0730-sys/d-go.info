@@ -9,7 +9,7 @@ export default function Footer() {
           {/* Company Info */}
           <div>
             <div className="flex items-center gap-2.5 mb-4">
-              <img src="/logo/dgo-icon.png" alt="D-GO" className="w-8 h-8 rounded-lg" />
+              <img src="/d-go.info/logo/dgo-icon.png" alt="D-GO" className="w-8 h-8 rounded-lg" />
               <span className="text-lg font-bold text-gradient-cyan">D-GO Vault</span>
             </div>
             <p className="text-sm text-[var(--text-secondary)] mb-4">
@@ -92,8 +92,8 @@ export default function Footer() {
             </p>
             <div className="space-y-3">
               <div className="flex items-center gap-3 flex-wrap">
-                <img src="/logo/ICTK.png" alt="ICTK PUF" className="h-6 w-auto opacity-60 hover:opacity-100 transition-opacity" />
-                <img src="/logo/KC인증.svg" alt="KC 인증" className="h-6 w-auto opacity-60 hover:opacity-100 transition-opacity" />
+                <img src="/d-go.info/logo/ICTK.png" alt="ICTK PUF" className="h-6 w-auto opacity-60 hover:opacity-100 transition-opacity" />
+                <img src="/d-go.info/logo/KC인증.svg" alt="KC 인증" className="h-6 w-auto opacity-60 hover:opacity-100 transition-opacity" />
               </div>
               <div className="badge text-[var(--text-secondary)] inline-block px-2 py-1 bg-[var(--bg-primary)] rounded">
                 UL CLASS 125
@@ -112,7 +112,7 @@ export default function Footer() {
               © 2026 보안링크스 (Boanlinks). All rights reserved.
             </p>
             <div className="flex items-center gap-2">
-              <img src="/logo/boanlinks.png" alt="Boanlinks" className="h-5 w-auto opacity-50" />
+              <img src="/d-go.info/logo/boanlinks.png" alt="Boanlinks" className="h-5 w-auto opacity-50" />
               <span className="text-sm text-[var(--text-muted)]">Powered by Boanlinks</span>
             </div>
           </div>
