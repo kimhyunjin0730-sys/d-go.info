@@ -28,10 +28,8 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 group">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-cyan-400 to-cyan-600 flex items-center justify-center">
-              <span className="text-white font-bold text-sm">D</span>
-            </div>
+          <Link to="/" className="flex items-center gap-2.5 group">
+            <img src="/logo/dgo-icon.png" alt="D-GO" className="w-8 h-8 rounded-lg" />
             <span className="text-xl font-bold text-gradient-cyan">D-GO</span>
             <span className="hidden sm:inline text-sm text-[var(--text-secondary)]">Vault</span>
           </Link>

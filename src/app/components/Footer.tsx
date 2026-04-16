@@ -8,10 +8,8 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-cyan-400 to-cyan-600 flex items-center justify-center">
-                <span className="text-white font-bold text-sm">D</span>
-              </div>
+            <div className="flex items-center gap-2.5 mb-4">
+              <img src="/logo/dgo-icon.png" alt="D-GO" className="w-8 h-8 rounded-lg" />
               <span className="text-lg font-bold text-gradient-cyan">D-GO Vault</span>
             </div>
             <p className="text-sm text-[var(--text-secondary)] mb-4">
@@ -94,8 +92,8 @@ export default function Footer() {
             </p>
             <div className="space-y-3">
               <div className="flex items-center gap-3 flex-wrap">
-                <img src="/logo/ICTK.png" alt="ICTK PUF" className="h-6 w-auto opacity-60 grayscale brightness-150" />
-                <img src="/logo/KC인증.svg" alt="KC 인증" className="h-6 w-auto opacity-60 grayscale brightness-150" />
+                <img src="/logo/ICTK.png" alt="ICTK PUF" className="h-6 w-auto opacity-60 hover:opacity-100 transition-opacity" />
+                <img src="/logo/KC인증.svg" alt="KC 인증" className="h-6 w-auto opacity-60 hover:opacity-100 transition-opacity" />
               </div>
               <div className="badge text-[var(--text-secondary)] inline-block px-2 py-1 bg-[var(--bg-primary)] rounded">
                 UL CLASS 125

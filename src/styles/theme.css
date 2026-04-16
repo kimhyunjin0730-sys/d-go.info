@@ -3,23 +3,23 @@
 :root {
   /* D-GO Design System - Deep Navy + Cyan */
   
-  /* Surface Colors */
-  --bg-primary: #0F172A;
-  --bg-elevated: #111B30;
-  --bg-overlay: rgba(15, 23, 42, 0.72);
-  
+  /* Surface Colors — Light Theme */
+  --bg-primary: #FFFFFF;
+  --bg-elevated: #F8FAFC;
+  --bg-overlay: rgba(255, 255, 255, 0.82);
+
   /* Glass Card */
-  --card-bg: rgba(17, 27, 48, 0.55);
-  --card-border: rgba(148, 163, 184, 0.12);
-  
+  --card-bg: rgba(248, 250, 252, 0.75);
+  --card-border: rgba(15, 23, 42, 0.08);
+
   /* Text */
-  --text-primary: #F8FAFC;
-  --text-secondary: #94A3B8;
-  --text-muted: #64748B;
-  
+  --text-primary: #0F172A;
+  --text-secondary: #475569;
+  --text-muted: #94A3B8;
+
   /* Accent Colors */
-  --accent-cyan: #22D3EE;
-  --accent-cyan-soft: rgba(34, 211, 238, 0.12);
+  --accent-cyan: #0891B2;
+  --accent-cyan-soft: rgba(8, 145, 178, 0.08);
   --accent-orange: #FF6B1A;
   
   /* Status Colors */
@@ -28,7 +28,7 @@
   --status-crit: #EF4444;
   
   /* Border */
-  --border-hairline: rgba(148, 163, 184, 0.10);
+  --border-hairline: rgba(15, 23, 42, 0.08);
   
   /* Typography */
   --font-size: 16px;
@@ -36,25 +36,25 @@
   --font-weight-normal: 400;
   
   /* Tailwind compatibility */
-  --background: #0F172A;
-  --foreground: #F8FAFC;
-  --card: rgba(17, 27, 48, 0.55);
-  --card-foreground: #F8FAFC;
-  --popover: #111B30;
-  --popover-foreground: #F8FAFC;
-  --primary: #22D3EE;
-  --primary-foreground: #0F172A;
-  --secondary: #1E293B;
-  --secondary-foreground: #F8FAFC;
-  --muted: #334155;
-  --muted-foreground: #94A3B8;
-  --accent: #22D3EE;
-  --accent-foreground: #0F172A;
+  --background: #FFFFFF;
+  --foreground: #0F172A;
+  --card: rgba(248, 250, 252, 0.75);
+  --card-foreground: #0F172A;
+  --popover: #FFFFFF;
+  --popover-foreground: #0F172A;
+  --primary: #0891B2;
+  --primary-foreground: #FFFFFF;
+  --secondary: #F1F5F9;
+  --secondary-foreground: #0F172A;
+  --muted: #F1F5F9;
+  --muted-foreground: #64748B;
+  --accent: #0891B2;
+  --accent-foreground: #FFFFFF;
   --destructive: #EF4444;
-  --destructive-foreground: #F8FAFC;
-  --border: rgba(148, 163, 184, 0.12);
-  --input: rgba(148, 163, 184, 0.12);
-  --ring: #22D3EE;
+  --destructive-foreground: #FFFFFF;
+  --border: rgba(15, 23, 42, 0.08);
+  --input: rgba(15, 23, 42, 0.08);
+  --ring: #0891B2;
   --radius: 1.25rem;
 }
 
@@ -161,8 +161,8 @@
 
   .glass-card-hover:hover {
     transform: translateY(-2px);
-    border-color: rgba(34, 211, 238, 0.3);
-    box-shadow: 0 0 0 1px rgba(34, 211, 238, 0.05), 0 30px 60px -30px rgba(34, 211, 238, 0.15);
+    border-color: rgba(8, 145, 178, 0.25);
+    box-shadow: 0 0 0 1px rgba(8, 145, 178, 0.05), 0 20px 40px -20px rgba(15, 23, 42, 0.10);
   }
 
   .badge {
@@ -177,7 +177,7 @@
   }
 
   .text-gradient-cyan {
-    background: linear-gradient(135deg, #22D3EE, #06B6D4);
+    background: linear-gradient(135deg, #0891B2, #0E7490);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;

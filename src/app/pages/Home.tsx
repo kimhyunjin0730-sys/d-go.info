@@ -60,8 +60,8 @@ export default function Home() {
       <section className="border-y border-[var(--border-hairline)] bg-[var(--bg-elevated)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
-            <img src="/logo/ICTK.png" alt="ICTK PUF" className="h-8 w-auto opacity-70 hover:opacity-100 transition-opacity grayscale hover:grayscale-0 brightness-150" />
-            <img src="/logo/KC인증.svg" alt="KC 인증" className="h-8 w-auto opacity-70 hover:opacity-100 transition-opacity grayscale hover:grayscale-0 brightness-150" />
+            <img src="/logo/ICTK.png" alt="ICTK PUF" className="h-8 w-auto opacity-70 hover:opacity-100 transition-opacity hover:opacity-100 transition-opacity" />
+            <img src="/logo/KC인증.svg" alt="KC 인증" className="h-8 w-auto opacity-70 hover:opacity-100 transition-opacity hover:opacity-100 transition-opacity" />
             <div className="badge text-[var(--text-secondary)]">UL CLASS 125</div>
             <div className="badge text-[var(--text-secondary)]">MADE IN KOREA</div>
           </div>
