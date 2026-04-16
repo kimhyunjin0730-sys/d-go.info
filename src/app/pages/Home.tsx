@@ -1,275 +1,239 @@
-import { ArrowRight, Shield, Lock, FileCheck, Fingerprint, Scan, Database } from "lucide-react";
+import { ArrowRight, Shield, Lock, FileCheck, Fingerprint, Scan, Database, Cpu, HardDrive, BatteryCharging, Thermometer, Usb, Wifi } from "lucide-react";
 import { Link } from "react-router";
+
+const specs = [
+  { icon: Cpu, label: "PUF Core", value: "ICTK 반도체 지문" },
+  { icon: HardDrive, label: "Storage", value: "RAID 1 NVMe" },
+  { icon: BatteryCharging, label: "Power", value: "Internal UPS" },
+  { icon: Thermometer, label: "Thermal", value: "UL CLASS 125" },
+  { icon: Usb, label: "Ports", value: "USB-A · C · TB×3" },
+  { icon: Wifi, label: "Network", value: "Direct Wi-Fi Only" },
+];
 
 export default function Home() {
   return (
     <div className="w-full">
-      {/* Hero Section */}
+      {/* ── Hero: Product + Value Prop ── */}
       <section className="relative overflow-hidden">
-        {/* Background Glow */}
-        <div className="absolute inset-0 bg-gradient-radial from-cyan-500/10 via-transparent to-transparent opacity-50"></div>
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32 relative">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="absolute inset-0 bg-gradient-radial from-cyan-500/8 via-transparent to-transparent"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-6 relative">
+          <div className="grid lg:grid-cols-2 gap-8 items-center">
+            {/* Left — copy + CTA */}
             <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--accent-cyan-soft)] border border-[var(--accent-cyan)]/20 mb-6">
-                <Shield size={16} className="text-[var(--accent-cyan)]" />
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--accent-cyan-soft)] border border-[var(--accent-cyan)]/20 mb-4">
+                <Shield size={14} className="text-[var(--accent-cyan)]" />
                 <span className="badge text-[var(--accent-cyan)]">Quantum Data Vault</span>
               </div>
-              
-              <h1 className="text-4xl md:text-5xl lg:text-6xl mb-6">
+
+              <h1 className="text-3xl md:text-4xl lg:text-5xl mb-4 leading-tight">
                 당신의 데이터,<br />
                 <span className="text-gradient-cyan">오직 당신의 손안에</span>
               </h1>
-              
-              <p className="text-lg text-[var(--text-secondary)] mb-8 leading-relaxed">
-                외부 서버 없이 완벽하게 보호되는 자기주권형 데이터 금고.<br />
-                D-GO Vault로 진정한 데이터 소유권을 경험하세요.
+
+              <p className="text-base text-[var(--text-secondary)] mb-5 leading-relaxed max-w-lg">
+                외부 서버 없이 PUF 하드웨어 기반 Zero-Knowledge 암호화로 보호되는 완전 폐쇄형 데이터 금고.
               </p>
-              
-              <div className="flex flex-col sm:flex-row gap-4">
+
+              <div className="flex flex-wrap gap-3 mb-5">
                 <a
                   href="mailto:biz@boanlinks.com"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-[var(--accent-cyan)] text-[var(--bg-primary)] font-semibold hover:opacity-90 transition-opacity"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[var(--accent-cyan)] text-[var(--bg-primary)] font-semibold text-sm hover:opacity-90 transition-opacity"
                 >
-                  도입 문의하기
-                  <ArrowRight size={20} />
+                  도입 문의하기 <ArrowRight size={16} />
                 </a>
                 <Link
                   to="/product"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg border border-[var(--accent-cyan)] text-[var(--accent-cyan)] font-semibold hover:bg-[var(--accent-cyan-soft)] transition-colors"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-[var(--accent-cyan)] text-[var(--accent-cyan)] font-semibold text-sm hover:bg-[var(--accent-cyan-soft)] transition-colors"
                 >
                   제품 보기
                 </Link>
               </div>
+
+              {/* Trust strip inline */}
+              <div className="flex flex-wrap items-center gap-4 pt-4 border-t border-[var(--border-hairline)]">
+                <img src="/d-go.info/logo/ICTK.png" alt="ICTK PUF" className="h-6 w-auto opacity-60" />
+                <img src="/d-go.info/logo/KC인증.svg" alt="KC 인증" className="h-6 w-auto opacity-60" />
+                <span className="badge text-[var(--text-muted)]">UL CLASS 125</span>
+                <span className="badge text-[var(--text-muted)]">MADE IN KOREA</span>
+              </div>
             </div>
-            
+
+            {/* Right — product image */}
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/20 to-blue-600/20 rounded-3xl blur-3xl"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/15 to-blue-600/10 rounded-2xl blur-2xl"></div>
               <img
                 src="/d-go.info/images/renders/render-02.jpg"
                 alt="D-GO Vault 45도 정면, 노브 LED 점등"
-                className="relative rounded-2xl shadow-2xl w-full h-auto"
+                className="relative rounded-xl shadow-xl w-full h-auto"
               />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Trust Bar */}
+      {/* ── Specs Strip ── */}
       <section className="border-y border-[var(--border-hairline)] bg-[var(--bg-elevated)]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
-            <img src="/d-go.info/logo/ICTK.png" alt="ICTK PUF" className="h-8 w-auto opacity-70 hover:opacity-100 transition-opacity hover:opacity-100 transition-opacity" />
-            <img src="/d-go.info/logo/KC인증.svg" alt="KC 인증" className="h-8 w-auto opacity-70 hover:opacity-100 transition-opacity hover:opacity-100 transition-opacity" />
-            <div className="badge text-[var(--text-secondary)]">UL CLASS 125</div>
-            <div className="badge text-[var(--text-secondary)]">MADE IN KOREA</div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+          <div className="grid grid-cols-3 md:grid-cols-6 gap-3">
+            {specs.map((s) => (
+              <div key={s.label} className="flex items-center gap-2.5 py-2">
+                <s.icon size={16} className="text-[var(--accent-cyan)] flex-shrink-0" />
+                <div className="min-w-0">
+                  <div className="badge text-[var(--text-muted)] text-[0.6rem]">{s.label}</div>
+                  <div className="text-xs font-semibold text-[var(--text-primary)] truncate">{s.value}</div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Feature Bento Grid */}
-      <section className="py-20 md:py-32">
+      {/* ── Feature Grid — compact 3-col ── */}
+      <section className="py-10 md:py-14">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl mb-4">핵심 기능</h2>
-            <p className="text-lg text-[var(--text-secondary)]">
-              기업급 보안 기술을 개인용 데이터 금고에
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-6">
-            {/* Secure Port Card */}
-            <div className="glass-card glass-card-hover p-8 relative overflow-hidden group">
-              <div className="absolute top-0 left-0 w-32 h-32 bg-gradient-radial from-cyan-400/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              
-              <div className="relative">
-                <div className="w-12 h-12 rounded-xl bg-[var(--accent-cyan-soft)] flex items-center justify-center mb-4">
-                  <Lock className="text-[var(--accent-cyan)]" size={24} />
-                </div>
-                
-                <div className="inline-block px-2 py-1 rounded bg-[var(--bg-elevated)] mb-4">
-                  <span className="badge text-[var(--accent-cyan)]">SECURE PORT</span>
-                </div>
-                
-                <h3 className="text-xl mb-3">PUF가 열어야만 열리는 포트</h3>
-                
-                <p className="text-[var(--text-secondary)] leading-relaxed">
-                  관리자 앱에서 PUF 승인이 떨어진 순간에만 USB-C / 네트워크 드라이브가 활성화됩니다.
-                </p>
-              </div>
-            </div>
-
-            {/* OCR Scan Card */}
-            <div className="glass-card glass-card-hover p-8 relative overflow-hidden group">
-              <div className="absolute top-0 left-0 w-32 h-32 bg-gradient-radial from-cyan-400/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              
-              <div className="relative">
-                <div className="w-12 h-12 rounded-xl bg-[var(--accent-cyan-soft)] flex items-center justify-center mb-4">
-                  <Scan className="text-[var(--accent-cyan)]" size={24} />
-                </div>
-                
-                <div className="inline-block px-2 py-1 rounded bg-[var(--bg-elevated)] mb-4">
-                  <span className="badge text-[var(--accent-cyan)]">DOCUMENT OCR</span>
-                </div>
-                
-                <h3 className="text-xl mb-3">카메라로 찍고, 원본은 금고로</h3>
-                
-                <p className="text-[var(--text-secondary)] leading-relaxed">
-                  촬영된 문서는 OCR 후 PDF로 변환되어 본체에 암호화 저장. 클라이언트 단말에는 원본이 남지 않습니다.
-                </p>
-              </div>
-            </div>
-
-            {/* Data Integrity Card */}
-            <div className="glass-card glass-card-hover p-8 relative overflow-hidden group">
-              <div className="absolute top-0 left-0 w-32 h-32 bg-gradient-radial from-cyan-400/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              
-              <div className="relative">
-                <div className="w-12 h-12 rounded-xl bg-[var(--accent-cyan-soft)] flex items-center justify-center mb-4">
-                  <FileCheck className="text-[var(--accent-cyan)]" size={24} />
-                </div>
-                
-                <div className="inline-block px-2 py-1 rounded bg-[var(--bg-elevated)] mb-4">
-                  <span className="badge text-[var(--accent-cyan)]">TAMPER-PROOF</span>
-                </div>
-                
-                <h3 className="text-xl mb-3">변조되면 바로 알 수 있도록</h3>
-                
-                <p className="text-[var(--text-secondary)] leading-relaxed">
-                  모든 파일은 해시·타임스탬프·디지털 서명·접근 이력을 묶어 저장. 원본 증명과 법적 효력 가능.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Technology Teaser */}
-      <section className="py-20 md:py-32 bg-[var(--bg-elevated)]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="flex items-end justify-between mb-6">
             <div>
-              <div className="inline-block px-2 py-1 rounded bg-[var(--bg-primary)] mb-4">
-                <span className="badge text-[var(--accent-cyan)]">ZERO-KNOWLEDGE</span>
+              <h2 className="text-2xl md:text-3xl">주요 기능</h2>
+              <p className="text-sm text-[var(--text-secondary)] mt-1">기업급 보안 기술을 개인용 데이터 금고에</p>
+            </div>
+            <Link to="/technology" className="hidden md:inline-flex items-center gap-1 text-sm text-[var(--accent-cyan)] font-semibold hover:gap-2 transition-all">
+              기술 아키텍처 <ArrowRight size={14} />
+            </Link>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-4">
+            {[
+              { icon: Lock, badge: "SECURE PORT", title: "PUF가 열어야만 열리는 포트", desc: "PUF 승인 시에만 USB-C / 네트워크 드라이브가 활성화. 그 외 시간엔 OS 레벨에서 차단." },
+              { icon: Scan, badge: "DOCUMENT OCR", title: "카메라로 찍고, 원본은 금고로", desc: "촬영 문서 → OCR → PDF 변환 → 본체 암호화 저장. 클라이언트에 원본 미잔류." },
+              { icon: FileCheck, badge: "TAMPER-PROOF", title: "변조되면 바로 알 수 있도록", desc: "해시·타임스탬프·디지털 서명·접근 이력 일괄 저장. 원본 증명 및 법적 효력." },
+            ].map((f) => (
+              <div key={f.badge} className="glass-card glass-card-hover p-5 relative overflow-hidden group">
+                <div className="absolute top-0 left-0 w-24 h-24 bg-gradient-radial from-cyan-400/15 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="relative">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-9 h-9 rounded-lg bg-[var(--accent-cyan-soft)] flex items-center justify-center">
+                      <f.icon className="text-[var(--accent-cyan)]" size={18} />
+                    </div>
+                    <span className="badge text-[var(--accent-cyan)]">{f.badge}</span>
+                  </div>
+                  <h3 className="text-base font-semibold mb-2">{f.title}</h3>
+                  <p className="text-sm text-[var(--text-secondary)] leading-relaxed">{f.desc}</p>
+                </div>
               </div>
-              
-              <h2 className="text-3xl md:text-4xl mb-6">
-                하드웨어 기반<br />
-                제로 지식 암호화
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Technology + Product Image — side by side ── */}
+      <section className="py-10 md:py-14 bg-[var(--bg-elevated)]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-5 gap-6 items-start">
+            {/* Left 3/5 — tech pillars */}
+            <div className="lg:col-span-3">
+              <div className="flex items-center gap-2 mb-4">
+                <span className="badge text-[var(--accent-cyan)]">ZERO-KNOWLEDGE ARCHITECTURE</span>
+              </div>
+              <h2 className="text-2xl md:text-3xl mb-5">
+                하드웨어 기반 제로 지식 암호화
               </h2>
-              
-              <p className="text-lg text-[var(--text-secondary)] mb-6 leading-relaxed">
-                ICTK PUF 칩을 통한 반도체 지문 인증으로 외부 서버 없이 완벽한 데이터 보호를 실현합니다.
-              </p>
-              
-              <ul className="space-y-4 mb-8">
-                <li className="flex items-start gap-3">
-                  <div className="w-6 h-6 rounded-full bg-[var(--accent-cyan-soft)] flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <Shield size={14} className="text-[var(--accent-cyan)]" />
+
+              <div className="grid sm:grid-cols-2 gap-3">
+                {[
+                  { icon: Shield, title: "1:1 Direct Wi-Fi", desc: "외부 네트워크 미연결, 본체와 모바일 기기만 1:1 폐쇄형 연결" },
+                  { icon: Fingerprint, title: "PUF 이중 복구", desc: "디지털 인증 분실 시 물리 키 + HW 정보로 PUF 키 재호출" },
+                  { icon: Database, title: "RAID 1 + UPS", desc: "두 개 SSD 실시간 미러링 + 내장 배터리 전원 보호" },
+                  { icon: Thermometer, title: "125°F 자동 셧다운", desc: "임계 온도 초과 시 디지털 섹션 즉시 차단, 데이터 보호" },
+                ].map((p) => (
+                  <div key={p.title} className="glass-card p-4 flex gap-3">
+                    <div className="w-8 h-8 rounded-lg bg-[var(--accent-cyan-soft)] flex items-center justify-center flex-shrink-0">
+                      <p.icon size={16} className="text-[var(--accent-cyan)]" />
+                    </div>
+                    <div>
+                      <h4 className="text-sm font-semibold mb-1">{p.title}</h4>
+                      <p className="text-xs text-[var(--text-secondary)] leading-relaxed">{p.desc}</p>
+                    </div>
                   </div>
-                  <div>
-                    <h4 className="font-semibold mb-1">폐쇄형 1:1 Direct Wi-Fi</h4>
-                    <p className="text-sm text-[var(--text-secondary)]">외부 네트워크 미연결, 완전 격리</p>
-                  </div>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-6 h-6 rounded-full bg-[var(--accent-cyan-soft)] flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <Fingerprint size={14} className="text-[var(--accent-cyan)]" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold mb-1">PUF 물리-디지털 이중 복구</h4>
-                    <p className="text-sm text-[var(--text-secondary)]">복제 불가능한 반도체 지문 기반 인증</p>
-                  </div>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-6 h-6 rounded-full bg-[var(--accent-cyan-soft)] flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <Database size={14} className="text-[var(--accent-cyan)]" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold mb-1">RAID 1 + UPS 이중 보호</h4>
-                    <p className="text-sm text-[var(--text-secondary)]">실시간 미러링 및 전원 보호</p>
-                  </div>
-                </li>
-              </ul>
-              
-              <Link
-                to="/technology"
-                className="inline-flex items-center gap-2 text-[var(--accent-cyan)] font-semibold hover:gap-3 transition-all"
-              >
-                기술 자세히 보기
-                <ArrowRight size={20} />
+                ))}
+              </div>
+
+              <Link to="/technology" className="inline-flex items-center gap-2 text-sm text-[var(--accent-cyan)] font-semibold hover:gap-3 transition-all mt-4">
+                전체 아키텍처 보기 <ArrowRight size={14} />
               </Link>
             </div>
-            
-            <div className="relative">
-              <div className="glass-card p-8">
+
+            {/* Right 2/5 — product image */}
+            <div className="lg:col-span-2">
+              <div className="glass-card p-3 rounded-xl">
                 <img
                   src="/d-go.info/images/renders/render-03.jpg"
                   alt="D-GO Vault USB 보안키 삽입"
                   className="rounded-lg w-full h-auto"
                 />
               </div>
+              <div className="mt-3 text-center">
+                <Link to="/product" className="inline-flex items-center gap-2 text-sm text-[var(--accent-cyan)] font-semibold hover:gap-3 transition-all">
+                  제품 상세 보기 <ArrowRight size={14} />
+                </Link>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Dashboard Preview */}
-      <section className="py-20 md:py-32">
+      {/* ── Dashboard Preview — compact ── */}
+      <section className="py-10 md:py-14">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl mb-4">관리 대시보드</h2>
-            <p className="text-lg text-[var(--text-secondary)]">
-              모바일 앱으로 실시간 모니터링 및 제어
-            </p>
-          </div>
-          
-          <div className="relative">
-            <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/10 to-blue-600/10 rounded-3xl blur-3xl"></div>
-            <img
-              src="https://images.unsplash.com/photo-1767449441925-737379bc2c4d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2JpbGUlMjBhcHAlMjBpbnRlcmZhY2UlMjBkYXNoYm9hcmR8ZW58MXx8fHwxNzc2MjQwNTk1fDA&ixlib=rb-4.1.0&q=80&w=1080"
-              alt="대시보드 미리보기"
-              className="relative rounded-2xl shadow-2xl w-full h-auto max-w-4xl mx-auto"
-            />
-          </div>
-          
-          <div className="text-center mt-8">
-            <Link
-              to="/dashboard"
-              className="inline-flex items-center gap-2 text-[var(--accent-cyan)] font-semibold hover:gap-3 transition-all"
-            >
-              대시보드 자세히 보기
-              <ArrowRight size={20} />
-            </Link>
+          <div className="grid lg:grid-cols-2 gap-6 items-center">
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/8 to-blue-600/8 rounded-2xl blur-2xl"></div>
+              <img
+                src="https://images.unsplash.com/photo-1767449441925-737379bc2c4d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2JpbGUlMjBhcHAlMjBpbnRlcmZhY2UlMjBkYXNoYm9hcmR8ZW58MXx8fHwxNzc2MjQwNTk1fDA&ixlib=rb-4.1.0&q=80&w=1080"
+                alt="대시보드 미리보기"
+                className="relative rounded-xl shadow-lg w-full h-auto"
+              />
+            </div>
+            <div>
+              <span className="badge text-[var(--accent-cyan)]">ADMIN DASHBOARD</span>
+              <h2 className="text-2xl md:text-3xl mt-3 mb-3">금고의 상태, 실시간으로</h2>
+              <p className="text-sm text-[var(--text-secondary)] leading-relaxed mb-4">
+                모바일 앱으로 온도·습도·RAID·UPS·Secure Port·개폐 이력을 한 화면에서 모니터링하고 제어합니다.
+              </p>
+              <ul className="space-y-2 mb-4">
+                {["온도/습도 실시간 모니터링", "RAID 1 미러링 상태 확인", "Secure Port 원격 승인", "개폐 이력 · 충격 감지 알림"].map((t) => (
+                  <li key={t} className="flex items-center gap-2 text-sm">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent-cyan)]"></span>
+                    <span className="text-[var(--text-secondary)]">{t}</span>
+                  </li>
+                ))}
+              </ul>
+              <Link to="/dashboard" className="inline-flex items-center gap-2 text-sm text-[var(--accent-cyan)] font-semibold hover:gap-3 transition-all">
+                대시보드 자세히 보기 <ArrowRight size={14} />
+              </Link>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Bottom CTA */}
-      <section className="py-20 md:py-32 bg-gradient-to-br from-cyan-500/10 to-blue-600/10">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl mb-6">
-            지금 D-GO Vault를<br />
-            도입해보세요
+      {/* ── Bottom CTA — compact ── */}
+      <section className="py-10 md:py-14 bg-gradient-to-br from-cyan-500/8 to-blue-600/8">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-2xl md:text-3xl mb-4">
+            지금 D-GO Vault를 도입해보세요
           </h2>
-          
-          <p className="text-lg text-[var(--text-secondary)] mb-8">
-            법인·단체 도입 문의 환영합니다.<br />
-            평일 09:00-18:00 | 010-3241-0427
+          <p className="text-sm text-[var(--text-secondary)] mb-6">
+            법인·단체 도입 문의 환영 | 평일 09:00-18:00 | 010-3241-0427
           </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-wrap gap-3 justify-center">
             <a
               href="mailto:biz@boanlinks.com"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-lg bg-[var(--accent-cyan)] text-[var(--bg-primary)] font-semibold text-lg hover:opacity-90 transition-opacity"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-[var(--accent-cyan)] text-[var(--bg-primary)] font-semibold hover:opacity-90 transition-opacity"
             >
-              이메일 문의하기
-              <ArrowRight size={24} />
+              이메일 문의하기 <ArrowRight size={18} />
             </a>
             <Link
               to="/purchase"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-lg border border-[var(--accent-cyan)] text-[var(--accent-cyan)] font-semibold text-lg hover:bg-[var(--accent-cyan-soft)] transition-colors"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-[var(--accent-cyan)] text-[var(--accent-cyan)] font-semibold hover:bg-[var(--accent-cyan-soft)] transition-colors"
             >
               구매 방법 보기
             </Link>
