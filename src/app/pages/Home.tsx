@@ -164,14 +164,45 @@ export default function Home() {
 
             {/* Right 2/5 — product image */}
             <div className="lg:col-span-2">
-              <div className="glass-card p-3 rounded-xl">
-                <img
-                  src="/d-go.info/images/renders/render-03.jpg"
-                  alt="D-GO Vault USB 보안키 삽입"
-                  className="rounded-lg w-full h-auto"
-                />
+              <div className="glass-card p-4 rounded-xl flex flex-col gap-3">
+                <div className="text-center group">
+                  <div className="relative overflow-hidden rounded-lg mb-2">
+                    <img
+                      src="/d-go.info/images/renders/render-01.jpg"
+                      alt="D-GO Vault USB 보안키 분리"
+                      className="w-full h-auto transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute top-2 left-2 badge bg-[var(--bg-overlay)] backdrop-blur text-[var(--text-primary)]">
+                      🔒 보안키 분리
+                    </div>
+                  </div>
+                  <span className="text-xs text-[var(--text-secondary)]">네트워크 및 포트 물리적 차단 상태</span>
+                </div>
+
+                <div className="flex flex-col items-center justify-center my-1 relative">
+                  <div className="absolute w-full h-[1px] bg-[var(--border-hairline)] top-1/2 -z-10"></div>
+                  <div className="bg-[var(--bg-elevated)] px-3 py-1 rounded-full flex flex-col items-center justify-center border border-[var(--border-hairline)] shadow-sm">
+                    <span className="text-[10px] font-semibold text-[var(--accent-cyan)] uppercase tracking-wider mb-0.5">PUF 인증</span>
+                    <ArrowRight size={16} className="text-[var(--accent-cyan)] rotate-90" />
+                  </div>
+                </div>
+
+                <div className="text-center group">
+                  <div className="relative overflow-hidden rounded-lg mb-2">
+                    <img
+                      src="/d-go.info/images/renders/render-03.jpg"
+                      alt="D-GO Vault USB 보안키 삽입"
+                      className="w-full h-auto transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute top-2 left-2 badge bg-[var(--accent-cyan)] text-[var(--bg-primary)]">
+                      🔓 보안키 삽입
+                    </div>
+                  </div>
+                  <span className="text-xs text-[var(--text-secondary)]">암호화 해제 및 데이터 접근 활성화</span>
+                </div>
               </div>
-              <div className="mt-3 text-center">
+              
+              <div className="mt-4 text-center">
                 <Link to="/product" className="inline-flex items-center gap-2 text-sm text-[var(--accent-cyan)] font-semibold hover:gap-3 transition-all">
                   제품 상세 보기 <ArrowRight size={14} />
                 </Link>
