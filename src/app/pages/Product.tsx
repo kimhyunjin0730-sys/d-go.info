@@ -63,7 +63,7 @@ export default function Product() {
 
               {/* Trust strip */}
               <div className="flex flex-wrap items-center gap-4 pt-4 border-t border-[var(--border-hairline)]">
-                <img src="/d-go.info/logo/ICTK.png" alt="ICTK PUF" className="h-6 w-auto opacity-60" />
+                <img src="/d-go.info/logo/ICTK.png" alt="ICTK PUF" className="h-6 w-auto opacity-80" style={{ filter: "brightness(0) saturate(100%) invert(55%) sepia(80%) saturate(500%) hue-rotate(160deg)" }} />
                 <img src="/d-go.info/logo/KC인증.svg" alt="KC 인증" className="h-6 w-auto opacity-60" />
                 <span className="badge text-[var(--text-muted)]">UL CLASS 125</span>
                 <span className="badge text-[var(--text-muted)]">MADE IN KOREA</span>
@@ -236,7 +236,7 @@ export default function Product() {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-4xl mx-auto">
             <div className="glass-card p-4 text-center">
-              <img src="/d-go.info/logo/ICTK.png" alt="ICTK PUF" className="h-8 w-auto mx-auto mb-2" />
+              <img src="/d-go.info/logo/ICTK.png" alt="ICTK PUF" className="h-8 w-auto mx-auto mb-2" style={{ filter: "brightness(0) saturate(100%) invert(55%) sepia(80%) saturate(500%) hue-rotate(160deg)" }} />
               <div className="badge text-[var(--accent-cyan)] mb-1">ICTK PUF</div>
               <p className="text-xs text-[var(--text-secondary)]">반도체 지문 인증</p>
             </div>

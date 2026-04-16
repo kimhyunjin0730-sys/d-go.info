@@ -51,7 +51,7 @@ export default function Home() {
 
               {/* Trust strip inline */}
               <div className="flex flex-wrap items-center gap-4 pt-4 border-t border-[var(--border-hairline)]">
-                <img src="/d-go.info/logo/ICTK.png" alt="ICTK PUF" className="h-6 w-auto opacity-60" />
+                <img src="/d-go.info/logo/ICTK.png" alt="ICTK PUF" className="h-6 w-auto opacity-80" style={{ filter: "brightness(0) saturate(100%) invert(55%) sepia(80%) saturate(500%) hue-rotate(160deg)" }} />
                 <img src="/d-go.info/logo/KC인증.svg" alt="KC 인증" className="h-6 w-auto opacity-60" />
                 <span className="badge text-[var(--text-muted)]">UL CLASS 125</span>
                 <span className="badge text-[var(--text-muted)]">MADE IN KOREA</span>
