@@ -1,0 +1,185 @@
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* D-GO Design System - Deep Navy + Cyan */
+  
+  /* Surface Colors */
+  --bg-primary: #0F172A;
+  --bg-elevated: #111B30;
+  --bg-overlay: rgba(15, 23, 42, 0.72);
+  
+  /* Glass Card */
+  --card-bg: rgba(17, 27, 48, 0.55);
+  --card-border: rgba(148, 163, 184, 0.12);
+  
+  /* Text */
+  --text-primary: #F8FAFC;
+  --text-secondary: #94A3B8;
+  --text-muted: #64748B;
+  
+  /* Accent Colors */
+  --accent-cyan: #22D3EE;
+  --accent-cyan-soft: rgba(34, 211, 238, 0.12);
+  --accent-orange: #FF6B1A;
+  
+  /* Status Colors */
+  --status-ok: #22C55E;
+  --status-warn: #F59E0B;
+  --status-crit: #EF4444;
+  
+  /* Border */
+  --border-hairline: rgba(148, 163, 184, 0.10);
+  
+  /* Typography */
+  --font-size: 16px;
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  
+  /* Tailwind compatibility */
+  --background: #0F172A;
+  --foreground: #F8FAFC;
+  --card: rgba(17, 27, 48, 0.55);
+  --card-foreground: #F8FAFC;
+  --popover: #111B30;
+  --popover-foreground: #F8FAFC;
+  --primary: #22D3EE;
+  --primary-foreground: #0F172A;
+  --secondary: #1E293B;
+  --secondary-foreground: #F8FAFC;
+  --muted: #334155;
+  --muted-foreground: #94A3B8;
+  --accent: #22D3EE;
+  --accent-foreground: #0F172A;
+  --destructive: #EF4444;
+  --destructive-foreground: #F8FAFC;
+  --border: rgba(148, 163, 184, 0.12);
+  --input: rgba(148, 163, 184, 0.12);
+  --ring: #22D3EE;
+  --radius: 1.25rem;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  
+  /* D-GO Custom Colors */
+  --color-cyan: var(--accent-cyan);
+  --color-cyan-soft: var(--accent-cyan-soft);
+  --color-orange: var(--accent-orange);
+  --color-status-ok: var(--status-ok);
+  --color-status-warn: var(--status-warn);
+  --color-status-crit: var(--status-crit);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Pretendard Variable', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
+  }
+
+  html {
+    font-size: var(--font-size);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', 'Pretendard Variable', sans-serif;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+
+  h4 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+
+  p {
+    line-height: 1.7;
+  }
+
+  code, .mono {
+    font-family: 'JetBrains Mono', monospace;
+    font-feature-settings: "tnum", "ss01";
+  }
+}
+
+/* Utility Classes */
+@layer utilities {
+  .glass-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(14px) saturate(140%);
+    border: 1px solid var(--card-border);
+    border-radius: 1.25rem;
+  }
+
+  .glass-card-hover {
+    transition: all 0.26s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  .glass-card-hover:hover {
+    transform: translateY(-2px);
+    border-color: rgba(34, 211, 238, 0.3);
+    box-shadow: 0 0 0 1px rgba(34, 211, 238, 0.05), 0 30px 60px -30px rgba(34, 211, 238, 0.15);
+  }
+
+  .badge {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+  }
+
+  .glow-cyan {
+    box-shadow: 0 0 20px rgba(34, 211, 238, 0.3);
+  }
+
+  .text-gradient-cyan {
+    background: linear-gradient(135deg, #22D3EE, #06B6D4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
