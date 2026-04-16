@@ -109,7 +109,7 @@ export default function Footer() {
         <div className="mt-12 pt-8 border-t border-[var(--border-hairline)]">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-sm text-[var(--text-muted)]">
-              © 2026 보안링크스 (Boanlinks). All rights reserved.
+              © 2026 보안링스 (Boanlinks). All rights reserved.
             </p>
             <div className="flex items-center gap-2">
               <img src="/d-go.info/logo/boanlinks.png" alt="Boanlinks" className="h-5 w-auto opacity-50" />
