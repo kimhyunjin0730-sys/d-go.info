@@ -1,115 +1,189 @@
 import { motion } from 'framer-motion'
-import { Download, PlayCircle, ShieldQuestion, HelpCircle } from 'lucide-react'
+import { Download, PlayCircle, HelpCircle, AlertTriangle, Mail } from 'lucide-react'
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] } },
+}
+
+const downloads = [
+  { name: 'D-GO App APK',       version: 'v1.2.4', type: 'Android', status: 'available' },
+  { name: 'Quick Start Guide',  version: 'KR',     type: 'PDF',     status: 'available' },
+  { name: 'Full User Manual',   version: 'KR',     type: 'PDF',     status: 'pending'   },
+  { name: 'English Manual',     version: 'EN',     type: 'PDF',     status: 'pending'   },
+]
+
+const steps = [
+  { step: '01', title: 'APK 받기',    desc: '아래 버튼을 눌러 설치 파일을 내려받으세요.' },
+  { step: '02', title: '출처 허용',    desc: "휴대폰 설정에서 '출처를 알 수 없는 앱'을 허용해야 설치됩니다." },
+  { step: '03', title: '권한 켜기',    desc: '앱을 처음 열면 묻는 권한을 모두 허용해 주세요.' },
+  { step: '04', title: '뷰어 설치',    desc: "플레이스토어에서 '한컴오피스 Viewer'를 함께 설치해 주세요." },
+]
+
+const faqs = [
+  { q: '한컴오피스 Viewer를 꼭 깔아야 하나요?',  a: '파일 미리보기 기능을 쓰시려면 필요합니다. 플레이스토어에서 무료로 받을 수 있어요.' },
+  { q: '아이폰에서도 쓸 수 있나요?',             a: '지금은 안드로이드만 됩니다. iOS 버전은 준비 중입니다.' },
+  { q: '보안키를 잃어버리면 어떻게 되나요?',      a: '다시 발급할 방법이 없습니다. 처음 만들 때 종이에 적어두거나 다른 안전한 곳에 따로 보관해 주세요.' },
+  { q: '인터넷 없이도 쓸 수 있나요?',             a: '네. D-GO는 원래 인터넷 없이 동작합니다. 다만 시점 증명을 받을 때 한 번씩 잠깐 연결이 필요합니다.' },
+]
 
 const Manual = () => {
-  const faqs = [
-    { q: "한컴오피스 Viewer를 꼭 깔아야 하나요?", a: "파일 미리보기 기능을 쓰시려면 필요합니다. 플레이스토어에서 무료로 받을 수 있어요." },
-    { q: "아이폰에서도 쓸 수 있나요?", a: "지금은 안드로이드만 됩니다. iOS 버전은 준비 중입니다." },
-    { q: "보안키를 잃어버리면 어떻게 되나요?", a: "다시 발급할 방법이 없습니다. 처음 만들 때 종이에 적어두시거나 다른 안전한 곳에 따로 보관해 주세요." },
-    { q: "인터넷 없이도 쓸 수 있나요?", a: "네. D-GO는 원래 인터넷 없이 동작합니다. 다만 시점 증명을 받을 때 한 번씩 잠깐 연결이 필요합니다." }
-  ]
-
-  const downloads = [
-    { name: "D-GO App APK", version: "v1.2.4", type: "Android", link: "#" },
-    { name: "Quick Start Guide", version: "KR", type: "PDF", link: "#" },
-    { name: "Full User Manual", version: "KR", type: "PDF", status: "수령 예정" },
-    { name: "English Manual", version: "EN", type: "PDF", status: "수령 예정" }
-  ]
-
   return (
-    <div className="manual-page" style={{ paddingTop: '10rem' }}>
-      <section>
+    <div style={{ paddingTop: 'clamp(140px, 18vw, 200px)' }}>
+      {/* Hero */}
+      <section style={{ paddingTop: 0 }}>
         <div className="container">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            style={{ textAlign: 'center', marginBottom: '6rem' }}
-          >
-            <h1 style={{ fontSize: '4rem', marginBottom: '1.5rem' }}>처음 쓰시는 분께</h1>
-            <p style={{ color: 'var(--color-text-dim)', fontSize: '1.2rem' }}>앱 설치부터 첫 보안키 만들기까지, 차근차근 안내해 드립니다</p>
+          <motion.div initial="hidden" animate="visible" variants={fadeUp} style={{ maxWidth: 760, marginBottom: '2rem' }}>
+            <span className="eyebrow">Manual · Downloads</span>
+            <h1 style={{ marginTop: '1rem', marginBottom: '1.25rem' }}>처음 쓰시는 분께</h1>
+            <p style={{ fontSize: '1.05rem' }}>
+              앱 설치부터 첫 보안키 만들기까지, 차근차근 안내해 드립니다.
+            </p>
           </motion.div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '3rem', marginBottom: '8rem' }}>
-            <div className="glass-card" style={{ padding: '3rem' }}>
-              <h3 style={{ fontSize: '1.8rem', marginBottom: '2rem', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                <PlayCircle color="var(--color-primary)" />
-                앱 설치 (안드로이드)
-              </h3>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-                {[
-                  { step: "1", title: "APK 받기", desc: "아래 버튼을 눌러서 설치 파일을 내려받으세요." },
-                  { step: "2", title: "출처 허용", desc: "휴대폰 설정에서 '출처를 알 수 없는 앱'을 허용해 주셔야 설치가 됩니다." },
-                  { step: "3", title: "권한 켜기", desc: "앱을 처음 열면 권한을 묻는데, 모두 허용해 주세요." },
-                  { step: "4", title: "뷰어 설치", desc: "플레이스토어에서 '한컴오피스 Viewer'를 함께 설치해 주세요." }
-                ].map((s) => (
-                  <div key={s.step} style={{ display: 'flex', gap: '1.5rem' }}>
-                    <div style={{ width: '40px', height: '40px', background: 'var(--color-primary)', color: '#000', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, flexShrink: 0 }}>{s.step}</div>
+          {/* Temporary notice banner */}
+          <motion.div
+            initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} variants={fadeUp}
+            className="bento-card"
+            style={{
+              padding: '1.25rem 1.5rem',
+              borderColor: 'rgba(245, 158, 11, 0.3)',
+              marginBottom: '2.5rem',
+            }}
+          >
+            <div style={{ display: 'flex', alignItems: 'flex-start', gap: 14 }}>
+              <AlertTriangle size={20} color="var(--status-warn)" style={{ flexShrink: 0, marginTop: 2 }} />
+              <div>
+                <div style={{ fontFamily: 'var(--font-display)', fontWeight: 700, color: 'var(--text-primary)', marginBottom: 4 }}>
+                  임시 자료 안내
+                </div>
+                <p style={{ fontSize: '0.9rem', margin: 0 }}>
+                  현재 게시된 매뉴얼과 앱은 <strong style={{ color: 'var(--text-primary)' }}>임시 레퍼런스</strong>입니다.
+                  정식 D-GO Vault 앱 및 매뉴얼은 약 1주 내 업데이트 예정입니다.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Two-col */}
+          <div className="bento-grid">
+            {/* Install steps */}
+            <motion.article initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.15 }} variants={fadeUp} className="bento-card b-col-7">
+              <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: '1.5rem' }}>
+                <PlayCircle size={22} color="var(--accent-cyan)" strokeWidth={2} />
+                <span className="badge"><span className="dot" />Android Install</span>
+              </div>
+              <h3 style={{ marginBottom: '1.75rem' }}>앱 설치 (안드로이드)</h3>
+
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                {steps.map((s) => (
+                  <div
+                    key={s.step}
+                    style={{
+                      display: 'grid',
+                      gridTemplateColumns: '52px 1fr',
+                      gap: '1rem',
+                      padding: '1rem 1.15rem',
+                      borderRadius: 12,
+                      background: 'rgba(10,15,30,0.5)',
+                      border: '1px solid rgba(148,163,184,0.10)',
+                    }}
+                  >
+                    <div style={{ fontFamily: 'var(--font-mono)', color: 'var(--accent-cyan)', fontSize: '1.1rem', fontWeight: 700 }}>{s.step}</div>
                     <div>
-                      <h4 style={{ marginBottom: '0.5rem' }}>{s.title}</h4>
-                      <p style={{ color: 'var(--color-text-dim)', fontSize: '0.9rem' }}>{s.desc}</p>
+                      <div style={{ fontWeight: 700, color: 'var(--text-primary)', marginBottom: 4 }}>{s.title}</div>
+                      <div style={{ fontSize: '0.88rem', color: 'var(--text-dim)' }}>{s.desc}</div>
                     </div>
                   </div>
                 ))}
               </div>
-              <button className="btn-primary" style={{ width: '100%', marginTop: '3rem', justifyContent: 'center' }}>
-                <Download size={20} /> D-GO App APK 다운로드
-              </button>
-            </div>
+            </motion.article>
 
-            <div className="glass-card" style={{ padding: '3rem' }}>
-              <h3 style={{ fontSize: '1.8rem', marginBottom: '2rem', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                <ShieldQuestion color="var(--color-primary)" />
-                처음 한 번만 해두면 되는 세 가지
-              </h3>
-              <div style={{ padding: '2rem', background: 'rgba(255,255,255,0.02)', borderRadius: '16px', marginBottom: '2rem' }}>
-                <h4 style={{ color: 'var(--color-primary)', marginBottom: '1rem' }}>① 저장할 곳 정하기</h4>
-                <p style={{ fontSize: '0.9rem', color: 'var(--color-text-dim)' }}>설정 → [저장 경로 설정] 에서 Vault 도킹 폴더를 골라 주세요.</p>
+            {/* Downloads */}
+            <motion.article initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.15 }} variants={fadeUp} className="bento-card b-col-5">
+              <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: '1.5rem' }}>
+                <Download size={22} color="var(--accent-cyan)" strokeWidth={2} />
+                <span className="badge"><span className="dot" />Downloads</span>
               </div>
-              <div style={{ padding: '2rem', background: 'rgba(255,255,255,0.02)', borderRadius: '16px', marginBottom: '2rem' }}>
-                <h4 style={{ color: 'var(--color-primary)', marginBottom: '1rem' }}>② 자동 백업 주기 정하기</h4>
-                <p style={{ fontSize: '0.9rem', color: 'var(--color-text-dim)' }}>설정 → [자동 동기화] 에서 1시간 등 원하는 간격을 골라 주세요.</p>
-              </div>
-              <div style={{ padding: '2rem', background: 'rgba(255,176,0,0.05)', borderRadius: '16px', border: '1px solid rgba(255,176,0,0.2)' }}>
-                <h4 style={{ color: 'var(--color-primary)', marginBottom: '1rem' }}>③ 보안키 만들기</h4>
-                <p style={{ fontSize: '0.9rem', color: 'var(--color-text-dim)', marginBottom: '1rem' }}>설정 → [보안키 관리] → [새로 생성] 을 누르면 됩니다.</p>
-                <div style={{ background: '#000', padding: '1rem', borderRadius: '8px', fontSize: '0.75rem', color: '#ff4d4d', fontWeight: 700 }}>
-                  주의: 한 번 만든 보안키는 잃어버리면 다시 만들 수 없습니다. 꼭 어딘가에 적어두세요.
-                </div>
-              </div>
-            </div>
-          </div>
+              <h3 style={{ marginBottom: '1.75rem' }}>자료 다운로드</h3>
 
-          <div style={{ marginBottom: '8rem' }}>
-            <h2 style={{ fontSize: '2.5rem', marginBottom: '3rem' }}>받을 수 있는 파일</h2>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem' }}>
-              {downloads.map((item, i) => (
-                <div key={i} className="glass-card" style={{ padding: '2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                  <div>
-                    <h4 style={{ marginBottom: '0.25rem' }}>{item.name}</h4>
-                    <p style={{ fontSize: '0.8rem', color: 'var(--color-text-dim)' }}>{item.version} | {item.type}</p>
+              <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+                {downloads.map((d) => {
+                  const disabled = d.status === 'pending'
+                  return (
+                    <li
+                      key={d.name}
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'space-between',
+                        gap: 12,
+                        padding: '0.95rem 1.15rem',
+                        borderRadius: 12,
+                        background: 'rgba(10,15,30,0.5)',
+                        border: '1px solid rgba(148,163,184,0.10)',
+                        opacity: disabled ? 0.55 : 1,
+                      }}
+                    >
+                      <div>
+                        <div style={{ color: 'var(--text-primary)', fontWeight: 600, fontSize: '0.92rem' }}>{d.name}</div>
+                        <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem', color: 'var(--text-muted)', marginTop: 3 }}>
+                          {d.type} · {d.version}
+                        </div>
+                      </div>
+                      {disabled ? (
+                        <span className="badge badge--ghost">수령 예정</span>
+                      ) : (
+                        <button className="btn btn-ghost" style={{ padding: '0.45rem 0.85rem', minHeight: 36, fontSize: '0.78rem' }}>
+                          <Download size={14} strokeWidth={2.4} />
+                          받기
+                        </button>
+                      )}
+                    </li>
+                  )
+                })}
+              </ul>
+            </motion.article>
+
+            {/* FAQ */}
+            <motion.article initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.15 }} variants={fadeUp} className="bento-card b-col-12">
+              <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: '1.5rem' }}>
+                <HelpCircle size={22} color="var(--accent-cyan)" strokeWidth={2} />
+                <span className="badge"><span className="dot" />FAQ</span>
+              </div>
+              <h3 style={{ marginBottom: '1.75rem' }}>자주 묻는 질문</h3>
+
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1rem' }}>
+                {faqs.map((f, i) => (
+                  <div
+                    key={i}
+                    style={{
+                      padding: '1.1rem 1.25rem',
+                      borderRadius: 12,
+                      background: 'rgba(10,15,30,0.5)',
+                      border: '1px solid rgba(148,163,184,0.10)',
+                    }}
+                  >
+                    <div style={{ fontWeight: 700, color: 'var(--text-primary)', marginBottom: 8, fontSize: '0.95rem' }}>Q. {f.q}</div>
+                    <div style={{ color: 'var(--text-dim)', fontSize: '0.88rem', lineHeight: 1.65 }}>{f.a}</div>
                   </div>
-                  {item.status ? (
-                     <span style={{ fontSize: '0.8rem', color: 'var(--color-text-dim)', background: 'rgba(255,255,255,0.05)', padding: '0.4rem 0.8rem', borderRadius: '4px' }}>{item.status}</span>
-                  ) : (
-                    <button style={{ color: 'var(--color-primary)' }}><Download size={24} /></button>
-                  )}
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
+            </motion.article>
           </div>
+        </div>
+      </section>
 
-          <div style={{ maxWidth: '800px', margin: '0 auto' }}>
-            <h2 style={{ fontSize: '2.5rem', marginBottom: '3rem', textAlign: 'center', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '1rem' }}>
-              <HelpCircle color="var(--color-primary)" /> 자주 묻는 질문
-            </h2>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-              {faqs.map((faq, i) => (
-                <div key={i} className="glass-card" style={{ padding: '2rem' }}>
-                  <h4 style={{ color: 'var(--color-primary)', marginBottom: '1rem', fontSize: '1.1rem' }}>{faq.q}</h4>
-                  <p style={{ color: 'var(--color-text-dim)', fontSize: '0.95rem' }}>{faq.a}</p>
-                </div>
-              ))}
-            </div>
+      {/* CTA */}
+      <section>
+        <div className="container">
+          <div className="bento-card" style={{ textAlign: 'center', padding: 'clamp(2.5rem, 6vw, 4rem)' }}>
+            <h2 style={{ marginBottom: '1rem' }}>해결되지 않는 문제가 있나요?</h2>
+            <p style={{ marginBottom: '2rem' }}>담당자가 직접 도와드립니다.</p>
+            <a href="mailto:biz@boanlinks.com?subject=%5BD-GO%20Vault%5D%20%EA%B8%B0%EC%88%A0%20%EC%A7%80%EC%9B%90" className="btn btn-primary">
+              <Mail size={16} strokeWidth={2.4} />
+              기술 지원 문의
+            </a>
           </div>
         </div>
       </section>

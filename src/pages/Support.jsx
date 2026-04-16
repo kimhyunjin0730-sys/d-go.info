@@ -1,105 +1,169 @@
 import { motion } from 'framer-motion'
-import { Send, Mail, Phone, Clock, MapPin } from 'lucide-react'
+import { useState } from 'react'
+import { Mail, Phone, Clock, MapPin, Send, Copy, Check } from 'lucide-react'
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] } },
+}
 
 const Support = () => {
+  const [form, setForm] = useState({
+    name: '', company: '', email: '', phone: '', type: '제품 구매 문의', message: '',
+  })
+  const [copied, setCopied] = useState(false)
+
+  const update = (k) => (e) => setForm({ ...form, [k]: e.target.value })
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    const subject = `[D-GO Vault] ${form.type} - ${form.name || '문의'}`
+    const body = [
+      `이름: ${form.name}`,
+      `회사/소속: ${form.company}`,
+      `이메일: ${form.email}`,
+      `연락처: ${form.phone}`,
+      `문의 유형: ${form.type}`,
+      ``,
+      `--- 문의 내용 ---`,
+      form.message,
+    ].join('\n')
+    window.location.href = `mailto:biz@boanlinks.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+  }
+
+  const copyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText('biz@boanlinks.com')
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2000)
+    } catch (_) {}
+  }
+
+  const inputStyle = {
+    padding: '0.95rem 1.1rem',
+    background: 'rgba(10, 15, 30, 0.55)',
+    border: '1px solid rgba(148, 163, 184, 0.18)',
+    borderRadius: 12,
+    color: 'var(--text-primary)',
+    fontFamily: 'var(--font-body)',
+    fontSize: '0.95rem',
+    width: '100%',
+    transition: 'border-color 220ms var(--ease-out), background 220ms var(--ease-out)',
+  }
+
   return (
-    <div className="support-page" style={{ paddingTop: '10rem' }}>
-      <section>
+    <div style={{ paddingTop: 'clamp(140px, 18vw, 200px)' }}>
+      <section style={{ paddingTop: 0 }}>
         <div className="container">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            style={{ textAlign: 'center', marginBottom: '6rem' }}
-          >
-            <h1 style={{ fontSize: '4rem', marginBottom: '1.5rem' }}>편하게 물어보세요</h1>
-            <p style={{ color: 'var(--color-text-dim)', fontSize: '1.2rem' }}>제품 사용 중에 막힌 부분이든, 도입 상담이든 한 줄만 남겨 주시면 됩니다</p>
+          <motion.div initial="hidden" animate="visible" variants={fadeUp} style={{ maxWidth: 720, marginBottom: '3rem', textAlign: 'center', margin: '0 auto 3rem' }}>
+            <span className="eyebrow">Contact</span>
+            <h1 style={{ marginTop: '1rem', marginBottom: '1rem' }}>편하게 물어보세요</h1>
+            <p style={{ fontSize: '1.05rem' }}>
+              제품 구매, 도입 상담, 기술 문의 — 모두 한 채널에서 응답합니다.
+            </p>
           </motion.div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))', gap: '4rem' }}>
-            {/* Contact Form */}
-            <div className="glass-card" style={{ padding: '4rem' }}>
-              <form onSubmit={(e) => e.preventDefault()} style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
-                    <label style={{ fontSize: '0.9rem', fontWeight: 700 }}>이름 *</label>
-                    <input type="text" placeholder="홍길동" style={{ padding: '1rem', background: 'rgba(255,255,255,0.03)', border: '1px solid var(--glass-border)', borderRadius: '12px', color: '#fff' }} required />
+          <div className="bento-grid">
+            {/* Form */}
+            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.15 }} variants={fadeUp} className="bento-card b-col-7">
+              <span className="badge"><span className="dot" />Inquiry Form</span>
+              <h3 style={{ marginTop: '1rem', marginBottom: '1.75rem' }}>1분이면 충분합니다</h3>
+
+              <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.1rem' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                    <label style={{ fontSize: '0.78rem', fontWeight: 700, color: 'var(--text-dim)', letterSpacing: '0.04em' }}>이름 *</label>
+                    <input type="text" required value={form.name} onChange={update('name')} placeholder="홍길동" style={inputStyle} />
                   </div>
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
-                    <label style={{ fontSize: '0.9rem', fontWeight: 700 }}>연락처 *</label>
-                    <input type="text" placeholder="010-0000-0000" style={{ padding: '1rem', background: 'rgba(255,255,255,0.03)', border: '1px solid var(--glass-border)', borderRadius: '12px', color: '#fff' }} required />
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                    <label style={{ fontSize: '0.78rem', fontWeight: 700, color: 'var(--text-dim)', letterSpacing: '0.04em' }}>회사 / 소속</label>
+                    <input type="text" value={form.company} onChange={update('company')} placeholder="(선택)" style={inputStyle} />
                   </div>
                 </div>
 
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
-                  <label style={{ fontSize: '0.9rem', fontWeight: 700 }}>문의 유형 *</label>
-                  <select style={{ padding: '1rem', background: 'rgba(5,5,5,1)', border: '1px solid var(--glass-border)', borderRadius: '12px', color: '#fff' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                    <label style={{ fontSize: '0.78rem', fontWeight: 700, color: 'var(--text-dim)', letterSpacing: '0.04em' }}>이메일 *</label>
+                    <input type="email" required value={form.email} onChange={update('email')} placeholder="you@example.com" style={inputStyle} />
+                  </div>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                    <label style={{ fontSize: '0.78rem', fontWeight: 700, color: 'var(--text-dim)', letterSpacing: '0.04em' }}>연락처</label>
+                    <input type="tel" value={form.phone} onChange={update('phone')} placeholder="010-0000-0000" style={inputStyle} />
+                  </div>
+                </div>
+
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                  <label style={{ fontSize: '0.78rem', fontWeight: 700, color: 'var(--text-dim)', letterSpacing: '0.04em' }}>문의 유형</label>
+                  <select value={form.type} onChange={update('type')} style={{ ...inputStyle, appearance: 'none' }}>
                     <option>제품 구매 문의</option>
-                    <option>기술 지원 / 오류 신고</option>
                     <option>법인 / 단체 도입 문의</option>
+                    <option>기술 지원 / 오류 신고</option>
                     <option>파트너십 / 총판 문의</option>
                     <option>기타</option>
                   </select>
                 </div>
 
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
-                  <label style={{ fontSize: '0.9rem', fontWeight: 700 }}>문의 내용 *</label>
-                  <textarea rows="5" placeholder="어떤 점이 궁금하신지 편하게 적어주세요" style={{ padding: '1rem', background: 'rgba(255,255,255,0.03)', border: '1px solid var(--glass-border)', borderRadius: '12px', color: '#fff', resize: 'none' }} required></textarea>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                  <label style={{ fontSize: '0.78rem', fontWeight: 700, color: 'var(--text-dim)', letterSpacing: '0.04em' }}>문의 내용 *</label>
+                  <textarea required value={form.message} onChange={update('message')} rows={5} placeholder="궁금한 점을 자유롭게 작성해 주세요." style={{ ...inputStyle, resize: 'vertical', lineHeight: 1.6 }} />
                 </div>
 
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                  <input type="checkbox" id="privacy" required />
-                  <label htmlFor="privacy" style={{ fontSize: '0.85rem', color: 'var(--color-text-dim)' }}>개인정보 수집 및 이용에 동의합니다. *</label>
-                </div>
-
-                <button type="submit" className="btn-primary" style={{ justifyContent: 'center' }}>
-                  문의 접수하기 <Send size={20} />
+                <button type="submit" className="btn btn-primary" style={{ marginTop: '0.5rem' }}>
+                  <Send size={16} strokeWidth={2.4} />
+                  메일로 보내기
                 </button>
-              </form>
-            </div>
-
-            {/* Contact Info */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-              <div className="glass-card" style={{ padding: '3rem' }}>
-                <h3 style={{ fontSize: '1.5rem', marginBottom: '2.5rem' }}>연락 방법</h3>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-                  <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'flex-start' }}>
-                    <div style={{ color: 'var(--color-primary)' }}><Mail size={24} /></div>
-                    <div>
-                      <h4 style={{ marginBottom: '0.25rem' }}>이메일</h4>
-                      <p style={{ color: 'var(--color-text-dim)', fontSize: '0.95rem' }}>support@d-go.info</p>
-                    </div>
-                  </div>
-                  <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'flex-start' }}>
-                    <div style={{ color: 'var(--color-primary)' }}><Phone size={24} /></div>
-                    <div>
-                      <h4 style={{ marginBottom: '0.25rem' }}>전화 상담</h4>
-                      <p style={{ color: 'var(--color-text-dim)', fontSize: '0.95rem' }}>준비 중입니다. 그동안은 이메일로 부탁드려요</p>
-                    </div>
-                  </div>
-                  <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'flex-start' }}>
-                    <div style={{ color: 'var(--color-primary)' }}><Clock size={24} /></div>
-                    <div>
-                      <h4 style={{ marginBottom: '0.25rem' }}>응대 시간</h4>
-                      <p style={{ color: 'var(--color-text-dim)', fontSize: '0.95rem' }}>평일 오전 9시 ~ 오후 6시</p>
-                    </div>
-                  </div>
-                  <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'flex-start' }}>
-                    <div style={{ color: 'var(--color-primary)' }}><MapPin size={24} /></div>
-                    <div>
-                      <h4 style={{ marginBottom: '0.25rem' }}>오시는 길</h4>
-                      <p style={{ color: 'var(--color-text-dim)', fontSize: '0.95rem' }}>서울시 강남구 테헤란로</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="glass-card" style={{ padding: '3rem', background: 'rgba(0, 255, 171, 0.05)', border: '1px solid rgba(0, 255, 171, 0.2)' }}>
-                <h4 style={{ color: 'var(--color-accent)', marginBottom: '1rem' }}>답변까지 보통 하루 안</h4>
-                <p style={{ fontSize: '0.9rem', color: 'var(--color-text-dim)' }}>
-                  평일에 보내주시면 24시간 안에 답변드리고 있어요. 기기에 문제가 생긴 경우라면 시리얼 번호도 함께 적어주시면 더 빨리 봐드릴 수 있습니다.
+                <p style={{ fontSize: '0.78rem', color: 'var(--text-muted)', textAlign: 'center', marginTop: 4 }}>
+                  버튼을 누르면 메일 앱이 열립니다. 열리지 않으면 우측 정보로 직접 보내주세요.
                 </p>
-              </div>
-            </div>
+              </form>
+            </motion.div>
+
+            {/* Contact info */}
+            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.15 }} variants={fadeUp} className="bento-card b-col-5">
+              <span className="badge"><span className="dot" />Direct Channel</span>
+              <h3 style={{ marginTop: '1rem', marginBottom: '1.75rem' }}>직접 연락하기</h3>
+
+              <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+                <li>
+                  <div className="eyebrow" style={{ color: 'var(--text-muted)', marginBottom: 6 }}>Email</div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                    <Mail size={18} color="var(--accent-cyan)" />
+                    <a href="mailto:biz@boanlinks.com" style={{ color: 'var(--text-primary)', fontFamily: 'var(--font-mono)', fontSize: '0.95rem' }}>
+                      biz@boanlinks.com
+                    </a>
+                    <button onClick={copyEmail} aria-label="이메일 복사" style={{ marginLeft: 'auto', padding: 6, borderRadius: 8, color: copied ? 'var(--status-ok)' : 'var(--text-muted)' }}>
+                      {copied ? <Check size={16} /> : <Copy size={16} />}
+                    </button>
+                  </div>
+                </li>
+
+                <li>
+                  <div className="eyebrow" style={{ color: 'var(--text-muted)', marginBottom: 6 }}>Phone</div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                    <Phone size={18} color="var(--accent-cyan)" />
+                    <a href="tel:01032410427" style={{ color: 'var(--text-primary)', fontFamily: 'var(--font-mono)', fontSize: '0.95rem' }}>
+                      010-3241-0427
+                    </a>
+                  </div>
+                </li>
+
+                <li>
+                  <div className="eyebrow" style={{ color: 'var(--text-muted)', marginBottom: 6 }}>Hours</div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 10, color: 'var(--text-secondary)' }}>
+                    <Clock size={18} color="var(--accent-cyan)" />
+                    평일 09:00 – 18:00
+                  </div>
+                </li>
+
+                <li>
+                  <div className="eyebrow" style={{ color: 'var(--text-muted)', marginBottom: 6 }}>Address</div>
+                  <div style={{ display: 'flex', alignItems: 'flex-start', gap: 10, color: 'var(--text-secondary)', fontSize: '0.92rem', lineHeight: 1.65 }}>
+                    <MapPin size={18} color="var(--accent-cyan)" style={{ marginTop: 2, flexShrink: 0 }} />
+                    <span>경기 하남시 미사대로 540<br />현대지식산업센터 한강미사2차 비동 614호</span>
+                  </div>
+                </li>
+              </ul>
+            </motion.div>
           </div>
         </div>
       </section>

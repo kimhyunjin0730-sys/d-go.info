@@ -1,74 +1,103 @@
 import { Link, useLocation } from 'react-router-dom'
-import { Shield, Menu, X } from 'lucide-react'
+import { Menu, X, Mail } from 'lucide-react'
 import { useState, useEffect } from 'react'
+
+const navItems = [
+  { name: 'Product',     path: '/product' },
+  { name: 'Technology',  path: '/technology' },
+  { name: 'Dashboard',   path: '/dashboard' },
+  { name: 'Manual',      path: '/manual' },
+  { name: 'Purchase',    path: '/purchase' },
+  { name: 'Contact',     path: '/support' },
+]
 
 const Header = () => {
   const location = useLocation()
   const [menuOpen, setMenuOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
 
-  const navItems = [
-    { name: '제품소개', path: '/product' },
-    { name: '매뉴얼/다운로드', path: '/manual' },
-    { name: '구매하기', path: '/purchase' },
-    { name: '문의센터', path: '/support' },
-  ]
-
-  // Close menu on route change
   useEffect(() => { setMenuOpen(false) }, [location.pathname])
 
-  // Lock body scroll while menu open
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : ''
     return () => { document.body.style.overflow = '' }
   }, [menuOpen])
 
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 12)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
   return (
     <>
-      <header style={{
-        position: 'fixed',
-        top: 0,
-        width: '100%',
-        zIndex: 1000,
-        padding: '1rem 0',
-        background: 'rgba(238, 242, 247, 0.82)',
-        backdropFilter: 'blur(14px) saturate(180%)',
-        WebkitBackdropFilter: 'blur(14px) saturate(180%)',
-        borderBottom: '1px solid rgba(15, 26, 46, 0.08)'
-      }}>
-        <div className="container" style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          gap: '1rem'
-        }}>
-          <Link to="/" style={{
+      <header
+        style={{
+          position: 'fixed',
+          top: 0,
+          width: '100%',
+          zIndex: 1000,
+          padding: scrolled ? '0.75rem 0' : '1.1rem 0',
+          background: scrolled ? 'rgba(15, 23, 42, 0.78)' : 'rgba(15, 23, 42, 0.45)',
+          backdropFilter: 'blur(16px) saturate(160%)',
+          WebkitBackdropFilter: 'blur(16px) saturate(160%)',
+          borderBottom: `1px solid ${scrolled ? 'rgba(148, 163, 184, 0.12)' : 'transparent'}`,
+          transition: 'padding 220ms var(--ease-out), background 220ms var(--ease-out), border-color 220ms var(--ease-out)',
+        }}
+      >
+        <div
+          className="container"
+          style={{
             display: 'flex',
             alignItems: 'center',
-            gap: '0.65rem',
-            fontSize: 'clamp(1.1rem, 3vw, 1.35rem)',
-            fontWeight: 800,
-            fontFamily: 'var(--font-heading)',
-            letterSpacing: '0.08em',
-            color: 'var(--color-ink)',
-            flexShrink: 0
-          }}>
-            <div style={{
-              width: '34px',
-              height: '34px',
-              borderRadius: '10px',
-              background: 'linear-gradient(135deg, #0f1a2e, #1a2a45)',
+            justifyContent: 'space-between',
+            gap: '1rem',
+          }}
+        >
+          {/* Logo */}
+          <Link
+            to="/"
+            style={{
               display: 'flex',
               alignItems: 'center',
-              justifyContent: 'center',
-              boxShadow: '0 6px 16px rgba(15, 26, 46, 0.25), 0 0 20px rgba(0, 255, 200, 0.18)'
-            }}>
-              <Shield size={18} color="#00ffc8" strokeWidth={2.5} />
+              gap: '0.6rem',
+              color: 'var(--text-primary)',
+              flexShrink: 0,
+            }}
+          >
+            <div
+              aria-hidden
+              style={{
+                width: 34,
+                height: 34,
+                borderRadius: 10,
+                background: 'linear-gradient(135deg, #0B1226 0%, #1E293B 100%)',
+                border: '1px solid rgba(34, 211, 238, 0.35)',
+                display: 'grid',
+                placeItems: 'center',
+                boxShadow: '0 0 24px rgba(34, 211, 238, 0.25), inset 0 1px 0 rgba(255,255,255,0.05)',
+              }}
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22D3EE" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M12 2 4 6v6c0 5 3.5 9.5 8 10 4.5-.5 8-5 8-10V6l-8-4z" />
+                <path d="M9 12l2 2 4-4" />
+              </svg>
             </div>
-            <span>D-GO</span>
+            <span
+              style={{
+                fontFamily: 'var(--font-display)',
+                fontWeight: 800,
+                fontSize: '1.15rem',
+                letterSpacing: '0.04em',
+              }}
+            >
+              D-GO <span style={{ color: 'var(--accent-cyan)' }}>VAULT</span>
+            </span>
           </Link>
 
           {/* Desktop nav */}
-          <nav className="nav-desktop" style={{ display: 'flex', gap: '2.25rem', alignItems: 'center' }}>
+          <nav className="nav-desktop" style={{ display: 'flex', gap: '1.75rem', alignItems: 'center' }}>
             {navItems.map((item) => {
               const isActive = location.pathname === item.path
               return (
@@ -76,35 +105,47 @@ const Header = () => {
                   key={item.path}
                   to={item.path}
                   style={{
-                    fontSize: '0.9rem',
+                    fontFamily: 'var(--font-display)',
+                    fontSize: '0.85rem',
                     fontWeight: 600,
-                    color: isActive ? 'var(--color-ink)' : 'var(--color-text-dim)',
-                    transition: 'var(--transition-smooth)',
-                    borderBottom: isActive ? '2px solid var(--color-primary)' : '2px solid transparent',
-                    paddingBottom: '2px'
+                    letterSpacing: '0.02em',
+                    color: isActive ? 'var(--accent-cyan)' : 'var(--text-dim)',
+                    position: 'relative',
+                    padding: '4px 0',
+                    transition: 'color 220ms var(--ease-out)',
                   }}
-                  onMouseOver={(e) => (e.currentTarget.style.color = 'var(--color-ink)')}
-                  onMouseOut={(e) => (e.currentTarget.style.color = isActive ? 'var(--color-ink)' : 'var(--color-text-dim)')}
+                  onMouseEnter={(e) => { if (!isActive) e.currentTarget.style.color = 'var(--text-primary)' }}
+                  onMouseLeave={(e) => { if (!isActive) e.currentTarget.style.color = 'var(--text-dim)' }}
                 >
                   {item.name}
+                  {isActive && (
+                    <span
+                      aria-hidden
+                      style={{
+                        position: 'absolute',
+                        left: 0,
+                        right: 0,
+                        bottom: -6,
+                        height: 2,
+                        background: 'var(--accent-cyan)',
+                        boxShadow: '0 0 12px rgba(34,211,238,0.6)',
+                      }}
+                    />
+                  )}
                 </Link>
               )
             })}
           </nav>
 
-          {/* Desktop lang */}
-          <div className="lang-desktop" style={{
-            display: 'flex',
-            gap: '0.75rem',
-            fontSize: '0.78rem',
-            fontWeight: 700,
-            fontFamily: 'var(--font-heading)',
-            letterSpacing: '0.08em'
-          }}>
-            <button style={{ color: 'var(--color-ink)' }}>KO</button>
-            <span style={{ color: 'var(--color-text-muted)' }}>|</span>
-            <button style={{ color: 'var(--color-text-muted)' }}>EN</button>
-          </div>
+          {/* CTA desktop */}
+          <a
+            href="mailto:biz@boanlinks.com?subject=%5BD-GO%20Vault%5D%20%EB%8F%84%EC%9E%85%20%EB%AC%B8%EC%9D%98"
+            className="nav-desktop btn btn-primary"
+            style={{ minHeight: 42, padding: '0.6rem 1.15rem', fontSize: '0.82rem' }}
+          >
+            <Mail size={15} strokeWidth={2.4} />
+            문의하기
+          </a>
 
           {/* Mobile burger */}
           <button
@@ -114,14 +155,15 @@ const Header = () => {
             onClick={() => setMenuOpen((v) => !v)}
             style={{
               display: 'none',
-              width: '44px',
-              height: '44px',
+              width: 44,
+              height: 44,
               alignItems: 'center',
               justifyContent: 'center',
-              borderRadius: '10px',
-              border: '1px solid rgba(15, 26, 46, 0.15)',
-              background: 'rgba(255, 255, 255, 0.6)',
-              color: 'var(--color-ink)'
+              borderRadius: 12,
+              border: '1px solid rgba(148, 163, 184, 0.22)',
+              background: 'rgba(17, 27, 48, 0.6)',
+              color: 'var(--text-primary)',
+              backdropFilter: 'blur(10px)',
             }}
           >
             {menuOpen ? <X size={22} /> : <Menu size={22} />}
@@ -134,20 +176,17 @@ const Header = () => {
         role="dialog"
         aria-modal="true"
         aria-hidden={!menuOpen}
-        className="nav-drawer"
         style={{
           position: 'fixed',
           inset: 0,
           zIndex: 999,
-          background: 'rgba(238, 242, 247, 0.97)',
+          background: 'rgba(10, 15, 30, 0.96)',
           backdropFilter: 'blur(20px) saturate(160%)',
           WebkitBackdropFilter: 'blur(20px) saturate(160%)',
           display: menuOpen ? 'flex' : 'none',
           flexDirection: 'column',
-          alignItems: 'stretch',
-          justifyContent: 'center',
-          padding: '5rem 2rem 3rem',
-          gap: '0.5rem'
+          padding: '5.5rem 1.25rem 2rem',
+          gap: '0.5rem',
         }}
       >
         {navItems.map((item, i) => {
@@ -157,48 +196,44 @@ const Header = () => {
               key={item.path}
               to={item.path}
               style={{
-                fontSize: '1.5rem',
-                fontWeight: 700,
-                fontFamily: 'var(--font-heading)',
-                letterSpacing: '0.02em',
-                padding: '1.1rem 1.25rem',
-                borderRadius: '14px',
-                border: '1px solid rgba(15, 26, 46, 0.1)',
-                color: isActive ? 'var(--color-ink)' : 'var(--color-text-dim)',
-                background: isActive ? 'rgba(0, 168, 143, 0.08)' : 'rgba(255, 255, 255, 0.5)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'space-between',
-                animation: menuOpen ? `fadeIn 0.5s ease ${i * 0.06 + 0.1}s backwards` : 'none'
+                padding: '1.15rem 1.25rem',
+                borderRadius: 16,
+                border: `1px solid ${isActive ? 'rgba(34,211,238,0.35)' : 'rgba(148,163,184,0.12)'}`,
+                background: isActive ? 'rgba(34, 211, 238, 0.08)' : 'rgba(17, 27, 48, 0.55)',
+                color: isActive ? 'var(--accent-cyan)' : 'var(--text-primary)',
+                fontFamily: 'var(--font-display)',
+                fontWeight: 700,
+                fontSize: '1.1rem',
+                letterSpacing: '0.01em',
+                animation: menuOpen ? `fadeUp 0.5s var(--ease-out) ${i * 0.05 + 0.05}s backwards` : 'none',
               }}
             >
               <span>{item.name}</span>
-              <span style={{
-                fontSize: '0.72rem',
-                letterSpacing: '0.18em',
-                color: 'var(--color-text-muted)'
-              }}>
+              <span
+                style={{
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: '0.7rem',
+                  letterSpacing: '0.1em',
+                  color: 'var(--text-muted)',
+                }}
+              >
                 0{i + 1}
               </span>
             </Link>
           )
         })}
-        <div style={{
-          marginTop: '2rem',
-          paddingTop: '1.5rem',
-          borderTop: '1px solid rgba(15, 26, 46, 0.1)',
-          display: 'flex',
-          gap: '1rem',
-          fontSize: '0.8rem',
-          fontWeight: 700,
-          fontFamily: 'var(--font-heading)',
-          letterSpacing: '0.08em',
-          justifyContent: 'center'
-        }}>
-          <button style={{ color: 'var(--color-primary)' }}>KO</button>
-          <span style={{ color: 'var(--color-text-muted)' }}>|</span>
-          <button style={{ color: 'var(--color-text-muted)' }}>EN</button>
-        </div>
+
+        <a
+          href="mailto:biz@boanlinks.com?subject=%5BD-GO%20Vault%5D%20%EB%8F%84%EC%9E%85%20%EB%AC%B8%EC%9D%98"
+          className="btn btn-primary"
+          style={{ marginTop: '1rem' }}
+        >
+          <Mail size={16} strokeWidth={2.4} />
+          biz@boanlinks.com
+        </a>
       </div>
     </>
   )

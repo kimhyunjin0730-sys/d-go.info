@@ -1,841 +1,552 @@
 import { motion } from 'framer-motion'
-import { ArrowRight, ShieldCheck, Cpu, Clock, HardDrive, ChevronRight, Lock, Fingerprint, WifiOff, KeyRound, ScanLine, Database } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import {
+  ArrowRight, Mail, ShieldCheck, Usb, ScanLine, FileCheck2,
+  Cpu, WifiOff, Thermometer, BatteryCharging, Fingerprint, KeyRound,
+} from 'lucide-react'
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] } },
+}
+
+const stagger = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { staggerChildren: 0.08, delayChildren: 0.05 } },
+}
+
+const Badge = ({ children, variant = 'default' }) => (
+  <span className={`badge${variant === 'ghost' ? ' badge--ghost' : ''}`}>
+    {variant !== 'ghost' && <span className="dot" />}
+    {children}
+  </span>
+)
 
 const Home = () => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.2 }
-    }
-  }
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } }
-  }
-
   return (
     <div className="home-page">
-      {/* Hero Section */}
-      <section className="hero" style={{
-        minHeight: '100vh',
-        display: 'flex',
-        alignItems: 'center',
-        paddingTop: '6rem',
-        position: 'relative',
-        overflow: 'hidden'
-      }}>
-        {/* Animated background decorations */}
-        <div aria-hidden="true" style={{ position: 'absolute', inset: 0, pointerEvents: 'none' }}>
-          <div className="anim-rotate" style={{
-            position: 'absolute',
-            width: '560px', height: '560px',
-            top: '-120px', right: '-160px',
-            border: '1px solid rgba(0, 255, 200, 0.06)',
-            borderRadius: '50%'
-          }} />
-          <div className="anim-rotate" style={{
-            position: 'absolute',
-            width: '380px', height: '380px',
-            bottom: '-100px', left: '-120px',
-            border: '1px solid rgba(0, 212, 255, 0.07)',
-            borderRadius: '50%',
-            animationDirection: 'reverse',
-            animationDuration: '15s'
-          }} />
-          <div className="anim-glow" style={{
-            position: 'absolute',
-            width: '320px', height: '320px',
-            top: '18%', left: '8%',
-            background: 'radial-gradient(circle, rgba(0, 255, 200, 0.08), transparent 70%)',
-            borderRadius: '50%'
-          }} />
-          <div className="anim-glow" style={{
-            position: 'absolute',
-            width: '260px', height: '260px',
-            bottom: '18%', right: '12%',
-            background: 'radial-gradient(circle, rgba(124, 58, 237, 0.09), transparent 70%)',
-            borderRadius: '50%',
-            animationDelay: '1.5s'
-          }} />
-        </div>
-
-        <div className="container" style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 360px), 1fr))',
-          alignItems: 'center',
-          gap: 'clamp(2rem, 5vw, 4rem)',
-          position: 'relative',
-          zIndex: 1
-        }}>
+      {/* =====================================================================
+          HERO
+      ===================================================================== */}
+      <section style={{ paddingTop: 'clamp(140px, 18vw, 200px)', paddingBottom: 'clamp(40px, 6vw, 80px)' }}>
+        <div className="container">
           <motion.div
+            variants={stagger}
             initial="hidden"
             animate="visible"
-            variants={containerVariants}
-          >
-            <motion.div variants={itemVariants} style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.6rem',
-              padding: '0.55rem 1.1rem',
-              background: 'rgba(0, 255, 200, 0.08)',
-              borderRadius: '100px',
-              color: 'var(--color-primary)',
-              fontSize: '0.75rem',
-              fontWeight: 700,
-              letterSpacing: '0.15em',
-              textTransform: 'uppercase',
-              marginBottom: '1.75rem',
-              border: '1px solid rgba(0, 255, 200, 0.2)',
-              fontFamily: 'var(--font-heading)'
-            }}>
-              <span className="anim-glow" style={{
-                width: '8px', height: '8px', borderRadius: '50%',
-                background: '#00ffc8', boxShadow: '0 0 10px #00ffc8'
-              }} />
-              서버 없음. 내 손에 보관.
-            </motion.div>
-
-            <motion.h1 variants={itemVariants} style={{
-              fontSize: 'clamp(3rem, 8vw, 5.5rem)',
-              lineHeight: 1.05,
-              marginBottom: '1.25rem',
-              maxWidth: '640px',
-              fontFamily: 'var(--font-heading)',
-              letterSpacing: '-0.01em'
-            }}>
-              <span className="shimmer-text">QUANTUM</span><br />
-              <span style={{ color: 'var(--color-ink)' }}>DATA VAULT</span>
-            </motion.h1>
-
-            <motion.p variants={itemVariants} style={{
-              fontSize: '1.15rem',
-              color: 'var(--color-text-dim)',
-              marginBottom: '2.75rem',
-              maxWidth: '540px',
-              lineHeight: 1.8
-            }}>
-              D-GO는 인터넷에 연결되지 않는 데이터 금고입니다.
-              파일은 이 장치 안에만 머물고, 꺼낼 때도 직접 손으로 꺼냅니다.
-              해킹당할 외부 통로 자체가 없는 구조입니다.
-            </motion.p>
-
-            <motion.div variants={itemVariants} style={{ display: 'flex', gap: '1.25rem', alignItems: 'center', flexWrap: 'wrap' }}>
-              <Link to="/purchase" className="btn-primary">
-                지금 구매하기 <ArrowRight size={18} />
-              </Link>
-              <Link to="/product" className="btn-outline">
-                <ShieldCheck size={16} style={{ marginRight: '0.4rem' }} />
-                자세히 보기
-              </Link>
-            </motion.div>
-          </motion.div>
-
-          {/* Floating Vault Illustration */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.85 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
-            style={{
-              position: 'relative',
-              width: '100%',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center'
-            }}
-            aria-hidden="true"
-          >
-            <div className="anim-float" style={{
-              position: 'relative',
-              width: 'min(320px, 80%)',
-              aspectRatio: '1 / 1'
-            }}>
-              {/* Outer frame */}
-              <div style={{
-                position: 'absolute',
-                inset: 0,
-                borderRadius: '32px',
-                background: 'linear-gradient(145deg, rgba(0, 255, 200, 0.14), rgba(0, 212, 255, 0.06))',
-                border: '1.5px solid rgba(0, 255, 200, 0.28)',
-                transform: 'perspective(600px) rotateY(-8deg) rotateX(5deg)',
-                boxShadow: '0 30px 80px rgba(0, 255, 200, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.1)',
-                overflow: 'hidden'
-              }}>
-                {/* Inner bezel */}
-                <div style={{
-                  position: 'absolute',
-                  inset: '1.25rem',
-                  borderRadius: '24px',
-                  border: '1px solid rgba(0, 255, 200, 0.18)',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  gap: '0.75rem',
-                  background: 'radial-gradient(circle at center, rgba(0, 255, 200, 0.05), transparent 70%)'
-                }}>
-                  <Lock size={56} color="#00ffc8" strokeWidth={1.4} />
-                  <span style={{
-                    fontFamily: 'var(--font-heading)',
-                    fontSize: '0.72rem',
-                    letterSpacing: '0.35em',
-                    color: '#00ffc8',
-                    fontWeight: 700
-                  }}>
-                    VAULT
-                  </span>
-                </div>
-                {/* Scan line */}
-                <div className="anim-scan" style={{
-                  position: 'absolute',
-                  left: '0.75rem',
-                  right: '0.75rem',
-                  height: '2px',
-                  background: 'linear-gradient(90deg, transparent, #00ffc8, transparent)',
-                  opacity: 0.55,
-                  boxShadow: '0 0 12px #00ffc8'
-                }} />
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Trust Badges */}
-      <section style={{ padding: '4rem 0', background: 'var(--color-bg-secondary)' }}>
-        <div className="container">
-          <div style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            flexWrap: 'wrap',
-            gap: '2rem',
-            opacity: 0.6
-          }}>
-            {['AES-256 암호화', 'PUF 하드웨어 인증', 'SHA-256 시점인증', 'No Cloud', '물리적 폐쇄망'].map((badge) => (
-              <div key={badge} style={{ fontWeight: 700, fontSize: '0.9rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                <ShieldCheck size={18} color="var(--color-primary)" />
-                {badge}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Core Values */}
-      <section>
-        <div className="container">
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            style={{ textAlign: 'center', marginBottom: '5rem' }}
-          >
-            <h2 style={{ fontSize: '3rem', marginBottom: '1.5rem' }}>왜 다른가</h2>
-            <p style={{ color: 'var(--color-text-dim)', fontSize: '1.2rem' }}>클라우드 보안과는 출발점부터 다릅니다</p>
-          </motion.div>
-
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
-            gap: '2rem'
-          }}>
-            {[
-              { icon: <HardDrive size={32} />, title: "인터넷 없이 동작", desc: "Wi-Fi도, LAN도 연결하지 않습니다. 그래서 원격에서 들여다볼 방법이 없습니다." },
-              { icon: <Cpu size={32} />, title: "PUF 칩으로 잠금", desc: "반도체마다 다르게 새겨지는 고유 패턴이 열쇠가 됩니다. 같은 칩은 두 번 만들 수 없습니다." },
-              { icon: <Clock size={32} />, title: "시점 증명", desc: "파일을 저장한 순간을 SHA-256 해시와 타임스탬프로 묶어 둡니다. 나중에 원본 증명이 필요할 때 쓸 수 있습니다." }
-            ].map((card, i) => (
-              <motion.div 
-                key={i}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="glass-card" 
-                style={{ padding: '3rem', textAlign: 'left' }}
-              >
-                <div style={{ color: 'var(--color-primary)', marginBottom: '1.5rem' }}>{card.icon}</div>
-                <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>{card.title}</h3>
-                <p style={{ color: 'var(--color-text-dim)' }}>{card.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Bento Grid - Key Features */}
-      <section style={{ padding: '8rem 0' }}>
-        <div className="container">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            style={{ textAlign: 'center', marginBottom: '4rem' }}
-          >
-            <span style={{
-              display: 'inline-block',
-              fontSize: '0.75rem',
-              fontWeight: 700,
-              letterSpacing: '0.25em',
-              color: 'var(--color-primary)',
-              fontFamily: 'var(--font-heading)',
-              textTransform: 'uppercase',
-              marginBottom: '1rem'
-            }}>
-              · 안에 들어 있는 것 ·
-            </span>
-            <h2 style={{ fontSize: 'clamp(2.25rem, 5vw, 3.5rem)', marginBottom: '1.25rem', letterSpacing: '-0.01em' }}>
-              한 대 안에 <span className="shimmer-text">전부 있습니다</span>
-            </h2>
-            <p style={{ color: 'var(--color-text-dim)', fontSize: '1.1rem', maxWidth: '620px', margin: '0 auto', lineHeight: 1.7 }}>
-              네트워크, 인증, 암호화, 스캔까지. 외부에 의존하지 않고 장치 안에서 끝납니다.
-            </p>
-          </motion.div>
-
-          <div
-            className="bento-grid"
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(6, 1fr)',
-              gridAutoRows: 'minmax(180px, auto)',
-              gap: '1.25rem'
+              gridTemplateColumns: 'minmax(0, 1.1fr) minmax(0, 1fr)',
+              gap: 'clamp(2rem, 5vw, 4rem)',
+              alignItems: 'center',
+            }}
+            className="hero-grid"
+          >
+            {/* Left — copy */}
+            <div>
+              <motion.div variants={fadeUp} style={{ marginBottom: '1.5rem' }}>
+                <Badge>Quantum Data Vault · ICTK PUF</Badge>
+              </motion.div>
+
+              <motion.h1
+                variants={fadeUp}
+                style={{
+                  marginBottom: '1.5rem',
+                  fontFamily: 'var(--font-display)',
+                }}
+              >
+                당신의 데이터,
+                <br />
+                <span className="text-gradient">오직 당신의 손안에.</span>
+              </motion.h1>
+
+              <motion.p
+                variants={fadeUp}
+                style={{
+                  maxWidth: 560,
+                  fontSize: 'clamp(1rem, 1.8vw, 1.15rem)',
+                  lineHeight: 1.7,
+                  color: 'var(--text-dim)',
+                  marginBottom: '2.25rem',
+                }}
+              >
+                D-GO Vault는 외부 서버 없는 완전 폐쇄형 데이터 금고입니다.
+                PUF 하드웨어 기반 Zero-Knowledge 암호화로 해킹 경로를 원천 차단하고,
+                당신의 자산을 당신이 직접 지킵니다.
+              </motion.p>
+
+              <motion.div variants={fadeUp} style={{ display: 'flex', gap: '0.8rem', flexWrap: 'wrap' }}>
+                <a
+                  href="mailto:biz@boanlinks.com?subject=%5BD-GO%20Vault%5D%20%EB%8F%84%EC%9E%85%20%EB%AC%B8%EC%9D%98"
+                  className="btn btn-primary"
+                >
+                  <Mail size={16} strokeWidth={2.4} />
+                  도입 문의하기
+                </a>
+                <Link to="/technology" className="btn btn-outline">
+                  기술 아키텍처 보기
+                  <ArrowRight size={16} strokeWidth={2.4} />
+                </Link>
+              </motion.div>
+
+              {/* Micro trust line */}
+              <motion.div
+                variants={fadeUp}
+                style={{
+                  marginTop: '2.5rem',
+                  display: 'flex',
+                  gap: '1.5rem',
+                  flexWrap: 'wrap',
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: '0.78rem',
+                  color: 'var(--text-muted)',
+                  letterSpacing: '0.02em',
+                }}
+              >
+                <span>◆ PUF Hardware Key</span>
+                <span>◆ RAID 1 Mirror</span>
+                <span>◆ UL Class 125</span>
+                <span>◆ Direct Wi-Fi</span>
+              </motion.div>
+            </div>
+
+            {/* Right — hero render */}
+            <motion.div
+              variants={fadeUp}
+              style={{
+                position: 'relative',
+                minHeight: 'clamp(300px, 42vw, 520px)',
+              }}
+            >
+              {/* Radial cyan glow bg */}
+              <div
+                aria-hidden
+                style={{
+                  position: 'absolute',
+                  inset: '-10% -10% -10% 0',
+                  background:
+                    'radial-gradient(ellipse 70% 60% at 50% 50%, rgba(34, 211, 238, 0.25), transparent 60%)',
+                  filter: 'blur(40px)',
+                  zIndex: 0,
+                }}
+              />
+              <img
+                src="/images/renders/render-01.jpg"
+                alt="D-GO Vault 45도 정면, 노브 LED 점등"
+                style={{
+                  position: 'relative',
+                  width: '100%',
+                  height: 'auto',
+                  zIndex: 1,
+                  filter: 'drop-shadow(0 40px 60px rgba(0,0,0,0.5)) drop-shadow(0 0 60px rgba(34,211,238,0.15))',
+                }}
+                loading="eager"
+                decoding="async"
+              />
+            </motion.div>
+          </motion.div>
+        </div>
+
+        <style>{`
+          @media (max-width: 900px) {
+            .hero-grid { grid-template-columns: 1fr !important; }
+            .hero-grid img { max-width: 440px; margin: 0 auto; display: block; }
+          }
+        `}</style>
+      </section>
+
+      {/* =====================================================================
+          TRUST BAR
+      ===================================================================== */}
+      <section style={{ padding: 'clamp(30px, 5vw, 60px) 0' }}>
+        <div className="container">
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              flexWrap: 'wrap',
+              gap: 'clamp(1.5rem, 4vw, 3.5rem)',
+              padding: '1.75rem 2rem',
+              borderRadius: 20,
+              background: 'rgba(17, 27, 48, 0.4)',
+              border: '1px solid rgba(148, 163, 184, 0.10)',
+              backdropFilter: 'blur(10px)',
             }}
           >
-            {/* Feature 1 — Large hero tile: Closed Network */}
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="glass-card bento-tile bento-xl"
-              style={{
-                gridColumn: 'span 4',
-                gridRow: 'span 2',
-                padding: '3rem',
-                position: 'relative',
-                overflow: 'hidden',
-                background: 'linear-gradient(135deg, rgba(0, 255, 200, 0.08) 0%, rgba(8, 12, 20, 0.6) 60%)',
-                border: '1px solid rgba(0, 255, 200, 0.18)'
-              }}
-            >
-              <div aria-hidden="true" style={{
-                position: 'absolute',
-                top: '-80px', right: '-80px',
-                width: '320px', height: '320px',
-                borderRadius: '50%',
-                background: 'radial-gradient(circle, rgba(0, 255, 200, 0.12), transparent 70%)',
-                pointerEvents: 'none'
-              }} />
-              <WifiOff size={36} color="var(--color-primary)" strokeWidth={1.6} />
-              <h3 style={{ fontSize: '1.9rem', margin: '1.5rem 0 1rem', maxWidth: '480px', lineHeight: 1.2 }}>
-                인터넷과 끊어져 있습니다
-              </h3>
-              <p style={{ color: 'var(--color-text-dim)', maxWidth: '460px', lineHeight: 1.75, fontSize: '1rem' }}>
-                Wi-Fi 모듈도, 셀룰러도 없습니다. 파일 처리는 전부 장치 안에서 일어나기 때문에,
-                밖에서 들어올 수 있는 길 자체가 존재하지 않습니다.
-              </p>
-              <div style={{
-                marginTop: '2rem',
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '0.5rem',
-                fontSize: '0.8rem',
-                fontWeight: 700,
-                letterSpacing: '0.15em',
-                color: 'var(--color-primary)',
-                fontFamily: 'var(--font-heading)',
-                textTransform: 'uppercase'
-              }}>
-                AIR-GAPPED VAULT <ArrowRight size={14} />
-              </div>
-            </motion.div>
-
-            {/* Feature 2 — PUF */}
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.05 }}
-              className="glass-card bento-tile"
-              style={{ gridColumn: 'span 2', gridRow: 'span 1', padding: '2rem' }}
-            >
-              <Fingerprint size={30} color="var(--color-primary)" strokeWidth={1.6} />
-              <h3 style={{ fontSize: '1.2rem', margin: '1rem 0 0.5rem' }}>PUF 인증</h3>
-              <p style={{ color: 'var(--color-text-dim)', fontSize: '0.9rem', lineHeight: 1.6 }}>
-                반도체 지문 기반 복제 불가능 키
-              </p>
-            </motion.div>
-
-            {/* Feature 3 — AES-256 */}
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="glass-card bento-tile"
-              style={{
-                gridColumn: 'span 2',
-                gridRow: 'span 1',
-                padding: '2rem',
-                background: 'linear-gradient(135deg, rgba(124, 58, 237, 0.1), rgba(8, 12, 20, 0.5))',
-                border: '1px solid rgba(124, 58, 237, 0.22)'
-              }}
-            >
-              <KeyRound size={30} color="var(--color-accent)" strokeWidth={1.6} />
-              <h3 style={{ fontSize: '1.2rem', margin: '1rem 0 0.5rem' }}>AES-256</h3>
-              <p style={{ color: 'var(--color-text-dim)', fontSize: '0.9rem', lineHeight: 1.6 }}>
-                군사 등급 이중 암호화 저장
-              </p>
-            </motion.div>
-
-            {/* Feature 4 — Timestamp */}
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.15 }}
-              className="glass-card bento-tile"
-              style={{ gridColumn: 'span 2', gridRow: 'span 1', padding: '2rem' }}
-            >
-              <Clock size={30} color="var(--color-primary)" strokeWidth={1.6} />
-              <h3 style={{ fontSize: '1.2rem', margin: '1rem 0 0.5rem' }}>시점 인증</h3>
-              <p style={{ color: 'var(--color-text-dim)', fontSize: '0.9rem', lineHeight: 1.6 }}>
-                SHA-256 해시 + 타임스탬프
-              </p>
-            </motion.div>
-
-            {/* Feature 5 — Malware scan (wide) */}
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="glass-card bento-tile"
-              style={{
-                gridColumn: 'span 4',
-                gridRow: 'span 1',
-                padding: '2.25rem 2.5rem',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '1.75rem',
-                position: 'relative',
-                overflow: 'hidden'
-              }}
-            >
-              <div aria-hidden="true" className="anim-scan" style={{
-                position: 'absolute',
-                left: 0, right: 0,
-                height: '1.5px',
-                background: 'linear-gradient(90deg, transparent, var(--color-primary), transparent)',
-                opacity: 0.35,
-                boxShadow: '0 0 12px var(--color-primary)',
-                pointerEvents: 'none'
-              }} />
-              <div style={{
-                flexShrink: 0,
-                width: '64px', height: '64px',
-                borderRadius: '16px',
-                background: 'rgba(0, 255, 200, 0.08)',
-                border: '1px solid rgba(0, 255, 200, 0.22)',
-                display: 'flex', alignItems: 'center', justifyContent: 'center'
-              }}>
-                <ScanLine size={30} color="var(--color-primary)" strokeWidth={1.6} />
-              </div>
-              <div style={{ flex: 1, minWidth: 0 }}>
-                <h3 style={{ fontSize: '1.3rem', marginBottom: '0.35rem' }}>실시간 악성코드 스캔</h3>
-                <p style={{ color: 'var(--color-text-dim)', fontSize: '0.95rem', lineHeight: 1.6 }}>
-                  유입되는 모든 파일을 장치 내부에서 즉시 검사합니다. 위협은 격리, 데이터는 무결성 유지.
-                </p>
-              </div>
-            </motion.div>
-
-            {/* Feature 6 — ID/PW Vault */}
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.25 }}
-              className="glass-card bento-tile"
-              style={{ gridColumn: 'span 2', gridRow: 'span 1', padding: '2rem' }}
-            >
-              <Database size={30} color="var(--color-primary)" strokeWidth={1.6} />
-              <h3 style={{ fontSize: '1.2rem', margin: '1rem 0 0.5rem' }}>오프라인 ID 금고</h3>
-              <p style={{ color: 'var(--color-text-dim)', fontSize: '0.9rem', lineHeight: 1.6 }}>
-                계정 · OTP · 인증서 로컬 보관
-              </p>
-            </motion.div>
+            <span className="eyebrow" style={{ color: 'var(--text-muted)' }}>Certified</span>
+            <img src="/logo/ICTK.png"   alt="ICTK PUF" className="trust-logo" />
+            <img src="/logo/KC인증.svg" alt="KC 인증"  className="trust-logo" />
+            <span className="badge badge--ghost">UL Class 125</span>
+            <span className="badge badge--ghost">Made in Korea</span>
+            <span className="badge badge--ghost">Zero-Knowledge</span>
           </div>
         </div>
       </section>
 
-      {/* === Physical Authentication Sequence === */}
-      <section style={{
-        position: 'relative',
-        background: 'radial-gradient(ellipse at 50% 0%, rgba(0, 255, 200, 0.08) 0%, transparent 55%), var(--color-bg-secondary)',
-        overflow: 'hidden'
-      }}>
-        <div aria-hidden="true" style={{
-          position: 'absolute',
-          top: '8%', left: '-5%',
-          width: '380px', height: '380px',
-          background: 'radial-gradient(circle, rgba(255, 122, 0, 0.07), transparent 70%)',
-          borderRadius: '50%',
-          pointerEvents: 'none'
-        }} />
-        <div className="container" style={{ position: 'relative' }}>
-          {/* Eyebrow + heading */}
+      {/* =====================================================================
+          FEATURE BENTO — 3 핵심 카드
+      ===================================================================== */}
+      <section>
+        <div className="container">
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            style={{ textAlign: 'center', marginBottom: '4.5rem' }}
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            style={{ marginBottom: '3rem', maxWidth: 720 }}
           >
-            <div style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.6rem',
-              padding: '0.5rem 1.1rem',
-              background: 'rgba(255, 122, 0, 0.08)',
-              border: '1px solid rgba(255, 122, 0, 0.25)',
-              borderRadius: '100px',
-              color: 'var(--color-ember)',
-              fontSize: '0.72rem',
-              fontWeight: 800,
-              letterSpacing: '0.18em',
-              textTransform: 'uppercase',
-              fontFamily: 'var(--font-heading)',
-              marginBottom: '1.5rem'
-            }}>
-              <span style={{
-                width: '6px', height: '6px', borderRadius: '50%',
-                background: 'var(--color-ember)',
-                boxShadow: '0 0 10px var(--color-ember)'
-              }} />
-              Physical Authentication
-            </div>
-            <h2 style={{
-              fontSize: 'clamp(2rem, 5.5vw, 3.5rem)',
-              marginBottom: '1.25rem',
-              lineHeight: 1.15
-            }}>
-              여는 방법은 <br className="hide-mobile" />
-              <span className="shimmer-text">두 단계뿐입니다</span>
+            <div className="eyebrow" style={{ marginBottom: '0.75rem' }}>Core Capabilities</div>
+            <h2>
+              하드웨어가 보증하는 <span className="text-cyan">세 가지 약속.</span>
             </h2>
-            <p style={{
-              color: 'var(--color-text-dim)',
-              fontSize: 'clamp(0.95rem, 2.2vw, 1.1rem)',
-              maxWidth: '640px',
-              margin: '0 auto',
-              lineHeight: 1.8
-            }}>
-              비밀번호도, 지문 등록도 필요 없습니다.
-              전용 키를 꽂고, 다이얼을 돌리면 됩니다.
+            <p style={{ marginTop: '1rem', fontSize: '1.05rem' }}>
+              D-GO Vault의 모든 보안 레이어는 클라우드가 아니라 <strong style={{ color: 'var(--text-primary)' }}>물리적 PUF 칩</strong>에 뿌리내립니다.
             </p>
           </motion.div>
 
-          {/* Diptych — Step 01 & Step 02 */}
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 380px), 1fr))',
-            gap: '1.75rem',
-            position: 'relative'
-          }}>
-            {/* === STEP 01 — Key Insertion === */}
-            <motion.article
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-60px' }}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="glass-card"
-              style={{
-                padding: 0,
-                overflow: 'hidden',
-                borderRadius: '24px',
-                display: 'flex',
-                flexDirection: 'column',
-                border: '1px solid rgba(255, 122, 0, 0.18)'
-              }}
-              aria-labelledby="auth-step-01-title"
-            >
-              <div style={{
-                position: 'relative',
-                aspectRatio: '16 / 10',
-                background: 'linear-gradient(145deg, #eef2f5 0%, #c8d0d8 100%)',
-                overflow: 'hidden'
-              }}>
-                <img
-                  src="/images/renders/render-03.jpg"
-                  alt="D-GO 전용 PUF 실린더 키가 전면 키홀에 절반 삽입된 상태"
-                  loading="lazy"
-                  style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', mixBlendMode: 'multiply' }}
-                />
-                {/* Step badge */}
-                <div style={{
-                  position: 'absolute',
-                  top: '1.25rem',
-                  left: '1.25rem',
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '0.55rem',
-                  padding: '0.5rem 0.9rem',
-                  background: '#080c14',
-                  border: '1px solid rgba(255, 122, 0, 0.4)',
-                  borderRadius: '100px',
-                  fontSize: '0.7rem',
-                  fontWeight: 800,
-                  letterSpacing: '0.15em',
-                  color: 'var(--color-ember)',
-                  fontFamily: 'var(--font-heading)',
-                  boxShadow: '0 8px 24px rgba(0, 0, 0, 0.4)'
-                }}>
-                  <span>STEP 01</span>
-                  <span style={{ color: '#fff', opacity: 0.7 }}>KEY INSERT</span>
-                </div>
+          <motion.div
+            className="bento-grid"
+            variants={stagger}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.15 }}
+          >
+            {/* CARD 1 — SECURE PORT */}
+            <motion.article variants={fadeUp} className="bento-card b-col-4">
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1.5rem' }}>
+                <Badge>Secure Port Control</Badge>
+                <Usb size={22} color="var(--accent-cyan)" strokeWidth={2} />
               </div>
-              <div style={{ padding: '2rem 2rem 2.25rem' }}>
-                <h3 id="auth-step-01-title" style={{
-                  fontSize: '1.5rem',
-                  marginBottom: '0.65rem',
-                  color: 'var(--color-ink)'
-                }}>
-                  키를 꽂는다
-                </h3>
-                <p style={{
-                  color: 'var(--color-text-dim)',
-                  fontSize: '0.95rem',
-                  lineHeight: 1.75,
-                  marginBottom: '1.5rem'
-                }}>
-                  내 D-GO에 맞는 전용 키를 앞면 포트에 꽂습니다.
-                  키 안의 PUF 칩이 이 한 대의 금고하고만 짝지어져 있어서,
-                  다른 키로는 절대 열리지 않습니다.
-                </p>
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
-                  {['ICTK PUF 칩', '복제 불가', '1키 = 1금고'].map((t) => (
-                    <span key={t} style={{
-                      padding: '0.35rem 0.75rem',
-                      background: 'rgba(255, 122, 0, 0.1)',
-                      border: '1px solid rgba(255, 122, 0, 0.25)',
-                      borderRadius: '100px',
-                      fontSize: '0.72rem',
-                      fontWeight: 700,
-                      color: 'var(--color-ember)',
-                      fontFamily: 'var(--font-heading)',
-                      letterSpacing: '0.03em'
-                    }}>
-                      {t}
-                    </span>
-                  ))}
-                </div>
+
+              <h3>PUF가 열어야만<br />열리는 포트</h3>
+              <p style={{ marginTop: '0.85rem' }}>
+                관리자 앱에서 PUF 승인이 떨어진 순간에만 USB-C·네트워크 드라이브가 활성화됩니다.
+                그 외 시간엔 물리적으로 존재해도 OS 레벨에서 부재합니다.
+              </p>
+
+              {/* Visual */}
+              <div
+                aria-hidden
+                style={{
+                  marginTop: '1.75rem',
+                  padding: '1.1rem 1.25rem',
+                  borderRadius: 14,
+                  background: 'rgba(10, 15, 30, 0.55)',
+                  border: '1px solid rgba(148, 163, 184, 0.12)',
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: '0.78rem',
+                  lineHeight: 1.7,
+                  color: 'var(--text-dim)',
+                }}
+              >
+                <div><span style={{ color: 'var(--text-muted)' }}>$</span> port.status USB-C0</div>
+                <div style={{ color: 'var(--status-crit)' }}>→ DENIED (PUF required)</div>
+                <div style={{ marginTop: 6 }}><span style={{ color: 'var(--text-muted)' }}>$</span> auth.puf --verify</div>
+                <div style={{ color: 'var(--status-ok)' }}>→ GRANTED · USB-C0 LIVE</div>
               </div>
             </motion.article>
 
-            {/* === STEP 02 — Rotary Dial === */}
-            <motion.article
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-60px' }}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
-              className="glass-card"
-              style={{
-                padding: 0,
-                overflow: 'hidden',
-                borderRadius: '24px',
-                display: 'flex',
-                flexDirection: 'column',
-                border: '1px solid rgba(0, 255, 200, 0.2)'
-              }}
-              aria-labelledby="auth-step-02-title"
-            >
-              <div style={{
-                position: 'relative',
-                aspectRatio: '16 / 10',
-                background: 'linear-gradient(145deg, #eef2f5 0%, #c8d0d8 100%)',
-                overflow: 'hidden'
-              }}>
+            {/* CARD 2 — OCR SCAN */}
+            <motion.article variants={fadeUp} className="bento-card b-col-4">
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1.5rem' }}>
+                <Badge>Document OCR</Badge>
+                <ScanLine size={22} color="var(--accent-cyan)" strokeWidth={2} />
+              </div>
+
+              <h3>카메라로 찍고,<br />원본은 금고로.</h3>
+              <p style={{ marginTop: '0.85rem' }}>
+                촬영된 문서는 OCR 후 PDF로 변환되어 본체에 암호화 저장됩니다.
+                클라이언트 단말에는 <strong style={{ color: 'var(--text-primary)' }}>원본이 남지 않습니다.</strong>
+              </p>
+
+              {/* Visual — doc scan frame */}
+              <div
+                aria-hidden
+                style={{
+                  marginTop: '1.75rem',
+                  position: 'relative',
+                  height: 110,
+                  borderRadius: 14,
+                  background: 'linear-gradient(135deg, rgba(34,211,238,0.06), rgba(10,15,30,0.4))',
+                  border: '1px solid rgba(34, 211, 238, 0.18)',
+                  overflow: 'hidden',
+                }}
+              >
+                {/* Corner brackets */}
+                {[[6, 6, true, true], [6, 6, false, true], [6, 6, true, false], [6, 6, false, false]].map((c, i) => (
+                  <span
+                    key={i}
+                    style={{
+                      position: 'absolute',
+                      width: 16, height: 16,
+                      [c[2] ? 'left' : 'right']: 10,
+                      [c[3] ? 'top' : 'bottom']: 10,
+                      borderTop: c[3] ? '2px solid var(--accent-cyan)' : 'none',
+                      borderBottom: !c[3] ? '2px solid var(--accent-cyan)' : 'none',
+                      borderLeft: c[2] ? '2px solid var(--accent-cyan)' : 'none',
+                      borderRight: !c[2] ? '2px solid var(--accent-cyan)' : 'none',
+                    }}
+                  />
+                ))}
+                {/* Scanning lines */}
+                <div style={{ position: 'absolute', top: '30%', left: 24, right: 24, height: 2, background: 'rgba(148,163,184,0.25)' }} />
+                <div style={{ position: 'absolute', top: '50%', left: 24, right: 40, height: 2, background: 'rgba(148,163,184,0.22)' }} />
+                <div style={{ position: 'absolute', top: '70%', left: 24, right: 60, height: 2, background: 'rgba(148,163,184,0.18)' }} />
+                <div
+                  className="anim-breathe"
+                  style={{
+                    position: 'absolute',
+                    left: 0, right: 0, top: '45%',
+                    height: 2,
+                    background: 'var(--accent-cyan)',
+                    boxShadow: '0 0 16px var(--accent-cyan)',
+                  }}
+                />
+              </div>
+            </motion.article>
+
+            {/* CARD 3 — DATA INTEGRITY */}
+            <motion.article variants={fadeUp} className="bento-card b-col-4">
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1.5rem' }}>
+                <Badge>Tamper-Proof</Badge>
+                <FileCheck2 size={22} color="var(--accent-cyan)" strokeWidth={2} />
+              </div>
+
+              <h3>변조되면 바로<br />알 수 있도록.</h3>
+              <p style={{ marginTop: '0.85rem' }}>
+                모든 파일은 해시·생성자 ID·타임스탬프·디지털 서명·접근 이력을 묶어 저장.
+                원본 증명과 법적 효력이 가능합니다.
+              </p>
+
+              {/* Visual — hash block */}
+              <div
+                aria-hidden
+                style={{
+                  marginTop: '1.75rem',
+                  padding: '1rem 1.15rem',
+                  borderRadius: 14,
+                  background: 'rgba(10, 15, 30, 0.55)',
+                  border: '1px solid rgba(148, 163, 184, 0.12)',
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: '0.72rem',
+                  lineHeight: 1.7,
+                  color: 'var(--text-dim)',
+                  wordBreak: 'break-all',
+                }}
+              >
+                <div style={{ color: 'var(--text-muted)' }}>SHA-256</div>
+                <div style={{ color: 'var(--accent-cyan)' }}>7b4f…c2a9d8…041e…f3b</div>
+                <div style={{ marginTop: 8, color: 'var(--text-muted)' }}>Signed · 2026-04-16 14:22 KST</div>
+                <div style={{ marginTop: 4, display: 'flex', alignItems: 'center', gap: 6, color: 'var(--status-ok)' }}>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M20 6L9 17l-5-5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                  Integrity verified
+                </div>
+              </div>
+            </motion.article>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* =====================================================================
+          TECH TEASER — architecture preview + feature cluster
+      ===================================================================== */}
+      <section>
+        <div className="container">
+          <motion.div
+            className="bento-grid"
+            variants={stagger}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.15 }}
+          >
+            {/* Big architecture card */}
+            <motion.article variants={fadeUp} className="bento-card b-col-8">
+              <Badge>Zero-Knowledge Architecture</Badge>
+              <h2 style={{ marginTop: '1.25rem', marginBottom: '0.85rem' }}>
+                외부 서버 없이,<br />
+                <span className="text-cyan">본체 안에서만 완결.</span>
+              </h2>
+              <p style={{ maxWidth: 520, marginBottom: '2rem' }}>
+                PUF 칩이 생성한 휘발성 키는 본체를 떠나지 않습니다. 복호화도 재암호화도 전부 장치 내부에서.
+                인터넷이 없어도 동작하고, 공격자가 가져갈 키가 애초에 존재하지 않습니다.
+              </p>
+
+              {/* Mini arch diagram */}
+              <div
+                aria-hidden
+                style={{
+                  marginTop: '1rem',
+                  padding: '1.5rem',
+                  borderRadius: 16,
+                  background: 'rgba(10, 15, 30, 0.5)',
+                  border: '1px solid rgba(148, 163, 184, 0.12)',
+                  display: 'grid',
+                  gridTemplateColumns: '1fr auto 1fr',
+                  gap: '1rem',
+                  alignItems: 'center',
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: '0.78rem',
+                }}
+              >
+                <div style={{ textAlign: 'center' }}>
+                  <div style={{ padding: '0.75rem', borderRadius: 12, border: '1px solid rgba(148,163,184,0.2)' }}>Mobile Client</div>
+                  <div style={{ marginTop: 6, color: 'var(--text-muted)', fontSize: '0.68rem' }}>Admin App</div>
+                </div>
+                <div style={{ color: 'var(--accent-cyan)', textAlign: 'center', fontSize: '0.68rem' }}>
+                  ◀── Direct Wi-Fi ──▶
+                </div>
+                <div style={{ textAlign: 'center' }}>
+                  <div style={{ padding: '0.75rem', borderRadius: 12, border: '1px solid rgba(34,211,238,0.35)', background: 'rgba(34,211,238,0.06)', color: 'var(--accent-cyan)' }}>
+                    D-GO Vault
+                  </div>
+                  <div style={{ marginTop: 6, color: 'var(--text-muted)', fontSize: '0.68rem' }}>PUF Core · RAID1 · UPS</div>
+                </div>
+              </div>
+
+              <Link to="/technology" className="btn btn-ghost" style={{ marginTop: '1.75rem', padding: '0.6rem 0', minHeight: 'auto' }}>
+                전체 아키텍처 보기 <ArrowRight size={15} strokeWidth={2.4} />
+              </Link>
+            </motion.article>
+
+            {/* Side pillar cards */}
+            <motion.article variants={fadeUp} className="bento-card b-col-4">
+              <Fingerprint size={22} color="var(--accent-cyan)" strokeWidth={2} style={{ marginBottom: '1rem' }} />
+              <Badge variant="ghost">Hybrid 2FA</Badge>
+              <h3 style={{ marginTop: '0.9rem' }}>키패드 + PUF 물리키</h3>
+              <p style={{ marginTop: '0.5rem' }}>
+                디지털 비밀번호와 반도체 지문을 동시에 요구하는 이중 잠금.
+              </p>
+            </motion.article>
+
+            <motion.article variants={fadeUp} className="bento-card b-col-4">
+              <Thermometer size={22} color="var(--accent-cyan)" strokeWidth={2} style={{ marginBottom: '1rem' }} />
+              <Badge variant="ghost">Environmental Guard</Badge>
+              <h3 style={{ marginTop: '0.9rem' }}>125°F 자동 셧다운</h3>
+              <p style={{ marginTop: '0.5rem' }}>
+                임계 온도 초과 시 디지털 섹션이 즉시 차단됩니다.
+              </p>
+            </motion.article>
+
+            <motion.article variants={fadeUp} className="bento-card b-col-4">
+              <KeyRound size={22} color="var(--accent-cyan)" strokeWidth={2} style={{ marginBottom: '1rem' }} />
+              <Badge variant="ghost">Dual Recovery</Badge>
+              <h3 style={{ marginTop: '0.9rem' }}>물리 키 연동 복구</h3>
+              <p style={{ marginTop: '0.5rem' }}>
+                디지털 인증 분실 시 물리 키 + 하드웨어 정보로 재호출.
+              </p>
+            </motion.article>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* =====================================================================
+          PRODUCT SHOT
+      ===================================================================== */}
+      <section>
+        <div className="container">
+          <motion.div
+            className="bento-grid"
+            variants={stagger}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.15 }}
+          >
+            <motion.div variants={fadeUp} className="bento-card b-col-7" style={{ padding: 0, overflow: 'hidden' }}>
+              <div
+                style={{
+                  position: 'relative',
+                  minHeight: 360,
+                  background: 'radial-gradient(ellipse at center, rgba(34,211,238,0.12), transparent 65%)',
+                  display: 'grid',
+                  placeItems: 'center',
+                }}
+              >
                 <img
                   src="/images/renders/render-02.jpg"
-                  alt="D-GO 전면 로터리 다이얼과 4방향 시안 LED 인덱스 마커가 점등된 모습"
+                  alt="D-GO Vault 정면 노브 클로즈업"
+                  style={{ width: '100%', height: 'auto' }}
                   loading="lazy"
-                  style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', mixBlendMode: 'multiply' }}
+                  decoding="async"
                 />
-                <div style={{
-                  position: 'absolute',
-                  top: '1.25rem',
-                  left: '1.25rem',
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '0.55rem',
-                  padding: '0.5rem 0.9rem',
-                  background: '#080c14',
-                  border: '1px solid rgba(0, 255, 200, 0.4)',
-                  borderRadius: '100px',
-                  fontSize: '0.7rem',
-                  fontWeight: 800,
-                  letterSpacing: '0.15em',
-                  color: 'var(--color-primary)',
-                  fontFamily: 'var(--font-heading)',
-                  boxShadow: '0 8px 24px rgba(0, 0, 0, 0.4)'
-                }}>
-                  <span>STEP 02</span>
-                  <span style={{ color: '#fff', opacity: 0.7 }}>ROTATE</span>
-                </div>
               </div>
-              <div style={{ padding: '2rem 2rem 2.25rem' }}>
-                <h3 id="auth-step-02-title" style={{
-                  fontSize: '1.5rem',
-                  marginBottom: '0.65rem',
-                  color: 'var(--color-ink)'
-                }}>
-                  다이얼을 돌린다
-                </h3>
-                <p style={{
-                  color: 'var(--color-text-dim)',
-                  fontSize: '0.95rem',
-                  lineHeight: 1.75,
-                  marginBottom: '1.5rem'
-                }}>
-                  인증이 끝나면 다이얼 주변의 LED 네 개가 켜집니다.
-                  화면을 보지 않고도 손끝 감각과 불빛만으로 저장·출력·기록 모드를
-                  바꿀 수 있습니다. 처음 써도 어렵지 않습니다.
-                </p>
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
-                  {['24-step Click', '4-way LED', 'Offline Only'].map((t) => (
-                    <span key={t} style={{
-                      padding: '0.35rem 0.75rem',
-                      background: 'rgba(0, 255, 200, 0.08)',
-                      border: '1px solid rgba(0, 255, 200, 0.22)',
-                      borderRadius: '100px',
-                      fontSize: '0.72rem',
-                      fontWeight: 700,
-                      color: 'var(--color-primary)',
-                      fontFamily: 'var(--font-heading)',
-                      letterSpacing: '0.03em'
-                    }}>
-                      {t}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </motion.article>
-          </div>
+            </motion.div>
 
-          {/* Bottom strip — unified guarantee */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3 }}
-            style={{
-              marginTop: '2rem',
-              padding: '1.25rem 1.75rem',
-              background: 'rgba(255, 255, 255, 0.6)',
-              border: '1px solid rgba(15, 26, 46, 0.1)',
-              borderRadius: '16px',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: '0.85rem',
-              flexWrap: 'wrap',
-              textAlign: 'center'
-            }}
-          >
-            <Lock size={18} color="var(--color-primary)" />
-            <span style={{ fontSize: '0.92rem', color: 'var(--color-text-dim)', lineHeight: 1.6 }}>
-              두 단계 다 <strong style={{ color: 'var(--color-ink)' }}>인터넷을 거치지 않습니다.</strong>
-              그래서 멀리서 가로챌 방법이 아예 없습니다.
-            </span>
+            <motion.article variants={fadeUp} className="bento-card b-col-5">
+              <Badge>Industrial Design</Badge>
+              <h2 style={{ marginTop: '1.1rem', marginBottom: '1rem' }}>
+                금고의 무게,<br />오디오 장비의 정밀함.
+              </h2>
+              <p>
+                항공 등급 알루미늄 섀시, CNC 노브, 청록색 LED 인디케이터. D-GO Vault는
+                책상 위에 두고 쓰는 보안 인프라입니다.
+              </p>
+
+              <ul
+                style={{
+                  listStyle: 'none',
+                  marginTop: '1.75rem',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '0.85rem',
+                }}
+              >
+                {[
+                  ['Cpu',     'ICTK PUF Core'],
+                  ['ShieldCheck', 'RAID 1 · Internal UPS'],
+                  ['WifiOff', 'Direct Wi-Fi Only · 폐쇄망'],
+                ].map(([, label]) => (
+                  <li key={label} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', color: 'var(--text-secondary)', fontSize: '0.92rem' }}>
+                    <span style={{ width: 6, height: 6, borderRadius: 999, background: 'var(--accent-cyan)', boxShadow: '0 0 8px var(--accent-cyan)' }} />
+                    {label}
+                  </li>
+                ))}
+              </ul>
+
+              <Link to="/product" className="btn btn-outline" style={{ marginTop: '2rem' }}>
+                제품 상세 보기 <ArrowRight size={15} strokeWidth={2.4} />
+              </Link>
+            </motion.article>
           </motion.div>
         </div>
       </section>
 
-      {/* 4 Steps Section */}
-      <section style={{ background: 'var(--color-bg-secondary)' }}>
+      {/* =====================================================================
+          BOTTOM CTA
+      ===================================================================== */}
+      <section>
         <div className="container">
-          <div style={{ textAlign: 'center', marginBottom: '5rem' }}>
-            <h2 style={{ fontSize: '3rem', marginBottom: '1.5rem' }}>실제로 어떻게 쓰나요</h2>
-            <p style={{ color: 'var(--color-text-dim)', fontSize: '1.2rem' }}>받은 날부터 나가는 날까지, 네 단계로 정리했습니다</p>
-          </div>
-
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 240px), 1fr))',
-            gap: '1.5rem'
-          }}>
-            {[
-              { step: "01", title: "파일 넣기", sub: "Digital Notary", desc: "스캐너나 녹음기로 받은 파일을 D-GO 안으로 옮깁니다" },
-              { step: "02", title: "도킹 인증", sub: "Docking Auth", desc: "키를 꽂으면 PUF 칩이 알아서 본인을 확인합니다" },
-              { step: "03", title: "금고 보관", sub: "Secure Storage", desc: "두 겹으로 암호화해서 장치 안 별도 영역에 저장합니다" },
-              { step: "04", title: "이력 보기", sub: "Audit Control", desc: "누가 언제 무엇을 열었는지 전부 기록으로 남습니다" }
-            ].map((item, i) => (
-              <div key={i} style={{ position: 'relative' }}>
-                <div className="glass-card" style={{ padding: '2.5rem', height: '100%', borderTop: '4px solid var(--color-primary)' }}>
-                  <span style={{ fontSize: '0.9rem', fontWeight: 800, color: 'var(--color-primary)', opacity: 0.5 }}>STEP {item.step}</span>
-                  <h4 style={{ fontSize: '1.25rem', margin: '1rem 0 0.5rem 0' }}>{item.title}</h4>
-                  <p style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--color-accent)', marginBottom: '1rem' }}>{item.sub}</p>
-                  <p style={{ fontSize: '0.95rem', color: 'var(--color-text-dim)' }}>{item.desc}</p>
-                </div>
-                {i < 3 && <ChevronRight size={24} style={{ position: 'absolute', right: '-12px', top: '50%', transform: 'translateY(-50%)', color: 'var(--color-primary)', opacity: 0.5, display: 'none' }} className="step-arrow" />}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section style={{ padding: 'clamp(5rem, 12vw, 10rem) 0' }}>
-        <div className="container">
-          <div className="glass-card" style={{
-            padding: 'clamp(2.5rem, 6vw, 5rem)',
-            textAlign: 'center',
-            background: 'linear-gradient(135deg, rgba(0, 255, 200, 0.08) 0%, rgba(124, 58, 237, 0.06) 50%, rgba(8, 12, 20, 0.4) 100%)',
-            border: '1px solid rgba(0, 255, 200, 0.22)',
-            position: 'relative',
-            overflow: 'hidden'
-          }}>
-            <div aria-hidden="true" style={{
-              position: 'absolute',
-              top: '-40%',
-              left: '50%',
-              transform: 'translateX(-50%)',
-              width: '80%',
-              height: '120%',
-              background: 'radial-gradient(ellipse at top, rgba(0, 255, 200, 0.14), transparent 60%)',
-              pointerEvents: 'none'
-            }} />
-            <h2 style={{
-              fontSize: 'clamp(1.75rem, 5.5vw, 3.25rem)',
-              marginBottom: '1.25rem',
-              position: 'relative',
-              lineHeight: 1.15
-            }}>
-              내 데이터는 <span className="shimmer-text">내가 쥐고 있을 때</span> 가장 안전합니다.
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.4 }}
+            className="bento-card b-col-12"
+            style={{ textAlign: 'center', padding: 'clamp(2.5rem, 6vw, 4.5rem)' }}
+          >
+            <Badge>Get Started</Badge>
+            <h2 style={{ marginTop: '1rem', marginBottom: '1rem' }}>
+              지금 바로 <span className="text-cyan">D-GO Vault</span> 도입을 시작하세요.
             </h2>
-            <p style={{
-              fontSize: 'clamp(0.95rem, 2.4vw, 1.15rem)',
-              color: 'var(--color-text-dim)',
-              marginBottom: '2.5rem',
-              maxWidth: '640px',
-              marginInline: 'auto',
-              lineHeight: 1.75,
-              position: 'relative'
-            }}>
-              계약서, 회의 녹음, 개인 사진, 법인 기밀 — <br className="hide-mobile" />
-              남의 서버에 맡기지 않고 직접 보관하고 싶은 파일이 있다면 한 번 보러 오세요.
+            <p style={{ maxWidth: 560, margin: '0 auto 2.25rem' }}>
+              법인·단체 도입, 파트너십, 기술 상담 모두 단일 채널에서 응답합니다.
             </p>
-            <div style={{
-              display: 'flex',
-              gap: '1rem',
-              justifyContent: 'center',
-              flexWrap: 'wrap',
-              position: 'relative'
-            }}>
-              <Link to="/purchase" className="btn-primary">구매 상담 신청</Link>
-              <Link to="/manual" className="btn-outline">매뉴얼 다운로드</Link>
+            <div style={{ display: 'flex', gap: '0.8rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+              <a
+                href="mailto:biz@boanlinks.com?subject=%5BD-GO%20Vault%5D%20%EB%8F%84%EC%9E%85%20%EB%AC%B8%EC%9D%98"
+                className="btn btn-primary"
+              >
+                <Mail size={16} strokeWidth={2.4} />
+                biz@boanlinks.com
+              </a>
+              <a href="tel:01032410427" className="btn btn-outline">
+                010-3241-0427
+              </a>
             </div>
-          </div>
+            <p style={{ marginTop: '1.75rem', fontFamily: 'var(--font-mono)', fontSize: '0.78rem', color: 'var(--text-muted)' }}>
+              평일 09:00 – 18:00 · Boanlinks Inc.
+            </p>
+          </motion.div>
         </div>
       </section>
     </div>
