@@ -47,8 +47,8 @@ export default function Home() {
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/20 to-blue-600/20 rounded-3xl blur-3xl"></div>
               <img
-                src="https://images.unsplash.com/photo-1566254488277-aebfe9ebb6a8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBzZWN1cml0eSUyMHZhdWx0JTIwZGV2aWNlfGVufDF8fHx8MTc3NjI5OTA5MXww&ixlib=rb-4.1.0&q=80&w=1080"
-                alt="D-GO Vault 장치"
+                src="/images/renders/render-02.jpg"
+                alt="D-GO Vault 45도 정면, 노브 LED 점등"
                 className="relative rounded-2xl shadow-2xl w-full h-auto"
               />
             </div>
@@ -60,8 +60,8 @@ export default function Home() {
       <section className="border-y border-[var(--border-hairline)] bg-[var(--bg-elevated)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
-            <div className="badge text-[var(--text-secondary)]">ICTK PUF</div>
-            <div className="badge text-[var(--text-secondary)]">KC 인증</div>
+            <img src="/logo/ICTK.png" alt="ICTK PUF" className="h-8 w-auto opacity-70 hover:opacity-100 transition-opacity grayscale hover:grayscale-0 brightness-150" />
+            <img src="/logo/KC인증.svg" alt="KC 인증" className="h-8 w-auto opacity-70 hover:opacity-100 transition-opacity grayscale hover:grayscale-0 brightness-150" />
             <div className="badge text-[var(--text-secondary)]">UL CLASS 125</div>
             <div className="badge text-[var(--text-secondary)]">MADE IN KOREA</div>
           </div>
@@ -205,8 +205,8 @@ export default function Home() {
             <div className="relative">
               <div className="glass-card p-8">
                 <img
-                  src="https://images.unsplash.com/photo-1768224656445-33d078c250b7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkaWdpdGFsJTIwc2VjdXJpdHklMjB0ZWNobm9sb2d5JTIwbmV0d29ya3xlbnwxfHx8fDE3NzYyOTkwOTJ8MA&ixlib=rb-4.1.0&q=80&w=1080"
-                  alt="보안 기술"
+                  src="/images/renders/render-03.jpg"
+                  alt="D-GO Vault USB 보안키 삽입"
                   className="rounded-lg w-full h-auto"
                 />
               </div>
@@ -228,8 +228,8 @@ export default function Home() {
           <div className="relative">
             <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/10 to-blue-600/10 rounded-3xl blur-3xl"></div>
             <img
-              src="https://images.unsplash.com/photo-1767449441925-737379bc2c4d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2JpbGUlMjBhcHAlMjBpbnRlcmZhY2UlMjBkYXNoYm9hcmR8ZW58MXx8fHwxNzc2MjQwNTk1fDA&ixlib=rb-4.1.0&q=80&w=1080"
-              alt="대시보드 미리보기"
+              src="/images/renders/render-05.jpg"
+              alt="D-GO Vault 정면 뷰, 시안 LED 점등"
               className="relative rounded-2xl shadow-2xl w-full h-auto max-w-4xl mx-auto"
             />
           </div>

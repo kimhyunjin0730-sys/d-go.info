@@ -92,14 +92,12 @@ export default function Footer() {
               평일 09:00 - 18:00<br />
               주말 및 공휴일 휴무
             </p>
-            <div className="space-y-2">
+            <div className="space-y-3">
+              <div className="flex items-center gap-3 flex-wrap">
+                <img src="/logo/ICTK.png" alt="ICTK PUF" className="h-6 w-auto opacity-60 grayscale brightness-150" />
+                <img src="/logo/KC인증.svg" alt="KC 인증" className="h-6 w-auto opacity-60 grayscale brightness-150" />
+              </div>
               <div className="badge text-[var(--text-secondary)] inline-block px-2 py-1 bg-[var(--bg-primary)] rounded">
-                ICTK PUF
-              </div>
-              <div className="badge text-[var(--text-secondary)] inline-block px-2 py-1 bg-[var(--bg-primary)] rounded ml-2">
-                KC
-              </div>
-              <div className="badge text-[var(--text-secondary)] inline-block px-2 py-1 bg-[var(--bg-primary)] rounded block mt-2">
                 UL CLASS 125
               </div>
               <div className="badge text-[var(--text-secondary)] inline-block px-2 py-1 bg-[var(--bg-primary)] rounded ml-2">
@@ -115,9 +113,10 @@ export default function Footer() {
             <p className="text-sm text-[var(--text-muted)]">
               © 2026 보안링크스 (Boanlinks). All rights reserved.
             </p>
-            <p className="text-sm text-[var(--text-muted)]">
-              AI 보안링크스 - 보안 솔루션 전문 기업
-            </p>
+            <div className="flex items-center gap-2">
+              <img src="/logo/boanlinks.png" alt="Boanlinks" className="h-5 w-auto opacity-50" />
+              <span className="text-sm text-[var(--text-muted)]">Powered by Boanlinks</span>
+            </div>
           </div>
         </div>
       </div>

@@ -52,8 +52,8 @@ export default function Product() {
           <div className="relative max-w-4xl mx-auto mb-16">
             <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/20 to-blue-600/20 rounded-3xl blur-3xl"></div>
             <img
-              src="https://images.unsplash.com/photo-1566254488277-aebfe9ebb6a8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBzZWN1cml0eSUyMHZhdWx0JTIwZGV2aWNlfGVufDF8fHx8MTc3NjI5OTA5MXww&ixlib=rb-4.1.0&q=80&w=1080"
-              alt="D-GO Vault 제품"
+              src="/images/renders/render-02.jpg"
+              alt="D-GO Vault 45도 정면"
               className="relative rounded-2xl shadow-2xl w-full h-auto"
             />
           </div>
