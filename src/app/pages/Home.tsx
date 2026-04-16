@@ -104,7 +104,7 @@ export default function Home() {
           <div className="grid md:grid-cols-3 gap-4">
             {[
               { icon: Lock, badge: "SECURE PORT", title: "PUF가 열어야만 열리는 포트", desc: "PUF 승인 시에만 USB-C / 네트워크 드라이브가 활성화. 그 외 시간엔 OS 레벨에서 차단." },
-              { icon: Scan, badge: "DOCUMENT OCR", title: "카메라로 찍고, 원본은 금고로", desc: "촬영 문서 → OCR → PDF 변환 → 본체 암호화 저장. 클라이언트에 원본 미잔류." },
+              { icon: Scan, badge: "DOCUMENT OCR", title: "카메라로 찍고, 원본은 금고로", desc: "촬영 문서 → OCR → PDF 변환 → 본체 암호화 저장. 클라이언트에 원본 미 잔류." },
               { icon: FileCheck, badge: "TAMPER-PROOF", title: "변조되면 바로 알 수 있도록", desc: "해시·타임스탬프·디지털 서명·접근 이력 일괄 저장. 원본 증명 및 법적 효력." },
             ].map((f) => (
               <div key={f.badge} className="glass-card glass-card-hover p-5 relative overflow-hidden group">
@@ -250,7 +250,7 @@ export default function Home() {
       <section className="py-10 md:py-14 bg-gradient-to-br from-cyan-500/8 to-blue-600/8">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl md:text-3xl mb-4">
-            지금 D-GO Vault를 도입해보세요
+            지금 D-GO Vault를 도입해 보세요
           </h2>
           <p className="text-sm text-[var(--text-secondary)] mb-6">
             법인·단체 도입 문의 환영 | 평일 09:00-18:00 | 010-3241-0427

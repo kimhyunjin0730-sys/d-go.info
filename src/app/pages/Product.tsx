@@ -16,7 +16,7 @@ export default function Product() {
       icon: Lock,
       badge: "SECURE PORT",
       title: "물리적 데이터 금고",
-      description: "인감, OTP, 카드, 통장 등 실물 자산도 함께 보관 가능한 하이브리드 금고",
+      description: "인감, OTP, 카드, 통장 등 실물 자산도 함께 보관할 수 있는 하이브리드 금고",
     },
     {
       icon: Shield,
