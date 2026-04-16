@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Sensitive documents
+D-GO Vault 시스템 아키텍처.pdf
