@@ -9,8 +9,9 @@ export default function Footer() {
           {/* Company Info */}
           <div>
             <div className="flex items-center gap-2.5 mb-4">
-              <img src="/d-go.info/logo/dgo-icon.png" alt="D-GO" className="w-8 h-8 rounded-lg" />
-              <span className="text-lg font-bold text-gradient-cyan">D-GO Vault</span>
+              <img src="/d-go.info/logo/dgo-icon.png" alt="D-GO" className="h-8 w-auto object-contain" />
+              <span className="text-lg font-bold text-gradient-cyan">D-GO</span>
+              <span className="text-sm font-medium text-[var(--text-secondary)]">양자데이터금고</span>
             </div>
             <p className="text-sm text-[var(--text-secondary)] mb-4">
               No Data Server, Data Vault.<br />

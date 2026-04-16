@@ -29,9 +29,9 @@ export default function Header() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2.5 group">
-            <img src="/d-go.info/logo/dgo-icon.png" alt="D-GO" className="w-8 h-8 rounded-lg" />
+            <img src="/d-go.info/logo/dgo-icon.png" alt="D-GO" className="h-8 w-auto object-contain" />
             <span className="text-xl font-bold text-gradient-cyan">D-GO</span>
-            <span className="hidden sm:inline text-sm text-[var(--text-secondary)]">Vault</span>
+            <span className="hidden sm:inline text-sm font-medium text-[var(--text-secondary)]">양자데이터금고</span>
           </Link>
 
           {/* Desktop Navigation */}
