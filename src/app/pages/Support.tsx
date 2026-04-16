@@ -13,89 +13,88 @@ export default function Support() {
   return (
     <div className="w-full">
       {/* Hero */}
-      <section className="py-20 md:py-32">
+      <section className="pt-10 pb-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <div className="inline-block px-3 py-1 rounded-full bg-[var(--accent-cyan-soft)] border border-[var(--accent-cyan)]/20 mb-6">
+          <div className="text-center mb-6">
+            <div className="inline-block px-3 py-1 rounded-full bg-[var(--accent-cyan-soft)] border border-[var(--accent-cyan)]/20 mb-4">
               <span className="badge text-[var(--accent-cyan)]">SUPPORT</span>
             </div>
-            <h1 className="text-4xl md:text-5xl mb-6">고객 지원</h1>
-            <p className="text-xl text-[var(--text-secondary)] max-w-3xl mx-auto">
-              D-GO Vault 사용 중 궁금한 점이 있으신가요?<br />
-              언제든 문의해주세요. 친절하게 답변해드리겠습니다.
+            <h1 className="text-2xl md:text-3xl mb-3">고객 지원</h1>
+            <p className="text-lg text-[var(--text-secondary)] max-w-3xl mx-auto">
+              D-GO Vault 사용 중 궁금한 점이 있으신가요? 언제든 문의해주세요.
             </p>
           </div>
         </div>
       </section>
 
       {/* Contact Cards */}
-      <section className="py-20 bg-[var(--bg-elevated)]">
+      <section className="py-10 md:py-14 bg-[var(--bg-elevated)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl text-center mb-12">연락처</h2>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <h2 className="text-2xl md:text-3xl text-center mb-6">연락처</h2>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-3">
             {/* Email */}
-            <div className="glass-card p-6">
-              <div className="w-12 h-12 rounded-xl bg-[var(--accent-cyan-soft)] flex items-center justify-center mb-4">
-                <Mail className="text-[var(--accent-cyan)]" size={24} />
+            <div className="glass-card p-4">
+              <div className="w-10 h-10 rounded-xl bg-[var(--accent-cyan-soft)] flex items-center justify-center mb-3">
+                <Mail className="text-[var(--accent-cyan)]" size={20} />
               </div>
-              <h3 className="font-semibold mb-2">이메일</h3>
-              <p className="text-sm text-[var(--text-secondary)] mb-3 break-all">
+              <h3 className="font-semibold text-sm mb-1">이메일</h3>
+              <p className="text-sm text-[var(--text-secondary)] mb-2 break-all">
                 biz@boanlinks.com
               </p>
               <div className="flex gap-2">
                 <a
                   href="mailto:biz@boanlinks.com"
-                  className="flex-1 px-3 py-2 rounded-lg bg-[var(--accent-cyan)] text-[var(--bg-primary)] text-sm font-medium text-center hover:opacity-90 transition-opacity"
+                  className="flex-1 px-3 py-1.5 rounded-lg bg-[var(--accent-cyan)] text-[var(--bg-primary)] text-xs font-medium text-center hover:opacity-90 transition-opacity"
                 >
                   보내기
                 </a>
                 <button
                   onClick={copyEmail}
-                  className="px-3 py-2 rounded-lg border border-[var(--accent-cyan)] text-[var(--accent-cyan)] hover:bg-[var(--accent-cyan-soft)] transition-colors"
+                  className="px-2.5 py-1.5 rounded-lg border border-[var(--accent-cyan)] text-[var(--accent-cyan)] hover:bg-[var(--accent-cyan-soft)] transition-colors"
                   aria-label="이메일 복사"
                 >
-                  {copied ? <CheckCircle size={16} /> : <Copy size={16} />}
+                  {copied ? <CheckCircle size={14} /> : <Copy size={14} />}
                 </button>
               </div>
             </div>
 
             {/* Phone */}
-            <div className="glass-card p-6">
-              <div className="w-12 h-12 rounded-xl bg-[var(--accent-cyan-soft)] flex items-center justify-center mb-4">
-                <Phone className="text-[var(--accent-cyan)]" size={24} />
+            <div className="glass-card p-4">
+              <div className="w-10 h-10 rounded-xl bg-[var(--accent-cyan-soft)] flex items-center justify-center mb-3">
+                <Phone className="text-[var(--accent-cyan)]" size={20} />
               </div>
-              <h3 className="font-semibold mb-2">전화</h3>
-              <p className="text-sm text-[var(--text-secondary)] mb-3 mono">
+              <h3 className="font-semibold text-sm mb-1">전화</h3>
+              <p className="text-sm text-[var(--text-secondary)] mb-2 mono">
                 010-3241-0427
               </p>
               <a
                 href="tel:010-3241-0427"
-                className="block px-3 py-2 rounded-lg bg-[var(--accent-cyan)] text-[var(--bg-primary)] text-sm font-medium text-center hover:opacity-90 transition-opacity"
+                className="block px-3 py-1.5 rounded-lg bg-[var(--accent-cyan)] text-[var(--bg-primary)] text-xs font-medium text-center hover:opacity-90 transition-opacity"
               >
                 전화 걸기
               </a>
             </div>
 
             {/* Hours */}
-            <div className="glass-card p-6">
-              <div className="w-12 h-12 rounded-xl bg-[var(--accent-cyan-soft)] flex items-center justify-center mb-4">
-                <Clock className="text-[var(--accent-cyan)]" size={24} />
+            <div className="glass-card p-4">
+              <div className="w-10 h-10 rounded-xl bg-[var(--accent-cyan-soft)] flex items-center justify-center mb-3">
+                <Clock className="text-[var(--accent-cyan)]" size={20} />
               </div>
-              <h3 className="font-semibold mb-2">운영 시간</h3>
+              <h3 className="font-semibold text-sm mb-1">운영 시간</h3>
               <p className="text-sm text-[var(--text-secondary)]">
-                평일: 09:00 - 18:00<br />
+                평일 09:00-18:00<br />
                 주말·공휴일: 휴무<br />
                 <span className="text-[var(--text-muted)]">이메일은 24시간 접수</span>
               </p>
             </div>
 
             {/* Address */}
-            <div className="glass-card p-6">
-              <div className="w-12 h-12 rounded-xl bg-[var(--accent-cyan-soft)] flex items-center justify-center mb-4">
-                <MapPin className="text-[var(--accent-cyan)]" size={24} />
+            <div className="glass-card p-4">
+              <div className="w-10 h-10 rounded-xl bg-[var(--accent-cyan-soft)] flex items-center justify-center mb-3">
+                <MapPin className="text-[var(--accent-cyan)]" size={20} />
               </div>
-              <h3 className="font-semibold mb-2">주소</h3>
+              <h3 className="font-semibold text-sm mb-1">주소</h3>
               <p className="text-sm text-[var(--text-secondary)]">
                 경기 하남시 미사대로 540<br />
                 현대지식산업센터<br />
@@ -107,20 +106,20 @@ export default function Support() {
       </section>
 
       {/* Contact Form */}
-      <section className="py-20 md:py-32">
+      <section className="py-10 md:py-14">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl mb-4">문의하기</h2>
-            <p className="text-lg text-[var(--text-secondary)]">
+          <div className="text-center mb-6">
+            <h2 className="text-2xl md:text-3xl mb-2">문의하기</h2>
+            <p className="text-base text-[var(--text-secondary)]">
               아래 버튼을 클릭하면 이메일 앱이 열립니다
             </p>
           </div>
 
-          <div className="glass-card p-8">
-            <div className="space-y-6">
+          <div className="glass-card p-5">
+            <div className="space-y-4">
               <div>
-                <h3 className="font-semibold mb-3 text-[var(--accent-cyan)]">문의 유형</h3>
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+                <h3 className="font-semibold text-sm mb-2 text-[var(--accent-cyan)]">문의 유형</h3>
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
                   {[
                     "제품 구매",
                     "기술 지원",
@@ -132,7 +131,7 @@ export default function Support() {
                     <a
                       key={type}
                       href={`mailto:biz@boanlinks.com?subject=문의: ${type}`}
-                      className="px-4 py-3 rounded-lg border border-[var(--border-hairline)] hover:border-[var(--accent-cyan)] hover:bg-[var(--accent-cyan-soft)] transition-all text-sm text-center"
+                      className="px-3 py-2 rounded-lg border border-[var(--border-hairline)] hover:border-[var(--accent-cyan)] hover:bg-[var(--accent-cyan-soft)] transition-all text-sm text-center"
                     >
                       {type}
                     </a>
@@ -140,24 +139,23 @@ export default function Support() {
                 </div>
               </div>
 
-              <div className="pt-6 border-t border-[var(--border-hairline)]">
-                <h3 className="font-semibold mb-3 text-[var(--accent-cyan)]">일반 문의</h3>
-                <p className="text-sm text-[var(--text-secondary)] mb-4">
+              <div className="pt-4 border-t border-[var(--border-hairline)]">
+                <h3 className="font-semibold text-sm mb-2 text-[var(--accent-cyan)]">일반 문의</h3>
+                <p className="text-sm text-[var(--text-secondary)] mb-3">
                   문의 유형을 선택하지 않고 바로 이메일을 보내실 수 있습니다.
                 </p>
                 <a
                   href="mailto:biz@boanlinks.com"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-[var(--accent-cyan)] text-[var(--bg-primary)] font-semibold hover:opacity-90 transition-opacity"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[var(--accent-cyan)] text-[var(--bg-primary)] font-semibold hover:opacity-90 transition-opacity"
                 >
-                  <Mail size={20} />
+                  <Mail size={18} />
                   이메일 앱 열기
                 </a>
               </div>
 
-              <div className="p-4 rounded-lg bg-[var(--bg-primary)]/50 border border-[var(--border-hairline)]">
-                <p className="text-sm text-[var(--text-secondary)]">
-                  <span className="text-[var(--accent-cyan)] font-semibold">안내:</span><br />
-                  메일 앱이 열리지 않으면 <span className="mono text-[var(--accent-cyan)]">biz@boanlinks.com</span> 으로 직접 보내주세요.
+              <div className="p-3 rounded-lg bg-[var(--bg-primary)]/50 border border-[var(--border-hairline)]">
+                <p className="text-xs text-[var(--text-secondary)]">
+                  <span className="text-[var(--accent-cyan)] font-semibold">안내:</span> 메일 앱이 열리지 않으면 <span className="mono text-[var(--accent-cyan)]">biz@boanlinks.com</span> 으로 직접 보내주세요.
                 </p>
               </div>
             </div>
@@ -166,19 +164,19 @@ export default function Support() {
       </section>
 
       {/* FAQ */}
-      <section className="py-20 bg-[var(--bg-elevated)]">
+      <section className="py-10 md:py-14 bg-[var(--bg-elevated)]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <div className="w-14 h-14 rounded-xl bg-[var(--accent-cyan-soft)] flex items-center justify-center mx-auto mb-4">
-              <HelpCircle className="text-[var(--accent-cyan)]" size={28} />
+          <div className="text-center mb-6">
+            <div className="w-12 h-12 rounded-xl bg-[var(--accent-cyan-soft)] flex items-center justify-center mx-auto mb-3">
+              <HelpCircle className="text-[var(--accent-cyan)]" size={24} />
             </div>
-            <h2 className="text-3xl md:text-4xl mb-4">자주 묻는 질문</h2>
-            <p className="text-lg text-[var(--text-secondary)]">
+            <h2 className="text-2xl md:text-3xl mb-2">자주 묻는 질문</h2>
+            <p className="text-base text-[var(--text-secondary)]">
               구매·A/S·배송·보증 관련 FAQ
             </p>
           </div>
 
-          <div className="space-y-6">
+          <div className="space-y-3">
             {[
               {
                 category: "구매",
@@ -221,49 +219,48 @@ export default function Support() {
                 a: "네, 법인 구매 시 연간 유지보수 계약을 통해 보증 기간을 연장할 수 있습니다. 자세한 사항은 영업팀에 문의해주세요."
               },
             ].map((faq, index) => (
-              <div key={index} className="glass-card p-6">
-                <div className="flex items-start gap-3 mb-3">
-                  <div className="px-2 py-1 rounded bg-[var(--accent-cyan-soft)]">
+              <div key={index} className="glass-card p-4">
+                <div className="flex items-start gap-2 mb-2">
+                  <div className="px-2 py-0.5 rounded bg-[var(--accent-cyan-soft)]">
                     <span className="badge text-[var(--accent-cyan)] text-xs">{faq.category}</span>
                   </div>
-                  <h3 className="font-semibold text-lg flex-1">Q. {faq.q}</h3>
+                  <h3 className="font-semibold text-base flex-1">Q. {faq.q}</h3>
                 </div>
-                <p className="text-[var(--text-secondary)] leading-relaxed pl-0">A. {faq.a}</p>
+                <p className="text-sm text-[var(--text-secondary)] leading-relaxed">A. {faq.a}</p>
               </div>
             ))}
           </div>
 
-          <div className="mt-12 text-center">
-            <p className="text-[var(--text-secondary)] mb-4">
+          <div className="mt-8 text-center">
+            <p className="text-sm text-[var(--text-secondary)] mb-3">
               원하는 답변을 찾지 못하셨나요?
             </p>
             <a
               href="mailto:biz@boanlinks.com"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-[var(--accent-cyan)] text-[var(--bg-primary)] font-semibold hover:opacity-90 transition-opacity"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[var(--accent-cyan)] text-[var(--bg-primary)] font-semibold hover:opacity-90 transition-opacity"
             >
-              <MessageSquare size={20} />
+              <MessageSquare size={18} />
               직접 문의하기
             </a>
           </div>
         </div>
       </section>
 
-      {/* Security Notice Section (Placeholder) */}
-      <section className="py-20 md:py-32">
+      {/* Security Notice Section */}
+      <section className="py-10 md:py-14">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl mb-4">보안 공지</h2>
-            <p className="text-lg text-[var(--text-secondary)]">
+          <div className="text-center mb-6">
+            <h2 className="text-2xl md:text-3xl mb-2">보안 공지</h2>
+            <p className="text-base text-[var(--text-secondary)]">
               제품 업데이트 및 보안 관련 중요 공지사항
             </p>
           </div>
 
-          <div className="glass-card p-12 max-w-3xl mx-auto text-center">
-            <CheckCircle className="text-[var(--status-ok)] mx-auto mb-4" size={48} />
-            <h3 className="text-xl font-semibold mb-2">현재 공지사항 없음</h3>
-            <p className="text-[var(--text-secondary)]">
-              모든 시스템이 안정적으로 운영되고 있습니다.<br />
-              중요한 업데이트나 보안 공지가 있을 경우 이곳에 게시됩니다.
+          <div className="glass-card p-8 max-w-3xl mx-auto text-center">
+            <CheckCircle className="text-[var(--status-ok)] mx-auto mb-3" size={40} />
+            <h3 className="text-lg font-semibold mb-1">현재 공지사항 없음</h3>
+            <p className="text-sm text-[var(--text-secondary)]">
+              모든 시스템이 안정적으로 운영되고 있습니다. 중요한 업데이트나 보안 공지가 있을 경우 이곳에 게시됩니다.
             </p>
           </div>
         </div>

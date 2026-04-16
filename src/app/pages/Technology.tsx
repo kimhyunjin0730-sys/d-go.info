@@ -55,18 +55,18 @@ export default function Technology() {
   return (
     <div className="w-full">
       {/* Hero */}
-      <section className="py-20 md:py-32">
+      <section className="pt-10 pb-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <div className="inline-block px-3 py-1 rounded-full bg-[var(--accent-cyan-soft)] border border-[var(--accent-cyan)]/20 mb-6">
+          <div className="text-center mb-6">
+            <div className="inline-block px-3 py-1 rounded-full bg-[var(--accent-cyan-soft)] border border-[var(--accent-cyan)]/20 mb-3">
               <span className="badge text-[var(--accent-cyan)]">TECHNOLOGY</span>
             </div>
-            <h1 className="text-4xl md:text-5xl mb-6">
-              Zero-Knowledge,<br />
+            <h1 className="text-2xl md:text-3xl mb-3">
+              Zero-Knowledge,{" "}
               <span className="text-gradient-cyan">By Hardware</span>
             </h1>
-            <p className="text-xl text-[var(--text-secondary)] max-w-3xl mx-auto leading-relaxed">
-              외부 서버 없이 하드웨어 단독으로 완성되는 제로 지식 암호화.<br />
+            <p className="text-base text-[var(--text-secondary)] max-w-3xl mx-auto leading-snug">
+              외부 서버 없이 하드웨어 단독으로 완성되는 제로 지식 암호화.
               ICTK PUF 칩과 폐쇄형 아키텍처로 진정한 데이터 주권을 실현합니다.
             </p>
           </div>
@@ -74,42 +74,42 @@ export default function Technology() {
       </section>
 
       {/* Architecture Diagram */}
-      <section className="py-20 bg-[var(--bg-elevated)]">
+      <section className="py-10 md:py-14 bg-[var(--bg-elevated)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl text-center mb-12">시스템 아키텍처</h2>
-          
-          <div className="glass-card p-8 md:p-12 max-w-5xl mx-auto">
-            <div className="space-y-8">
+          <h2 className="text-2xl md:text-3xl text-center mb-6">시스템 아키텍처</h2>
+
+          <div className="glass-card p-4 md:p-5 max-w-5xl mx-auto">
+            <div className="space-y-4">
               {/* Network Layer */}
-              <div className="border-2 border-[var(--accent-cyan)]/30 rounded-xl p-6 bg-[var(--bg-primary)]/50">
-                <div className="flex items-center gap-3 mb-6">
-                  <Wifi className="text-[var(--accent-cyan)]" size={24} />
-                  <h3 className="text-xl font-semibold">폐쇄망 1:1 Direct Wi-Fi</h3>
+              <div className="border-2 border-[var(--accent-cyan)]/30 rounded-xl p-4 bg-[var(--bg-primary)]/50">
+                <div className="flex items-center gap-2 mb-3">
+                  <Wifi className="text-[var(--accent-cyan)]" size={20} />
+                  <h3 className="text-base font-semibold">폐쇄망 1:1 Direct Wi-Fi</h3>
                 </div>
-                
-                <div className="grid md:grid-cols-2 gap-6">
+
+                <div className="grid grid-cols-2 gap-3">
                   {/* Mobile Client */}
-                  <div className="glass-card p-6 text-center">
-                    <div className="w-12 h-12 rounded-xl bg-[var(--accent-cyan-soft)] flex items-center justify-center mx-auto mb-3">
-                      <Shield className="text-[var(--accent-cyan)]" size={24} />
+                  <div className="glass-card p-3 text-center">
+                    <div className="w-9 h-9 rounded-lg bg-[var(--accent-cyan-soft)] flex items-center justify-center mx-auto mb-2">
+                      <Shield className="text-[var(--accent-cyan)]" size={18} />
                     </div>
-                    <h4 className="font-semibold mb-2">Mobile Client</h4>
-                    <p className="text-sm text-[var(--text-secondary)]">관리자 앱</p>
+                    <h4 className="font-semibold text-sm">Mobile Client</h4>
+                    <p className="text-xs text-[var(--text-secondary)]">관리자 앱</p>
                   </div>
-                  
+
                   {/* D-GO Vault */}
-                  <div className="glass-card p-6 text-center border-2 border-[var(--accent-cyan)]/50">
-                    <div className="w-12 h-12 rounded-xl bg-[var(--accent-cyan)] flex items-center justify-center mx-auto mb-3">
-                      <Database className="text-[var(--bg-primary)]" size={24} />
+                  <div className="glass-card p-3 text-center border-2 border-[var(--accent-cyan)]/50">
+                    <div className="w-9 h-9 rounded-lg bg-[var(--accent-cyan)] flex items-center justify-center mx-auto mb-2">
+                      <Database className="text-[var(--bg-primary)]" size={18} />
                     </div>
-                    <h4 className="font-semibold mb-2">D-GO Vault</h4>
-                    <p className="text-sm text-[var(--text-secondary)]">데이터 금고 본체</p>
+                    <h4 className="font-semibold text-sm">D-GO Vault</h4>
+                    <p className="text-xs text-[var(--text-secondary)]">데이터 금고 본체</p>
                   </div>
                 </div>
-                
-                <div className="mt-6 text-center">
-                  <div className="inline-flex items-center gap-2 text-sm text-[var(--text-secondary)]">
-                    <div className="w-2 h-2 rounded-full bg-[var(--accent-cyan)] animate-pulse"></div>
+
+                <div className="mt-3 text-center">
+                  <div className="inline-flex items-center gap-2 text-xs text-[var(--text-secondary)]">
+                    <div className="w-1.5 h-1.5 rounded-full bg-[var(--accent-cyan)] animate-pulse"></div>
                     1:1 Direct Wi-Fi 페어링 (외부 네트워크 미연결)
                   </div>
                 </div>
@@ -117,76 +117,77 @@ export default function Technology() {
 
               {/* PUF Core */}
               <div className="text-center">
-                <div className="inline-block glass-card p-6 border-2 border-[var(--accent-cyan)]">
-                  <div className="flex items-center gap-3">
-                    <Lock className="text-[var(--accent-cyan)]" size={28} />
+                <div className="inline-block glass-card p-3 border-2 border-[var(--accent-cyan)]">
+                  <div className="flex items-center gap-2">
+                    <Lock className="text-[var(--accent-cyan)]" size={22} />
                     <div className="text-left">
-                      <h4 className="font-semibold text-lg">PUF Core</h4>
-                      <p className="text-sm text-[var(--text-secondary)]">ICTK Hardware</p>
+                      <h4 className="font-semibold text-sm">PUF Core</h4>
+                      <p className="text-xs text-[var(--text-secondary)]">ICTK Hardware</p>
                     </div>
                   </div>
                 </div>
               </div>
 
               {/* Components */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div className="glass-card p-4 text-center">
-                  <Database className="text-[var(--accent-cyan)] mx-auto mb-2" size={20} />
-                  <p className="text-sm font-semibold">RAID 1</p>
+              <div className="grid grid-cols-4 gap-3">
+                <div className="glass-card p-3 text-center">
+                  <Database className="text-[var(--accent-cyan)] mx-auto mb-1" size={18} />
+                  <p className="text-xs font-semibold">RAID 1</p>
                 </div>
-                <div className="glass-card p-4 text-center">
-                  <Shield className="text-[var(--accent-cyan)] mx-auto mb-2" size={20} />
-                  <p className="text-sm font-semibold">UPS</p>
+                <div className="glass-card p-3 text-center">
+                  <Shield className="text-[var(--accent-cyan)] mx-auto mb-1" size={18} />
+                  <p className="text-xs font-semibold">UPS</p>
                 </div>
-                <div className="glass-card p-4 text-center">
-                  <Thermometer className="text-[var(--accent-cyan)] mx-auto mb-2" size={20} />
-                  <p className="text-sm font-semibold">Sensor</p>
+                <div className="glass-card p-3 text-center">
+                  <Thermometer className="text-[var(--accent-cyan)] mx-auto mb-1" size={18} />
+                  <p className="text-xs font-semibold">Sensor</p>
                 </div>
-                <div className="glass-card p-4 text-center">
-                  <Lock className="text-[var(--accent-cyan)] mx-auto mb-2" size={20} />
-                  <p className="text-sm font-semibold">Secure Port</p>
+                <div className="glass-card p-3 text-center">
+                  <Lock className="text-[var(--accent-cyan)] mx-auto mb-1" size={18} />
+                  <p className="text-xs font-semibold">Secure Port</p>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="text-center mt-8">
-            <p className="text-sm text-[var(--text-secondary)]">
-              모든 구성 요소가 PUF Core를 중심으로 통합 제어됩니다
-            </p>
-          </div>
+          <p className="text-center text-xs text-[var(--text-secondary)] mt-3">
+            모든 구성 요소가 PUF Core를 중심으로 통합 제어됩니다
+          </p>
         </div>
       </section>
 
       {/* Four Pillars */}
-      <section className="py-20 md:py-32">
+      <section className="py-10 md:py-14">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl text-center mb-4">4가지 핵심 기술</h2>
-          <p className="text-center text-[var(--text-secondary)] mb-16 max-w-2xl mx-auto">
+          <h2 className="text-2xl md:text-3xl text-center mb-2">4가지 핵심 기술</h2>
+          <p className="text-center text-sm text-[var(--text-secondary)] mb-6 max-w-2xl mx-auto">
             D-GO Vault를 지탱하는 네 가지 기술적 기둥
           </p>
-          
-          <div className="grid md:grid-cols-2 gap-8">
+
+          <div className="grid md:grid-cols-2 gap-4">
             {pillars.map((pillar, index) => (
-              <div key={index} className="glass-card glass-card-hover p-8 relative overflow-hidden group">
+              <div key={index} className="glass-card glass-card-hover p-4 relative overflow-hidden group">
                 <div className="absolute top-0 left-0 w-40 h-40 bg-gradient-radial from-cyan-400/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                
+
                 <div className="relative">
-                  <div className="flex items-start justify-between mb-4">
-                    <div className="w-14 h-14 rounded-xl bg-[var(--accent-cyan-soft)] flex items-center justify-center">
-                      <pillar.icon className="text-[var(--accent-cyan)]" size={28} />
+                  <div className="flex items-center justify-between mb-2">
+                    <div className="flex items-center gap-2">
+                      <div className="w-10 h-10 rounded-lg bg-[var(--accent-cyan-soft)] flex items-center justify-center">
+                        <pillar.icon className="text-[var(--accent-cyan)]" size={22} />
+                      </div>
+                      <div>
+                        <h3 className="text-lg font-semibold leading-tight">{pillar.title}</h3>
+                        <p className="text-xs text-[var(--text-secondary)]">{pillar.subtitle}</p>
+                      </div>
                     </div>
-                    <span className="badge text-[var(--accent-cyan)]">{pillar.badge}</span>
+                    <span className="badge text-[var(--accent-cyan)] text-xs">{pillar.badge}</span>
                   </div>
-                  
-                  <h3 className="text-2xl mb-2">{pillar.title}</h3>
-                  <p className="text-sm text-[var(--text-secondary)] mb-6">{pillar.subtitle}</p>
-                  
-                  <ul className="space-y-3">
+
+                  <ul className="space-y-1.5 mt-3">
                     {pillar.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-start gap-3">
-                        <CheckCircle className="text-[var(--accent-cyan)] flex-shrink-0 mt-0.5" size={16} />
-                        <span className="text-sm text-[var(--text-secondary)]">{feature}</span>
+                      <li key={idx} className="flex items-start gap-2">
+                        <CheckCircle className="text-[var(--accent-cyan)] flex-shrink-0 mt-0.5" size={14} />
+                        <span className="text-sm text-[var(--text-secondary)] leading-snug">{feature}</span>
                       </li>
                     ))}
                   </ul>
@@ -198,12 +199,12 @@ export default function Technology() {
       </section>
 
       {/* Security Layers */}
-      <section className="py-20 bg-[var(--bg-elevated)]">
+      <section className="py-10 md:py-14 bg-[var(--bg-elevated)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl text-center mb-12">보안 계층</h2>
-          
-          <div className="glass-card p-8 max-w-4xl mx-auto">
-            <div className="space-y-4">
+          <h2 className="text-2xl md:text-3xl text-center mb-6">보안 계층</h2>
+
+          <div className="glass-card p-4 max-w-5xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-x-4 gap-y-1">
               {[
                 { layer: "Layer 0", name: "물리적 격리", desc: "폐쇄망, 통신 모듈 없음" },
                 { layer: "Layer 1", name: "장치 인증", desc: "PUF 칩 기반 등록 장치만 접근 허용" },
@@ -214,15 +215,13 @@ export default function Technology() {
                 { layer: "Layer 6", name: "악성코드 검사", desc: "입력 파일 실시간 스캔" },
                 { layer: "Layer 7", name: "감사 추적", desc: "모든 접근·반출 이력 로그 체인" },
               ].map((item, index) => (
-                <div key={index} className="flex items-start gap-4 p-4 rounded-lg hover:bg-[var(--bg-primary)]/50 transition-colors">
-                  <div className="w-16 flex-shrink-0">
-                    <span className="mono text-sm text-[var(--accent-cyan)]">{item.layer}</span>
+                <div key={index} className="flex items-center gap-3 py-2 px-3 rounded-lg hover:bg-[var(--bg-primary)]/50 transition-colors">
+                  <span className="mono text-xs text-[var(--accent-cyan)] w-14 flex-shrink-0">{item.layer}</span>
+                  <div className="flex-1 min-w-0">
+                    <span className="font-semibold text-sm">{item.name}</span>
+                    <span className="text-xs text-[var(--text-secondary)] ml-2">{item.desc}</span>
                   </div>
-                  <div className="flex-1">
-                    <h4 className="font-semibold mb-1">{item.name}</h4>
-                    <p className="text-sm text-[var(--text-secondary)]">{item.desc}</p>
-                  </div>
-                  <CheckCircle className="text-[var(--status-ok)] flex-shrink-0 mt-1" size={20} />
+                  <CheckCircle className="text-[var(--status-ok)] flex-shrink-0" size={16} />
                 </div>
               ))}
             </div>
@@ -231,17 +230,17 @@ export default function Technology() {
       </section>
 
       {/* Comparison */}
-      <section className="py-20 md:py-32">
+      <section className="py-10 md:py-14">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl text-center mb-12">핵심 차별점</h2>
-          
-          <div className="glass-card p-8 max-w-5xl mx-auto overflow-x-auto">
+          <h2 className="text-2xl md:text-3xl text-center mb-6">핵심 차별점</h2>
+
+          <div className="glass-card p-4 max-w-5xl mx-auto overflow-x-auto">
             <table className="w-full">
               <thead>
                 <tr className="border-b border-[var(--border-hairline)]">
-                  <th className="text-left py-4 px-4 font-semibold">비교 항목</th>
-                  <th className="text-left py-4 px-4 font-semibold text-[var(--text-secondary)]">기존 제품</th>
-                  <th className="text-left py-4 px-4 font-semibold text-[var(--accent-cyan)]">D-GO Vault</th>
+                  <th className="text-left py-2 px-3 font-semibold text-sm">비교 항목</th>
+                  <th className="text-left py-2 px-3 font-semibold text-sm text-[var(--text-secondary)]">기존 제품</th>
+                  <th className="text-left py-2 px-3 font-semibold text-sm text-[var(--accent-cyan)]">D-GO Vault</th>
                 </tr>
               </thead>
               <tbody>
@@ -278,9 +277,9 @@ export default function Technology() {
                   },
                 ].map((row, index) => (
                   <tr key={index} className="border-b border-[var(--border-hairline)]">
-                    <td className="py-4 px-4 font-medium">{row.item}</td>
-                    <td className="py-4 px-4 text-sm text-[var(--text-secondary)]">{row.existing}</td>
-                    <td className="py-4 px-4 text-sm text-[var(--accent-cyan)]">{row.dgo}</td>
+                    <td className="py-2 px-3 font-medium text-sm">{row.item}</td>
+                    <td className="py-2 px-3 text-xs text-[var(--text-secondary)]">{row.existing}</td>
+                    <td className="py-2 px-3 text-xs text-[var(--accent-cyan)]">{row.dgo}</td>
                   </tr>
                 ))}
               </tbody>
@@ -290,11 +289,11 @@ export default function Technology() {
       </section>
 
       {/* FAQ */}
-      <section className="py-20 bg-gradient-to-br from-cyan-500/10 to-blue-600/10">
+      <section className="py-10 md:py-14 bg-gradient-to-br from-cyan-500/10 to-blue-600/10">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl text-center mb-12">기술 FAQ</h2>
-          
-          <div className="space-y-6">
+          <h2 className="text-2xl md:text-3xl text-center mb-6">기술 FAQ</h2>
+
+          <div className="space-y-3">
             {[
               {
                 q: "Zero-Knowledge가 정확히 무엇인가요?",
@@ -309,9 +308,9 @@ export default function Technology() {
                 a: "D-GO Vault는 '양자 시대에 대비한 데이터 금고'라는 의미에서 Quantum Data Vault로 명명되었습니다. 현재는 AES-256 암호화를 사용하며, 향후 양자내성암호(PQC) 알고리즘 적용을 준비 중입니다."
               },
             ].map((faq, index) => (
-              <div key={index} className="glass-card p-6">
-                <h3 className="font-semibold text-lg mb-3 text-[var(--accent-cyan)]">{faq.q}</h3>
-                <p className="text-[var(--text-secondary)] leading-relaxed">{faq.a}</p>
+              <div key={index} className="glass-card p-4">
+                <h3 className="font-semibold text-sm mb-1.5 text-[var(--accent-cyan)]">{faq.q}</h3>
+                <p className="text-sm text-[var(--text-secondary)] leading-relaxed">{faq.a}</p>
               </div>
             ))}
           </div>
