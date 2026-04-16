@@ -228,8 +228,8 @@ export default function Home() {
           <div className="relative">
             <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/10 to-blue-600/10 rounded-3xl blur-3xl"></div>
             <img
-              src="/images/renders/render-05.jpg"
-              alt="D-GO Vault 정면 뷰, 시안 LED 점등"
+              src="https://images.unsplash.com/photo-1767449441925-737379bc2c4d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2JpbGUlMjBhcHAlMjBpbnRlcmZhY2UlMjBkYXNoYm9hcmR8ZW58MXx8fHwxNzc2MjQwNTk1fDA&ixlib=rb-4.1.0&q=80&w=1080"
+              alt="대시보드 미리보기"
               className="relative rounded-2xl shadow-2xl w-full h-auto max-w-4xl mx-auto"
             />
           </div>

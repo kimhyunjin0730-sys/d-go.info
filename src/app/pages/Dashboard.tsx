@@ -21,8 +21,8 @@ export default function Dashboard() {
           <div className="relative max-w-5xl mx-auto">
             <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/20 to-blue-600/20 rounded-3xl blur-3xl"></div>
             <img
-              src="/images/renders/render-05.jpg"
-              alt="D-GO Vault 정면 뷰"
+              src="https://images.unsplash.com/photo-1767449441925-737379bc2c4d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2JpbGUlMjBhcHAlMjBpbnRlcmZhY2UlMjBkYXNoYm9hcmR8ZW58MXx8fHwxNzc2MjQwNTk1fDA&ixlib=rb-4.1.0&q=80&w=1080"
+              alt="D-GO Dashboard"
               className="relative rounded-2xl shadow-2xl w-full h-auto"
             />
           </div>
