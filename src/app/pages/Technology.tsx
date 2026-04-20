@@ -1,4 +1,4 @@
-import { Shield, Lock, RefreshCw, Thermometer, Fingerprint, Database, Wifi, CheckCircle, Layers, Brain, Radio, Camera, HardDrive } from "lucide-react";
+import { Shield, Lock, RefreshCw, Thermometer, Fingerprint, Database, Wifi, CheckCircle, Layers, Brain, Radio, Camera, HardDrive, Smartphone, ArrowRight, ArrowDown, Cpu, Zap, Settings } from "lucide-react";
 
 export default function Technology() {
   const pillars = [
@@ -76,83 +76,156 @@ export default function Technology() {
       {/* Architecture Diagram */}
       <section className="py-10 md:py-14 bg-[var(--bg-elevated)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl md:text-3xl text-center mb-6">시스템 아키텍처</h2>
+          <h2 className="text-2xl md:text-3xl text-center mb-8">시스템 아키텍처</h2>
 
-          <div className="glass-card p-4 md:p-5 max-w-5xl mx-auto">
-            <div className="space-y-4">
-              {/* Network Layer */}
-              <div className="border-2 border-[var(--accent-cyan)]/30 rounded-xl p-4 bg-[var(--bg-primary)]/50">
-                <div className="flex items-center gap-2 mb-3">
-                  <Wifi className="text-[var(--accent-cyan)]" size={20} />
-                  <h3 className="text-base font-semibold">폐쇄망 1:1 Direct Wi-Fi</h3>
-                </div>
-
-                <div className="grid grid-cols-2 gap-3">
-                  {/* Mobile Client */}
-                  <div className="glass-card p-3 text-center">
-                    <div className="w-9 h-9 rounded-lg bg-[var(--accent-cyan-soft)] flex items-center justify-center mx-auto mb-2">
-                      <Shield className="text-[var(--accent-cyan)]" size={18} />
+          <div className="max-w-5xl mx-auto relative">
+            {/* The Diagram Flow */}
+            <div className="flex flex-col lg:flex-row items-center gap-6 lg:gap-10">
+              
+              {/* Left: Mobile Client */}
+              <div className="w-full lg:w-1/3 flex flex-col gap-4 relative z-10">
+                <div className="glass-card p-5 border-t-4 border-t-[var(--accent-cyan)]">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-12 h-12 rounded-xl bg-[var(--accent-cyan-soft)] flex items-center justify-center flex-shrink-0">
+                      <Smartphone className="text-[var(--accent-cyan)]" size={24} />
                     </div>
-                    <h4 className="font-semibold text-sm">Mobile Client</h4>
-                    <p className="text-xs text-[var(--text-secondary)]">관리자 앱</p>
-                  </div>
-
-                  {/* D-GO Vault */}
-                  <div className="glass-card p-3 text-center border-2 border-[var(--accent-cyan)]/50">
-                    <div className="w-9 h-9 rounded-lg bg-[var(--accent-cyan)] flex items-center justify-center mx-auto mb-2">
-                      <Database className="text-[var(--bg-primary)]" size={18} />
+                    <div>
+                      <h3 className="text-lg font-bold">Client App</h3>
+                      <p className="text-sm text-[var(--text-secondary)]">모바일 관리자 환경</p>
                     </div>
-                    <h4 className="font-semibold text-sm">D-GO Vault</h4>
-                    <p className="text-xs text-[var(--text-secondary)]">데이터 금고 본체</p>
                   </div>
-                </div>
-
-                <div className="mt-3 text-center">
-                  <div className="inline-flex items-center gap-2 text-xs text-[var(--text-secondary)]">
-                    <div className="w-1.5 h-1.5 rounded-full bg-[var(--accent-cyan)] animate-pulse"></div>
-                    1:1 Direct Wi-Fi 페어링 (외부 네트워크 미연결)
-                  </div>
+                  <ul className="space-y-2">
+                    <li className="flex items-center gap-2 text-sm text-[var(--text-secondary)]">
+                      <CheckCircle className="text-[var(--accent-cyan)] w-3.5 h-3.5" /> 대시보드 모니터링
+                    </li>
+                    <li className="flex items-center gap-2 text-sm text-[var(--text-secondary)]">
+                      <CheckCircle className="text-[var(--accent-cyan)] w-3.5 h-3.5" /> 문서 스캔 (OCR PDF)
+                    </li>
+                    <li className="flex items-center gap-2 text-sm text-[var(--text-secondary)]">
+                      <CheckCircle className="text-[var(--accent-cyan)] w-3.5 h-3.5" /> 음성 녹취 및 STT
+                    </li>
+                    <li className="flex items-center gap-2 text-sm text-[var(--status-warn)] font-medium">
+                      <Shield className="text-[var(--status-warn)] w-3.5 h-3.5" /> 전송 후 데이터 자동 파기
+                    </li>
+                  </ul>
                 </div>
               </div>
 
-              {/* PUF Core */}
-              <div className="text-center">
-                <div className="inline-block glass-card p-3 border-2 border-[var(--accent-cyan)]">
-                  <div className="flex items-center gap-2">
-                    <Lock className="text-[var(--accent-cyan)]" size={22} />
-                    <div className="text-left">
-                      <h4 className="font-semibold text-sm">PUF Core</h4>
-                      <p className="text-xs text-[var(--text-secondary)]">ICTK Hardware</p>
-                    </div>
-                  </div>
+              {/* Middle: Connection Layer */}
+              <div className="flex flex-col items-center justify-center relative z-0 lg:w-1/6">
+                <div className="hidden lg:block absolute w-full h-[2px] bg-gradient-to-r from-[var(--bg-elevated)] via-[var(--accent-cyan)] to-[var(--bg-elevated)] -z-10"></div>
+                <div className="w-[2px] h-12 lg:hidden bg-gradient-to-b from-[var(--bg-elevated)] via-[var(--accent-cyan)] to-[var(--bg-elevated)]"></div>
+                
+                <div className="glass-card p-2 md:p-3 rounded-full flex flex-col items-center justify-center border-2 border-[var(--accent-cyan)] bg-[var(--bg-primary)] z-10 shadow-[0_0_15px_rgba(34,211,238,0.2)]">
+                  <Wifi className="text-[var(--accent-cyan)] shrink-0" size={20} />
                 </div>
+                <span className="text-[10px] font-bold text-[var(--accent-cyan)] mt-2 text-center uppercase tracking-wider relative bg-[var(--bg-elevated)] px-2">
+                  폐쇄망 암호화<br/>(1:1 Direct Wi-Fi)
+                </span>
+                
+                <div className="w-[2px] h-12 lg:hidden bg-gradient-to-b from-[var(--bg-elevated)] via-[var(--accent-cyan)] to-[var(--bg-elevated)]"></div>
               </div>
 
-              {/* Components */}
-              <div className="grid grid-cols-4 gap-3">
-                <div className="glass-card p-3 text-center">
-                  <Database className="text-[var(--accent-cyan)] mx-auto mb-1" size={18} />
-                  <p className="text-xs font-semibold">RAID 1</p>
-                </div>
-                <div className="glass-card p-3 text-center">
-                  <Shield className="text-[var(--accent-cyan)] mx-auto mb-1" size={18} />
-                  <p className="text-xs font-semibold">UPS</p>
-                </div>
-                <div className="glass-card p-3 text-center">
-                  <Thermometer className="text-[var(--accent-cyan)] mx-auto mb-1" size={18} />
-                  <p className="text-xs font-semibold">Sensor</p>
-                </div>
-                <div className="glass-card p-3 text-center">
-                  <Lock className="text-[var(--accent-cyan)] mx-auto mb-1" size={18} />
-                  <p className="text-xs font-semibold">Secure Port</p>
+              {/* Right: Embedded Server (Vault) */}
+              <div className="w-full lg:w-1/2 relative z-10">
+                <div className="glass-card border-2 border-[var(--border-hairline)] overflow-hidden">
+                  {/* Header */}
+                  <div className="bg-[var(--bg-primary)]/50 p-4 border-b border-[var(--border-hairline)] flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-lg bg-[var(--bg-elevated)] flex items-center justify-center border border-[var(--border-hairline)]">
+                        <Database className="text-[var(--text-primary)]" size={20} />
+                      </div>
+                      <div>
+                        <h3 className="text-base font-bold">Embedded Server <span className="font-normal text-[var(--text-secondary)] text-sm">(금고 본체)</span></h3>
+                        <p className="text-xs text-[var(--text-secondary)]">리눅스 기반 임베디드 OS</p>
+                      </div>
+                    </div>
+                    <div className="text-right hidden sm:block">
+                      <div className="px-2 py-1 rounded bg-[var(--bg-overlay)] border border-[var(--border-hairline)] text-[10px] font-medium text-[var(--text-secondary)]">
+                        8" 터치스크린 내장
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Body Flow */}
+                  <div className="p-5 flex flex-col gap-4">
+                    {/* PUF Layer */}
+                    <div className="p-4 rounded-xl border border-[var(--accent-cyan)]/50 bg-[var(--accent-cyan-soft)] relative">
+                      <div className="flex items-center gap-3 mb-2">
+                        <Cpu className="text-[var(--accent-cyan)]" size={20} />
+                        <span className="font-bold text-sm text-[var(--accent-cyan)]">PUF Core Logic (암호/제어 중심)</span>
+                      </div>
+                      <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
+                        제로 지식 암호화 수행. 외부 서버 입출력 일체 차단.<br/>
+                        비상시 물리 USB 키 + HW 정보로 이중 복구(Dual Recovery)
+                      </p>
+                    </div>
+
+                    <div className="flex justify-center -my-2 z-10">
+                      <ArrowDown className="text-[var(--border-hairline)]" size={20} />
+                    </div>
+
+                    {/* Subsystems */}
+                    <div className="grid grid-cols-2 gap-3 relative z-0">
+                      {/* Storage */}
+                      <div className="p-3 rounded-lg border border-[var(--border-hairline)] bg-[var(--bg-primary)]/40 hover:border-[var(--accent-cyan)]/50 transition-colors">
+                        <div className="flex items-center gap-2 mb-2">
+                          <HardDrive className="text-[var(--text-primary)]" size={16} />
+                          <span className="text-sm font-semibold">이중화 스토리지</span>
+                        </div>
+                        <ul className="text-xs text-[var(--text-secondary)] space-y-1 pl-1">
+                          <li>• RAID 1 미러링</li>
+                          <li>• C/D/E 보안파티션</li>
+                        </ul>
+                      </div>
+                      
+                      {/* Power & Thermal */}
+                      <div className="p-3 rounded-lg border border-[var(--border-hairline)] bg-[var(--bg-primary)]/40 hover:border-orange-500/50 transition-colors">
+                        <div className="flex items-center gap-2 mb-2">
+                          <Thermometer className="text-orange-400" size={16} />
+                          <span className="text-sm font-semibold">환경 제어</span>
+                        </div>
+                        <ul className="text-xs text-[var(--text-secondary)] space-y-1 pl-1">
+                          <li>• 내장 UPS 탑재</li>
+                          <li>• 125°F 이상 시 셧다운</li>
+                        </ul>
+                      </div>
+
+                      {/* Motor / Lock */}
+                      <div className="p-3 rounded-lg border border-[var(--border-hairline)] bg-[var(--bg-primary)]/40 hover:border-[var(--status-ok)]/50 transition-colors">
+                        <div className="flex items-center gap-2 mb-2">
+                          <Settings className="text-[var(--status-ok)]" size={16} />
+                          <span className="text-sm font-semibold">물리 개폐 시스템</span>
+                        </div>
+                        <ul className="text-xs text-[var(--text-secondary)] space-y-1 pl-1">
+                          <li>• PUF 인증 연동</li>
+                          <li>• 모터 드라이버 제어</li>
+                        </ul>
+                      </div>
+
+                      {/* Secure Port */}
+                      <div className="p-3 rounded-lg border border-[var(--border-hairline)] bg-[var(--bg-primary)]/40 hover:border-purple-500/50 transition-colors">
+                        <div className="flex items-center gap-2 mb-2">
+                          <Usb className="text-purple-400" size={16} />
+                          <span className="text-sm font-semibold">Secure Port</span>
+                        </div>
+                        <ul className="text-xs text-[var(--text-secondary)] space-y-1 pl-1">
+                          <li>• PUF 인가 시 활성</li>
+                          <li>• USB-C 포트 접근통제</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          <p className="text-center text-xs text-[var(--text-secondary)] mt-3">
-            모든 구성 요소가 PUF Core를 중심으로 통합 제어됩니다
-          </p>
+            <div className="mt-6 text-center">
+              <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[var(--bg-primary)] border border-[var(--border-hairline)] text-xs text-[var(--text-secondary)]">
+                <Shield size={14} className="text-[var(--accent-cyan)]" /> 단절된 네트워크와 하드웨어 암호화의 결합으로 서버 해킹 원천 차단
+              </span>
+            </div>
+          </div>
         </div>
       </section>
 
