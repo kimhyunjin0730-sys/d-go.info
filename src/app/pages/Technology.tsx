@@ -1,4 +1,4 @@
-import { Shield, Lock, RefreshCw, Thermometer, Fingerprint, Database, Wifi, CheckCircle, Layers, Brain, Radio, Camera, HardDrive, Smartphone, ArrowRight, ArrowDown, Cpu, Zap, Settings } from "lucide-react";
+import { Shield, Lock, RefreshCw, Thermometer, Fingerprint, Database, Wifi, CheckCircle, Layers, Brain, Radio, Camera, HardDrive, Smartphone, ArrowRight, ArrowDown, Cpu, Zap, Settings, Usb } from "lucide-react";
 
 export default function Technology() {
   const pillars = [
