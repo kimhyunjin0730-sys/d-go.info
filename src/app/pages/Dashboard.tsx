@@ -1,4 +1,4 @@
-import { Thermometer, HardDrive, Battery, AlertTriangle, Lock, Activity, FileCheck } from "lucide-react";
+import { Thermometer, HardDrive, Battery, AlertTriangle, Lock, Activity, FileCheck, Layers } from "lucide-react";
 
 export default function Dashboard() {
   return (
@@ -138,6 +138,39 @@ export default function Dashboard() {
                     예상 백업 시간: <span className="mono text-[var(--accent-cyan)]">4.2시간</span>
                   </p>
                 </div>
+              </div>
+            </div>
+
+            {/* Partition Management */}
+            <div className="glass-card glass-card-hover p-4 md:col-span-1">
+              <div className="flex items-center justify-between mb-3">
+                <div className="w-9 h-9 rounded-lg bg-[var(--accent-cyan-soft)] flex items-center justify-center">
+                  <Layers className="text-[var(--accent-cyan)]" size={18} />
+                </div>
+                <span className="badge text-[var(--accent-cyan)]">C/D/E 등급</span>
+              </div>
+
+              <h3 className="text-base font-semibold mb-1">파티션 관리</h3>
+              <p className="text-xs text-[var(--text-secondary)] mb-3">
+                보안 등급별 저장 공간 현황
+              </p>
+
+              <div className="space-y-2">
+                {[
+                  { grade: "C", label: "일반", use: 75, color: "var(--text-muted)" },
+                  { grade: "D", label: "암호화", use: 30, color: "var(--accent-cyan)" },
+                  { grade: "E", label: "2중보안", use: 10, color: "var(--accent-cyan)" },
+                ].map((p) => (
+                  <div key={p.grade}>
+                    <div className="flex justify-between text-[10px] mb-1">
+                      <span className="font-semibold text-[var(--text-secondary)]">Grade {p.grade} ({p.label})</span>
+                      <span className="mono text-[var(--text-muted)]">{p.use}%</span>
+                    </div>
+                    <div className="h-1 bg-[var(--bg-primary)] rounded-full overflow-hidden">
+                      <div className="h-full bg-current" style={{ width: `${p.use}%`, color: p.color }}></div>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
 

@@ -1,4 +1,4 @@
-import { Download, FileText, Book, AlertCircle, Smartphone, Shield, Key, Upload } from "lucide-react";
+import { Download, FileText, Book, AlertTriangle, Smartphone, Shield, Key, Upload } from "lucide-react";
 
 export default function Manual() {
   const downloads = [
@@ -38,17 +38,17 @@ export default function Manual() {
 
   return (
     <div className="w-full">
-      {/* Notice Banner */}
-      <div className="bg-gradient-to-r from-orange-500/20 to-amber-500/20 border-b border-orange-500/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
-          <div className="flex items-start gap-3">
-            <AlertCircle className="text-orange-400 flex-shrink-0 mt-0.5" size={20} />
-            <p className="text-sm text-[var(--text-secondary)]">
-              <span className="font-semibold text-orange-400">안내:</span> 본 매뉴얼 및 앱은 임시 자료입니다. 정식 D-GO Vault 앱 및 매뉴얼은 약 1주 내 업데이트 예정입니다.
-            </p>
-          </div>
+      {/* Warning Banner: Temporary Reference */}
+      <section className="bg-gradient-to-r from-amber-600/20 to-orange-600/20 border-b border-orange-500/30 py-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center gap-3">
+          <AlertTriangle className="text-orange-400 flex-shrink-0" size={20} />
+          <p className="text-sm text-[var(--text-primary)] leading-relaxed font-medium">
+            현재 안내는 예시 앱 기준입니다. 정식 D-GO Vault 앱 및 매뉴얼은 
+            <span className="text-[var(--accent-cyan)] font-bold mx-1">약 1주 내 정식 업데이트</span> 
+            될 예정입니다.
+          </p>
         </div>
-      </div>
+      </section>
 
       {/* Hero */}
       <section className="pt-10 pb-6">

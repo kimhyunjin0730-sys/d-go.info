@@ -1,61 +1,61 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* D-GO Design System - Deep Navy + Cyan */
+  /* D-GO Design System - Deep Navy + Cyan (Dark Mode Only) */
   
-  /* Surface Colors — Light Theme */
-  --bg-primary: #FFFFFF;
-  --bg-elevated: #F8FAFC;
-  --bg-overlay: rgba(255, 255, 255, 0.82);
+  /* Surface Colors */
+  --bg-primary: #0F172A;   /* Deep Navy */
+  --bg-elevated: #111B30;  /* Slightly lighter navy for cards */
+  --bg-overlay: rgba(15, 23, 42, 0.85); /* Sticky header / Mobile blur */
 
   /* Glass Card */
-  --card-bg: rgba(248, 250, 252, 0.75);
-  --card-border: rgba(15, 23, 42, 0.08);
+  --card-bg: rgba(30, 41, 59, 0.5); /* slate-800/50 */
+  --card-border: rgba(148, 163, 184, 0.12); /* slate-400/12 */
 
   /* Text */
-  --text-primary: #0F172A;
-  --text-secondary: #475569;
-  --text-muted: #94A3B8;
+  --text-primary: #F8FAFC;   /* slate-50 */
+  --text-secondary: #94A3B8; /* slate-400 */
+  --text-muted: #64748B;    /* slate-500 */
 
   /* Accent Colors */
-  --accent-cyan: #0891B2;
-  --accent-cyan-soft: rgba(8, 145, 178, 0.08);
-  --accent-orange: #FF6B1A;
+  --accent-cyan: #22D3EE;   /* cyan-400 - vibrant for dark mode */
+  --accent-cyan-soft: rgba(34, 211, 238, 0.08); /* cyan-400/8 */
+  --accent-orange: #FF6B1A; /* Logo accent */
   
   /* Status Colors */
   --status-ok: #22C55E;
   --status-warn: #F59E0B;
   --status-crit: #EF4444;
   
-  /* Border */
-  --border-hairline: rgba(15, 23, 42, 0.08);
+  /* Border & Hairline */
+  --border-hairline: rgba(148, 163, 184, 0.1);
   
   /* Typography */
   --font-size: 16px;
   --font-weight-medium: 500;
   --font-weight-normal: 400;
   
-  /* Tailwind compatibility */
-  --background: #FFFFFF;
-  --foreground: #0F172A;
-  --card: rgba(248, 250, 252, 0.75);
-  --card-foreground: #0F172A;
-  --popover: #FFFFFF;
-  --popover-foreground: #0F172A;
-  --primary: #0891B2;
-  --primary-foreground: #FFFFFF;
-  --secondary: #F1F5F9;
-  --secondary-foreground: #0F172A;
-  --muted: #F1F5F9;
-  --muted-foreground: #64748B;
-  --accent: #0891B2;
-  --accent-foreground: #FFFFFF;
+  /* Tailwind compatibility (using dark theme values) */
+  --background: #0F172A;
+  --foreground: #F8FAFC;
+  --card: rgba(30, 41, 59, 0.5);
+  --card-foreground: #F8FAFC;
+  --popover: #0F172A;
+  --popover-foreground: #F8FAFC;
+  --primary: #22D3EE;
+  --primary-foreground: #0F172A;
+  --secondary: #1E293B;
+  --secondary-foreground: #F8FAFC;
+  --muted: #1E293B;
+  --muted-foreground: #94A3B8;
+  --accent: #22D3EE;
+  --accent-foreground: #0F172A;
   --destructive: #EF4444;
   --destructive-foreground: #FFFFFF;
-  --border: rgba(15, 23, 42, 0.08);
-  --input: rgba(15, 23, 42, 0.08);
-  --ring: #0891B2;
-  --radius: 1.25rem;
+  --border: rgba(148, 163, 184, 0.15);
+  --input: rgba(148, 163, 184, 0.15);
+  --ring: #22D3EE;
+  --radius: 1rem;
 }
 
 @theme inline {

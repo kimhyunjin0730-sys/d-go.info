@@ -14,9 +14,9 @@ export default function Product() {
   const features = [
     {
       icon: Lock,
-      badge: "SECURE PORT",
-      title: "물리적 데이터 금고",
-      description: "인감, OTP, 카드, 통장 등 실물 자산도 함께 보관할 수 있는 하이브리드 금고",
+      badge: "HYBRID VAULT",
+      title: "물리적·디지털 하이브리드 금고",
+      description: "인감, OTP, 통장 등 실물 자산과 디지털 기밀 데이터를 함께 보관하는 올인원 보안 금고",
     },
     {
       icon: Shield,
@@ -32,9 +32,15 @@ export default function Product() {
     },
     {
       icon: Usb,
-      badge: "USB-C",
-      title: "Secure Port",
-      description: "PUF 승인 시에만 USB-C 및 네트워크 드라이브 활성화",
+      badge: "SECURE PORT",
+      title: "물리적 포트 통제",
+      description: "PUF 승인 시에만 USB-C 및 네트워크 드라이브가 물리적으로 활성화",
+    },
+    {
+      icon: Scan,
+      badge: "MEDIA SECURITY",
+      title: "보안 미디어 생성",
+      description: "촬영 즉시 OCR PDF 변환 및 모바일 데이터 즉시 파기",
     },
   ];
 
@@ -133,12 +139,14 @@ export default function Product() {
           <div className="grid md:grid-cols-2 gap-4">
             {/* Hardware */}
             <div className="glass-card p-5">
-              <h3 className="text-lg font-semibold mb-4">하드웨어</h3>
+              <h3 className="text-lg font-semibold mb-4">하드웨어 · 공급 본체</h3>
               <div className="space-y-3">
                 {[
-                  { label: "아날로그 자산 보관", desc: "인감·OTP·카드·통장 등 실물 자산 수납 공간 내장" },
-                  { label: "디지털 자산 저장", desc: "이중 암호화(AES-256) 보안 스토리지 · 물리적 폐쇄망 내부 격리 보관" },
-                  { label: "환경 센싱", desc: "온도·습도 모니터링 · UL CLASS 125 내구성 인증" },
+                  { label: "임베디드 서버", desc: "리눅스 기반 임베디드 OS · 내부 서버 + 컨트롤 보드 일체형 구조" },
+                  { label: "8인치 터치스크린", desc: "본체 전면 터치 키패드 및 문서 관리 UI 시스템 탑재" },
+                  { label: "개폐 제어 시스템", desc: "전자식 버튼 + PUF 인증 기반 모터 드라이버 금고 개폐 제어" },
+                  { label: "디지털 자산 저장", desc: "PUF 기반 고유 키 생성 · RAID 1 이중화 · SSD 이중화 저장 구조" },
+                  { label: "환경 센싱", desc: "온도·습도 모니터링 · 125°F 초과 시 자동 셧다운 기능" },
                 ].map((item) => (
                   <div key={item.label} className="flex gap-3">
                     <div className="w-1.5 h-1.5 rounded-full bg-[var(--accent-cyan)] mt-2 flex-shrink-0"></div>

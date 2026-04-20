@@ -27,11 +27,13 @@ export default function Home() {
 
               <h1 className="text-3xl md:text-4xl lg:text-5xl mb-4 leading-tight">
                 당신의 데이터,<br />
-                <span className="text-gradient-cyan">오직 당신의 손안에</span>
+                <span className="text-gradient-cyan">오직 당신의 손안에.</span>
               </h1>
 
               <p className="text-base text-[var(--text-secondary)] mb-5 leading-relaxed max-w-lg">
-                외부 서버 없이 PUF 하드웨어 기반 Zero-Knowledge 암호화로 보호되는 완전 폐쇄형 데이터 금고.
+                외부 연결을 철저히 차단하는 폐쇄망 기반 구조.<br />
+                PUF 하드웨어가 직접 수행하는 Zero-Knowledge 암호망으로<br />
+                절대적인 데이터 주권을 실현합니다.
               </p>
 
               <div className="flex flex-wrap gap-3 mb-5">

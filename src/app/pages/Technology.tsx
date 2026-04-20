@@ -1,4 +1,4 @@
-import { Shield, Lock, RefreshCw, Thermometer, Fingerprint, Database, Wifi, CheckCircle } from "lucide-react";
+import { Shield, Lock, RefreshCw, Thermometer, Fingerprint, Database, Wifi, CheckCircle, Layers, Brain, Radio, Camera, HardDrive } from "lucide-react";
 
 export default function Technology() {
   const pillars = [
@@ -225,6 +225,154 @@ export default function Technology() {
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Partition Management (PDF 6.4) */}
+      <section className="py-10 md:py-14">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl md:text-3xl text-center mb-2">보안 등급 기반 파티션 관리</h2>
+          <p className="text-center text-sm text-[var(--text-secondary)] mb-6 max-w-2xl mx-auto">
+            파일 민감도에 따라 C / D / E 3단계 파티션으로 자동 분류·보호
+          </p>
+
+          <div className="grid md:grid-cols-3 gap-4 max-w-5xl mx-auto">
+            {[
+              {
+                grade: "C",
+                level: "저등급",
+                title: "일반 저장 공간",
+                desc: "비암호화 일반 파티션",
+                tone: "var(--text-secondary)",
+                items: ["일반 문서·이미지 보관", "빠른 접근", "기본 무결성 검증"],
+              },
+              {
+                grade: "D",
+                level: "중등급",
+                title: "파티션 단위 암호화",
+                desc: "별도 비밀번호 필요",
+                tone: "var(--accent-cyan)",
+                items: ["파티션 단위 AES 암호화", "전용 비밀번호 요구", "업무용 기밀 파일"],
+              },
+              {
+                grade: "E",
+                level: "고등급",
+                title: "2중 암호화 + 생체 인증",
+                desc: "사용자 인증 + 생체 인증",
+                tone: "var(--accent-cyan)",
+                items: ["2중 암호화 적용", "사용자 인증 + 생체 인증", "최고 보안 자산"],
+              },
+            ].map((p) => (
+              <div key={p.grade} className="glass-card glass-card-hover p-5">
+                <div className="flex items-center justify-between mb-3">
+                  <div className="flex items-center gap-2">
+                    <div className="w-10 h-10 rounded-lg bg-[var(--accent-cyan-soft)] flex items-center justify-center">
+                      <span className="mono font-bold text-[var(--accent-cyan)]">{p.grade}</span>
+                    </div>
+                    <div>
+                      <span className="badge text-[var(--text-muted)]">{p.level}</span>
+                      <h3 className="text-base font-semibold leading-tight">{p.title}</h3>
+                    </div>
+                  </div>
+                </div>
+                <p className="text-xs text-[var(--text-secondary)] mb-3">{p.desc}</p>
+                <ul className="space-y-1.5">
+                  {p.items.map((it) => (
+                    <li key={it} className="flex items-start gap-2">
+                      <CheckCircle className="text-[var(--accent-cyan)] flex-shrink-0 mt-0.5" size={14} />
+                      <span className="text-sm text-[var(--text-secondary)] leading-snug">{it}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-5 max-w-5xl mx-auto glass-card p-4 flex items-start gap-3">
+            <div className="w-9 h-9 rounded-lg bg-[var(--accent-cyan-soft)] flex items-center justify-center flex-shrink-0">
+              <Layers className="text-[var(--accent-cyan)]" size={18} />
+            </div>
+            <div>
+              <h4 className="text-sm font-semibold mb-1">자동 분류</h4>
+              <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
+                사용자 태그 기반으로 파일이 자동 분류되며, 보안 등급에 따라 C / D / E 파티션에 자동 할당됩니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Roadmap (PDF 7) */}
+      <section className="py-10 md:py-14 bg-[var(--bg-elevated)]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-6">
+            <div className="inline-block px-3 py-1 rounded-full bg-[var(--accent-cyan-soft)] border border-[var(--accent-cyan)]/20 mb-3">
+              <span className="badge text-[var(--accent-cyan)]">ROADMAP</span>
+            </div>
+            <h2 className="text-2xl md:text-3xl mb-2">향후 연구 및 개발 계획</h2>
+            <p className="text-sm text-[var(--text-secondary)] max-w-2xl mx-auto">
+              AI 기반 기능과 물리 보안 기술을 결합해 차세대 보안 금고 플랫폼으로 확장합니다.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-4 max-w-5xl mx-auto">
+            {[
+              {
+                icon: HardDrive,
+                num: "7.1",
+                title: "저장장치 보안",
+                items: ["보드 탈착 시 NVMe SSD 데이터 파기 기술 연구"],
+              },
+              {
+                icon: Brain,
+                num: "7.2",
+                title: "로컬 AI 기능 확장",
+                items: [
+                  "로컬 LLM 탑재",
+                  "내부 데이터 검색 및 정리",
+                  "Local NotebookLM 기능",
+                  "위키형 정보 시스템",
+                ],
+              },
+              {
+                icon: Camera,
+                num: "7.3",
+                title: "하드웨어 확장",
+                items: ["카메라 기반 인감도장 시스템 연구"],
+              },
+              {
+                icon: Radio,
+                num: "7.4",
+                title: "통신 및 추적 기능",
+                items: [
+                  "독립 통신 보드(Wi-Fi, BLDC, GPS) 장착",
+                  "전원 차단 시 신호 전송 (Heartbeat)",
+                  "지정 클라이언트로 알림 전달",
+                  "위치 추적 기능 검토",
+                ],
+              },
+            ].map((r) => (
+              <div key={r.num} className="glass-card glass-card-hover p-5">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-10 h-10 rounded-lg bg-[var(--accent-cyan-soft)] flex items-center justify-center">
+                    <r.icon className="text-[var(--accent-cyan)]" size={20} />
+                  </div>
+                  <div>
+                    <span className="mono text-xs text-[var(--accent-cyan)]">{r.num}</span>
+                    <h3 className="text-base font-semibold leading-tight">{r.title}</h3>
+                  </div>
+                </div>
+                <ul className="space-y-1.5">
+                  {r.items.map((it) => (
+                    <li key={it} className="flex items-start gap-2">
+                      <div className="w-1 h-1 rounded-full bg-[var(--accent-cyan)] mt-2 flex-shrink-0"></div>
+                      <span className="text-sm text-[var(--text-secondary)] leading-snug">{it}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         </div>
       </section>
