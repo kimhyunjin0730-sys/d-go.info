@@ -167,6 +167,8 @@ export default function Product() {
                   { label: "데이터 금고 관리", desc: "입력·출력·현황 조회 (파일은 Vault에만 존재)" },
                   { label: "시점인증 연결", desc: "SHA-256 해시 + TSA 타임스탬프 자동 발급 · 법적 효력 확보" },
                   { label: "보안 검사", desc: "유입 파일 악성코드 실시간 스캔 · 무결성 검증" },
+                  { label: "모바일 백업 지원", desc: "모바일 기기의 크롬 기록, 연락처, 중요 파일 자동 백업 보호" },
+                  { label: "자격 증명 보관", desc: "웹사이트 ID 및 패스워드를 위한 안전한 보관소 기능 탑재" },
                 ].map((item) => (
                   <div key={item.label} className="flex gap-3">
                     <div className="w-1.5 h-1.5 rounded-full bg-[var(--accent-cyan)] mt-2 flex-shrink-0"></div>

@@ -343,15 +343,15 @@ export default function Dashboard() {
               <ul className="space-y-1.5">
                 <li className="flex items-center gap-2">
                   <div className="w-1 h-1 rounded-full bg-[var(--accent-cyan)] flex-shrink-0"></div>
-                  <span className="text-xs text-[var(--text-secondary)]">화자 식별 기능</span>
+                  <span className="text-xs text-[var(--text-secondary)]">클라이언트 단말 기록 즉시 삭제</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <div className="w-1 h-1 rounded-full bg-[var(--accent-cyan)] flex-shrink-0"></div>
-                  <span className="text-xs text-[var(--text-secondary)]">STT 자동 변환</span>
+                  <span className="text-xs text-[var(--text-secondary)]">STT 자동 변환 및 화자 식별</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <div className="w-1 h-1 rounded-full bg-[var(--accent-cyan)] flex-shrink-0"></div>
-                  <span className="text-xs text-[var(--text-secondary)]">타임스탬프 자동 기록</span>
+                  <span className="text-xs text-[var(--text-secondary)]">로컬 LLM 기반 녹취록 자동 생성</span>
                 </li>
               </ul>
             </div>
