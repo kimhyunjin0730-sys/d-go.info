@@ -184,57 +184,89 @@ export default function Product() {
         </div>
       </section>
 
-      {/* ── Data I/O — compact 2-col ── */}
+      {/* ── Data Security Lifecycle Flow ── */}
       <section className="py-10 md:py-14">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl md:text-3xl mb-6">데이터 입출력</h2>
+          <h2 className="text-2xl md:text-3xl text-center mb-2">데이터 보안 라이프사이클</h2>
+          <p className="text-center text-sm text-[var(--text-secondary)] mb-8 max-w-2xl mx-auto">
+            생성부터 저장, 폐기까지 완벽하게 통제되는 데이터 흐름
+          </p>
 
-          <div className="grid md:grid-cols-2 gap-4">
-            {/* Input */}
-            <div className="glass-card p-5">
-              <h3 className="text-base font-semibold text-[var(--accent-cyan)] mb-4">입력 방식</h3>
-              <div className="grid grid-cols-2 gap-3">
-                {[
-                  { icon: Scan, num: "1", title: "스캔본", desc: "계약서·증명서·보안 문서" },
-                  { icon: FileCheck, num: "2", title: "음성본", desc: "회의록·녹취·메모, STT 변환" },
-                  { icon: Usb, num: "3", title: "파일본", desc: "법인 자료·기밀 파일 (보안 USB)" },
-                  { icon: HardDrive, num: "4", title: "미디어", desc: "사진·동영상 (보안 USB)" },
-                ].map((item) => (
-                  <div key={item.num} className="flex items-start gap-2">
-                    <div className="w-5 h-5 rounded-full bg-[var(--accent-cyan-soft)] flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <span className="text-[0.6rem] text-[var(--accent-cyan)] font-semibold">{item.num}</span>
-                    </div>
-                    <div>
-                      <h4 className="text-xs font-semibold">{item.title}</h4>
-                      <p className="text-[0.65rem] text-[var(--text-secondary)]">{item.desc}</p>
-                    </div>
+          <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-stretch gap-4 md:gap-0 relative">
+            
+            {/* Step 1: Input & Upload (Mobile) */}
+            <div className="flex-1 glass-card p-5 relative z-10 border-t-4 border-t-blue-500">
+              <div className="flex items-center gap-2 mb-4">
+                <div className="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-500 font-bold">1</div>
+                <h3 className="font-semibold text-base text-blue-500">모바일 입력</h3>
+              </div>
+              
+              <div className="space-y-3">
+                <div className="p-3 rounded-lg bg-[var(--bg-primary)]/50 border border-[var(--border-hairline)]">
+                  <div className="flex items-center gap-2 mb-1">
+                    <Scan size={14} className="text-blue-400" />
+                    <span className="font-medium text-xs">보안 캡처</span>
                   </div>
-                ))}
+                  <p className="text-[10px] text-[var(--text-secondary)]">문서 촬영(OCR) & 음성 녹취(STT)</p>
+                </div>
+                <div className="p-2 rounded bg-red-500/10 border border-red-500/20 text-center mt-2">
+                  <span className="text-[10px] font-semibold text-red-500">서버 전송 후 원본 즉시 파기</span>
+                </div>
               </div>
             </div>
 
-            {/* Output */}
-            <div className="glass-card p-5">
-              <h3 className="text-base font-semibold text-[var(--accent-cyan)] mb-4">출력 방식</h3>
-              <div className="flex items-start gap-3 mb-3">
-                <Usb size={16} className="text-[var(--accent-cyan)] mt-0.5 flex-shrink-0" />
-                <div>
-                  <h4 className="text-sm font-semibold mb-1">보안 USB</h4>
-                  <p className="text-xs text-[var(--text-secondary)]">
-                    전용 보안 USB를 통한 단방향 출력<br />
-                    PUF 승인 시에만 포트 활성화
+            {/* Connection Arrow (Desktop) */}
+            <div className="hidden md:flex flex-col items-center justify-center w-16 relative z-0">
+              <div className="w-full h-[2px] bg-gradient-to-r from-blue-500 to-[var(--accent-cyan)] absolute"></div>
+              <Wifi className="text-[var(--text-secondary)] bg-[var(--bg-elevated)] p-1 rounded-full relative z-10" size={24} />
+            </div>
+
+            {/* Step 2: Storage & Classification (Vault) */}
+            <div className="flex-[1.2] glass-card p-5 relative z-10 border-t-4 border-t-[var(--accent-cyan)]">
+              <div className="flex items-center gap-2 mb-4">
+                <div className="w-8 h-8 rounded-full bg-[var(--accent-cyan-soft)] flex items-center justify-center text-[var(--accent-cyan)] font-bold">2</div>
+                <h3 className="font-semibold text-base text-[var(--accent-cyan)]">금고 암호화 분배</h3>
+              </div>
+              
+              <div className="flex items-center gap-3 mb-4 p-2 rounded-lg bg-[var(--accent-cyan-soft)] border border-[var(--accent-cyan)]/30">
+                <Cpu className="text-[var(--accent-cyan)]" size={20} />
+                <p className="text-[11px] font-medium text-[var(--accent-cyan)]">PUF 키 생성 및 AES 인증</p>
+              </div>
+
+              <div className="space-y-2">
+                <div className="flex items-center gap-2">
+                  <span className="text-[10px] font-semibold text-[var(--text-secondary)]">파티션 자동 분류 (C/D/E)</span>
+                </div>
+                <div className="h-2 w-full rounded-full bg-gradient-to-r from-gray-400 via-[var(--accent-cyan)] to-indigo-500"></div>
+              </div>
+            </div>
+
+            {/* Connection Arrow (Desktop) */}
+            <div className="hidden md:flex flex-col items-center justify-center w-16 relative z-0">
+              <div className="w-full h-[2px] bg-gradient-to-r from-[var(--accent-cyan)] to-purple-500 absolute"></div>
+            </div>
+
+            {/* Step 3: Secure Output */}
+            <div className="flex-1 glass-card p-5 relative z-10 border-t-4 border-t-purple-500">
+              <div className="flex items-center gap-2 mb-4">
+                <div className="w-8 h-8 rounded-full bg-purple-500/20 flex items-center justify-center text-purple-400 font-bold">3</div>
+                <h3 className="font-semibold text-base text-purple-400">출력 제어</h3>
+              </div>
+              
+              <div className="space-y-3">
+                <div className="p-3 rounded-lg border border-purple-500/30 bg-purple-500/5 relative overflow-hidden">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="font-medium text-xs text-purple-400">Secure Port</span>
+                    <Usb size={14} className="text-purple-400" />
+                  </div>
+                  <p className="text-[9px] text-[var(--text-secondary)]">
+                    PUF 인증 후에만 활성화<br/>
+                    네트워크 및 물리 포트 통제
                   </p>
                 </div>
               </div>
-              <div className="p-3 rounded-lg bg-[var(--bg-elevated)] border border-[var(--border-hairline)]">
-                <p className="text-xs text-[var(--text-secondary)]">
-                  <span className="text-[var(--accent-cyan)] font-semibold">보안 정책</span><br />
-                  • PUF 인증 후에만 포트 활성화<br />
-                  • 모든 출력 기록 로그 보관<br />
-                  • 무단 접근 시도 자동 차단
-                </p>
-              </div>
             </div>
+
           </div>
         </div>
       </section>
