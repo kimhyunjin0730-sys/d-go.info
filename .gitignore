@@ -25,3 +25,16 @@ dist-ssr
 
 # Sensitive documents
 D-GO Vault 시스템 아키텍처.pdf
+D-GO_Vault*
+D-GO_정의서*
+디고앱기능명세서*
+*.pdf
+*.pptx
+src/imports/
+
+# Design and Rendering
+Rendrering(3D)/
+rendering/
+3d/
+d-go.info - SW 앱 uiux/
+shots/
