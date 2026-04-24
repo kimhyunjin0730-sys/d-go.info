@@ -53,8 +53,8 @@ export default function Home() {
 
               {/* Trust strip inline */}
               <div className="flex flex-wrap items-center gap-4 pt-4 border-t border-[var(--border-hairline)]">
-                <img src="/d-go.info/logo/ICTK.png" alt="ICTK PUF" className="h-6 w-auto opacity-80" style={{ filter: "brightness(0) saturate(100%) invert(55%) sepia(80%) saturate(500%) hue-rotate(160deg)" }} />
-                <img src="/d-go.info/logo/KC인증.svg" alt="KC 인증" className="h-6 w-auto opacity-60" />
+                <img src="/logo/ICTK.png" alt="ICTK PUF" className="h-6 w-auto opacity-80" style={{ filter: "brightness(0) saturate(100%) invert(55%) sepia(80%) saturate(500%) hue-rotate(160deg)" }} />
+                <img src="/logo/KC인증.svg" alt="KC 인증" className="h-6 w-auto opacity-60" />
                 <span className="badge text-[var(--text-muted)]">UL CLASS 125</span>
                 <span className="badge text-[var(--text-muted)]">MADE IN KOREA</span>
               </div>
@@ -64,7 +64,7 @@ export default function Home() {
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/15 to-blue-600/10 rounded-2xl blur-2xl"></div>
               <img
-                src="/d-go.info/images/renders/render-02.jpg"
+                src="/images/renders/render-02.jpg"
                 alt="D-GO Vault 45도 정면, 노브 LED 점등"
                 className="relative rounded-xl shadow-xl w-full h-auto"
               />
@@ -170,7 +170,7 @@ export default function Home() {
                 <div className="text-center group">
                   <div className="relative overflow-hidden rounded-lg mb-2">
                     <img
-                      src="/d-go.info/images/renders/render-01.jpg"
+                      src="/images/renders/render-01.jpg"
                       alt="D-GO Vault USB 보안키 분리"
                       className="w-full h-auto transition-transform duration-500 group-hover:scale-105"
                     />
@@ -192,7 +192,7 @@ export default function Home() {
                 <div className="text-center group">
                   <div className="relative overflow-hidden rounded-lg mb-2">
                     <img
-                      src="/d-go.info/images/renders/render-03.jpg"
+                      src="/images/renders/render-03.jpg"
                       alt="D-GO Vault USB 보안키 삽입"
                       className="w-full h-auto transition-transform duration-500 group-hover:scale-105"
                     />

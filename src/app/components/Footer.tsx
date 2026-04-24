@@ -9,7 +9,7 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:hidden gap-x-4 gap-y-5">
           {/* Logo + tagline */}
           <div className="col-span-2 flex items-center gap-2.5">
-            <img src="/d-go.info/logo/dgo-icon.png" alt="D-GO" className="h-7 w-auto object-contain" />
+            <img src="/logo/dgo-icon.png" alt="D-GO" className="h-7 w-auto object-contain" />
             <span className="text-base font-bold text-gradient-cyan">D-GO</span>
             <span className="text-xs font-medium text-[var(--text-secondary)]">양자데이터금고</span>
           </div>
@@ -57,8 +57,8 @@ export default function Footer() {
           {/* Certifications + Hours — single row */}
           <div className="col-span-2 flex items-center justify-between pt-3 border-t border-[var(--border-hairline)]">
             <div className="flex items-center gap-2">
-              <img src="/d-go.info/logo/ICTK.png" alt="ICTK PUF" className="h-4 w-auto opacity-80" style={{ filter: "brightness(0) saturate(100%) invert(55%) sepia(80%) saturate(500%) hue-rotate(160deg)" }} />
-              <img src="/d-go.info/logo/KC인증.svg" alt="KC 인증" className="h-4 w-auto opacity-60" />
+              <img src="/logo/ICTK.png" alt="ICTK PUF" className="h-4 w-auto opacity-80" style={{ filter: "brightness(0) saturate(100%) invert(55%) sepia(80%) saturate(500%) hue-rotate(160deg)" }} />
+              <img src="/logo/KC인증.svg" alt="KC 인증" className="h-4 w-auto opacity-60" />
               <span className="badge text-[var(--text-muted)] text-[0.6rem]">UL CLASS 125</span>
             </div>
             <span className="text-[0.6rem] text-[var(--text-muted)]">평일 09-18 | 주말 휴무</span>
@@ -70,7 +70,7 @@ export default function Footer() {
           {/* Company Info */}
           <div>
             <div className="flex items-center gap-2.5 mb-4">
-              <img src="/d-go.info/logo/dgo-icon.png" alt="D-GO" className="h-8 w-auto object-contain" />
+              <img src="/logo/dgo-icon.png" alt="D-GO" className="h-8 w-auto object-contain" />
               <span className="text-lg font-bold text-gradient-cyan">D-GO</span>
               <span className="text-sm font-medium text-[var(--text-secondary)]">양자데이터금고</span>
             </div>
@@ -154,8 +154,8 @@ export default function Footer() {
             </p>
             <div className="space-y-3">
               <div className="flex items-center gap-3 flex-wrap">
-                <img src="/d-go.info/logo/ICTK.png" alt="ICTK PUF" className="h-6 w-auto opacity-80 hover:opacity-100 transition-opacity" style={{ filter: "brightness(0) saturate(100%) invert(55%) sepia(80%) saturate(500%) hue-rotate(160deg)" }} />
-                <img src="/d-go.info/logo/KC인증.svg" alt="KC 인증" className="h-6 w-auto opacity-60 hover:opacity-100 transition-opacity" />
+                <img src="/logo/ICTK.png" alt="ICTK PUF" className="h-6 w-auto opacity-80 hover:opacity-100 transition-opacity" style={{ filter: "brightness(0) saturate(100%) invert(55%) sepia(80%) saturate(500%) hue-rotate(160deg)" }} />
+                <img src="/logo/KC인증.svg" alt="KC 인증" className="h-6 w-auto opacity-60 hover:opacity-100 transition-opacity" />
               </div>
               <div className="badge text-[var(--text-secondary)] inline-block px-2 py-1 bg-[var(--bg-primary)] rounded">
                 UL CLASS 125
@@ -174,7 +174,7 @@ export default function Footer() {
               © 2026 보안링스 (Boanlinks). All rights reserved.
             </p>
             <div className="flex items-center gap-2">
-              <img src="/d-go.info/logo/boanlinks.png" alt="Boanlinks" className="h-4 md:h-5 w-auto opacity-50" />
+              <img src="/logo/boanlinks.png" alt="Boanlinks" className="h-4 md:h-5 w-auto opacity-50" />
               <span className="text-xs md:text-sm text-[var(--text-muted)]">Powered by Boanlinks</span>
             </div>
           </div>
