@@ -76,13 +76,13 @@ export default function Home() {
       {/* ── Specs Strip ── */}
       <section className="border-y border-[var(--border-hairline)] bg-[var(--bg-elevated)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="grid grid-cols-3 md:grid-cols-6 gap-3">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-x-3 gap-y-2">
             {specs.map((s) => (
-              <div key={s.label} className="flex items-center gap-2.5 py-2">
+              <div key={s.label} className="flex items-center gap-2.5 py-2 min-w-0">
                 <s.icon size={16} className="text-[var(--accent-cyan)] flex-shrink-0" />
                 <div className="min-w-0">
-                  <div className="badge text-[var(--text-muted)] text-[0.6rem]">{s.label}</div>
-                  <div className="text-xs font-semibold text-[var(--text-primary)] truncate">{s.value}</div>
+                  <div className="badge text-[var(--text-muted)] text-[0.65rem] uppercase">{s.label}</div>
+                  <div className="text-xs sm:text-[13px] font-semibold text-[var(--text-primary)] truncate">{s.value}</div>
                 </div>
               </div>
             ))}
