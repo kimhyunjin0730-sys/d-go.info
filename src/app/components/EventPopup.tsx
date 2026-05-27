@@ -60,11 +60,11 @@ export default function EventPopup() {
 
   return (
     <div
-      className="fixed z-[100] inset-x-0 bottom-0 sm:inset-x-auto sm:bottom-auto sm:left-4 sm:top-20"
+      className="fixed z-[100] left-3 bottom-3 sm:left-4 sm:top-20 sm:bottom-auto"
       role="dialog"
       aria-label="D-GO 출시 이벤트 안내"
     >
-      <div className="relative w-full sm:w-[340px] max-h-[85vh] overflow-hidden rounded-t-2xl sm:rounded-2xl bg-white shadow-2xl ring-1 ring-black/10 flex flex-col">
+      <div className="relative w-[72vw] max-w-[280px] sm:w-[320px] sm:max-w-none max-h-[60vh] sm:max-h-[80vh] overflow-hidden rounded-2xl bg-white shadow-2xl ring-1 ring-black/10 flex flex-col">
 
         {/* 닫기 (X) */}
         <button
