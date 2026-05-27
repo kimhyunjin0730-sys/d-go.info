@@ -5,7 +5,7 @@ export default function Support() {
   const [copied, setCopied] = useState(false);
 
   const copyEmail = () => {
-    navigator.clipboard.writeText("biz@d-go.info");
+    navigator.clipboard.writeText("biz@boanlinks.com");
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -40,11 +40,11 @@ export default function Support() {
               </div>
               <h3 className="font-semibold text-sm mb-1">이메일</h3>
               <p className="text-sm text-[var(--text-secondary)] mb-2 break-all">
-                biz@d-go.info
+                biz@boanlinks.com
               </p>
               <div className="flex gap-2">
                 <a
-                  href="mailto:biz@d-go.info"
+                  href="mailto:biz@boanlinks.com"
                   className="flex-1 px-3 py-1.5 rounded-lg bg-[var(--accent-cyan)] text-[var(--bg-primary)] text-xs font-medium text-center hover:opacity-90 transition-opacity"
                 >
                   보내기
@@ -145,7 +145,7 @@ export default function Support() {
                   ].map((type) => (
                     <a
                       key={type}
-                      href={`mailto:biz@d-go.info?subject=문의: ${type}`}
+                      href={`mailto:biz@boanlinks.com?subject=문의: ${type}`}
                       className="px-3 py-2 rounded-lg border border-[var(--border-hairline)] hover:border-[var(--accent-cyan)] hover:bg-[var(--accent-cyan-soft)] transition-all text-sm text-center"
                     >
                       {type}
@@ -160,7 +160,7 @@ export default function Support() {
                   문의 유형을 선택하지 않고 바로 이메일을 보내실 수 있습니다.
                 </p>
                 <a
-                  href="mailto:biz@d-go.info"
+                  href="mailto:biz@boanlinks.com"
                   className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[var(--accent-cyan)] text-[var(--bg-primary)] font-semibold hover:opacity-90 transition-opacity"
                 >
                   <Mail size={18} />
@@ -170,7 +170,7 @@ export default function Support() {
 
               <div className="p-3 rounded-lg bg-[var(--bg-primary)]/50 border border-[var(--border-hairline)]">
                 <p className="text-xs text-[var(--text-secondary)]">
-                  <span className="text-[var(--accent-cyan)] font-semibold">안내:</span> 메일 앱이 열리지 않으면 <span className="mono text-[var(--accent-cyan)]">biz@d-go.info</span> 으로 직접 보내주세요.
+                  <span className="text-[var(--accent-cyan)] font-semibold">안내:</span> 메일 앱이 열리지 않으면 <span className="mono text-[var(--accent-cyan)]">biz@boanlinks.com</span> 으로 직접 보내주세요.
                 </p>
               </div>
             </div>
@@ -251,7 +251,7 @@ export default function Support() {
               원하는 답변을 찾지 못하셨나요?
             </p>
             <a
-              href="mailto:biz@d-go.info"
+              href="mailto:biz@boanlinks.com"
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[var(--accent-cyan)] text-[var(--bg-primary)] font-semibold hover:opacity-90 transition-opacity"
             >
               <MessageSquare size={18} />

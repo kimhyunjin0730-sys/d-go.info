@@ -9,9 +9,9 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:hidden gap-x-4 gap-y-5">
           {/* Logo + tagline */}
           <div className="col-span-2 flex items-center gap-2.5">
-            <img src="/logo/dgo-icon.png" alt="D-GO" className="h-7 w-auto object-contain" />
-            <span className="text-base font-bold text-gradient-cyan">D-GO</span>
-            <span className="text-xs font-medium text-[var(--text-secondary)]">Quantum Vault</span>
+            <img src="/logo/dgo-icon.png" alt="D-GO" className="h-9 w-auto object-contain" />
+            <span className="text-lg font-bold text-gradient-cyan">D-GO</span>
+            <span className="text-sm font-medium text-[var(--text-secondary)]">Quantum Vault</span>
           </div>
 
           {/* Quick Links */}
@@ -39,8 +39,8 @@ export default function Footer() {
             <h4 className="font-semibold text-xs mb-2">연락처</h4>
             <ul className="space-y-1.5">
               <li>
-                <a href="mailto:biz@d-go.info" className="flex items-center gap-1.5 text-xs text-[var(--text-secondary)] hover:text-[var(--accent-cyan)]">
-                  <Mail size={12} /> biz@d-go.info
+                <a href="mailto:biz@boanlinks.com" className="flex items-center gap-1.5 text-xs text-[var(--text-secondary)] hover:text-[var(--accent-cyan)]">
+                  <Mail size={12} /> biz@boanlinks.com
                 </a>
               </li>
               <li>
@@ -74,9 +74,9 @@ export default function Footer() {
           {/* Company Info */}
           <div>
             <div className="flex items-center gap-2.5 mb-4">
-              <img src="/logo/dgo-icon.png" alt="D-GO" className="h-8 w-auto object-contain" />
-              <span className="text-lg font-bold text-gradient-cyan">D-GO</span>
-              <span className="text-sm font-medium text-[var(--text-secondary)]">Quantum Vault</span>
+              <img src="/logo/dgo-icon.png" alt="D-GO" className="h-11 w-auto object-contain" />
+              <span className="text-xl font-bold text-gradient-cyan">D-GO</span>
+              <span className="text-base font-medium text-[var(--text-secondary)]">Quantum Vault</span>
             </div>
             <p className="text-sm text-[var(--text-secondary)] mb-4">
               완벽한 격리, 타협 없는 보안.<br />
@@ -127,11 +127,11 @@ export default function Footer() {
             <ul className="space-y-3">
               <li>
                 <a
-                  href="mailto:biz@d-go.info"
+                  href="mailto:biz@boanlinks.com"
                   className="flex items-center gap-2 text-sm text-[var(--text-secondary)] hover:text-[var(--accent-cyan)] transition-colors"
                 >
                   <Mail size={16} />
-                  <span>biz@d-go.info</span>
+                  <span>biz@boanlinks.com</span>
                 </a>
               </li>
               <li>

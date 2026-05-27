@@ -29,9 +29,9 @@ export default function Header() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2.5 group">
-            <img src="/logo/dgo-icon.png" alt="D-GO" className="h-8 w-auto object-contain" />
-            <span className="text-xl font-bold text-gradient-cyan">D-GO</span>
-            <span className="hidden lg:inline text-sm font-medium text-[var(--text-secondary)]">Quantum Vault</span>
+            <img src="/logo/dgo-icon.png" alt="D-GO" className="h-11 w-auto object-contain" />
+            <span className="text-2xl font-bold text-gradient-cyan">D-GO</span>
+            <span className="hidden lg:inline text-base font-medium text-[var(--text-secondary)]">Quantum Vault</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -65,7 +65,7 @@ export default function Header() {
               이벤트
             </Link>
             <a
-              href="mailto:biz@d-go.info"
+              href="mailto:biz@boanlinks.com"
               className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[var(--accent-cyan)] text-[var(--bg-primary)] font-medium text-sm hover:opacity-90 transition-opacity"
             >
               문의하기
@@ -109,7 +109,7 @@ export default function Header() {
                 이벤트
               </Link>
               <a
-                href="mailto:biz@d-go.info"
+                href="mailto:biz@boanlinks.com"
                 className="px-4 py-3 rounded-lg bg-[var(--accent-cyan)] text-[var(--bg-primary)] font-medium text-sm text-center"
               >
                 문의하기

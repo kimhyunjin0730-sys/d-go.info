@@ -32,7 +32,7 @@ export default function Purchase() {
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               {/* Email */}
               <a
-                href="mailto:biz@d-go.info"
+                href="mailto:biz@boanlinks.com"
                 className="glass-card glass-card-hover p-4 text-center group"
               >
                 <div className="w-12 h-12 rounded-xl bg-[var(--accent-cyan-soft)] flex items-center justify-center mx-auto mb-3 group-hover:bg-[var(--accent-cyan)] transition-colors">
@@ -40,7 +40,7 @@ export default function Purchase() {
                 </div>
                 <h3 className="text-lg font-semibold mb-1">이메일 문의</h3>
                 <p className="text-sm text-[var(--text-secondary)] mb-1">
-                  biz@d-go.info
+                  biz@boanlinks.com
                 </p>
                 <p className="text-xs text-[var(--text-muted)]">
                   24시간 접수 가능
@@ -118,7 +118,7 @@ export default function Purchase() {
                 </ul>
 
                 <a
-                  href="mailto:biz@d-go.info?subject=법인 도입 문의"
+                  href="mailto:biz@boanlinks.com?subject=법인 도입 문의"
                   className="inline-flex items-center gap-2 text-[var(--accent-cyan)] font-semibold hover:gap-3 transition-all text-sm"
                 >
                   법인 문의하기 →
@@ -160,7 +160,7 @@ export default function Purchase() {
                 </ul>
 
                 <a
-                  href="mailto:biz@d-go.info?subject=개인 구매 문의"
+                  href="mailto:biz@boanlinks.com?subject=개인 구매 문의"
                   className="inline-flex items-center gap-2 text-[var(--accent-cyan)] font-semibold hover:gap-3 transition-all text-sm"
                 >
                   구매 문의하기 →
@@ -225,7 +225,7 @@ export default function Purchase() {
 
               <div className="pt-4 border-t border-[var(--border-hairline)]">
                 <a
-                  href="mailto:biz@d-go.info?subject=D-GO Quantum Vault 견적 요청&body=회사명: %0D%0A담당자: %0D%0A연락처: %0D%0A희망 수량: %0D%0A사용 용도: %0D%0A%0D%0A기타 문의사항: "
+                  href="mailto:biz@boanlinks.com?subject=D-GO Quantum Vault 견적 요청&body=회사명: %0D%0A담당자: %0D%0A연락처: %0D%0A희망 수량: %0D%0A사용 용도: %0D%0A%0D%0A기타 문의사항: "
                   className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg bg-[var(--accent-cyan)] text-[var(--bg-primary)] font-semibold text-base hover:opacity-90 transition-opacity"
                 >
                   <Mail size={20} />
@@ -276,7 +276,7 @@ export default function Purchase() {
               <div>
                 <h3 className="font-semibold text-sm mb-1.5 text-[var(--accent-cyan)]">연락처</h3>
                 <p className="text-sm text-[var(--text-secondary)]">
-                  이메일: biz@d-go.info<br />
+                  이메일: biz@boanlinks.com<br />
                   전화: 010-3241-0427<br />
                   주소: 경기 하남시 미사대로 540
                 </p>
