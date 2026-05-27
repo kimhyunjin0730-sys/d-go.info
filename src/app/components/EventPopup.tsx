@@ -28,19 +28,14 @@ export default function EventPopup() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // 열려 있는 동안 배경 스크롤 잠금
+  // 코너 팝업: 배경 딤/스크롤 잠금 없음(홈 화면 그대로 노출·조작 가능). Esc로만 닫기 지원.
   useEffect(() => {
     if (!open) return;
-    const prev = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") closeForSession();
     };
     window.addEventListener("keydown", onKey);
-    return () => {
-      document.body.style.overflow = prev;
-      window.removeEventListener("keydown", onKey);
-    };
+    return () => window.removeEventListener("keydown", onKey);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [open]);
 
@@ -71,16 +66,12 @@ export default function EventPopup() {
 
   return (
     <div
-      className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
+      className="fixed z-[100] inset-x-0 bottom-0 sm:inset-x-auto sm:bottom-auto sm:left-4 sm:top-20"
       role="dialog"
-      aria-modal="true"
       aria-label="D-GO 출시 이벤트 안내"
-      onClick={closeForSession}
     >
-      <div
-        className="relative w-full max-w-md max-h-[90vh] overflow-hidden rounded-2xl bg-white shadow-2xl flex flex-col"
-        onClick={(e) => e.stopPropagation()}
-      >
+      <div className="relative w-full sm:w-[340px] max-h-[85vh] overflow-hidden rounded-t-2xl sm:rounded-2xl bg-white shadow-2xl ring-1 ring-black/10 flex flex-col">
+
         {/* 닫기 (X) */}
         <button
           onClick={closeForSession}
