@@ -2,8 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router";
 import { X } from "lucide-react";
 
-const HIDE_UNTIL_KEY = "dgo-event-popup-hide-until"; // localStorage: 24h dismissal
-const SESSION_KEY = "dgo-event-popup-closed"; // sessionStorage: this-session dismissal
+const HIDE_UNTIL_KEY = "dgo-event-popup-hide-until"; // localStorage: "오늘 하루 보지 않기"(24h)
 const HERO_IMG = "https://img2.stibee.com/74826_3399701_1779437867798726041.jpg";
 const PROMO_IMG = "https://img2.stibee.com/74826_3399701_1779436020407127150.jpg"; // D-GO 출시 EVENT (무료 1TB 업그레이드)
 // 행사 종료: 2026년 7월 1일 00:00(KST) 이후로는 팝업 미노출 (방문자 시간대 무관)
@@ -14,14 +13,14 @@ export default function EventPopup() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // 사이트 첫 접속 시 1회 노출 (Root는 라우트 전환 시 언마운트되지 않으므로 mount 1회 = 첫 접속)
+  // 페이지 로드(새로고침)마다 노출. "닫기"는 메모리 state로만 억제하므로 새로고침 시 다시 뜸.
+  // (Root는 SPA 라우트 전환 시 언마운트되지 않으므로, 같은 세션 페이지 이동에선 닫은 상태 유지)
   useEffect(() => {
     if (Date.now() >= EVENT_END) return; // 7월부터(행사 종료) 미노출
     if (location.pathname === "/event") return; // 이미 이벤트 페이지면 생략
     try {
       const until = Number(localStorage.getItem(HIDE_UNTIL_KEY) || 0);
-      if (Date.now() < until) return; // "1일 동안 보지 않음" 유효 기간 내
-      if (sessionStorage.getItem(SESSION_KEY)) return; // 이번 세션에서 이미 닫음
+      if (Date.now() < until) return; // "오늘 하루 보지 않기" 유효 기간 내
     } catch {
       /* storage 접근 불가 시 그냥 노출 */
     }
@@ -29,26 +28,20 @@ export default function EventPopup() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // 코너 팝업: 배경 딤/스크롤 잠금 없음(홈 화면 그대로 노출·조작 가능). Esc로만 닫기 지원.
+  // 코너 팝업: 배경 딤/스크롤 잠금 없음(홈 화면 그대로 노출·조작 가능). Esc로 닫기 지원.
   useEffect(() => {
     if (!open) return;
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") closeForSession();
+      if (e.key === "Escape") setOpen(false);
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [open]);
 
-  const closeForSession = () => {
-    try {
-      sessionStorage.setItem(SESSION_KEY, "1");
-    } catch {
-      /* ignore */
-    }
-    setOpen(false);
-  };
+  // 닫기: 메모리 state로만 억제 → 새로고침하면 다시 노출, 같은 세션 페이지 이동에선 유지
+  const dismiss = () => setOpen(false);
 
+  // 오늘 하루 보지 않기: localStorage 24시간 미노출
   const hideForDay = () => {
     try {
       localStorage.setItem(HIDE_UNTIL_KEY, String(Date.now() + 24 * 60 * 60 * 1000));
@@ -59,7 +52,7 @@ export default function EventPopup() {
   };
 
   const goToEvent = () => {
-    closeForSession();
+    setOpen(false);
     navigate("/event");
   };
 
@@ -75,7 +68,7 @@ export default function EventPopup() {
 
         {/* 닫기 (X) */}
         <button
-          onClick={closeForSession}
+          onClick={dismiss}
           aria-label="팝업 닫기"
           className="absolute top-2.5 right-2.5 z-10 w-8 h-8 flex items-center justify-center rounded-full bg-black/40 text-white hover:bg-black/60 transition-colors"
         >
@@ -108,10 +101,10 @@ export default function EventPopup() {
             onClick={hideForDay}
             className="flex-1 py-3.5 font-medium text-[var(--text-secondary)] hover:bg-[var(--bg-elevated)] transition-colors border-r border-[var(--border-hairline)]"
           >
-            1일 동안 보지 않음
+            오늘 하루 보지 않기
           </button>
           <button
-            onClick={closeForSession}
+            onClick={dismiss}
             className="flex-1 py-3.5 font-medium text-[var(--text-secondary)] hover:bg-[var(--bg-elevated)] transition-colors"
           >
             닫기
