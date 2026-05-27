@@ -31,7 +31,7 @@ export default function Header() {
           <Link to="/" className="flex items-center gap-2.5 group">
             <img src="/logo/dgo-icon.png" alt="D-GO" className="h-8 w-auto object-contain" />
             <span className="text-xl font-bold text-gradient-cyan">D-GO</span>
-            <span className="hidden lg:inline text-sm font-medium text-[var(--text-secondary)]">양자데이터금고</span>
+            <span className="hidden lg:inline text-sm font-medium text-[var(--text-secondary)]">Quantum Vault</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -51,13 +51,26 @@ export default function Header() {
             ))}
           </nav>
 
-          {/* CTA Button */}
-          <a
-            href="mailto:biz@boanlinks.com"
-            className="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[var(--accent-cyan)] text-[var(--bg-primary)] font-medium text-sm hover:opacity-90 transition-opacity"
-          >
-            문의하기
-          </a>
+          {/* CTA Buttons */}
+          <div className="hidden md:flex items-center gap-2">
+            <Link
+              to="/event"
+              className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-lg border text-sm font-medium transition-colors ${
+                isActive("/event")
+                  ? "border-[var(--accent-cyan)] bg-[var(--accent-cyan-soft)] text-[var(--accent-cyan)]"
+                  : "border-[var(--accent-cyan)]/40 text-[var(--accent-cyan)] hover:bg-[var(--accent-cyan-soft)]"
+              }`}
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent-cyan)] animate-pulse"></span>
+              이벤트
+            </Link>
+            <a
+              href="mailto:biz@d-go.info"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[var(--accent-cyan)] text-[var(--bg-primary)] font-medium text-sm hover:opacity-90 transition-opacity"
+            >
+              문의하기
+            </a>
+          </div>
 
           {/* Mobile Menu Button */}
           <button
@@ -87,9 +100,17 @@ export default function Header() {
                   {link.label}
                 </Link>
               ))}
+              <Link
+                to="/event"
+                onClick={() => setIsMenuOpen(false)}
+                className="mt-2 inline-flex items-center justify-center gap-1.5 px-4 py-3 rounded-lg border border-[var(--accent-cyan)]/40 text-[var(--accent-cyan)] font-medium text-sm text-center"
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent-cyan)] animate-pulse"></span>
+                이벤트
+              </Link>
               <a
-                href="mailto:biz@boanlinks.com"
-                className="mt-2 px-4 py-3 rounded-lg bg-[var(--accent-cyan)] text-[var(--bg-primary)] font-medium text-sm text-center"
+                href="mailto:biz@d-go.info"
+                className="px-4 py-3 rounded-lg bg-[var(--accent-cyan)] text-[var(--bg-primary)] font-medium text-sm text-center"
               >
                 문의하기
               </a>

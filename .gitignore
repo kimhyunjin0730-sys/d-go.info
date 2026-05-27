@@ -38,3 +38,7 @@ rendering/
 3d/
 d-go.info - SW 앱 uiux/
 shots/
+.gstack/
+
+# Claude Code local files (config, worktrees, generated artifacts)
+.claude/

@@ -1,14 +1,87 @@
-import { Shield, Cpu, HardDrive, Battery, Thermometer, Lock, Usb, Wifi, Scan, FileCheck } from "lucide-react";
-import { Link } from "react-router";
+import { Shield, Cpu, HardDrive, Battery, Thermometer, Lock, Usb, Wifi, Scan, Fingerprint, Layers, Box, Brain, ShieldCheck, ScrollText, KeyRound, Scale, FlaskConical, Home, Landmark, QrCode, ChevronRight } from "lucide-react";
 
 export default function Product() {
   const specs = [
-    { icon: HardDrive, label: "Storage", value: "고용량 SSD" },
-    { icon: Shield, label: "Encryption", value: "AES-256 이중 암호화" },
+    { icon: HardDrive, label: "Storage", value: "외부 격리 NVMe SSD" },
+    { icon: Shield, label: "Encryption", value: "AES-256 + RSA-2048" },
     { icon: Cpu, label: "Auth", value: "ICTK PUF 칩" },
     { icon: Battery, label: "UPS", value: "무정전 전원 공급" },
     { icon: Thermometer, label: "Thermal", value: "UL CLASS 125" },
-    { icon: Wifi, label: "Network", value: "Direct Wi-Fi 폐쇄망" },
+    { icon: Wifi, label: "Network", value: "Air-Gap · Zero-Outbound" },
+  ];
+
+  const detailedSpecs = [
+    { label: "타겟 하드웨어", value: "리눅스 기반 고성능 AI SBC 탑재" },
+    { label: "물리적 수납 규격", value: "320mm × 230mm × 40mm (A4 서류 수납 최적화)" },
+    { label: "물리적 보관함", value: "인감도장 · 계약서 · 통장 · 등기권리증 · OTP · 보안카드" },
+    { label: "스토리지", value: "외부 격리 NVMe SSD · 계층형 보안 파티션 (C/D/E)" },
+    { label: "암호화", value: "AES-256 + RSA-2048 이중 암호화" },
+    { label: "네트워크", value: "Air-Gap · Zero-Outbound · 화이트리스트 업데이트" },
+    { label: "지원 플랫폼", value: "iOS · Android · PC (Windows/macOS/Linux)" },
+    { label: "웹브라우저", value: "보안 취약성 방지를 위해 원천 차단" },
+    { label: "모니터링", value: "온도 · 디스크 · 메모리 · 업타임 실시간 대시보드" },
+  ];
+
+  const partitions = [
+    { level: "PUF", title: "물리 인증 (PUF USB)", desc: "복제 불가능 하드웨어 인증으로 서버 기동 제어", icon: Fingerprint, color: "text-[var(--accent-cyan)]" },
+    { level: "L1", title: "C 파티션", desc: "기본 ID/PW 로그인 시 접근 허용", icon: Lock, color: "text-blue-400" },
+    { level: "L2", title: "D 파티션", desc: "2FA 추가 인증 후 해제", icon: Layers, color: "text-indigo-400" },
+    { level: "L3", title: "E 파티션", desc: "모바일 생체 인증(얼굴·지문) 성공 시에만 UI 노출", icon: Shield, color: "text-purple-400" },
+  ];
+
+  const capabilities = [
+    {
+      icon: KeyRound,
+      title: "인증 & 접근 관리",
+      points: [
+        "PUF USB 하드웨어 인증 — 서버 기동 물리 열쇠 역할",
+        "관리자 QR 코드 발급 + SSID/RSSI 근접 검증으로 신규 기기 등록",
+        "mTLS 기반 인증서 발급, 비인가 기기 원천 차단",
+        "데스크톱 접근 시 등록 모바일로 생체 인증 요청 전송",
+      ],
+    },
+    {
+      icon: Brain,
+      title: "Local AI — 오프라인 파일 지능화",
+      points: [
+        "Local RAG & LLM — 서버 내 AI가 내 파일 내용 학습·답변·요약",
+        "완전 폐쇄망 동작 — 데이터 외부 유출 제로",
+        "\"Local Notebook LM\" 방식으로 문서 기반 Q&A 지원",
+      ],
+    },
+    {
+      icon: ShieldCheck,
+      title: "E2EE 암호 볼트",
+      points: [
+        "패스워드·연락처 등 민감 정보를 단말기에서 직접 암호화",
+        "서버 관리자조차 내용 열람 불가 (End-to-End Encryption)",
+        "AES-256 + RSA-2048 이중 암호화 적용",
+      ],
+    },
+    {
+      icon: ScrollText,
+      title: "무결성 감사 & 모니터링",
+      points: [
+        "접속 시각·읽기/쓰기/삭제 이력 수정 불가 시계열 DB 기록",
+        "이상 접근 실시간 알림 — 탈취 시 키 자동 즉시 소멸",
+        "온도·디스크·메모리·업타임 실시간 모니터링",
+        "기기 간 파일 즉시 동기화 — 업무 연속성 보장",
+      ],
+    },
+  ];
+
+  const journey = [
+    { step: "01", title: "기기 등록", desc: "QR + 생체 + 근접 검증", icon: QrCode },
+    { step: "02", title: "PUF 인증", desc: "USB 도킹 서버 기동", icon: Usb },
+    { step: "03", title: "계층 접근", desc: "L1 → L2 → L3 파티션", icon: Layers },
+    { step: "04", title: "AI 활용", desc: "Local LLM 검색·요약", icon: Brain },
+  ];
+
+  const targets = [
+    { icon: Scale, title: "전문직 종사자", desc: "변호사·회계사·세무사 — 기밀 문서 유출 원천 차단" },
+    { icon: FlaskConical, title: "연구소·중소기업", desc: "폐쇄망 환경 데이터 협업·기술 유출 방지" },
+    { icon: Home, title: "스마트홈 사용자", desc: "클라우드 월정액 대체·개인정보 완전 자가 통제" },
+    { icon: Landmark, title: "의료·공공기관", desc: "법적 데이터 보안 의무 이행 + 감사 로그 완비" },
   ];
 
   const features = [
@@ -20,9 +93,9 @@ export default function Product() {
     },
     {
       icon: Shield,
-      badge: "AES-256",
+      badge: "AES-256 + RSA-2048",
       title: "이중 암호화",
-      description: "AES-256 기반 이중 암호화로 도난·분실 시에도 데이터 유출 원천 차단",
+      description: "AES-256 + RSA-2048 이중 암호화로 도난·분실 시에도 데이터 유출 원천 차단",
     },
     {
       icon: Cpu,
@@ -59,13 +132,22 @@ export default function Product() {
               </div>
 
               <h1 className="text-3xl md:text-4xl lg:text-5xl mb-4 leading-tight">
-                D-GO Vault
+                D-GO <span className="text-gradient-cyan">Quantum Vault</span>
               </h1>
 
               <p className="text-base text-[var(--text-secondary)] mb-5 leading-relaxed max-w-lg">
-                외부 서버 없이 완벽하게 보호되는<br />
-                자기주권형 데이터 금고
+                외부 클라우드에 의존하지 않고 가정·사무실의 폐쇄망(Private Wi-Fi) 내에서만 동작하는
+                초강력 보안 파일·모니터링 서버.<br />
+                물리적 하드웨어 인증과 계층형 보안 파티션을 결합한 차세대 개인형 물리적·디지털 데이터 금고입니다.
               </p>
+
+              <div className="flex flex-wrap gap-1.5 mb-4">
+                {["PUF 물리보안", "AIR-GAP 격리", "3중 계층 파티션", "LOCAL AI 내장", "E2EE 볼트", "물리적 금고 내장"].map((b) => (
+                  <span key={b} className="badge text-[var(--accent-cyan)] border border-[var(--accent-cyan)]/30 rounded-full px-2.5 py-0.5 text-[0.7rem]">
+                    {b}
+                  </span>
+                ))}
+              </div>
 
               {/* Trust strip */}
               <div className="flex flex-wrap items-center gap-4 pt-4 border-t border-[var(--border-hairline)]">
@@ -81,7 +163,7 @@ export default function Product() {
               <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/15 to-blue-600/10 rounded-2xl blur-2xl"></div>
               <img
                 src="/images/renders/render-02.jpg"
-                alt="D-GO Vault 45도 정면"
+                alt="D-GO Quantum Vault 45도 정면"
                 className="relative rounded-xl shadow-xl w-full h-auto"
               />
             </div>
@@ -131,8 +213,38 @@ export default function Product() {
         </div>
       </section>
 
-      {/* ── System Components — HW + SW side by side ── */}
+      {/* ── 4 Core Capabilities (detailed) ── */}
       <section className="py-10 md:py-14 bg-[var(--bg-elevated)]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-6">
+            <span className="badge text-[var(--accent-cyan)]">CORE CAPABILITIES</span>
+            <h2 className="text-2xl md:text-3xl mt-3">4대 핵심 기능</h2>
+          </div>
+          <div className="grid md:grid-cols-2 gap-4">
+            {capabilities.map((c) => (
+              <div key={c.title} className="glass-card p-5">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-9 h-9 rounded-lg bg-[var(--accent-cyan-soft)] flex items-center justify-center flex-shrink-0">
+                    <c.icon className="text-[var(--accent-cyan)]" size={18} />
+                  </div>
+                  <h3 className="text-base font-semibold">{c.title}</h3>
+                </div>
+                <ul className="space-y-2">
+                  {c.points.map((p) => (
+                    <li key={p} className="flex gap-2 text-sm text-[var(--text-secondary)] leading-relaxed">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent-cyan)] mt-1.5 flex-shrink-0"></span>
+                      <span>{p}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── System Components — HW + SW side by side ── */}
+      <section className="py-10 md:py-14">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl md:text-3xl mb-6">시스템 구성</h2>
 
@@ -185,7 +297,7 @@ export default function Product() {
       </section>
 
       {/* ── Data Security Lifecycle Flow ── */}
-      <section className="py-10 md:py-14">
+      <section className="py-10 md:py-14 bg-[var(--bg-elevated)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl md:text-3xl text-center mb-2">데이터 보안 라이프사이클</h2>
           <p className="text-center text-sm text-[var(--text-secondary)] mb-8 max-w-2xl mx-auto">
@@ -267,6 +379,109 @@ export default function Product() {
               </div>
             </div>
 
+          </div>
+        </div>
+      </section>
+
+      {/* ── 3-Tier Partition Security ── */}
+      <section className="py-10 md:py-14">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-6">
+            <span className="badge text-[var(--accent-cyan)]">3-TIER PARTITION</span>
+            <h2 className="text-2xl md:text-3xl mt-3 mb-2">3중 계층형 철통 보안</h2>
+            <p className="text-sm text-[var(--text-secondary)]">
+              PUF · 2FA · 생체인증을 단계별로 결합 — 민감도별 접근 분리
+            </p>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 max-w-6xl mx-auto">
+            {partitions.map((p) => (
+              <div key={p.level} className="glass-card p-4">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className={`text-xs font-bold ${p.color}`}>{p.level}</span>
+                  <p.icon size={16} className={p.color} />
+                </div>
+                <h3 className="text-sm font-semibold mb-1.5">{p.title}</h3>
+                <p className="text-xs text-[var(--text-secondary)] leading-relaxed">{p.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── User Journey ── */}
+      <section className="py-10 md:py-14 bg-[var(--bg-elevated)]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8">
+            <span className="badge text-[var(--accent-cyan)]">USER JOURNEY</span>
+            <h2 className="text-2xl md:text-3xl mt-3">사용자 여정</h2>
+          </div>
+          <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-stretch gap-3 md:gap-0">
+            {journey.map((j, i) => (
+              <div key={j.step} className="contents">
+                <div className="flex-1 glass-card p-5 text-center relative">
+                  <div className="w-12 h-12 mx-auto rounded-full bg-[var(--accent-cyan-soft)] flex items-center justify-center mb-3">
+                    <j.icon size={22} className="text-[var(--accent-cyan)]" />
+                  </div>
+                  <div className="badge text-[var(--accent-cyan)] mb-1">{j.step}</div>
+                  <h3 className="text-sm font-semibold mb-1">{j.title}</h3>
+                  <p className="text-xs text-[var(--text-secondary)]">{j.desc}</p>
+                </div>
+                {i < journey.length - 1 && (
+                  <div className="hidden md:flex items-center justify-center w-10">
+                    <ChevronRight size={20} className="text-[var(--accent-cyan)]" />
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Detailed Specs Table ── */}
+      <section className="py-10 md:py-14">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-6">
+            <span className="badge text-[var(--accent-cyan)]">DETAILED SPECS</span>
+            <h2 className="text-2xl md:text-3xl mt-3">상세 사양</h2>
+          </div>
+          <div className="max-w-3xl mx-auto glass-card overflow-hidden">
+            <div className="divide-y divide-[var(--border-hairline)]">
+              {detailedSpecs.map((s) => (
+                <div key={s.label} className="grid grid-cols-1 sm:grid-cols-3 gap-2 px-5 py-3">
+                  <div className="text-sm font-semibold text-[var(--accent-cyan)] sm:col-span-1">{s.label}</div>
+                  <div className="text-sm text-[var(--text-secondary)] sm:col-span-2">{s.value}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="text-center mt-5">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[var(--accent-cyan-soft)] border border-[var(--accent-cyan)]/20">
+              <Box size={16} className="text-[var(--accent-cyan)]" />
+              <span className="text-sm font-medium text-[var(--accent-cyan)]">
+                "A4 계약서를 접지 않고 그대로, 인감도장은 서버 깊숙한 곳에."
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Target Customers ── */}
+      <section className="py-10 md:py-14 bg-[var(--bg-elevated)]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-6">
+            <span className="badge text-[var(--accent-cyan)]">TARGET CUSTOMERS</span>
+            <h2 className="text-2xl md:text-3xl mt-3">타겟 고객</h2>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 max-w-6xl mx-auto">
+            {targets.map((t) => (
+              <div key={t.title} className="glass-card glass-card-hover p-5">
+                <div className="w-10 h-10 rounded-lg bg-[var(--accent-cyan-soft)] flex items-center justify-center mb-3">
+                  <t.icon size={20} className="text-[var(--accent-cyan)]" />
+                </div>
+                <h3 className="text-sm font-semibold mb-1.5">{t.title}</h3>
+                <p className="text-xs text-[var(--text-secondary)] leading-relaxed">{t.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

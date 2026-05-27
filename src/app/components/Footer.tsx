@@ -1,4 +1,4 @@
-import { Shield, Mail, Phone, MapPin } from "lucide-react";
+import { Shield, Mail, Phone, MapPin, MessageCircle } from "lucide-react";
 import { Link } from "react-router";
 
 export default function Footer() {
@@ -11,7 +11,7 @@ export default function Footer() {
           <div className="col-span-2 flex items-center gap-2.5">
             <img src="/logo/dgo-icon.png" alt="D-GO" className="h-7 w-auto object-contain" />
             <span className="text-base font-bold text-gradient-cyan">D-GO</span>
-            <span className="text-xs font-medium text-[var(--text-secondary)]">양자데이터금고</span>
+            <span className="text-xs font-medium text-[var(--text-secondary)]">Quantum Vault</span>
           </div>
 
           {/* Quick Links */}
@@ -23,6 +23,7 @@ export default function Footer() {
                 { to: "/technology", label: "기술 정보" },
                 { to: "/manual", label: "매뉴얼" },
                 { to: "/purchase", label: "구매 문의" },
+                { to: "/event", label: "이벤트" },
               ].map((l) => (
                 <li key={l.to}>
                   <Link to={l.to} className="text-xs text-[var(--text-secondary)] hover:text-[var(--accent-cyan)] transition-colors">
@@ -38,14 +39,17 @@ export default function Footer() {
             <h4 className="font-semibold text-xs mb-2">연락처</h4>
             <ul className="space-y-1.5">
               <li>
-                <a href="mailto:biz@boanlinks.com" className="flex items-center gap-1.5 text-xs text-[var(--text-secondary)] hover:text-[var(--accent-cyan)]">
-                  <Mail size={12} /> biz@boanlinks.com
+                <a href="mailto:biz@d-go.info" className="flex items-center gap-1.5 text-xs text-[var(--text-secondary)] hover:text-[var(--accent-cyan)]">
+                  <Mail size={12} /> biz@d-go.info
                 </a>
               </li>
               <li>
                 <a href="tel:010-3241-0427" className="flex items-center gap-1.5 text-xs text-[var(--text-secondary)] hover:text-[var(--accent-cyan)]">
                   <Phone size={12} /> 010-3241-0427
                 </a>
+              </li>
+              <li className="flex items-center gap-1.5 text-xs text-[var(--text-secondary)]">
+                <MessageCircle size={12} /> 카카오톡 채널 (24시간)
               </li>
               <li className="flex items-start gap-1.5 text-xs text-[var(--text-secondary)]">
                 <MapPin size={12} className="mt-0.5 flex-shrink-0" />
@@ -72,16 +76,16 @@ export default function Footer() {
             <div className="flex items-center gap-2.5 mb-4">
               <img src="/logo/dgo-icon.png" alt="D-GO" className="h-8 w-auto object-contain" />
               <span className="text-lg font-bold text-gradient-cyan">D-GO</span>
-              <span className="text-sm font-medium text-[var(--text-secondary)]">양자데이터금고</span>
+              <span className="text-sm font-medium text-[var(--text-secondary)]">Quantum Vault</span>
             </div>
             <p className="text-sm text-[var(--text-secondary)] mb-4">
-              No Data Server, Data Vault.<br />
-              외부 서버 없이 안전하게 보관하는<br />
-              자기주권형 데이터 금고
+              완벽한 격리, 타협 없는 보안.<br />
+              당신만의 물리적·디지털 데이터 요새<br />
+              <span className="text-[var(--accent-cyan)]">"Data Goes Only Where You Want."</span>
             </p>
             <div className="flex items-center gap-2 text-[var(--accent-cyan)] text-sm">
               <Shield size={16} />
-              <span className="badge">Quantum Data Vault</span>
+              <span className="badge">Quantum Vault</span>
             </div>
           </div>
 
@@ -109,6 +113,11 @@ export default function Footer() {
                   구매 문의
                 </Link>
               </li>
+              <li>
+                <Link to="/event" className="text-sm text-[var(--text-secondary)] hover:text-[var(--accent-cyan)] transition-colors">
+                  이벤트
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -118,11 +127,11 @@ export default function Footer() {
             <ul className="space-y-3">
               <li>
                 <a
-                  href="mailto:biz@boanlinks.com"
+                  href="mailto:biz@d-go.info"
                   className="flex items-center gap-2 text-sm text-[var(--text-secondary)] hover:text-[var(--accent-cyan)] transition-colors"
                 >
                   <Mail size={16} />
-                  <span>biz@boanlinks.com</span>
+                  <span>biz@d-go.info</span>
                 </a>
               </li>
               <li>
@@ -133,6 +142,10 @@ export default function Footer() {
                   <Phone size={16} />
                   <span>010-3241-0427</span>
                 </a>
+              </li>
+              <li className="flex items-center gap-2 text-sm text-[var(--text-secondary)]">
+                <MessageCircle size={16} />
+                <span>카카오톡 채널 (24시간 고객 지원)</span>
               </li>
               <li className="flex items-start gap-2 text-sm text-[var(--text-secondary)]">
                 <MapPin size={16} className="mt-0.5 flex-shrink-0" />
@@ -167,16 +180,30 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom Bar */}
+        {/* Sales Partners */}
         <div className="mt-5 md:mt-12 pt-4 md:pt-8 border-t border-[var(--border-hairline)]">
+          <h4 className="text-xs md:text-sm font-semibold text-[var(--text-secondary)] mb-3 text-center md:text-left">
+            Sales Partners
+          </h4>
+          <div className="flex flex-wrap justify-center md:justify-start gap-x-3 md:gap-x-5 gap-y-2">
+            {["진앤현시큐리티", "ICTK", "MTT GLOBAL", "쿠도커뮤니케이션", "솔모정보기술", "보헤미안 OS", "워킹랩"].map((p) => (
+              <span key={p} className="text-[0.7rem] md:text-xs text-[var(--text-muted)]">
+                {p}
+              </span>
+            ))}
+          </div>
+          <p className="text-[0.65rem] md:text-xs text-[var(--text-muted)] mt-3 text-center md:text-left">
+            본 제품은 국내 PUF 기술 선도 기업 ICTK와의 기술 협약을 통해 제조됩니다.
+          </p>
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="mt-5 md:mt-8 pt-4 md:pt-6 border-t border-[var(--border-hairline)]">
           <div className="flex flex-col md:flex-row justify-between items-center gap-2 md:gap-4">
             <p className="text-xs md:text-sm text-[var(--text-muted)]">
-              © 2026 보안링스 (Boanlinks). All rights reserved.
+              © 2026 D-GO. All rights reserved.
             </p>
-            <div className="flex items-center gap-2">
-              <img src="/logo/boanlinks.png" alt="Boanlinks" className="h-4 md:h-5 w-auto opacity-50" />
-              <span className="text-xs md:text-sm text-[var(--text-muted)]">Powered by Boanlinks</span>
-            </div>
+            <span className="text-xs md:text-sm text-[var(--text-muted)]">www.d-go.info</span>
           </div>
         </div>
       </div>

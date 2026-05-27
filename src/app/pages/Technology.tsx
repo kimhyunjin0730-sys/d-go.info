@@ -10,7 +10,7 @@ export default function Technology() {
       features: [
         "반도체 고유 지문을 이용한 암호 키 생성",
         "메모리 휘발성 키 관리로 복제 불가",
-        "Zero-Knowledge 암호화 (외부 서버 없음)",
+        "Zero-Outbound 암호화 (외부 인터넷 원천 차단)",
         "본체 내부에서 모든 암호화 작업 완결"
       ]
     },
@@ -62,12 +62,12 @@ export default function Technology() {
               <span className="badge text-[var(--accent-cyan)]">TECHNOLOGY</span>
             </div>
             <h1 className="text-2xl md:text-3xl mb-3">
-              Zero-Knowledge,{" "}
+              Zero-Outbound,{" "}
               <span className="text-gradient-cyan">By Hardware</span>
             </h1>
             <p className="text-base text-[var(--text-secondary)] max-w-3xl mx-auto leading-snug">
-              외부 서버 없이 하드웨어 단독으로 완성되는 제로 지식 암호화.
-              ICTK PUF 칩과 폐쇄형 아키텍처로 진정한 데이터 주권을 실현합니다.
+              외부 인터넷 원천 차단 — 하드웨어 단독으로 완성되는 폐쇄망 보안 아키텍처.
+              ICTK PUF 칩과 Air-Gap 구조로 진정한 데이터 주권을 실현합니다.
             </p>
           </div>
         </div>
@@ -120,7 +120,7 @@ export default function Technology() {
                   <Wifi className="text-[var(--accent-cyan)] shrink-0" size={20} />
                 </div>
                 <span className="text-[10px] font-bold text-[var(--accent-cyan)] mt-2 text-center uppercase tracking-wider relative bg-[var(--bg-elevated)] px-2">
-                  폐쇄망 암호화<br/>(1:1 Direct Wi-Fi)
+                  폐쇄망 (Private Wi-Fi)<br/>Air-Gap · Zero-Outbound
                 </span>
                 
                 <div className="w-[2px] h-12 lg:hidden bg-gradient-to-b from-[var(--bg-elevated)] via-[var(--accent-cyan)] to-[var(--bg-elevated)]"></div>
@@ -156,7 +156,7 @@ export default function Technology() {
                         <span className="font-bold text-sm text-[var(--accent-cyan)]">PUF Core Logic (암호/제어 중심)</span>
                       </div>
                       <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
-                        제로 지식 암호화 수행. 외부 서버 입출력 일체 차단.<br/>
+                        외부 인터넷 원천 차단(Zero-Outbound) 수행. 모든 입출력 폐쇄망 내부 처리.<br/>
                         비상시 물리 USB 키 + HW 정보로 이중 복구(Dual Recovery)
                       </p>
                     </div>
@@ -234,7 +234,7 @@ export default function Technology() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl md:text-3xl text-center mb-2">4가지 핵심 기술</h2>
           <p className="text-center text-sm text-[var(--text-secondary)] mb-6 max-w-2xl mx-auto">
-            D-GO Vault를 지탱하는 네 가지 기술적 기둥
+            D-GO Quantum Vault를 지탱하는 네 가지 기술적 기둥
           </p>
 
           <div className="grid md:grid-cols-2 gap-4">
@@ -461,7 +461,7 @@ export default function Technology() {
                 <tr className="border-b border-[var(--border-hairline)]">
                   <th className="text-left py-2 px-3 font-semibold text-sm">비교 항목</th>
                   <th className="text-left py-2 px-3 font-semibold text-sm text-[var(--text-secondary)]">기존 제품</th>
-                  <th className="text-left py-2 px-3 font-semibold text-sm text-[var(--accent-cyan)]">D-GO Vault</th>
+                  <th className="text-left py-2 px-3 font-semibold text-sm text-[var(--accent-cyan)]">D-GO Quantum Vault</th>
                 </tr>
               </thead>
               <tbody>
@@ -469,7 +469,7 @@ export default function Technology() {
                   {
                     item: "데이터 위치",
                     existing: "클라우드에 복사본 존재",
-                    dgo: "No Data Server. 물리적 장치에만 존재"
+                    dgo: "Air-Gap · Zero-Outbound. 물리적 장치에만 존재"
                   },
                   {
                     item: "장치 연결",
@@ -517,8 +517,8 @@ export default function Technology() {
           <div className="space-y-3">
             {[
               {
-                q: "Zero-Knowledge가 정확히 무엇인가요?",
-                a: "외부 서버나 제3자가 사용자의 데이터에 대해 '아무것도 알 수 없는' 상태를 의미합니다. D-GO Vault는 모든 암호화/복호화 작업을 본체 내부에서만 처리하며, 키는 PUF 칩에서 생성되어 메모리에 휘발성으로 보관됩니다."
+                q: "Zero-Outbound가 정확히 무엇인가요?",
+                a: "외부 인터넷으로의 데이터 송신 경로 자체를 원천 차단하는 보안 모델입니다. D-GO Quantum Vault는 폐쇄망(Private Wi-Fi) 안에서만 동작하며, 모든 암호화/복호화 작업을 본체 내부에서 처리합니다. 키는 PUF 칩에서 생성되어 메모리에 휘발성으로 보관됩니다."
               },
               {
                 q: "PUF 물리 키를 잃어버리면 어떻게 되나요?",
@@ -526,7 +526,7 @@ export default function Technology() {
               },
               {
                 q: "양자 암호화는 실제로 적용되나요?",
-                a: "D-GO Vault는 '양자 시대에 대비한 데이터 금고'라는 의미에서 Quantum Data Vault로 명명되었습니다. 현재는 AES-256 암호화를 사용하며, 향후 양자내성암호(PQC) 알고리즘 적용을 준비 중입니다."
+                a: "D-GO Quantum Vault는 '양자 시대에 대비한 데이터 금고'를 의미합니다. 현재는 AES-256 + RSA-2048 이중 암호화를 사용하며, 향후 양자내성암호(PQC) 알고리즘 적용을 준비 중입니다."
               },
             ].map((faq, index) => (
               <div key={index} className="glass-card p-4">

@@ -5,7 +5,7 @@ export default function Manual() {
     {
       icon: Smartphone,
       title: "Android 앱 (APK)",
-      description: "D-GO Vault 관리 앱",
+      description: "D-GO Quantum Vault 관리 앱",
       size: "12.4 MB",
       version: "v1.0.0",
       link: "#"
@@ -43,7 +43,7 @@ export default function Manual() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center gap-3">
           <AlertTriangle className="text-orange-400 flex-shrink-0" size={20} />
           <p className="text-sm text-[var(--text-primary)] leading-relaxed font-medium">
-            현재 안내는 예시 앱 기준입니다. 정식 D-GO Vault 앱 및 매뉴얼은 
+            현재 안내는 예시 앱 기준입니다. 정식 D-GO Quantum Vault 앱 및 매뉴얼은 
             <span className="text-[var(--accent-cyan)] font-bold mx-1">약 1주 내 정식 업데이트</span> 
             될 예정입니다.
           </p>
@@ -59,7 +59,7 @@ export default function Manual() {
             </div>
             <h1 className="text-2xl md:text-3xl mb-3">사용 매뉴얼</h1>
             <p className="text-lg text-[var(--text-secondary)] max-w-3xl mx-auto">
-              D-GO Vault를 시작하는 모든 것 — 설치부터 고급 기능까지 단계별 안내
+              D-GO Quantum Vault를 시작하는 모든 것 — 설치부터 고급 기능까지 단계별 안내
             </p>
           </div>
         </div>
@@ -137,7 +137,7 @@ export default function Manual() {
 
               <h3 className="text-lg mb-2">페어링</h3>
               <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
-                D-GO Vault 본체와 모바일 앱을 Direct Wi-Fi로 페어링합니다. PUF 인증이 필요합니다.
+                D-GO Quantum Vault 본체와 모바일 앱을 Direct Wi-Fi로 페어링합니다. PUF 인증이 필요합니다.
               </p>
             </div>
 
@@ -275,7 +275,7 @@ export default function Manual() {
               },
               {
                 q: "페어링이 되지 않아요",
-                a: "1) Wi-Fi가 켜져 있는지 확인 2) D-GO Vault 본체가 전원에 연결되어 있는지 확인 3) 앱 권한(위치, Wi-Fi)이 모두 허용되어 있는지 확인하세요."
+                a: "1) Wi-Fi가 켜져 있는지 확인 2) D-GO Quantum Vault 본체가 전원에 연결되어 있는지 확인 3) 앱 권한(위치, Wi-Fi)이 모두 허용되어 있는지 확인하세요."
               },
               {
                 q: "파일을 업로드했는데 앱에서 보이지 않아요",
@@ -298,7 +298,7 @@ export default function Manual() {
               더 궁금한 사항이 있으신가요?
             </p>
             <a
-              href="mailto:biz@boanlinks.com"
+              href="mailto:biz@d-go.info"
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[var(--accent-cyan)] text-[var(--bg-primary)] font-semibold hover:opacity-90 transition-opacity"
             >
               고객센터 문의하기

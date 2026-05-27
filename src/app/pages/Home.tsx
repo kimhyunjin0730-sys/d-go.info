@@ -1,4 +1,4 @@
-import { ArrowRight, Shield, Lock, FileCheck, Fingerprint, Scan, Database, Cpu, HardDrive, BatteryCharging, Thermometer, Usb, Wifi } from "lucide-react";
+import { ArrowRight, Shield, Lock, FileCheck, Fingerprint, Scan, Database, Cpu, HardDrive, BatteryCharging, Thermometer, Usb, Wifi, WifiOff, Brain, Layers, ScrollText, Smartphone } from "lucide-react";
 import { Link } from "react-router";
 
 const specs = [
@@ -8,6 +8,40 @@ const specs = [
   { icon: Thermometer, label: "Thermal", value: "UL CLASS 125" },
   { icon: Usb, label: "Ports", value: "USB-A · C · TB×3" },
   { icon: Wifi, label: "Network", value: "Direct Wi-Fi Only" },
+];
+
+const whyDgo = [
+  { icon: WifiOff, title: "Zero-Outbound", desc: "외부 인터넷 원천 차단 — 해킹 경로 완전 제거" },
+  { icon: Brain, title: "Local AI 내장", desc: "로컬 데이터 기반 내용 검색 및 요약 기능" },
+  { icon: Layers, title: "3중 계층 파티션", desc: "PUF · 2FA · 생체인증 단계별 — 민감도별 접근 분리" },
+  { icon: ScrollText, title: "무결성 감사 로그", desc: "수정 불가 시계열 DB — 보안 사고 사전 차단" },
+  { icon: Smartphone, title: "크로스 플랫폼 앱", desc: "iOS · Android · PC 네이티브 — 망분리로 외부 접속 원천 차단" },
+];
+
+const keyBadges = [
+  "PUF 물리보안",
+  "AIR-GAP 격리",
+  "3중 계층 파티션",
+  "LOCAL AI 내장",
+  "E2EE 볼트",
+  "물리적 금고 내장",
+];
+
+const partners = [
+  "진앤현시큐리티",
+  "ICTK",
+  "MTT GLOBAL",
+  "쿠도커뮤니케이션",
+  "솔모정보기술",
+  "보헤미안 OS",
+  "워킹랩",
+];
+
+const faqs = [
+  { q: "누가 사용하면 좋을까요?", a: "변호사·회계사 등 전문직, 연구소·소규모 기업, 클라우드 보안 불안감을 해소하고 싶은 스마트홈 사용자에게 최적입니다." },
+  { q: "도난·분해되면 어떻게 되나요?", a: "PUF 보안키 즉시 자동 소멸. 물리적으로 탈취되어도 복호화가 절대 불가합니다." },
+  { q: "설치가 어렵지 않나요?", a: "개봉 후 5분이면 설치 완료. D-GO 전용 카카오톡 채널로 24시간 커뮤니티 지원됩니다." },
+  { q: "인터넷 없이도 AI를 쓸 수 있나요?", a: "Local RAG & LLM이 서버 내부에서 동작해 외부 유출 없이 내 파일을 AI로 검색·요약합니다." },
 ];
 
 export default function Home() {
@@ -22,23 +56,32 @@ export default function Home() {
             <div>
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--accent-cyan-soft)] border border-[var(--accent-cyan)]/20 mb-4">
                 <Shield size={14} className="text-[var(--accent-cyan)]" />
-                <span className="badge text-[var(--accent-cyan)]">Quantum Data Vault</span>
+                <span className="badge text-[var(--accent-cyan)]">Quantum Vault</span>
               </div>
 
               <h1 className="text-3xl md:text-4xl lg:text-5xl mb-4 leading-tight">
-                당신의 데이터,<br />
-                <span className="text-gradient-cyan">오직 당신의 손안에.</span>
+                클라우드를 넘어,<br />
+                <span className="text-gradient-cyan">가장 안전한 로컬의 표준.</span>
               </h1>
 
               <p className="text-base text-[var(--text-secondary)] mb-5 leading-relaxed max-w-lg">
-                외부 연결을 철저히 차단하는 폐쇄망 기반 구조.<br />
-                PUF 하드웨어가 직접 수행하는 Zero-Knowledge 암호망으로<br />
-                절대적인 데이터 주권을 실현합니다.
+                외부 클라우드에 의존하지 않고 가정·사무실의 폐쇄망(Private Wi-Fi) 내에서만 동작하는
+                초강력 보안 파일·모니터링 서버.<br />
+                <span className="text-[var(--accent-cyan)] font-medium">"Data Goes Only Where You Want."</span>
               </p>
+
+              {/* Key badges row */}
+              <div className="flex flex-wrap gap-1.5 mb-5">
+                {keyBadges.map((b) => (
+                  <span key={b} className="badge text-[var(--accent-cyan)] border border-[var(--accent-cyan)]/30 rounded-full px-2.5 py-0.5 text-[0.7rem]">
+                    {b}
+                  </span>
+                ))}
+              </div>
 
               <div className="flex flex-wrap gap-3 mb-5">
                 <a
-                  href="mailto:biz@boanlinks.com"
+                  href="mailto:biz@d-go.info"
                   className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[var(--accent-cyan)] text-[var(--bg-primary)] font-semibold text-sm hover:opacity-90 transition-opacity"
                 >
                   도입 문의하기 <ArrowRight size={16} />
@@ -65,7 +108,7 @@ export default function Home() {
               <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/15 to-blue-600/10 rounded-2xl blur-2xl"></div>
               <img
                 src="/images/renders/render-02.jpg"
-                alt="D-GO Vault 45도 정면, 노브 LED 점등"
+                alt="D-GO Quantum Vault 45도 정면, 노브 LED 점등"
                 className="relative rounded-xl shadow-xl w-full h-auto"
               />
             </div>
@@ -90,8 +133,32 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Feature Grid — compact 3-col ── */}
+      {/* ── WHY D-GO — 5 pillars ── */}
       <section className="py-10 md:py-14">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8">
+            <span className="badge text-[var(--accent-cyan)]">WHY D-GO</span>
+            <h2 className="text-2xl md:text-3xl mt-3 mb-2">완벽한 격리, 타협 없는 보안</h2>
+            <p className="text-sm text-[var(--text-secondary)]">
+              가장 완벽한 물리적·논리적 통합 보안 솔루션, D-GO를 만나보십시오.
+            </p>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-3">
+            {whyDgo.map((w) => (
+              <div key={w.title} className="glass-card glass-card-hover p-4 text-center">
+                <div className="w-10 h-10 mx-auto rounded-lg bg-[var(--accent-cyan-soft)] flex items-center justify-center mb-3">
+                  <w.icon size={20} className="text-[var(--accent-cyan)]" />
+                </div>
+                <h3 className="text-sm font-semibold mb-1.5">{w.title}</h3>
+                <p className="text-xs text-[var(--text-secondary)] leading-relaxed">{w.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Feature Grid — compact 3-col ── */}
+      <section className="py-10 md:py-14 bg-[var(--bg-elevated)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-end justify-between mb-6">
             <div>
@@ -128,21 +195,21 @@ export default function Home() {
       </section>
 
       {/* ── Technology + Product Image — side by side ── */}
-      <section className="py-10 md:py-14 bg-[var(--bg-elevated)]">
+      <section className="py-10 md:py-14">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-5 gap-6 items-start">
             {/* Left 3/5 — tech pillars */}
             <div className="lg:col-span-3">
               <div className="flex items-center gap-2 mb-4">
-                <span className="badge text-[var(--accent-cyan)]">ZERO-KNOWLEDGE ARCHITECTURE</span>
+                <span className="badge text-[var(--accent-cyan)]">ZERO-OUTBOUND ARCHITECTURE</span>
               </div>
               <h2 className="text-2xl md:text-3xl mb-5">
-                하드웨어 기반 제로 지식 암호화
+                하드웨어 기반 외부 인터넷 원천 차단
               </h2>
 
               <div className="grid sm:grid-cols-2 gap-3">
                 {[
-                  { icon: Shield, title: "1:1 Direct Wi-Fi", desc: "외부 네트워크 미연결, 본체와 모바일 기기만 1:1 폐쇄형 연결" },
+                  { icon: Shield, title: "폐쇄망 (Private Wi-Fi)", desc: "외부 네트워크 미연결, 본체와 모바일 기기만 폐쇄형 연결" },
                   { icon: Fingerprint, title: "PUF 이중 복구", desc: "디지털 인증 분실 시 물리 키 + HW 정보로 PUF 키 재호출" },
                   { icon: Database, title: "RAID 1 + UPS", desc: "두 개 SSD 실시간 미러링 + 내장 배터리 전원 보호" },
                   { icon: Thermometer, title: "125°F 자동 셧다운", desc: "임계 온도 초과 시 디지털 섹션 즉시 차단, 데이터 보호" },
@@ -171,7 +238,7 @@ export default function Home() {
                   <div className="relative overflow-hidden rounded-lg mb-2">
                     <img
                       src="/images/renders/render-01.jpg"
-                      alt="D-GO Vault USB 보안키 분리"
+                      alt="D-GO Quantum Vault USB 보안키 분리"
                       className="w-full h-auto transition-transform duration-500 group-hover:scale-105"
                     />
                     <div className="absolute top-2 left-2 badge bg-[var(--bg-overlay)] backdrop-blur text-[var(--text-primary)]">
@@ -193,7 +260,7 @@ export default function Home() {
                   <div className="relative overflow-hidden rounded-lg mb-2">
                     <img
                       src="/images/renders/render-03.jpg"
-                      alt="D-GO Vault USB 보안키 삽입"
+                      alt="D-GO Quantum Vault USB 보안키 삽입"
                       className="w-full h-auto transition-transform duration-500 group-hover:scale-105"
                     />
                     <div className="absolute top-2 left-2 badge bg-[var(--accent-cyan)] text-[var(--bg-primary)]">
@@ -248,18 +315,65 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── Q&A ── */}
+      <section className="py-10 md:py-14 bg-[var(--bg-elevated)]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-6">
+            <span className="badge text-[var(--accent-cyan)]">Q & A</span>
+            <h2 className="text-2xl md:text-3xl mt-3">자주 묻는 질문</h2>
+          </div>
+          <div className="grid sm:grid-cols-2 gap-4 max-w-5xl mx-auto">
+            {faqs.map((f, i) => (
+              <div key={f.q} className="glass-card p-5">
+                <div className="flex items-start gap-3 mb-2">
+                  <div className="w-7 h-7 rounded-full bg-[var(--accent-cyan-soft)] flex items-center justify-center flex-shrink-0">
+                    <span className="text-xs font-semibold text-[var(--accent-cyan)]">Q{i + 1}</span>
+                  </div>
+                  <h3 className="text-sm font-semibold leading-snug">{f.q}</h3>
+                </div>
+                <p className="text-sm text-[var(--text-secondary)] leading-relaxed pl-10">{f.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Sales Partners ── */}
+      <section className="py-10 md:py-14">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <span className="badge text-[var(--accent-cyan)]">SALES PARTNERS</span>
+          <h2 className="text-2xl md:text-3xl mt-3 mb-2">D-GO 공식 판매 파트너</h2>
+          <p className="text-sm text-[var(--text-secondary)] mb-6">
+            본 제품은 국내 PUF 기술 선도 기업 ICTK와의 기술 협약을 통해 제조됩니다.
+          </p>
+          <div className="flex flex-wrap justify-center gap-2.5">
+            {partners.map((p) => (
+              <span
+                key={p}
+                className="px-4 py-2 rounded-lg border border-[var(--border-hairline)] bg-[var(--bg-elevated)] text-sm font-medium text-[var(--text-secondary)]"
+              >
+                {p}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── Bottom CTA — compact ── */}
       <section className="py-10 md:py-14 bg-gradient-to-br from-cyan-500/8 to-blue-600/8">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl md:text-3xl mb-4">
-            지금 D-GO Vault를 도입해 보세요
+            지금 D-GO Quantum Vault를 도입해 보세요
           </h2>
+          <p className="text-sm text-[var(--text-secondary)] mb-2">
+            "Data Goes Only Where You Want."
+          </p>
           <p className="text-sm text-[var(--text-secondary)] mb-6">
-            법인·단체 도입 문의 환영 | 평일 09:00-18:00 | 010-3241-0427
+            법인·단체 도입 문의 환영 | 평일 09:00-18:00 | 010-3241-0427 | 카카오톡 채널 24시간 지원
           </p>
           <div className="flex flex-wrap gap-3 justify-center">
             <a
-              href="mailto:biz@boanlinks.com"
+              href="mailto:biz@d-go.info"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-[var(--accent-cyan)] text-[var(--bg-primary)] font-semibold hover:opacity-90 transition-opacity"
             >
               이메일 문의하기 <ArrowRight size={18} />

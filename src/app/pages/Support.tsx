@@ -1,11 +1,11 @@
-import { Mail, Phone, MapPin, Clock, Copy, CheckCircle, MessageSquare, HelpCircle } from "lucide-react";
+import { Mail, Phone, MapPin, Clock, Copy, CheckCircle, MessageSquare, HelpCircle, MessageCircle } from "lucide-react";
 import { useState } from "react";
 
 export default function Support() {
   const [copied, setCopied] = useState(false);
 
   const copyEmail = () => {
-    navigator.clipboard.writeText("biz@boanlinks.com");
+    navigator.clipboard.writeText("biz@d-go.info");
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -21,7 +21,7 @@ export default function Support() {
             </div>
             <h1 className="text-2xl md:text-3xl mb-3">고객 지원</h1>
             <p className="text-lg text-[var(--text-secondary)] max-w-3xl mx-auto">
-              D-GO Vault 사용 중 궁금한 점이 있으신가요? 언제든 문의해주세요.
+              D-GO Quantum Vault 사용 중 궁금한 점이 있으신가요? 언제든 문의해주세요.
             </p>
           </div>
         </div>
@@ -32,7 +32,7 @@ export default function Support() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl md:text-3xl text-center mb-6">연락처</h2>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-3">
+          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-3">
             {/* Email */}
             <div className="glass-card p-4">
               <div className="w-10 h-10 rounded-xl bg-[var(--accent-cyan-soft)] flex items-center justify-center mb-3">
@@ -40,11 +40,11 @@ export default function Support() {
               </div>
               <h3 className="font-semibold text-sm mb-1">이메일</h3>
               <p className="text-sm text-[var(--text-secondary)] mb-2 break-all">
-                biz@boanlinks.com
+                biz@d-go.info
               </p>
               <div className="flex gap-2">
                 <a
-                  href="mailto:biz@boanlinks.com"
+                  href="mailto:biz@d-go.info"
                   className="flex-1 px-3 py-1.5 rounded-lg bg-[var(--accent-cyan)] text-[var(--bg-primary)] text-xs font-medium text-center hover:opacity-90 transition-opacity"
                 >
                   보내기
@@ -74,6 +74,21 @@ export default function Support() {
               >
                 전화 걸기
               </a>
+            </div>
+
+            {/* KakaoTalk */}
+            <div className="glass-card p-4">
+              <div className="w-10 h-10 rounded-xl bg-[var(--accent-cyan-soft)] flex items-center justify-center mb-3">
+                <MessageCircle className="text-[var(--accent-cyan)]" size={20} />
+              </div>
+              <h3 className="font-semibold text-sm mb-1">카카오톡 채널</h3>
+              <p className="text-sm text-[var(--text-secondary)] mb-2">
+                24시간 고객 지원<br />
+                <span className="text-[var(--text-muted)] text-xs">실시간 커뮤니티</span>
+              </p>
+              <div className="px-3 py-1.5 rounded-lg bg-[var(--accent-cyan-soft)] text-[var(--accent-cyan)] text-xs font-medium text-center border border-[var(--accent-cyan)]/30">
+                채널 준비 중
+              </div>
             </div>
 
             {/* Hours */}
@@ -130,7 +145,7 @@ export default function Support() {
                   ].map((type) => (
                     <a
                       key={type}
-                      href={`mailto:biz@boanlinks.com?subject=문의: ${type}`}
+                      href={`mailto:biz@d-go.info?subject=문의: ${type}`}
                       className="px-3 py-2 rounded-lg border border-[var(--border-hairline)] hover:border-[var(--accent-cyan)] hover:bg-[var(--accent-cyan-soft)] transition-all text-sm text-center"
                     >
                       {type}
@@ -145,7 +160,7 @@ export default function Support() {
                   문의 유형을 선택하지 않고 바로 이메일을 보내실 수 있습니다.
                 </p>
                 <a
-                  href="mailto:biz@boanlinks.com"
+                  href="mailto:biz@d-go.info"
                   className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[var(--accent-cyan)] text-[var(--bg-primary)] font-semibold hover:opacity-90 transition-opacity"
                 >
                   <Mail size={18} />
@@ -155,7 +170,7 @@ export default function Support() {
 
               <div className="p-3 rounded-lg bg-[var(--bg-primary)]/50 border border-[var(--border-hairline)]">
                 <p className="text-xs text-[var(--text-secondary)]">
-                  <span className="text-[var(--accent-cyan)] font-semibold">안내:</span> 메일 앱이 열리지 않으면 <span className="mono text-[var(--accent-cyan)]">biz@boanlinks.com</span> 으로 직접 보내주세요.
+                  <span className="text-[var(--accent-cyan)] font-semibold">안내:</span> 메일 앱이 열리지 않으면 <span className="mono text-[var(--accent-cyan)]">biz@d-go.info</span> 으로 직접 보내주세요.
                 </p>
               </div>
             </div>
@@ -236,7 +251,7 @@ export default function Support() {
               원하는 답변을 찾지 못하셨나요?
             </p>
             <a
-              href="mailto:biz@boanlinks.com"
+              href="mailto:biz@d-go.info"
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[var(--accent-cyan)] text-[var(--bg-primary)] font-semibold hover:opacity-90 transition-opacity"
             >
               <MessageSquare size={18} />
