@@ -5,6 +5,8 @@ import { X } from "lucide-react";
 const HIDE_UNTIL_KEY = "dgo-event-popup-hide-until"; // localStorage: 24h dismissal
 const SESSION_KEY = "dgo-event-popup-closed"; // sessionStorage: this-session dismissal
 const HERO_IMG = "https://img2.stibee.com/74826_3399701_1779437867798726041.jpg";
+// 행사 종료: 2026년 7월 1일 00:00(KST) 이후로는 팝업 미노출 (방문자 시간대 무관)
+const EVENT_END = new Date("2026-07-01T00:00:00+09:00").getTime();
 
 export default function EventPopup() {
   const [open, setOpen] = useState(false);
@@ -13,6 +15,7 @@ export default function EventPopup() {
 
   // 사이트 첫 접속 시 1회 노출 (Root는 라우트 전환 시 언마운트되지 않으므로 mount 1회 = 첫 접속)
   useEffect(() => {
+    if (Date.now() >= EVENT_END) return; // 7월부터(행사 종료) 미노출
     if (location.pathname === "/event") return; // 이미 이벤트 페이지면 생략
     try {
       const until = Number(localStorage.getItem(HIDE_UNTIL_KEY) || 0);
