@@ -5,6 +5,7 @@ import { X } from "lucide-react";
 const HIDE_UNTIL_KEY = "dgo-event-popup-hide-until"; // localStorage: 24h dismissal
 const SESSION_KEY = "dgo-event-popup-closed"; // sessionStorage: this-session dismissal
 const HERO_IMG = "https://img2.stibee.com/74826_3399701_1779437867798726041.jpg";
+const PROMO_IMG = "https://img2.stibee.com/74826_3399701_1779436020407127150.jpg"; // D-GO 출시 EVENT (무료 1TB 업그레이드)
 // 행사 종료: 2026년 7월 1일 00:00(KST) 이후로는 팝업 미노출 (방문자 시간대 무관)
 const EVENT_END = new Date("2026-07-01T00:00:00+09:00").getTime();
 
@@ -81,13 +82,14 @@ export default function EventPopup() {
           <X size={18} />
         </button>
 
-        {/* 배너 이미지 (클릭 시 이벤트로 이동) */}
+        {/* 배너 이미지 (클릭 시 이벤트로 이동) — STK26 + D-GO 출시 이벤트 */}
         <button
           onClick={goToEvent}
-          className="block w-full overflow-y-auto cursor-pointer"
+          className="block w-full flex-1 min-h-0 overflow-y-auto cursor-pointer"
           aria-label="이벤트 배너 (자세히 보기)"
         >
           <img src={HERO_IMG} alt="STK 2026 · D-GO 출시 이벤트 안내" className="w-full h-auto block" />
+          <img src={PROMO_IMG} alt="D-GO 출시 EVENT · 무료 1TB 업그레이드" className="w-full h-auto block" />
         </button>
 
         {/* 자세히 보기 CTA */}
