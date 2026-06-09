@@ -132,7 +132,7 @@ export default function Product() {
               </div>
 
               <h1 className="text-3xl md:text-4xl lg:text-5xl mb-4 leading-tight">
-                D-GO <span className="text-gradient-cyan">Quantum Vault</span>
+                D-GO <span className="text-gradient-cyan">Quantum Data Vault</span>
               </h1>
 
               <p className="text-base text-[var(--text-secondary)] mb-5 leading-relaxed max-w-lg">
@@ -163,7 +163,7 @@ export default function Product() {
               <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/15 to-blue-600/10 rounded-2xl blur-2xl"></div>
               <img
                 src="/images/renders/render-02.jpg"
-                alt="D-GO Quantum Vault 45도 정면"
+                alt="D-GO Quantum Data Vault 45도 정면"
                 className="relative rounded-xl shadow-xl w-full h-auto"
               />
             </div>

@@ -56,7 +56,7 @@ export default function Home() {
             <div>
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--accent-cyan-soft)] border border-[var(--accent-cyan)]/20 mb-4">
                 <Shield size={14} className="text-[var(--accent-cyan)]" />
-                <span className="badge text-[var(--accent-cyan)]">Quantum Vault</span>
+                <span className="badge text-[var(--accent-cyan)]">Quantum Data Vault</span>
               </div>
 
               <h1 className="text-3xl md:text-4xl lg:text-5xl mb-4 leading-tight">
@@ -107,8 +107,8 @@ export default function Home() {
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/15 to-blue-600/10 rounded-2xl blur-2xl"></div>
               <img
-                src="/images/renders/render-02.jpg"
-                alt="D-GO Quantum Vault 45도 정면, 노브 LED 점등"
+                src="/images/hero.jpg"
+                alt="D-GO Quantum Data Vault 45도 정면, 노브 LED 점등"
                 className="relative rounded-xl shadow-xl w-full h-auto"
               />
             </div>
@@ -238,7 +238,7 @@ export default function Home() {
                   <div className="relative overflow-hidden rounded-lg mb-2">
                     <img
                       src="/images/renders/render-01.jpg"
-                      alt="D-GO Quantum Vault USB 보안키 분리"
+                      alt="D-GO Quantum Data Vault USB 보안키 분리"
                       className="w-full h-auto transition-transform duration-500 group-hover:scale-105"
                     />
                     <div className="absolute top-2 left-2 badge bg-[var(--bg-overlay)] backdrop-blur text-[var(--text-primary)]">
@@ -260,7 +260,7 @@ export default function Home() {
                   <div className="relative overflow-hidden rounded-lg mb-2">
                     <img
                       src="/images/renders/render-03.jpg"
-                      alt="D-GO Quantum Vault USB 보안키 삽입"
+                      alt="D-GO Quantum Data Vault USB 보안키 삽입"
                       className="w-full h-auto transition-transform duration-500 group-hover:scale-105"
                     />
                     <div className="absolute top-2 left-2 badge bg-[var(--accent-cyan)] text-[var(--bg-primary)]">
@@ -363,7 +363,7 @@ export default function Home() {
       <section className="py-10 md:py-14 bg-gradient-to-br from-cyan-500/8 to-blue-600/8">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl md:text-3xl mb-4">
-            지금 D-GO Quantum Vault를 도입해 보세요
+            지금 D-GO Quantum Data Vault를 도입해 보세요
           </h2>
           <p className="text-sm text-[var(--text-secondary)] mb-2">
             "Data Goes Only Where You Want."

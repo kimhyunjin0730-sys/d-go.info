@@ -31,7 +31,7 @@ export default function Header() {
           <Link to="/" className="flex items-center gap-2.5 group">
             <img src="/logo/dgo-icon.png" alt="D-GO" className="h-11 w-auto object-contain" />
             <span className="text-2xl font-bold text-gradient-cyan">D-GO</span>
-            <span className="hidden lg:inline text-base font-medium text-[var(--text-secondary)]">Quantum Vault</span>
+            <span className="hidden lg:inline text-base font-medium text-[var(--text-secondary)]">Quantum Data Vault</span>
           </Link>
 
           {/* Desktop Navigation */}

@@ -234,7 +234,7 @@ export default function Technology() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl md:text-3xl text-center mb-2">4가지 핵심 기술</h2>
           <p className="text-center text-sm text-[var(--text-secondary)] mb-6 max-w-2xl mx-auto">
-            D-GO Quantum Vault를 지탱하는 네 가지 기술적 기둥
+            D-GO Quantum Data Vault를 지탱하는 네 가지 기술적 기둥
           </p>
 
           <div className="grid md:grid-cols-2 gap-4">
@@ -461,7 +461,7 @@ export default function Technology() {
                 <tr className="border-b border-[var(--border-hairline)]">
                   <th className="text-left py-2 px-3 font-semibold text-sm">비교 항목</th>
                   <th className="text-left py-2 px-3 font-semibold text-sm text-[var(--text-secondary)]">기존 제품</th>
-                  <th className="text-left py-2 px-3 font-semibold text-sm text-[var(--accent-cyan)]">D-GO Quantum Vault</th>
+                  <th className="text-left py-2 px-3 font-semibold text-sm text-[var(--accent-cyan)]">D-GO Quantum Data Vault</th>
                 </tr>
               </thead>
               <tbody>
@@ -518,7 +518,7 @@ export default function Technology() {
             {[
               {
                 q: "Zero-Outbound가 정확히 무엇인가요?",
-                a: "외부 인터넷으로의 데이터 송신 경로 자체를 원천 차단하는 보안 모델입니다. D-GO Quantum Vault는 폐쇄망(Private Wi-Fi) 안에서만 동작하며, 모든 암호화/복호화 작업을 본체 내부에서 처리합니다. 키는 PUF 칩에서 생성되어 메모리에 휘발성으로 보관됩니다."
+                a: "외부 인터넷으로의 데이터 송신 경로 자체를 원천 차단하는 보안 모델입니다. D-GO Quantum Data Vault는 폐쇄망(Private Wi-Fi) 안에서만 동작하며, 모든 암호화/복호화 작업을 본체 내부에서 처리합니다. 키는 PUF 칩에서 생성되어 메모리에 휘발성으로 보관됩니다."
               },
               {
                 q: "PUF 물리 키를 잃어버리면 어떻게 되나요?",
@@ -526,7 +526,7 @@ export default function Technology() {
               },
               {
                 q: "양자 암호화는 실제로 적용되나요?",
-                a: "D-GO Quantum Vault는 '양자 시대에 대비한 데이터 금고'를 의미합니다. 현재는 AES-256 + RSA-2048 이중 암호화를 사용하며, 향후 양자내성암호(PQC) 알고리즘 적용을 준비 중입니다."
+                a: "D-GO Quantum Data Vault는 '양자 시대에 대비한 데이터 금고'를 의미합니다. 현재는 AES-256 + RSA-2048 이중 암호화를 사용하며, 향후 양자내성암호(PQC) 알고리즘 적용을 준비 중입니다."
               },
             ].map((faq, index) => (
               <div key={index} className="glass-card p-4">

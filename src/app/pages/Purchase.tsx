@@ -225,7 +225,7 @@ export default function Purchase() {
 
               <div className="pt-4 border-t border-[var(--border-hairline)]">
                 <a
-                  href="mailto:biz@boanlinks.com?subject=D-GO Quantum Vault 견적 요청&body=회사명: %0D%0A담당자: %0D%0A연락처: %0D%0A희망 수량: %0D%0A사용 용도: %0D%0A%0D%0A기타 문의사항: "
+                  href="mailto:biz@boanlinks.com?subject=D-GO Quantum Data Vault 견적 요청&body=회사명: %0D%0A담당자: %0D%0A연락처: %0D%0A희망 수량: %0D%0A사용 용도: %0D%0A%0D%0A기타 문의사항: "
                   className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg bg-[var(--accent-cyan)] text-[var(--bg-primary)] font-semibold text-base hover:opacity-90 transition-opacity"
                 >
                   <Mail size={20} />

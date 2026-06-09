@@ -13,7 +13,7 @@ export default function Dashboard() {
             <h1 className="text-3xl md:text-4xl mb-3">관리 대시보드</h1>
             <p className="text-base text-[var(--text-secondary)] max-w-3xl mx-auto">
               모바일 앱으로 실시간 모니터링 및 제어<br />
-              언제 어디서나 D-GO Quantum Vault의 상태를 확인하세요
+              언제 어디서나 D-GO Quantum Data Vault의 상태를 확인하세요
             </p>
           </div>
 

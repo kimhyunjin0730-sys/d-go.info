@@ -21,7 +21,7 @@ export default function Support() {
             </div>
             <h1 className="text-2xl md:text-3xl mb-3">고객 지원</h1>
             <p className="text-lg text-[var(--text-secondary)] max-w-3xl mx-auto">
-              D-GO Quantum Vault 사용 중 궁금한 점이 있으신가요? 언제든 문의해주세요.
+              D-GO Quantum Data Vault 사용 중 궁금한 점이 있으신가요? 언제든 문의해주세요.
             </p>
           </div>
         </div>

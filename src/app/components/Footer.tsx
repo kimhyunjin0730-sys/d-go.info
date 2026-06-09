@@ -11,7 +11,7 @@ export default function Footer() {
           <div className="col-span-2 flex items-center gap-2.5">
             <img src="/logo/dgo-icon.png" alt="D-GO" className="h-9 w-auto object-contain" />
             <span className="text-lg font-bold text-gradient-cyan">D-GO</span>
-            <span className="text-sm font-medium text-[var(--text-secondary)]">Quantum Vault</span>
+            <span className="text-sm font-medium text-[var(--text-secondary)]">Quantum Data Vault</span>
           </div>
 
           {/* Quick Links */}
@@ -76,7 +76,7 @@ export default function Footer() {
             <div className="flex items-center gap-2.5 mb-4">
               <img src="/logo/dgo-icon.png" alt="D-GO" className="h-11 w-auto object-contain" />
               <span className="text-xl font-bold text-gradient-cyan">D-GO</span>
-              <span className="text-base font-medium text-[var(--text-secondary)]">Quantum Vault</span>
+              <span className="text-base font-medium text-[var(--text-secondary)]">Quantum Data Vault</span>
             </div>
             <p className="text-sm text-[var(--text-secondary)] mb-4">
               완벽한 격리, 타협 없는 보안.<br />
@@ -85,7 +85,7 @@ export default function Footer() {
             </p>
             <div className="flex items-center gap-2 text-[var(--accent-cyan)] text-sm">
               <Shield size={16} />
-              <span className="badge">Quantum Vault</span>
+              <span className="badge">Quantum Data Vault</span>
             </div>
           </div>
 
