@@ -39,8 +39,8 @@ export default function Footer() {
             <h4 className="font-semibold text-xs mb-2">연락처</h4>
             <ul className="space-y-1.5">
               <li>
-                <a href="mailto:biz@boanlinks.com" className="flex items-center gap-1.5 text-xs text-[var(--text-secondary)] hover:text-[var(--accent-cyan)]">
-                  <Mail size={12} /> biz@boanlinks.com
+                <a href="mailto:sales@d-go.info" className="flex items-center gap-1.5 text-xs text-[var(--text-secondary)] hover:text-[var(--accent-cyan)]">
+                  <Mail size={12} /> sales@d-go.info
                 </a>
               </li>
               <li>
@@ -127,11 +127,11 @@ export default function Footer() {
             <ul className="space-y-3">
               <li>
                 <a
-                  href="mailto:biz@boanlinks.com"
+                  href="mailto:sales@d-go.info"
                   className="flex items-center gap-2 text-sm text-[var(--text-secondary)] hover:text-[var(--accent-cyan)] transition-colors"
                 >
                   <Mail size={16} />
-                  <span>biz@boanlinks.com</span>
+                  <span>sales@d-go.info</span>
                 </a>
               </li>
               <li>

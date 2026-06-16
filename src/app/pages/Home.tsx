@@ -81,7 +81,7 @@ export default function Home() {
 
               <div className="flex flex-wrap gap-3 mb-5">
                 <a
-                  href="mailto:biz@boanlinks.com"
+                  href="mailto:sales@d-go.info"
                   className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[var(--accent-cyan)] text-[var(--bg-primary)] font-semibold text-sm hover:opacity-90 transition-opacity"
                 >
                   도입 문의하기 <ArrowRight size={16} />
@@ -373,7 +373,7 @@ export default function Home() {
           </p>
           <div className="flex flex-wrap gap-3 justify-center">
             <a
-              href="mailto:biz@boanlinks.com"
+              href="mailto:sales@d-go.info"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-[var(--accent-cyan)] text-[var(--bg-primary)] font-semibold hover:opacity-90 transition-opacity"
             >
               이메일 문의하기 <ArrowRight size={18} />

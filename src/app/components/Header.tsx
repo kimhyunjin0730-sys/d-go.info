@@ -65,7 +65,7 @@ export default function Header() {
               이벤트
             </Link>
             <a
-              href="mailto:biz@boanlinks.com"
+              href="mailto:sales@d-go.info"
               className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[var(--accent-cyan)] text-[var(--bg-primary)] font-medium text-sm hover:opacity-90 transition-opacity"
             >
               문의하기
@@ -109,7 +109,7 @@ export default function Header() {
                 이벤트
               </Link>
               <a
-                href="mailto:biz@boanlinks.com"
+                href="mailto:sales@d-go.info"
                 className="px-4 py-3 rounded-lg bg-[var(--accent-cyan)] text-[var(--bg-primary)] font-medium text-sm text-center"
               >
                 문의하기

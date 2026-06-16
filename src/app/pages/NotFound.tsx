@@ -33,8 +33,8 @@ export default function NotFound() {
         <div className="mt-12 glass-card p-6 inline-block">
           <p className="text-sm text-[var(--text-secondary)]">
             도움이 필요하신가요?<br />
-            <a href="mailto:biz@boanlinks.com" className="text-[var(--accent-cyan)] hover:underline">
-              biz@boanlinks.com
+            <a href="mailto:sales@d-go.info" className="text-[var(--accent-cyan)] hover:underline">
+              sales@d-go.info
             </a>
             {" "}으로 문의해주세요.
           </p>

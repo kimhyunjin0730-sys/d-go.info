@@ -298,7 +298,7 @@ export default function Manual() {
               더 궁금한 사항이 있으신가요?
             </p>
             <a
-              href="mailto:biz@boanlinks.com"
+              href="mailto:sales@d-go.info"
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[var(--accent-cyan)] text-[var(--bg-primary)] font-semibold hover:opacity-90 transition-opacity"
             >
               고객센터 문의하기
