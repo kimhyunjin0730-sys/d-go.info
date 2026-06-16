@@ -7,7 +7,6 @@ import Dashboard from "./pages/Dashboard";
 import Manual from "./pages/Manual";
 import Purchase from "./pages/Purchase";
 import Support from "./pages/Support";
-import Event from "./pages/Event";
 import NotFound from "./pages/NotFound";
 
 export const router = createBrowserRouter([
@@ -22,7 +21,6 @@ export const router = createBrowserRouter([
       { path: "manual", Component: Manual },
       { path: "purchase", Component: Purchase },
       { path: "support", Component: Support },
-      { path: "event", Component: Event },
       { path: "*", Component: NotFound },
     ],
   },

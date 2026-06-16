@@ -23,7 +23,6 @@ export default function Footer() {
                 { to: "/technology", label: "기술 정보" },
                 { to: "/manual", label: "매뉴얼" },
                 { to: "/purchase", label: "구매 문의" },
-                { to: "/event", label: "이벤트" },
               ].map((l) => (
                 <li key={l.to}>
                   <Link to={l.to} className="text-xs text-[var(--text-secondary)] hover:text-[var(--accent-cyan)] transition-colors">
@@ -111,11 +110,6 @@ export default function Footer() {
               <li>
                 <Link to="/purchase" className="text-sm text-[var(--text-secondary)] hover:text-[var(--accent-cyan)] transition-colors">
                   구매 문의
-                </Link>
-              </li>
-              <li>
-                <Link to="/event" className="text-sm text-[var(--text-secondary)] hover:text-[var(--accent-cyan)] transition-colors">
-                  이벤트
                 </Link>
               </li>
             </ul>
