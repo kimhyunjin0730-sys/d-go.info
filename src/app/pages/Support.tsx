@@ -77,17 +77,21 @@ export default function Support() {
             </div>
 
             {/* KakaoTalk */}
-            <div className="glass-card p-4">
+            <div className="glass-card p-4 flex flex-col">
               <div className="w-10 h-10 rounded-xl bg-[var(--accent-cyan-soft)] flex items-center justify-center mb-3">
                 <MessageCircle className="text-[var(--accent-cyan)]" size={20} />
               </div>
               <h3 className="font-semibold text-sm mb-1">카카오톡 채널</h3>
-              <p className="text-sm text-[var(--text-secondary)] mb-2">
+              <p className="text-sm text-[var(--text-secondary)] mb-3">
                 24시간 고객 지원<br />
-                <span className="text-[var(--text-muted)] text-xs">실시간 커뮤니티</span>
+                <span className="text-[var(--text-muted)] text-xs">QR 스캔으로 채널 추가</span>
               </p>
-              <div className="px-3 py-1.5 rounded-lg bg-[var(--accent-cyan-soft)] text-[var(--accent-cyan)] text-xs font-medium text-center border border-[var(--accent-cyan)]/30">
-                채널 준비 중
+              <div className="bg-white rounded-lg p-2 border border-[var(--border-hairline)] flex items-center justify-center">
+                <img
+                  src="/kakao-qr.png"
+                  alt="D-GO 카카오톡 채널 QR"
+                  className="w-full h-auto max-w-[160px]"
+                />
               </div>
             </div>
 
