@@ -1,362 +1,352 @@
-import { Thermometer, HardDrive, Battery, AlertTriangle, Lock, Activity, FileCheck, Layers } from "lucide-react";
+import {
+  Activity,
+  ArrowRight,
+  Battery,
+  Check,
+  CircleCheck,
+  FileCheck,
+  HardDrive,
+  Layers,
+  Lock,
+  Mic,
+  ScanText,
+  Thermometer,
+  TriangleAlert,
+} from "lucide-react";
+import type { ReactNode } from "react";
+import { BOOT_STEPS, mailto } from "../content";
+import { ButtonLink } from "../components/site/Button";
+import DeviceScreen, { DeviceBezel as Bezel } from "../components/site/DeviceScreen";
+import { Container, PageHero, Section, SectionIntro } from "../components/site/Layout";
+import { cn } from "../components/ui/utils";
+
+const ACCESS_STEP = BOOT_STEPS.find((s) => s.state === "access")!;
+const OTHER_STEPS = BOOT_STEPS.filter((s) => s.state !== "access");
+
+const PARTITIONS = [
+  { grade: "C", label: "일반", use: 75, bar: "bg-ink-3" },
+  { grade: "D", label: "보호", use: 30, bar: "bg-key" },
+  { grade: "E", label: "기밀", use: 10, bar: "bg-navy" },
+];
+
+const ACCESS_LOG = [
+  { time: "2026-04-16 14:32", action: "파일 업로드", target: "contract_2026.pdf" },
+  { time: "2026-04-16 10:15", action: "금고 개방", target: "PUF 인증 성공" },
+  { time: "2026-04-15 18:47", action: "데이터 조회", target: "financial_report.xlsx" },
+  { time: "2026-04-15 09:23", action: "금고 개방", target: "PUF 인증 성공" },
+];
+
+const PORTS = [
+  { name: "USB-C 포트", desc: "데이터 전송 및 충전" },
+  { name: "네트워크 드라이브", desc: "전용 폐쇄망 접근" },
+];
+
+const CAPTURE = [
+  {
+    icon: ScanText,
+    title: "문서 OCR",
+    body: "카메라로 촬영한 문서를 PDF로 변환하여 암호화 저장",
+    items: ["실시간 OCR 처리", "PDF 자동 변환", "원본은 단말에 남지 않음"],
+  },
+  {
+    icon: Mic,
+    title: "음성 녹음",
+    body: "회의록·녹취를 STT 변환하여 암호화 저장",
+    items: ["클라이언트 단말 기록 즉시 삭제", "STT 자동 변환 및 화자 식별", "로컬 LLM 기반 녹취록 자동 생성"],
+  },
+];
+
+function Pill({ tone = "neutral", children }: { tone?: "ok" | "neutral" | "key"; children: ReactNode }) {
+  return (
+    <span
+      className={cn(
+        "inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-semibold whitespace-nowrap",
+        tone === "ok" && "bg-status-ok/10 text-status-ok",
+        tone === "key" && "bg-key/10 text-key",
+        tone === "neutral" && "border border-line bg-mist text-ink-2",
+      )}
+    >
+      {children}
+    </span>
+  );
+}
+
+function Meter({ label, value, percent, bar = "bg-key", note }: { label: string; value: string; percent: number; bar?: string; note?: string }) {
+  return (
+    <div>
+      <div className="flex items-baseline justify-between gap-3 text-sm">
+        <span className="text-ink-2">{label}</span>
+        <span className="font-mono text-[0.8125rem] font-semibold text-navy">{value}</span>
+      </div>
+      <div className="mt-1.5 h-2 overflow-hidden rounded-full bg-mist" aria-hidden="true">
+        <div className={cn("h-full rounded-full", bar)} style={{ width: `${percent}%` }} />
+      </div>
+      {note && <p className="mt-1 text-xs text-ink-3">{note}</p>}
+    </div>
+  );
+}
+
+function Widget({
+  icon: Icon,
+  title,
+  desc,
+  status,
+  className,
+  children,
+}: {
+  icon: typeof Thermometer;
+  title: string;
+  desc: string;
+  status: ReactNode;
+  className?: string;
+  children: ReactNode;
+}) {
+  return (
+    <li className={cn("flex flex-col rounded-2xl border border-line bg-white p-5 md:p-6", className)}>
+      <div className="flex items-start justify-between gap-3">
+        <span className="grid h-10 w-10 flex-none place-items-center rounded-xl border border-panel-line bg-panel text-key" aria-hidden="true">
+          <Icon size={20} strokeWidth={1.75} />
+        </span>
+        {status}
+      </div>
+      <h3 className="mt-4 text-lg font-bold text-navy">{title}</h3>
+      <p className="mt-0.5 text-sm text-ink-2">{desc}</p>
+      <div className="mt-4 flex-1">{children}</div>
+    </li>
+  );
+}
 
 export default function Dashboard() {
   return (
     <div className="w-full">
-      {/* Hero */}
-      <section className="pt-10 pb-4">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-6">
-            <div className="inline-block px-3 py-1 rounded-full bg-[var(--accent-cyan-soft)] border border-[var(--accent-cyan)]/20 mb-3">
-              <span className="badge text-[var(--accent-cyan)]">DASHBOARD</span>
+      <PageHero eyebrow="Dashboard" title="관리 대시보드" lead="PC·모바일 전용 앱과 본체 화면에서 D-GO의 상태를 실시간으로 확인하고 제어합니다." />
+
+      {/* ── 본체 화면 ── */}
+      <Section labelledBy="screen-title">
+        <SectionIntro
+          id="screen-title"
+          eyebrow="Device Screen"
+          title="본체 화면에서도 한눈에"
+          lead="금고가 열리면 본체 터치스크린에 대시보드가 뜨고, 같은 정보를 PC·모바일 앱에서도 확인합니다."
+          align="center"
+        />
+        <figure className="mx-auto max-w-3xl">
+          <Bezel className="rounded-[18px] p-2 md:p-2.5">
+            <DeviceScreen state="access" label={`${ACCESS_STEP.screenLabel}: 금고 열림, 암호화 문서 128건, 로컬 AI 계약서 요약 중, 외부 통신 0건`} />
+          </Bezel>
+          <figcaption className="mt-4 text-center text-sm font-semibold text-navy">{ACCESS_STEP.screenLabel}</figcaption>
+        </figure>
+
+        <ul className="mx-auto mt-10 grid max-w-3xl grid-cols-3 gap-3 md:gap-5">
+          {OTHER_STEPS.map((s) => (
+            <li key={s.code}>
+              <figure>
+                <Bezel>
+                  <DeviceScreen state={s.state} label={s.screenLabel} />
+                </Bezel>
+                <figcaption className="mt-3 text-center">
+                  <span className="block font-mono text-[0.6875rem] font-semibold tracking-[0.14em] text-key">{s.code}</span>
+                  <span className="mt-0.5 block text-[0.8125rem] leading-snug text-ink-2">{s.title}</span>
+                </figcaption>
+              </figure>
+            </li>
+          ))}
+        </ul>
+      </Section>
+
+      {/* ── 주요 기능 ── */}
+      <Section tone="mist" labelledBy="widgets-title">
+        <SectionIntro id="widgets-title" eyebrow="Features" title="주요 기능" lead="기기 상태부터 보안 알림까지, 대시보드에서 확인하는 항목입니다." />
+        <ul className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+          <Widget
+            icon={Thermometer}
+            title="기기 상태"
+            desc="내부 온도·습도 실시간 모니터링"
+            status={
+              <Pill tone="ok">
+                <CircleCheck size={13} strokeWidth={2.5} aria-hidden="true" />
+                정상
+              </Pill>
+            }
+          >
+            <div className="space-y-4">
+              <Meter label="온도" value="23°C" percent={45} note="UL CLASS 125 경계선: 52°C" />
+              <Meter label="습도" value="42%" percent={42} />
             </div>
-            <h1 className="text-3xl md:text-4xl mb-3">관리 대시보드</h1>
-            <p className="text-base text-[var(--text-secondary)] max-w-3xl mx-auto">
-              모바일 앱으로 실시간 모니터링 및 제어<br />
-              언제 어디서나 D-GO Quantum Data Vault의 상태를 확인하세요
+          </Widget>
+
+          <Widget icon={HardDrive} title="저장소 용량" desc="SSD 용량 및 RAID 1 상태" status={<Pill tone="ok">RAID 1</Pill>}>
+            <div className="space-y-4">
+              <Meter label="사용 중" value="256 GB / 512 GB" percent={50} />
+              <p className="flex items-center gap-2 rounded-lg bg-mist px-3 py-2 text-sm text-ink-2">
+                <Activity size={15} strokeWidth={2} className="flex-none text-status-ok" aria-hidden="true" />
+                실시간 미러링 활성
+              </p>
+            </div>
+          </Widget>
+
+          <Widget icon={Battery} title="UPS 상태" desc="배터리 잔량 및 전원 상태" status={<Pill tone="ok">충전 중</Pill>}>
+            <div className="space-y-4">
+              <Meter label="배터리" value="95%" percent={95} />
+              <dl className="space-y-1 rounded-lg bg-mist px-3 py-2 text-sm">
+                <div className="flex justify-between gap-3">
+                  <dt className="text-ink-2">외부 전원</dt>
+                  <dd className="font-semibold text-status-ok">연결됨</dd>
+                </div>
+                <div className="flex justify-between gap-3">
+                  <dt className="text-ink-2">예상 백업 시간</dt>
+                  <dd className="font-semibold text-navy">
+                    <span className="font-mono text-[0.8125rem]">4.2</span>시간
+                  </dd>
+                </div>
+              </dl>
+            </div>
+          </Widget>
+
+          <Widget icon={TriangleAlert} title="보안 알림" desc="충격·파괴 시도 감지" status={<Pill tone="ok">0 건</Pill>}>
+            <div className="flex h-full flex-col items-center justify-center rounded-xl bg-mist px-4 py-5 text-center">
+              <FileCheck size={26} strokeWidth={1.75} className="text-status-ok" aria-hidden="true" />
+              <p className="mt-2 font-bold text-status-ok">이상 없음</p>
+              <p className="mt-0.5 text-sm text-ink-3">모든 센서 정상 작동 중</p>
+            </div>
+          </Widget>
+
+          <Widget
+            icon={Layers}
+            title="파티션 관리"
+            desc="보안 등급별 저장 공간 현황"
+            status={<Pill tone="key">C/D/E 등급</Pill>}
+            className="md:col-span-2 lg:col-span-1"
+          >
+            <div className="space-y-3.5">
+              {PARTITIONS.map((p) => (
+                <Meter key={p.grade} label={`${p.grade} ${p.label}`} value={`${p.use}%`} percent={p.use} bar={p.bar} />
+              ))}
+            </div>
+          </Widget>
+
+          <Widget
+            icon={Activity}
+            title="접근 이력"
+            desc="개폐 이력 및 데이터 접근 타임라인"
+            status={<Pill>최근 7일</Pill>}
+            className="md:col-span-2 lg:col-span-3"
+          >
+            <ol className="divide-y divide-line rounded-xl border border-line">
+              {ACCESS_LOG.map((log) => (
+                <li key={log.time} className="flex flex-col gap-1 px-4 py-3 sm:flex-row sm:items-center sm:gap-4">
+                  <div className="flex min-w-0 flex-1 items-center gap-2.5">
+                    <span className="h-2 w-2 flex-none rounded-full bg-status-ok" aria-hidden="true" />
+                    <span className="sr-only">성공: </span>
+                    <span className="text-[0.9375rem] font-bold whitespace-nowrap text-ink">{log.action}</span>
+                    <span className="min-w-0 truncate text-sm text-ink-2">{log.target}</span>
+                  </div>
+                  <time dateTime={log.time.replace(" ", "T")} className="pl-[1.125rem] font-mono text-xs text-ink-3 sm:pl-0">
+                    {log.time}
+                  </time>
+                </li>
+              ))}
+            </ol>
+          </Widget>
+        </ul>
+      </Section>
+
+      {/* ── Secure Port 제어 ── */}
+      <Section labelledBy="port-title">
+        <div className="grid gap-8 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-14">
+          <SectionIntro
+            id="port-title"
+            eyebrow="Secure Port"
+            title="Secure Port 제어"
+            lead="USB-C 포트와 네트워크 드라이브는 평소 잠겨 있고, PUF 승인 후에만 활성화됩니다."
+            className="mb-0 md:mb-0"
+          />
+
+          <div className="rounded-2xl border border-line bg-white p-5 md:p-6">
+            <div className="flex items-center gap-3.5">
+              <span className="grid h-11 w-11 flex-none place-items-center rounded-xl border border-panel-line bg-panel text-key" aria-hidden="true">
+                <Lock size={22} strokeWidth={1.75} />
+              </span>
+              <div>
+                <h3 className="text-lg font-bold text-navy">USB-C 포트 상태</h3>
+                <p className="text-sm text-ink-2">PUF 승인 후에만 포트 활성화</p>
+              </div>
+            </div>
+
+            <ul className="mt-5 divide-y divide-line rounded-xl border border-line">
+              {PORTS.map((port) => (
+                <li key={port.name} className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 px-4 py-3.5">
+                  <div>
+                    <p className="font-bold text-ink">{port.name}</p>
+                    <p className="text-sm text-ink-3">{port.desc}</p>
+                  </div>
+                  <span className="inline-flex items-center gap-1.5 rounded-full border border-line bg-mist px-3 py-1 text-sm font-semibold text-navy">
+                    <Lock size={14} strokeWidth={2.25} aria-hidden="true" />
+                    비활성
+                  </span>
+                </li>
+              ))}
+            </ul>
+
+            <div className="mt-4 rounded-xl border border-panel-line bg-panel px-4 py-3.5 text-sm leading-relaxed text-ink-2">
+              <p className="font-bold text-key">보안 안내</p>
+              <p className="mt-1">포트 활성화는 PUF 인증 후 앱에서만 가능합니다.</p>
+              <p>무단 접근 시도는 자동으로 차단되며 로그에 기록됩니다.</p>
+            </div>
+          </div>
+        </div>
+      </Section>
+
+      {/* ── 캡처 기능 ── */}
+      <Section tone="mist" labelledBy="capture-title">
+        <SectionIntro id="capture-title" eyebrow="Capture" title="캡처 기능" lead="앱으로 촬영·녹음한 자료는 금고로 옮겨 암호화하고, 단말에는 남기지 않습니다." />
+        <ul className="grid gap-4 md:grid-cols-2">
+          {CAPTURE.map((c) => (
+            <li key={c.title} className="rounded-2xl border border-line bg-white p-5 md:p-6">
+              <div className="flex items-start gap-3.5">
+                <span className="grid h-11 w-11 flex-none place-items-center rounded-xl border border-panel-line bg-panel text-key" aria-hidden="true">
+                  <c.icon size={22} strokeWidth={1.75} />
+                </span>
+                <div>
+                  <h3 className="text-lg font-bold text-navy">{c.title}</h3>
+                  <p className="mt-0.5 text-[0.9375rem] leading-snug text-ink-2">{c.body}</p>
+                </div>
+              </div>
+              <ul className="mt-4 space-y-2 border-t border-line pt-4">
+                {c.items.map((it) => (
+                  <li key={it} className="flex items-start gap-2.5 text-[0.9375rem] leading-snug text-ink-2">
+                    <Check size={16} strokeWidth={2.5} className="mt-0.5 flex-none text-key" aria-hidden="true" />
+                    {it}
+                  </li>
+                ))}
+              </ul>
+            </li>
+          ))}
+        </ul>
+      </Section>
+
+      {/* ── CTA ── */}
+      <section aria-labelledby="dash-cta-title" className="bg-navy text-white">
+        <Container className="grid gap-8 py-14 md:py-20 lg:grid-cols-[1fr_auto] lg:items-end">
+          <div>
+            <h2 id="dash-cta-title" className="display text-[clamp(1.75rem,3.2vw,2.5rem)]">
+              대시보드와 본체 화면,
+              <br />
+              <span className="text-led">실제 기기로</span> 확인하세요.
+            </h2>
+            <p className="mt-4 max-w-xl text-base leading-relaxed text-on-navy-2 md:text-lg">
+              키 인증부터 금고 열림, 앱 대시보드까지 실제 기기로 보여드립니다. 법인·단체 도입 상담도 함께 받습니다.
             </p>
           </div>
-
-          {/* Main Dashboard Preview */}
-          <div className="relative max-w-4xl mx-auto">
-            <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/20 to-blue-600/20 rounded-2xl blur-3xl"></div>
-            <img
-              src="https://images.unsplash.com/photo-1767449441925-737379bc2c4d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2JpbGUlMjBhcHAlMjBpbnRlcmZhY2UlMjBkYXNoYm9hcmR8ZW58MXx8fHwxNzc2MjQwNTk1fDA&ixlib=rb-4.1.0&q=80&w=1080"
-              alt="D-GO Dashboard"
-              className="relative rounded-xl shadow-2xl w-full h-auto"
-            />
+          <div className="flex flex-wrap gap-3">
+            <ButtonLink to="/purchase" variant="onNavy">
+              도입 문의하기 <ArrowRight size={18} aria-hidden="true" />
+            </ButtonLink>
+            <ButtonLink href={mailto("D-GO 실기기 시연 요청")} variant="onNavyGhost">
+              시연 요청하기
+            </ButtonLink>
           </div>
-        </div>
-      </section>
-
-      {/* Dashboard Widgets */}
-      <section className="py-10 md:py-14 bg-[var(--bg-elevated)]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl md:text-3xl text-center mb-8">주요 기능</h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {/* Device Health */}
-            <div className="glass-card glass-card-hover p-4">
-              <div className="flex items-center justify-between mb-3">
-                <div className="w-9 h-9 rounded-lg bg-[var(--accent-cyan-soft)] flex items-center justify-center">
-                  <Thermometer className="text-[var(--accent-cyan)]" size={18} />
-                </div>
-                <span className="badge text-[var(--status-ok)]">정상</span>
-              </div>
-
-              <h3 className="text-base font-semibold mb-1">기기 상태</h3>
-              <p className="text-xs text-[var(--text-secondary)] mb-3">
-                내부 온도·습도 실시간 모니터링
-              </p>
-
-              <div className="space-y-2">
-                <div>
-                  <div className="flex justify-between text-xs mb-1">
-                    <span className="text-[var(--text-secondary)]">온도</span>
-                    <span className="mono text-[var(--accent-cyan)]">23°C</span>
-                  </div>
-                  <div className="h-1.5 bg-[var(--bg-primary)] rounded-full overflow-hidden">
-                    <div className="h-full bg-gradient-to-r from-[var(--status-ok)] to-[var(--accent-cyan)]" style={{ width: '45%' }}></div>
-                  </div>
-                  <p className="text-[10px] text-[var(--text-muted)] mt-0.5">UL CLASS 125 경계선: 52°C</p>
-                </div>
-
-                <div>
-                  <div className="flex justify-between text-xs mb-1">
-                    <span className="text-[var(--text-secondary)]">습도</span>
-                    <span className="mono text-[var(--accent-cyan)]">42%</span>
-                  </div>
-                  <div className="h-1.5 bg-[var(--bg-primary)] rounded-full overflow-hidden">
-                    <div className="h-full bg-gradient-to-r from-[var(--status-ok)] to-[var(--accent-cyan)]" style={{ width: '42%' }}></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Storage */}
-            <div className="glass-card glass-card-hover p-4">
-              <div className="flex items-center justify-between mb-3">
-                <div className="w-9 h-9 rounded-lg bg-[var(--accent-cyan-soft)] flex items-center justify-center">
-                  <HardDrive className="text-[var(--accent-cyan)]" size={18} />
-                </div>
-                <span className="badge text-[var(--status-ok)]">RAID 1</span>
-              </div>
-
-              <h3 className="text-base font-semibold mb-1">저장소 용량</h3>
-              <p className="text-xs text-[var(--text-secondary)] mb-3">
-                SSD 용량 및 RAID 1 상태
-              </p>
-
-              <div className="space-y-2">
-                <div>
-                  <div className="flex justify-between text-xs mb-1">
-                    <span className="text-[var(--text-secondary)]">사용 중</span>
-                    <span className="mono text-[var(--accent-cyan)]">256 GB / 512 GB</span>
-                  </div>
-                  <div className="h-1.5 bg-[var(--bg-primary)] rounded-full overflow-hidden">
-                    <div className="h-full bg-gradient-to-r from-[var(--accent-cyan)] to-blue-500" style={{ width: '50%' }}></div>
-                  </div>
-                </div>
-
-                <div className="p-2 rounded-md bg-[var(--bg-primary)]/50 border border-[var(--border-hairline)]">
-                  <div className="flex items-center gap-2 text-xs">
-                    <Activity className="text-[var(--status-ok)]" size={14} />
-                    <span className="text-[var(--text-secondary)]">실시간 미러링 활성</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* UPS */}
-            <div className="glass-card glass-card-hover p-4">
-              <div className="flex items-center justify-between mb-3">
-                <div className="w-9 h-9 rounded-lg bg-[var(--accent-cyan-soft)] flex items-center justify-center">
-                  <Battery className="text-[var(--accent-cyan)]" size={18} />
-                </div>
-                <span className="badge text-[var(--status-ok)]">충전 중</span>
-              </div>
-
-              <h3 className="text-base font-semibold mb-1">UPS 상태</h3>
-              <p className="text-xs text-[var(--text-secondary)] mb-3">
-                배터리 잔량 및 전원 상태
-              </p>
-
-              <div className="space-y-2">
-                <div>
-                  <div className="flex justify-between text-xs mb-1">
-                    <span className="text-[var(--text-secondary)]">배터리</span>
-                    <span className="mono text-[var(--accent-cyan)]">95%</span>
-                  </div>
-                  <div className="h-1.5 bg-[var(--bg-primary)] rounded-full overflow-hidden">
-                    <div className="h-full bg-gradient-to-r from-[var(--status-ok)] to-[var(--accent-cyan)]" style={{ width: '95%' }}></div>
-                  </div>
-                </div>
-
-                <div className="p-2 rounded-md bg-[var(--bg-primary)]/50 border border-[var(--border-hairline)]">
-                  <p className="text-xs text-[var(--text-secondary)]">
-                    외부 전원: <span className="text-[var(--status-ok)]">연결됨</span><br />
-                    예상 백업 시간: <span className="mono text-[var(--accent-cyan)]">4.2시간</span>
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Partition Management */}
-            <div className="glass-card glass-card-hover p-4 md:col-span-1">
-              <div className="flex items-center justify-between mb-3">
-                <div className="w-9 h-9 rounded-lg bg-[var(--accent-cyan-soft)] flex items-center justify-center">
-                  <Layers className="text-[var(--accent-cyan)]" size={18} />
-                </div>
-                <span className="badge text-[var(--accent-cyan)]">C/D/E 등급</span>
-              </div>
-
-              <h3 className="text-base font-semibold mb-1">파티션 관리</h3>
-              <p className="text-xs text-[var(--text-secondary)] mb-3">
-                보안 등급별 저장 공간 현황
-              </p>
-
-              <div className="space-y-2">
-                {[
-                  { grade: "C", label: "일반", use: 75, color: "var(--text-muted)" },
-                  { grade: "D", label: "암호화", use: 30, color: "var(--accent-cyan)" },
-                  { grade: "E", label: "2중보안", use: 10, color: "var(--accent-cyan)" },
-                ].map((p) => (
-                  <div key={p.grade}>
-                    <div className="flex justify-between text-[10px] mb-1">
-                      <span className="font-semibold text-[var(--text-secondary)]">Grade {p.grade} ({p.label})</span>
-                      <span className="mono text-[var(--text-muted)]">{p.use}%</span>
-                    </div>
-                    <div className="h-1 bg-[var(--bg-primary)] rounded-full overflow-hidden">
-                      <div className="h-full bg-current" style={{ width: `${p.use}%`, color: p.color }}></div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Access Log */}
-            <div className="glass-card glass-card-hover p-4 md:col-span-2">
-              <div className="flex items-center justify-between mb-3">
-                <div className="w-9 h-9 rounded-lg bg-[var(--accent-cyan-soft)] flex items-center justify-center">
-                  <Activity className="text-[var(--accent-cyan)]" size={18} />
-                </div>
-                <span className="badge text-[var(--text-secondary)]">최근 7일</span>
-              </div>
-
-              <h3 className="text-base font-semibold mb-1">접근 이력</h3>
-              <p className="text-xs text-[var(--text-secondary)] mb-3">
-                개폐 이력 및 데이터 접근 타임라인
-              </p>
-
-              <div className="space-y-1.5">
-                {[
-                  { time: "2026-04-16 14:32", action: "파일 업로드", file: "contract_2026.pdf", status: "success" },
-                  { time: "2026-04-16 10:15", action: "금고 개방", file: "PUF 인증 성공", status: "success" },
-                  { time: "2026-04-15 18:47", action: "데이터 조회", file: "financial_report.xlsx", status: "success" },
-                  { time: "2026-04-15 09:23", action: "금고 개방", file: "PUF 인증 성공", status: "success" },
-                ].map((log, index) => (
-                  <div key={index} className="flex items-center gap-2 px-2.5 py-2 rounded-md hover:bg-[var(--bg-primary)]/50 transition-colors">
-                    <div className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${log.status === 'success' ? 'bg-[var(--status-ok)]' : 'bg-[var(--status-warn)]'}`}></div>
-                    <span className="font-medium text-xs whitespace-nowrap">{log.action}</span>
-                    <span className="text-xs text-[var(--text-secondary)] truncate flex-1 min-w-0">{log.file}</span>
-                    <span className="mono text-[10px] text-[var(--text-muted)] flex-shrink-0">{log.time}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Alerts */}
-            <div className="glass-card glass-card-hover p-4">
-              <div className="flex items-center justify-between mb-3">
-                <div className="w-9 h-9 rounded-lg bg-[var(--accent-cyan-soft)] flex items-center justify-center">
-                  <AlertTriangle className="text-[var(--accent-cyan)]" size={18} />
-                </div>
-                <span className="badge text-[var(--status-ok)]">0 건</span>
-              </div>
-
-              <h3 className="text-base font-semibold mb-1">보안 알림</h3>
-              <p className="text-xs text-[var(--text-secondary)] mb-3">
-                충격·파괴 시도 감지
-              </p>
-
-              <div className="p-3 rounded-md bg-[var(--bg-primary)]/50 border border-[var(--border-hairline)] text-center">
-                <FileCheck className="text-[var(--status-ok)] mx-auto mb-1" size={24} />
-                <p className="text-xs text-[var(--status-ok)]">
-                  이상 없음
-                </p>
-                <p className="text-[10px] text-[var(--text-muted)] mt-0.5">
-                  모든 센서 정상 작동 중
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Secure Port Control */}
-      <section className="py-10 md:py-14">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl md:text-3xl text-center mb-8">Secure Port 제어</h2>
-
-          <div className="glass-card p-5 max-w-2xl mx-auto">
-            <div className="flex items-center gap-4 mb-4">
-              <div className="w-11 h-11 rounded-lg bg-[var(--accent-cyan-soft)] flex items-center justify-center flex-shrink-0">
-                <Lock className="text-[var(--accent-cyan)]" size={22} />
-              </div>
-              <div className="flex-1">
-                <h3 className="text-lg font-semibold mb-0.5">USB-C 포트 상태</h3>
-                <p className="text-xs text-[var(--text-secondary)]">
-                  PUF 승인 후에만 포트 활성화
-                </p>
-              </div>
-            </div>
-
-            <div className="space-y-2">
-              <div className="flex items-center justify-between px-3 py-2.5 rounded-md bg-[var(--bg-primary)]/50 border border-[var(--border-hairline)]">
-                <div className="flex items-center gap-3">
-                  <h4 className="text-sm font-semibold">USB-C 포트</h4>
-                  <span className="text-[10px] text-[var(--text-muted)]">데이터 전송 및 충전</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="text-xs text-[var(--status-crit)]">비활성</span>
-                  <div className="w-10 h-5 rounded-full bg-[var(--bg-elevated)] border border-[var(--border-hairline)] relative">
-                    <div className="absolute left-0.5 top-0.5 w-4 h-4 rounded-full bg-[var(--text-muted)] transition-all"></div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex items-center justify-between px-3 py-2.5 rounded-md bg-[var(--bg-primary)]/50 border border-[var(--border-hairline)]">
-                <div className="flex items-center gap-3">
-                  <h4 className="text-sm font-semibold">네트워크 드라이브</h4>
-                  <span className="text-[10px] text-[var(--text-muted)]">Wi-Fi Direct 접근</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="text-xs text-[var(--status-crit)]">비활성</span>
-                  <div className="w-10 h-5 rounded-full bg-[var(--bg-elevated)] border border-[var(--border-hairline)] relative">
-                    <div className="absolute left-0.5 top-0.5 w-4 h-4 rounded-full bg-[var(--text-muted)] transition-all"></div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="mt-2 p-3 rounded-md bg-[var(--accent-cyan-soft)] border border-[var(--accent-cyan)]/20">
-                <p className="text-xs text-[var(--text-secondary)]">
-                  <span className="text-[var(--accent-cyan)] font-semibold">보안 안내:</span><br />
-                  포트 활성화는 PUF 인증 후 앱에서만 가능합니다.<br />
-                  무단 접근 시도는 자동으로 차단되며 로그에 기록됩니다.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* OCR & Voice Features */}
-      <section className="py-10 md:py-14 bg-[var(--bg-elevated)]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl md:text-3xl text-center mb-8">캡처 기능</h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto">
-            {/* OCR */}
-            <div className="glass-card p-5">
-              <div className="flex items-center gap-3 mb-3">
-                <div className="w-10 h-10 rounded-lg bg-[var(--accent-cyan-soft)] flex items-center justify-center">
-                  <FileCheck className="text-[var(--accent-cyan)]" size={20} />
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold">문서 OCR</h3>
-                  <p className="text-xs text-[var(--text-secondary)]">
-                    카메라로 촬영한 문서를 PDF로 변환하여 암호화 저장
-                  </p>
-                </div>
-              </div>
-
-              <ul className="space-y-1.5">
-                <li className="flex items-center gap-2">
-                  <div className="w-1 h-1 rounded-full bg-[var(--accent-cyan)] flex-shrink-0"></div>
-                  <span className="text-xs text-[var(--text-secondary)]">실시간 OCR 처리</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <div className="w-1 h-1 rounded-full bg-[var(--accent-cyan)] flex-shrink-0"></div>
-                  <span className="text-xs text-[var(--text-secondary)]">PDF 자동 변환</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <div className="w-1 h-1 rounded-full bg-[var(--accent-cyan)] flex-shrink-0"></div>
-                  <span className="text-xs text-[var(--text-secondary)]">원본은 단말에 남지 않음</span>
-                </li>
-              </ul>
-            </div>
-
-            {/* Voice */}
-            <div className="glass-card p-5">
-              <div className="flex items-center gap-3 mb-3">
-                <div className="w-10 h-10 rounded-lg bg-[var(--accent-cyan-soft)] flex items-center justify-center">
-                  <Activity className="text-[var(--accent-cyan)]" size={20} />
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold">음성 녹음</h3>
-                  <p className="text-xs text-[var(--text-secondary)]">
-                    회의록·녹취를 STT 변환하여 암호화 저장
-                  </p>
-                </div>
-              </div>
-
-              <ul className="space-y-1.5">
-                <li className="flex items-center gap-2">
-                  <div className="w-1 h-1 rounded-full bg-[var(--accent-cyan)] flex-shrink-0"></div>
-                  <span className="text-xs text-[var(--text-secondary)]">클라이언트 단말 기록 즉시 삭제</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <div className="w-1 h-1 rounded-full bg-[var(--accent-cyan)] flex-shrink-0"></div>
-                  <span className="text-xs text-[var(--text-secondary)]">STT 자동 변환 및 화자 식별</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <div className="w-1 h-1 rounded-full bg-[var(--accent-cyan)] flex-shrink-0"></div>
-                  <span className="text-xs text-[var(--text-secondary)]">로컬 LLM 기반 녹취록 자동 생성</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
+        </Container>
       </section>
     </div>
   );

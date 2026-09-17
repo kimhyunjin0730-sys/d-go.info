@@ -1,61 +1,65 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* D-GO Design System - Deep Navy + Cyan */
-  
-  /* Surface Colors — Light Theme */
+  /* D-GO brand — sampled from the 2026 catalog & graphics */
+  --navy: #00018B;
+  --navy-deep: #000147;
+  --key: #0F2DFF;
+  --key-hover: #0020D6;
+  --led: #59ECFF;
+  --panel: #E8FCFD;
+  --panel-line: #BCDDEA;
+  --mist: #EEF3FC;
+  --line: #D3DCF0;
+  --ink: #0A0F2E;
+  --ink-2: #454D70;
+  --ink-3: #5F6786;
+  --on-navy: #FFFFFF;
+  --on-navy-2: #BCC3F2;
+  --cut: #E3262F;
+
+  /* Legacy aliases — keep shadcn/ui and older markup on-brand */
   --bg-primary: #FFFFFF;
-  --bg-elevated: #F8FAFC;
-  --bg-overlay: rgba(255, 255, 255, 0.82);
-
-  /* Glass Card */
-  --card-bg: rgba(248, 250, 252, 0.75);
-  --card-border: rgba(15, 23, 42, 0.08);
-
-  /* Text */
-  --text-primary: #0F172A;
-  --text-secondary: #475569;
-  --text-muted: #94A3B8;
-
-  /* Accent Colors */
-  --accent-cyan: #0891B2;
-  --accent-cyan-soft: rgba(8, 145, 178, 0.08);
+  --bg-elevated: var(--mist);
+  --bg-overlay: rgba(255, 255, 255, 0.92);
+  --card-bg: #FFFFFF;
+  --card-border: var(--line);
+  --text-primary: var(--ink);
+  --text-secondary: var(--ink-2);
+  --text-muted: var(--ink-3);
+  --accent-cyan: var(--key);
+  --accent-cyan-soft: rgba(15, 45, 255, 0.07);
   --accent-orange: #FF6B1A;
-  
-  /* Status Colors */
-  --status-ok: #22C55E;
-  --status-warn: #F59E0B;
-  --status-crit: #EF4444;
-  
-  /* Border */
-  --border-hairline: rgba(15, 23, 42, 0.08);
-  
-  /* Typography */
+  --status-ok: #0B8A5C;
+  --status-warn: #B45309;
+  --status-crit: #D11A2A;
+  --border-hairline: var(--line);
+
   --font-size: 16px;
   --font-weight-medium: 500;
   --font-weight-normal: 400;
-  
-  /* Tailwind compatibility */
+
+  /* Tailwind / shadcn compatibility */
   --background: #FFFFFF;
-  --foreground: #0F172A;
-  --card: rgba(248, 250, 252, 0.75);
-  --card-foreground: #0F172A;
+  --foreground: var(--ink);
+  --card: #FFFFFF;
+  --card-foreground: var(--ink);
   --popover: #FFFFFF;
-  --popover-foreground: #0F172A;
-  --primary: #0891B2;
+  --popover-foreground: var(--ink);
+  --primary: var(--key);
   --primary-foreground: #FFFFFF;
-  --secondary: #F1F5F9;
-  --secondary-foreground: #0F172A;
-  --muted: #F1F5F9;
-  --muted-foreground: #64748B;
-  --accent: #0891B2;
+  --secondary: var(--mist);
+  --secondary-foreground: var(--ink);
+  --muted: var(--mist);
+  --muted-foreground: var(--ink-3);
+  --accent: var(--key);
   --accent-foreground: #FFFFFF;
-  --destructive: #EF4444;
+  --destructive: var(--status-crit);
   --destructive-foreground: #FFFFFF;
-  --border: rgba(15, 23, 42, 0.08);
-  --input: rgba(15, 23, 42, 0.08);
-  --ring: #0891B2;
-  --radius: 1.25rem;
+  --border: var(--line);
+  --input: var(--line);
+  --ring: var(--key);
+  --radius: 0.5rem;
 }
 
 @theme inline {
@@ -82,14 +86,29 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
-  
-  /* D-GO Custom Colors */
-  --color-cyan: var(--accent-cyan);
-  --color-cyan-soft: var(--accent-cyan-soft);
-  --color-orange: var(--accent-orange);
+
+  /* Brand */
+  --color-navy: var(--navy);
+  --color-navy-deep: var(--navy-deep);
+  --color-key: var(--key);
+  --color-key-hover: var(--key-hover);
+  --color-led: var(--led);
+  --color-panel: var(--panel);
+  --color-panel-line: var(--panel-line);
+  --color-mist: var(--mist);
+  --color-line: var(--line);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-on-navy-2: var(--on-navy-2);
+  --color-cut: var(--cut);
   --color-status-ok: var(--status-ok);
   --color-status-warn: var(--status-warn);
   --color-status-crit: var(--status-crit);
+
+  --font-sans: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+  --font-display: 'Paperlogy', 'Pretendard Variable', Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
 @layer base {
@@ -97,45 +116,22 @@
     @apply border-border outline-ring/50;
   }
 
+  html {
+    font-size: var(--font-size);
+    -webkit-text-size-adjust: 100%;
+  }
+
   body {
-    @apply bg-background text-foreground;
-    font-family: 'Pretendard Variable', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
+    @apply bg-background text-foreground font-sans antialiased;
     word-break: keep-all; /* 한국어 단어 단위 줄바꿈 유지 */
     overflow-wrap: break-word; /* 긴 영문/URL 등 잘림 방지 */
   }
 
-  html {
-    font-size: var(--font-size);
-  }
-
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Inter', 'Pretendard Variable', sans-serif;
-  }
-
-  h1 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    line-height: 1.2;
-    letter-spacing: -0.02em;
-  }
-
-  h2 {
-    font-size: 2rem;
     font-weight: 700;
     line-height: 1.3;
-    letter-spacing: -0.01em;
-  }
-
-  h3 {
-    font-size: 1.5rem;
-    font-weight: 600;
-    line-height: 1.4;
-  }
-
-  h4 {
-    font-size: 1.25rem;
-    font-weight: 600;
-    line-height: 1.4;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
   }
 
   p {
@@ -143,45 +139,52 @@
   }
 
   code, .mono {
-    font-family: 'JetBrains Mono', monospace;
-    font-feature-settings: "tnum", "ss01";
+    font-family: var(--font-mono);
+    font-feature-settings: "tnum";
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--key);
+    outline-offset: 3px;
+  }
+
+  ::selection {
+    background: var(--key);
+    color: #FFFFFF;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
   }
 }
 
-/* Utility Classes */
 @layer utilities {
-  .glass-card {
-    background: var(--card-bg);
-    backdrop-filter: blur(14px) saturate(140%);
-    border: 1px solid var(--card-border);
-    border-radius: 1.25rem;
+  /* Letter-spaced label that sits above headings (catalog "ZERO-OUTBOUND • AIR-GAP") */
+  .eyebrow {
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    line-height: 1.4;
   }
 
-  .glass-card-hover {
-    transition: all 0.26s cubic-bezier(0.2, 0.8, 0.2, 1);
+  .display {
+    font-family: var(--font-display);
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    line-height: 1.12;
   }
 
-  .glass-card-hover:hover {
-    transform: translateY(-2px);
-    border-color: rgba(8, 145, 178, 0.25);
-    box-shadow: 0 0 0 1px rgba(8, 145, 178, 0.05), 0 20px 40px -20px rgba(15, 23, 42, 0.10);
-  }
-
+  /* Legacy helpers still referenced by shadcn/ui wrappers */
   .badge {
     font-size: 0.72rem;
     text-transform: uppercase;
     letter-spacing: 0.08em;
     font-weight: 600;
-  }
-
-  .glow-cyan {
-    box-shadow: 0 0 20px rgba(34, 211, 238, 0.3);
-  }
-
-  .text-gradient-cyan {
-    background: linear-gradient(135deg, #0891B2, #0E7490);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
   }
 }

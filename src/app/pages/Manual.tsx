@@ -1,311 +1,232 @@
-import { Download, FileText, Book, AlertTriangle, Smartphone, Shield, Key, Upload } from "lucide-react";
+import { BookOpen, Clock, FileText, Info, KeyRound, Languages, Monitor, Smartphone, Upload } from "lucide-react";
+import { CONTACT, mailto } from "../content";
+import { ButtonLink } from "../components/site/Button";
+import { AirGapDiagram, BootSequence, OnboardingFlows } from "../components/site/Diagrams";
+import { Eyebrow, PageHero, Section, SectionIntro } from "../components/site/Layout";
+
+const APP_DOWNLOADS = [
+  { icon: Monitor, title: "PC 앱", body: "D-GO 전용 관리 앱", meta: "Windows · macOS · Linux" },
+  { icon: Smartphone, title: "모바일 앱", body: "D-GO 전용 관리 앱", meta: "iOS · Android" },
+];
+
+const DOC_DOWNLOADS = [
+  { icon: FileText, title: "Quick Start 가이드", body: "빠른 시작 안내서", meta: "PDF · 한글" },
+  { icon: BookOpen, title: "전체 매뉴얼", body: "상세 사용 설명서", meta: "PDF · 한글" },
+  { icon: Languages, title: "English Manual", body: "Full User Manual", meta: "PDF · ENG" },
+];
+
+const CONNECT_CHECKS = [
+  "본체와 같은 전용 폐쇄망(Private Wi-Fi)에 연결되어 있나요?",
+  "PUF 보안키가 본체에 꽂혀 있나요?",
+  "본체 전원이 연결되어 있나요?",
+  "앱 권한(위치, Wi-Fi)이 모두 허용되어 있나요?",
+];
+
+const FEATURES = [
+  {
+    icon: Upload,
+    title: "파일 업로드",
+    body: "중요한 문서, 사진, 동영상을 암호화하여 안전하게 저장합니다.",
+    points: ["앱에서 “파일 추가” 버튼 선택", "파일 선택 후 자동 암호화 및 전송", "업로드 완료 후 원본은 자동 삭제 가능"],
+  },
+  {
+    icon: FileText,
+    title: "파일 조회",
+    body: "저장된 파일을 안전하게 조회하고 관리합니다.",
+    points: ["파일 목록에서 원하는 파일 선택", "PUF 인증 후 복호화하여 미리보기", "필요시 보안 USB로 내보내기"],
+  },
+  {
+    icon: KeyRound,
+    title: "보안키 관리",
+    body: "물리 키와 디지털 인증을 통한 이중 보안 시스템",
+    points: ["PUF 물리 키는 안전한 장소에 보관", "디지털 백업키는 별도 저장 매체에 보관", "복구 시나리오에 따라 이중 복구 가능"],
+  },
+];
+
+const FAQS = [
+  {
+    q: "(Android) 앱 설치 시 '출처를 알 수 없는 앱' 오류가 발생합니다",
+    a: "Android 기기 설정 > 보안 > 출처를 알 수 없는 앱 설치 허용을 활성화해주세요. 설치 후에는 다시 비활성화하시는 것을 권장합니다.",
+  },
+  {
+    q: "기기 등록이 되지 않아요",
+    a: "① 본체와 같은 전용 폐쇄망(Private Wi-Fi)에 연결되어 있는지 ② PUF 보안키가 본체에 꽂혀 있는지 ③ 본체 전원이 연결되어 있는지 ④ 앱 권한(위치, Wi-Fi)이 모두 허용되어 있는지 확인하세요. 기기 등록은 근접 확인과 PUF 검증을 거치므로 본체 가까이에서 진행해 주세요.",
+  },
+  {
+    q: "파일을 업로드했는데 앱에서 보이지 않아요",
+    a: "파일 목록 화면에서 아래로 당겨 새로고침 해보세요. 대용량 파일의 경우 암호화 및 전송에 시간이 걸릴 수 있습니다.",
+  },
+  {
+    q: "보안키를 분실했어요",
+    a: "물리 키 분실: 등록된 모바일 앱으로 복구 가능. 디지털 인증 분실: 물리 키로 복구 가능. 둘 다 분실: 고객센터로 문의해주세요.",
+  },
+];
+
+type DownloadItem = (typeof APP_DOWNLOADS)[number];
+
+function DownloadCard({ item }: { item: DownloadItem }) {
+  const Icon = item.icon;
+  return (
+    <li className="flex gap-4 rounded-2xl border border-line bg-white p-5 md:flex-col md:p-6">
+      <span className="grid h-11 w-11 flex-none place-items-center rounded-xl bg-mist text-key" aria-hidden="true">
+        <Icon size={22} strokeWidth={1.75} />
+      </span>
+      <div className="flex flex-1 flex-col">
+        <h3 className="text-lg font-bold text-navy">{item.title}</h3>
+        <p className="mt-1 text-[0.9375rem] leading-relaxed text-ink-2">{item.body}</p>
+        <p className="mt-1 text-sm font-medium text-ink-3">{item.meta}</p>
+        <p className="mt-auto pt-4">
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-line bg-mist px-3 py-1 text-[0.8125rem] font-semibold text-ink-3">
+            <Clock size={14} aria-hidden="true" />
+            준비 중
+          </span>
+        </p>
+      </div>
+    </li>
+  );
+}
 
 export default function Manual() {
-  const downloads = [
-    {
-      icon: Smartphone,
-      title: "Android 앱 (APK)",
-      description: "D-GO Quantum Data Vault 관리 앱",
-      size: "12.4 MB",
-      version: "v1.0.0",
-      link: "#"
-    },
-    {
-      icon: FileText,
-      title: "Quick Start 가이드",
-      description: "빠른 시작 안내서 (PDF)",
-      size: "2.1 MB",
-      version: "한글",
-      link: "#"
-    },
-    {
-      icon: Book,
-      title: "전체 매뉴얼",
-      description: "상세 사용 설명서 (PDF)",
-      size: "8.7 MB",
-      version: "한글",
-      link: "#"
-    },
-    {
-      icon: Book,
-      title: "English Manual",
-      description: "Full User Manual (PDF)",
-      size: "8.3 MB",
-      version: "ENG",
-      link: "#"
-    },
-  ];
-
   return (
     <div className="w-full">
-      {/* Warning Banner: Temporary Reference */}
-      <section className="bg-gradient-to-r from-amber-600/20 to-orange-600/20 border-b border-orange-500/30 py-4">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center gap-3">
-          <AlertTriangle className="text-orange-400 flex-shrink-0" size={20} />
-          <p className="text-sm text-[var(--text-primary)] leading-relaxed font-medium">
-            현재 안내는 예시 앱 기준입니다. 정식 D-GO Quantum Data Vault 앱 및 매뉴얼은 
-            <span className="text-[var(--accent-cyan)] font-bold mx-1">약 1주 내 정식 업데이트</span> 
-            될 예정입니다.
+      <PageHero eyebrow="Manual" title="사용 매뉴얼" lead="D-GO Quantum Data Vault를 시작하는 모든 것 — 설치부터 고급 기능까지 단계별 안내" />
+
+      {/* ── 다운로드 ── */}
+      <Section labelledBy="download-title">
+        <SectionIntro id="download-title" eyebrow="Downloads" title="다운로드" />
+
+        <div role="note" className="mb-8 flex items-start gap-3 rounded-xl bg-mist px-4 py-3.5 md:px-5">
+          <Info size={20} className="mt-0.5 flex-none text-key" aria-hidden="true" />
+          <p className="text-[0.9375rem] leading-relaxed text-ink-2">
+            설치 파일과 PDF 매뉴얼은 정식 배포를 준비하고 있습니다. 먼저 받아보시려면{" "}
+            <a href={mailto("D-GO 설치 파일·매뉴얼 요청")} className="font-semibold whitespace-nowrap text-key underline-offset-4 hover:underline">
+              {CONTACT.email}
+            </a>
+            로 요청해 주세요.
           </p>
         </div>
-      </section>
 
-      {/* Hero */}
-      <section className="pt-10 pb-6">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-6">
-            <div className="inline-block px-3 py-1 rounded-full bg-[var(--accent-cyan-soft)] border border-[var(--accent-cyan)]/20 mb-4">
-              <span className="badge text-[var(--accent-cyan)]">MANUAL</span>
-            </div>
-            <h1 className="text-2xl md:text-3xl mb-3">사용 매뉴얼</h1>
-            <p className="text-lg text-[var(--text-secondary)] max-w-3xl mx-auto">
-              D-GO Quantum Data Vault를 시작하는 모든 것 — 설치부터 고급 기능까지 단계별 안내
+        <div className="grid gap-8 lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] lg:gap-5">
+          <div>
+            <p id="dl-apps" className="eyebrow mb-3 text-ink-3">
+              전용 앱
             </p>
+            <ul aria-labelledby="dl-apps" className="grid gap-4 md:grid-cols-2 lg:gap-5">
+              {APP_DOWNLOADS.map((item) => (
+                <DownloadCard key={item.title} item={item} />
+              ))}
+            </ul>
+          </div>
+          <div>
+            <p id="dl-docs" className="eyebrow mb-3 text-ink-3">
+              매뉴얼 PDF
+            </p>
+            <ul aria-labelledby="dl-docs" className="grid gap-4 md:grid-cols-3 lg:gap-5">
+              {DOC_DOWNLOADS.map((item) => (
+                <DownloadCard key={item.title} item={item} />
+              ))}
+            </ul>
           </div>
         </div>
-      </section>
+      </Section>
 
-      {/* Downloads */}
-      <section className="py-10 md:py-14 bg-[var(--bg-elevated)]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl md:text-3xl text-center mb-6">다운로드</h2>
+      {/* ── 처음 도입할 때는 ── */}
+      <Section tone="mist" labelledBy="onboard-title">
+        <SectionIntro
+          id="onboard-title"
+          eyebrow="Getting Started"
+          title="처음 도입할 때는"
+          lead="관리자와 팀원 모두 최초 1회만 진행합니다."
+        />
+        <OnboardingFlows />
+      </Section>
 
-          <div className="grid md:grid-cols-2 gap-4 max-w-5xl mx-auto">
-            {downloads.map((item, index) => (
-              <div key={index} className="glass-card glass-card-hover p-4">
-                <div className="flex items-start gap-3">
-                  <div className="w-12 h-12 rounded-xl bg-[var(--accent-cyan-soft)] flex items-center justify-center flex-shrink-0">
-                    <item.icon className="text-[var(--accent-cyan)]" size={24} />
-                  </div>
+      {/* ── 전원을 켤 때마다 ── */}
+      <Section labelledBy="boot-title">
+        <SectionIntro
+          id="boot-title"
+          eyebrow="Every Boot"
+          title="전원을 켤 때마다"
+          lead="기기 본체의 매 가동 흐름입니다. 모든 단계가 외부와 연결 없이 끝납니다."
+        />
+        <BootSequence />
+      </Section>
 
-                  <div className="flex-1 min-w-0">
-                    <h3 className="text-base font-semibold mb-0.5">{item.title}</h3>
-                    <p className="text-sm text-[var(--text-secondary)] mb-2">{item.description}</p>
+      {/* ── 연결 방법 ── */}
+      <Section tone="mist" labelledBy="connect-title">
+        <div className="rounded-2xl border border-line bg-white p-5 md:p-8">
+          <h2 id="connect-title" className="text-xl font-bold text-ink md:text-2xl">
+            연결 방법 — 전용 폐쇄망 <span className="text-ink-3">(Private Wi-Fi)</span>
+          </h2>
+          <div className="mt-6 grid gap-8 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:gap-10">
+            <AirGapDiagram />
+            <div className="rounded-xl bg-mist p-5">
+              <h3 id="connect-check" className="font-bold text-navy">
+                연결 전 확인하세요
+              </h3>
+              <ol aria-labelledby="connect-check" className="mt-3 space-y-2.5">
+                {CONNECT_CHECKS.map((c, i) => (
+                  <li key={c} className="flex items-start gap-3 text-[0.9375rem] leading-relaxed text-ink">
+                    <span
+                      className="mt-0.5 grid h-6 w-6 flex-none place-items-center rounded-full bg-key text-xs font-bold text-white tabular-nums"
+                      aria-hidden="true"
+                    >
+                      {i + 1}
+                    </span>
+                    <span>{c}</span>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          </div>
+        </div>
+      </Section>
 
-                    <div className="flex items-center gap-3 text-xs text-[var(--text-muted)]">
-                      <span className="mono">{item.size}</span>
-                      <span>•</span>
-                      <span>{item.version}</span>
-                    </div>
-                  </div>
+      {/* ── 주요 기능 안내 ── */}
+      <Section labelledBy="feature-title">
+        <SectionIntro id="feature-title" eyebrow="Features" title="주요 기능 안내" />
+        <ul className="grid gap-4 md:grid-cols-3 lg:gap-5">
+          {FEATURES.map((f) => (
+            <li key={f.title} className="rounded-2xl border border-panel-line bg-panel p-5 md:p-6">
+              <f.icon size={28} strokeWidth={1.6} className="text-key" aria-hidden="true" />
+              <h3 className="mt-3 text-lg font-bold text-navy">{f.title}</h3>
+              <p className="mt-1.5 text-[0.9375rem] leading-relaxed text-ink-2">{f.body}</p>
+              <ul className="mt-4 space-y-2 border-t border-panel-line pt-4">
+                {f.points.map((p) => (
+                  <li key={p} className="flex items-start gap-2.5 text-[0.9375rem] leading-relaxed text-ink">
+                    <span className="mt-[0.6rem] h-1.5 w-1.5 flex-none rounded-full bg-key" aria-hidden="true" />
+                    <span>{p}</span>
+                  </li>
+                ))}
+              </ul>
+            </li>
+          ))}
+        </ul>
+      </Section>
 
-                  <a
-                    href={item.link}
-                    className="flex-shrink-0 w-9 h-9 rounded-lg bg-[var(--accent-cyan)] hover:opacity-90 transition-opacity flex items-center justify-center"
-                    aria-label={`${item.title} 다운로드`}
-                  >
-                    <Download className="text-[var(--bg-primary)]" size={18} />
-                  </a>
-                </div>
+      {/* ── FAQ ── */}
+      <Section tone="mist" labelledBy="faq-title">
+        <div className="grid gap-8 lg:grid-cols-[220px_1fr]">
+          <div>
+            <Eyebrow>Q &amp; A</Eyebrow>
+            <h2 id="faq-title" className="display mt-2 text-[clamp(1.625rem,2.8vw,2.25rem)] text-navy">
+              자주 묻는 질문
+            </h2>
+          </div>
+          <dl className="grid gap-x-10 md:grid-cols-2">
+            {FAQS.map((f) => (
+              <div key={f.q} className="border-t border-line py-5">
+                <dt className="text-lg font-bold text-ink">{f.q}</dt>
+                <dd className="mt-2 text-[0.9375rem] leading-relaxed text-ink-2">{f.a}</dd>
               </div>
             ))}
-          </div>
+          </dl>
         </div>
-      </section>
-
-      {/* Getting Started */}
-      <section className="py-10 md:py-14">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl md:text-3xl text-center mb-6">시작하기</h2>
-
-          <div className="grid md:grid-cols-3 gap-4 max-w-6xl mx-auto">
-            {/* Step 1 */}
-            <div className="glass-card p-5 relative">
-              <div className="absolute top-3 right-3 w-10 h-10 rounded-full bg-[var(--accent-cyan-soft)] flex items-center justify-center">
-                <span className="text-lg font-bold text-[var(--accent-cyan)]">1</span>
-              </div>
-
-              <div className="w-12 h-12 rounded-xl bg-[var(--accent-cyan-soft)] flex items-center justify-center mb-3">
-                <Smartphone className="text-[var(--accent-cyan)]" size={24} />
-              </div>
-
-              <h3 className="text-lg mb-2">앱 설치</h3>
-              <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
-                Android APK 파일을 다운로드하여 설치합니다. 설치 시 "출처를 알 수 없는 앱" 권한이 필요할 수 있습니다.
-              </p>
-            </div>
-
-            {/* Step 2 */}
-            <div className="glass-card p-5 relative">
-              <div className="absolute top-3 right-3 w-10 h-10 rounded-full bg-[var(--accent-cyan-soft)] flex items-center justify-center">
-                <span className="text-lg font-bold text-[var(--accent-cyan)]">2</span>
-              </div>
-
-              <div className="w-12 h-12 rounded-xl bg-[var(--accent-cyan-soft)] flex items-center justify-center mb-3">
-                <Shield className="text-[var(--accent-cyan)]" size={24} />
-              </div>
-
-              <h3 className="text-lg mb-2">페어링</h3>
-              <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
-                D-GO Quantum Data Vault 본체와 모바일 앱을 Direct Wi-Fi로 페어링합니다. PUF 인증이 필요합니다.
-              </p>
-            </div>
-
-            {/* Step 3 */}
-            <div className="glass-card p-5 relative">
-              <div className="absolute top-3 right-3 w-10 h-10 rounded-full bg-[var(--accent-cyan-soft)] flex items-center justify-center">
-                <span className="text-lg font-bold text-[var(--accent-cyan)]">3</span>
-              </div>
-
-              <div className="w-12 h-12 rounded-xl bg-[var(--accent-cyan-soft)] flex items-center justify-center mb-3">
-                <Key className="text-[var(--accent-cyan)]" size={24} />
-              </div>
-
-              <h3 className="text-lg mb-2">보안키 생성</h3>
-              <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
-                초기 설정에서 보안키를 생성하고 백업합니다. 물리 키와 디지털 인증을 모두 설정하세요.
-              </p>
-            </div>
-          </div>
+        <div className="mt-10 flex flex-col items-start gap-4 border-t border-line pt-8 sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-base font-semibold text-navy">더 궁금한 사항이 있으신가요?</p>
+          <ButtonLink href={mailto()}>고객센터 문의하기</ButtonLink>
         </div>
-      </section>
-
-      {/* Main Features */}
-      <section className="py-10 md:py-14 bg-[var(--bg-elevated)]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl md:text-3xl text-center mb-6">주요 기능 안내</h2>
-
-          <div className="max-w-4xl mx-auto space-y-4">
-            {/* File Upload */}
-            <div className="glass-card p-4">
-              <div className="flex items-start gap-3">
-                <div className="w-10 h-10 rounded-xl bg-[var(--accent-cyan-soft)] flex items-center justify-center flex-shrink-0">
-                  <Upload className="text-[var(--accent-cyan)]" size={20} />
-                </div>
-
-                <div className="flex-1">
-                  <h3 className="text-lg mb-1">파일 업로드</h3>
-                  <p className="text-sm text-[var(--text-secondary)] mb-2">
-                    중요한 문서, 사진, 동영상을 암호화하여 안전하게 저장합니다.
-                  </p>
-
-                  <ul className="space-y-1">
-                    <li className="flex items-start gap-2 text-sm text-[var(--text-secondary)]">
-                      <div className="w-1.5 h-1.5 rounded-full bg-[var(--accent-cyan)] mt-1.5 flex-shrink-0"></div>
-                      <span>앱에서 "파일 추가" 버튼 선택</span>
-                    </li>
-                    <li className="flex items-start gap-2 text-sm text-[var(--text-secondary)]">
-                      <div className="w-1.5 h-1.5 rounded-full bg-[var(--accent-cyan)] mt-1.5 flex-shrink-0"></div>
-                      <span>파일 선택 후 자동 암호화 및 전송</span>
-                    </li>
-                    <li className="flex items-start gap-2 text-sm text-[var(--text-secondary)]">
-                      <div className="w-1.5 h-1.5 rounded-full bg-[var(--accent-cyan)] mt-1.5 flex-shrink-0"></div>
-                      <span>업로드 완료 후 원본은 자동 삭제 가능</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            {/* File View */}
-            <div className="glass-card p-4">
-              <div className="flex items-start gap-3">
-                <div className="w-10 h-10 rounded-xl bg-[var(--accent-cyan-soft)] flex items-center justify-center flex-shrink-0">
-                  <FileText className="text-[var(--accent-cyan)]" size={20} />
-                </div>
-
-                <div className="flex-1">
-                  <h3 className="text-lg mb-1">파일 조회</h3>
-                  <p className="text-sm text-[var(--text-secondary)] mb-2">
-                    저장된 파일을 안전하게 조회하고 관리합니다.
-                  </p>
-
-                  <ul className="space-y-1">
-                    <li className="flex items-start gap-2 text-sm text-[var(--text-secondary)]">
-                      <div className="w-1.5 h-1.5 rounded-full bg-[var(--accent-cyan)] mt-1.5 flex-shrink-0"></div>
-                      <span>파일 목록에서 원하는 파일 선택</span>
-                    </li>
-                    <li className="flex items-start gap-2 text-sm text-[var(--text-secondary)]">
-                      <div className="w-1.5 h-1.5 rounded-full bg-[var(--accent-cyan)] mt-1.5 flex-shrink-0"></div>
-                      <span>PUF 인증 후 복호화하여 미리보기</span>
-                    </li>
-                    <li className="flex items-start gap-2 text-sm text-[var(--text-secondary)]">
-                      <div className="w-1.5 h-1.5 rounded-full bg-[var(--accent-cyan)] mt-1.5 flex-shrink-0"></div>
-                      <span>필요시 보안 USB로 내보내기</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            {/* Security Key */}
-            <div className="glass-card p-4">
-              <div className="flex items-start gap-3">
-                <div className="w-10 h-10 rounded-xl bg-[var(--accent-cyan-soft)] flex items-center justify-center flex-shrink-0">
-                  <Key className="text-[var(--accent-cyan)]" size={20} />
-                </div>
-
-                <div className="flex-1">
-                  <h3 className="text-lg mb-1">보안키 관리</h3>
-                  <p className="text-sm text-[var(--text-secondary)] mb-2">
-                    물리 키와 디지털 인증을 통한 이중 보안 시스템
-                  </p>
-
-                  <ul className="space-y-1">
-                    <li className="flex items-start gap-2 text-sm text-[var(--text-secondary)]">
-                      <div className="w-1.5 h-1.5 rounded-full bg-[var(--accent-cyan)] mt-1.5 flex-shrink-0"></div>
-                      <span>PUF 물리 키는 안전한 장소에 보관</span>
-                    </li>
-                    <li className="flex items-start gap-2 text-sm text-[var(--text-secondary)]">
-                      <div className="w-1.5 h-1.5 rounded-full bg-[var(--accent-cyan)] mt-1.5 flex-shrink-0"></div>
-                      <span>디지털 백업키는 별도 저장 매체에 보관</span>
-                    </li>
-                    <li className="flex items-start gap-2 text-sm text-[var(--text-secondary)]">
-                      <div className="w-1.5 h-1.5 rounded-full bg-[var(--accent-cyan)] mt-1.5 flex-shrink-0"></div>
-                      <span>복구 시나리오에 따라 이중 복구 가능</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ */}
-      <section className="py-10 md:py-14">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl md:text-3xl text-center mb-6">자주 묻는 질문</h2>
-
-          <div className="space-y-3">
-            {[
-              {
-                q: "앱 설치 시 '출처를 알 수 없는 앱' 오류가 발생합니다",
-                a: "Android 기기 설정 > 보안 > 출처를 알 수 없는 앱 설치 허용을 활성화해주세요. 설치 후에는 다시 비활성화하시는 것을 권장합니다."
-              },
-              {
-                q: "페어링이 되지 않아요",
-                a: "1) Wi-Fi가 켜져 있는지 확인 2) D-GO Quantum Data Vault 본체가 전원에 연결되어 있는지 확인 3) 앱 권한(위치, Wi-Fi)이 모두 허용되어 있는지 확인하세요."
-              },
-              {
-                q: "파일을 업로드했는데 앱에서 보이지 않아요",
-                a: "파일 목록 화면에서 아래로 당겨 새로고침 해보세요. 대용량 파일의 경우 암호화 및 전송에 시간이 걸릴 수 있습니다."
-              },
-              {
-                q: "보안키를 분실했어요",
-                a: "물리 키 분실: 등록된 모바일 앱으로 복구 가능. 디지털 인증 분실: 물리 키로 복구 가능. 둘 다 분실: 고객센터로 문의해주세요."
-              },
-            ].map((faq, index) => (
-              <div key={index} className="glass-card p-4">
-                <h3 className="font-semibold text-base mb-2 text-[var(--accent-cyan)]">Q. {faq.q}</h3>
-                <p className="text-sm text-[var(--text-secondary)] leading-relaxed">A. {faq.a}</p>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-8 text-center">
-            <p className="text-sm text-[var(--text-secondary)] mb-3">
-              더 궁금한 사항이 있으신가요?
-            </p>
-            <a
-              href="mailto:sales@d-go.info"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[var(--accent-cyan)] text-[var(--bg-primary)] font-semibold hover:opacity-90 transition-opacity"
-            >
-              고객센터 문의하기
-            </a>
-          </div>
-        </div>
-      </section>
+      </Section>
     </div>
   );
 }

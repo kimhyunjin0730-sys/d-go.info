@@ -1,102 +1,110 @@
-import { Link, useLocation } from "react-router";
 import { Menu, X } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { Link, NavLink, useLocation } from "react-router";
+import { cn } from "./ui/utils";
+
+const NAV_LINKS = [
+  { path: "/", label: "홈" },
+  { path: "/product", label: "제품" },
+  { path: "/technology", label: "기술" },
+  { path: "/dashboard", label: "대시보드" },
+  { path: "/manual", label: "매뉴얼" },
+  { path: "/purchase", label: "구매" },
+  { path: "/support", label: "문의" },
+];
+
+export function BrandLockup({ tone = "light", className }: { tone?: "light" | "dark"; className?: string }) {
+  return (
+    <span className={cn("flex items-center gap-2.5", className)}>
+      <img src="/logo/dgo-icon-96.png" alt="" width={40} height={38} className="h-9 w-auto" />
+      <span className="flex flex-col leading-none">
+        <span className={cn("display text-[1.375rem] tracking-[0.02em]", tone === "light" ? "text-key" : "text-white")}>D-GO</span>
+        <span className={cn("mt-0.5 text-[0.6875rem] font-medium tracking-[0.01em]", tone === "light" ? "text-ink-2" : "text-on-navy-2")}>
+          Quantum Data Vault
+        </span>
+      </span>
+    </span>
+  );
+}
 
 export default function Header() {
-  const location = useLocation();
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { pathname } = useLocation();
+  const [open, setOpen] = useState(false);
 
-  const navLinks = [
-    { path: "/", label: "홈" },
-    { path: "/product", label: "제품" },
-    { path: "/technology", label: "기술" },
-    { path: "/dashboard", label: "대시보드" },
-    { path: "/manual", label: "매뉴얼" },
-    { path: "/purchase", label: "구매" },
-    { path: "/support", label: "문의" },
-  ];
+  useEffect(() => setOpen(false), [pathname]);
 
-  const isActive = (path: string) => {
-    if (path === "/") {
-      return location.pathname === "/";
-    }
-    return location.pathname.startsWith(path);
-  };
+  const linkClass = ({ isActive }: { isActive: boolean }) =>
+    cn(
+      "relative inline-flex min-h-11 items-center px-3 text-[0.9375rem] font-medium transition-colors duration-200",
+      isActive
+        ? "text-navy after:absolute after:inset-x-3 after:bottom-0 after:h-[3px] after:rounded-full after:bg-key"
+        : "text-ink-2 hover:text-navy",
+    );
 
   return (
-    <header className="sticky top-0 z-50 backdrop-blur-xl bg-[var(--bg-overlay)] border-b border-[var(--border-hairline)]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <Link to="/" className="flex items-center gap-2.5 group">
-            <img src="/logo/dgo-icon.png" alt="D-GO" className="h-11 w-auto object-contain" />
-            <span className="text-2xl font-bold text-gradient-cyan">D-GO</span>
-            <span className="hidden lg:inline text-base font-medium text-[var(--text-secondary)]">Quantum Data Vault</span>
-          </Link>
+    <header className="sticky top-0 z-50 border-b border-line bg-white/95 backdrop-blur-md">
+      <div className="mx-auto flex h-[68px] w-full max-w-[1200px] items-center justify-between px-4 sm:px-6 lg:px-8">
+        <Link to="/" aria-label="D-GO Quantum Data Vault 홈" className="rounded-md">
+          <BrandLockup />
+        </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-1">
-            {navLinks.map((link) => (
-              <Link
-                key={link.path}
-                to={link.path}
-                className={`px-4 py-2 rounded-lg text-sm transition-all duration-200 ${
-                  isActive(link.path)
-                    ? "bg-[var(--accent-cyan-soft)] text-[var(--accent-cyan)]"
-                    : "text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-elevated)]"
-                }`}
-              >
-                {link.label}
-              </Link>
-            ))}
-          </nav>
+        <nav aria-label="주요 메뉴" className="hidden h-full items-stretch md:flex">
+          {NAV_LINKS.map((l) => (
+            <NavLink key={l.path} to={l.path} end={l.path === "/"} className={linkClass}>
+              {l.label}
+            </NavLink>
+          ))}
+        </nav>
 
-          {/* CTA Button */}
-          <a
-            href="mailto:sales@d-go.info"
-            className="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[var(--accent-cyan)] text-[var(--bg-primary)] font-medium text-sm hover:opacity-90 transition-opacity"
-          >
-            문의하기
-          </a>
+        <Link
+          to="/purchase"
+          className="hidden min-h-10 items-center rounded-full bg-key px-4 text-sm font-semibold text-white transition-colors duration-200 hover:bg-key-hover md:inline-flex"
+        >
+          도입 문의
+        </Link>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 rounded-lg hover:bg-[var(--bg-elevated)] transition-colors"
-            aria-label="메뉴"
-          >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
-
-        {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <nav className="md:hidden py-4 border-t border-[var(--border-hairline)]">
-            <div className="flex flex-col gap-2">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.path}
-                  to={link.path}
-                  onClick={() => setIsMenuOpen(false)}
-                  className={`px-4 py-3 rounded-lg text-sm transition-all duration-200 ${
-                    isActive(link.path)
-                      ? "bg-[var(--accent-cyan-soft)] text-[var(--accent-cyan)]"
-                      : "text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-elevated)]"
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              ))}
-              <a
-                href="mailto:sales@d-go.info"
-                className="px-4 py-3 rounded-lg bg-[var(--accent-cyan)] text-[var(--bg-primary)] font-medium text-sm text-center"
-              >
-                문의하기
-              </a>
-            </div>
-          </nav>
-        )}
+        <button
+          type="button"
+          onClick={() => setOpen((o) => !o)}
+          aria-expanded={open}
+          aria-controls="mobile-nav"
+          aria-label={open ? "메뉴 닫기" : "메뉴 열기"}
+          className="-mr-2 grid h-11 w-11 cursor-pointer place-items-center rounded-lg text-navy md:hidden"
+        >
+          {open ? <X size={24} /> : <Menu size={24} />}
+        </button>
       </div>
+
+      {open && (
+        <nav id="mobile-nav" aria-label="주요 메뉴" className="border-t border-line bg-white md:hidden">
+          <ul className="mx-auto flex max-w-[1200px] flex-col px-4 py-3 sm:px-6">
+            {NAV_LINKS.map((l) => (
+              <li key={l.path}>
+                <NavLink
+                  to={l.path}
+                  end={l.path === "/"}
+                  className={({ isActive }) =>
+                    cn(
+                      "flex min-h-12 items-center border-b border-line text-base font-medium",
+                      isActive ? "text-key" : "text-ink",
+                    )
+                  }
+                >
+                  {l.label}
+                </NavLink>
+              </li>
+            ))}
+            <li className="pt-4 pb-2">
+              <Link
+                to="/purchase"
+                className="flex min-h-12 items-center justify-center rounded-full bg-key text-base font-semibold text-white"
+              >
+                도입 문의
+              </Link>
+            </li>
+          </ul>
+        </nav>
+      )}
     </header>
   );
 }

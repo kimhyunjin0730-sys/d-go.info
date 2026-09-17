@@ -1,0 +1,339 @@
+/*
+ * DeviceScreen — replica of the D-GO front display.
+ * Everything inside is sized in em off a cqw base, so the UI scales with
+ * the screen: a thumbnail on the product photo, a full panel elsewhere.
+ */
+
+.ds {
+  container: ds / inline-size;
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 10px;
+  background:
+    radial-gradient(120% 95% at 50% 0%, #121B63 0%, #070B2E 55%, #02030F 100%);
+  color: #E8EDFF;
+  font-family: var(--font-sans);
+  line-height: 1.25;
+  word-break: keep-all;
+  isolation: isolate;
+}
+
+.ds--fill {
+  aspect-ratio: auto;
+  width: 100%;
+  height: 100%;
+  border-radius: 3px;
+}
+
+/* glass reflection */
+.ds::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(118deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0) 36%);
+}
+
+.ds-inner {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 4.2cqw 5cqw;
+  font-size: 3.3cqw;
+  animation: ds-in 380ms ease-out both;
+}
+
+@keyframes ds-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.ds-mono {
+  font-family: var(--font-mono);
+  letter-spacing: 0.08em;
+}
+
+.ds-dim { color: rgba(232, 237, 255, 0.62); }
+.ds-led { color: var(--led); }
+
+/* ---------- glance (small) vs full ---------- */
+
+.ds-glance {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5cqw;
+  font-size: 10.5cqw;
+  font-weight: 700;
+  text-align: center;
+}
+
+.ds-glance svg { width: 2.1em; height: 2.1em; }
+
+.ds-full { display: none; }
+
+@container ds (min-width: 230px) {
+  .ds-glance { display: none; }
+  .ds-full {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+/* small full screens (cards) get a larger base so text stays legible */
+@container ds (min-width: 230px) and (max-width: 420px) {
+  .ds-inner { font-size: 4cqw; padding: 4cqw 4.6cqw; }
+}
+
+.ds-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1em;
+  font-size: 0.72em;
+}
+
+.ds-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.ds-status::before {
+  content: "";
+  width: 0.6em;
+  height: 0.6em;
+  border-radius: 999px;
+  background: currentColor;
+}
+
+.ds-status--locked { color: #FF6B78; }
+.ds-status--ok { color: #5BE3A6; }
+
+.ds-center {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 0.55em;
+}
+
+/* ---------- KEY ---------- */
+
+.ds-keyslot {
+  display: grid;
+  place-items: center;
+  width: 3.6em;
+  height: 3.6em;
+  border: 1.5px dashed rgba(89, 236, 255, 0.55);
+  border-radius: 0.9em;
+  color: var(--led);
+  animation: ds-breathe 2.4s ease-in-out infinite;
+}
+
+.ds-keyslot svg { width: 1.8em; height: 1.8em; }
+
+@keyframes ds-breathe {
+  0%, 100% { opacity: 0.45; }
+  50% { opacity: 1; }
+}
+
+.ds-title { font-size: 1.3em; font-weight: 700; }
+.ds-sub { font-size: 0.82em; }
+
+/* ---------- BOOT ---------- */
+
+.ds-ring {
+  position: relative;
+  width: 5.4em;
+  height: 5.4em;
+}
+
+.ds-ring svg.ds-ring-track { position: absolute; inset: 0; width: 100%; height: 100%; transform: rotate(-90deg); }
+
+.ds-ring-progress {
+  stroke: var(--led);
+  stroke-dasharray: 289;
+  stroke-dashoffset: 289;
+  animation: ds-ring 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) 150ms forwards;
+}
+
+@keyframes ds-ring {
+  to { stroke-dashoffset: 0; }
+}
+
+.ds-ring-core {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.15em;
+  color: var(--led);
+}
+
+.ds-ring-core svg { width: 1.7em; height: 1.7em; }
+.ds-ring-core span { font-size: 0.62em; font-weight: 600; color: #E8EDFF; }
+
+/* ---------- AUTH ---------- */
+
+.ds-auth {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 0.9em;
+  margin-top: 0.7em;
+}
+
+.ds-tiers { display: flex; flex-direction: column; gap: 0.38em; }
+
+.ds-tier {
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+  padding: 0.42em 0.6em;
+  border-radius: 0.45em;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 0.8em;
+}
+
+.ds-tier b {
+  display: grid;
+  place-items: center;
+  width: 1.6em;
+  height: 1.6em;
+  border-radius: 0.35em;
+  background: rgba(255, 255, 255, 0.12);
+  font-family: var(--font-mono);
+}
+
+.ds-tier small { margin-left: auto; font-size: 0.85em; color: rgba(232, 237, 255, 0.62); }
+.ds-tier svg { width: 1em; height: 1em; margin-left: auto; color: #5BE3A6; }
+
+.ds-tier--active {
+  background: var(--key);
+  border-color: var(--key);
+}
+
+.ds-tier--active b { background: rgba(255, 255, 255, 0.22); }
+.ds-tier--active small { color: #FFFFFF; animation: ds-breathe 1.6s ease-in-out infinite; }
+
+.ds-pin { display: flex; flex-direction: column; align-items: center; gap: 0.45em; }
+
+.ds-dots { display: flex; gap: 0.4em; }
+.ds-dots i { width: 0.55em; height: 0.55em; border-radius: 999px; border: 1px solid rgba(232, 237, 255, 0.55); }
+.ds-dots i.on { background: var(--led); border-color: var(--led); }
+
+.ds-keypad {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.28em;
+  width: 100%;
+}
+
+.ds-keypad span {
+  display: grid;
+  place-items: center;
+  height: 1.55em;
+  border-radius: 0.35em;
+  border: 1px solid rgba(232, 237, 255, 0.18);
+  font-family: var(--font-mono);
+  font-size: 0.72em;
+  color: rgba(232, 237, 255, 0.85);
+}
+
+.ds-keypad span.ok { border-color: var(--led); color: var(--led); }
+
+/* ---------- ACCESS ---------- */
+
+.ds-grid {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0.5em;
+  margin-top: 0.7em;
+}
+
+.ds-tile {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 0;
+  padding: 0.6em 0.7em;
+  border-radius: 0.55em;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 0.78em;
+}
+
+.ds-tile--open { background: var(--key); border-color: var(--key); }
+.ds-tile svg { width: 1.3em; height: 1.3em; }
+
+.ds-tile strong { font-size: 1.5em; font-weight: 700; line-height: 1.1; }
+.ds-tile strong small { font-size: 0.55em; font-weight: 500; margin-left: 0.2em; }
+
+.ds-bar {
+  position: relative;
+  height: 0.4em;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  overflow: hidden;
+}
+
+.ds-bar::after {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 0;
+  border-radius: inherit;
+  background: var(--led);
+  animation: ds-fill 2.6s ease-in-out 300ms infinite;
+}
+
+@keyframes ds-fill {
+  0% { width: 0; }
+  70% { width: 100%; }
+  100% { width: 100%; opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ds-ring-progress { stroke-dashoffset: 0; animation: none; }
+  .ds-bar::after { width: 64%; animation: none; }
+  .ds-keyslot, .ds-tier--active small { animation: none; opacity: 1; }
+}
+
+/* ---------- Product stage step progress ---------- */
+
+.stage-fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 0;
+  background: var(--key);
+}
+
+.stage-fill--done { width: 100%; }
+
+.stage-fill--run {
+  animation: stage-fill var(--stage-ms, 3600ms) linear forwards;
+}
+
+.stage-paused .stage-fill--run { animation-play-state: paused; }
+
+@keyframes stage-fill {
+  to { width: 100%; }
+}
