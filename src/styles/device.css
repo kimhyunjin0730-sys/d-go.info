@@ -84,7 +84,7 @@
 
 .ds-full { display: none; }
 
-@container ds (min-width: 230px) {
+@container ds (min-width: 150px) {
   .ds-glance { display: none; }
   .ds-full {
     flex: 1;
@@ -95,7 +95,7 @@
 }
 
 /* small full screens (step cards) need a larger base to stay legible */
-@container ds (min-width: 230px) and (max-width: 460px) {
+@container ds (min-width: 150px) and (max-width: 460px) {
   .ds-inner { font-size: 3.9cqw; padding: 3.8cqw 4.2cqw; }
 }
 

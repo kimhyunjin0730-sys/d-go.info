@@ -12,7 +12,7 @@ const variants: Record<Variant, string> = {
 };
 
 const base =
-  "inline-flex min-h-11 cursor-pointer items-center justify-center gap-2 rounded-full px-5 text-[0.9375rem] font-semibold whitespace-nowrap transition-colors duration-200";
+  "inline-flex min-h-11 cursor-pointer items-center justify-center gap-2 rounded-[10px] px-5 text-[0.9375rem] font-semibold whitespace-nowrap transition-colors duration-200";
 
 export function buttonClass(variant: Variant = "primary", className?: string) {
   return cn(base, variants[variant], className);

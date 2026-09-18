@@ -16,7 +16,7 @@ const NAV_LINKS = [
 export function BrandLockup({ tone = "light", className }: { tone?: "light" | "dark"; className?: string }) {
   return (
     <span className={cn("flex items-center gap-2.5", className)}>
-      <img src="/logo/dgo-icon-96.png" alt="" width={40} height={38} className="h-9 w-auto" />
+      <img src="/logo/dgo-mark-96.png" alt="" width={40} height={40} className="h-9 w-9" />
       <span className="flex flex-col leading-none">
         <span className={cn("display text-[1.375rem] tracking-[0.02em]", tone === "light" ? "text-key" : "text-white")}>D-GO</span>
         <span className={cn("mt-0.5 text-[0.6875rem] font-medium tracking-[0.01em]", tone === "light" ? "text-ink-2" : "text-on-navy-2")}>
@@ -58,7 +58,7 @@ export default function Header() {
 
         <Link
           to="/purchase"
-          className="hidden min-h-10 items-center rounded-full bg-key px-4 text-sm font-semibold text-white transition-colors duration-200 hover:bg-key-hover md:inline-flex"
+          className="hidden min-h-10 items-center rounded-[10px] bg-key px-4 text-sm font-semibold text-white transition-colors duration-200 hover:bg-key-hover md:inline-flex"
         >
           도입 문의
         </Link>
@@ -97,7 +97,7 @@ export default function Header() {
             <li className="pt-4 pb-2">
               <Link
                 to="/purchase"
-                className="flex min-h-12 items-center justify-center rounded-full bg-key text-base font-semibold text-white"
+                className="flex min-h-12 items-center justify-center rounded-[10px] bg-key text-base font-semibold text-white"
               >
                 도입 문의
               </Link>

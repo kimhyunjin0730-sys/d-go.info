@@ -12,7 +12,7 @@ import {
 } from "../content";
 import { ButtonLink } from "../components/site/Button";
 import { AirGapDiagram, BootSequence, OnboardingFlows, TierTable } from "../components/site/Diagrams";
-import { BandHeader, Chip, Container, Eyebrow, Section, SectionIntro } from "../components/site/Layout";
+import { BandHeader, Container, Eyebrow, Section, SectionIntro } from "../components/site/Layout";
 import ProductStage from "../components/site/ProductStage";
 
 const FEATURES = [
@@ -35,39 +35,46 @@ export default function Home() {
   return (
     <div className="w-full">
       {/* ── Hero ── */}
-      <section aria-labelledby="hero-title" className="overflow-hidden bg-white">
-        <Container className="pt-10 pb-14 md:pt-16 md:pb-20">
-          <div className="flex flex-wrap items-center justify-between gap-3">
-            <Eyebrow>Zero-Outbound&nbsp;&nbsp;•&nbsp;&nbsp;Air-Gap</Eyebrow>
-            <span className="hidden rounded-full bg-navy px-4 py-1.5 text-sm font-semibold text-white sm:inline-flex">독립형 데이터 안전금고</span>
-          </div>
+      <section aria-labelledby="hero-title" className="relative overflow-hidden bg-[#040A1E] text-white">
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 bg-[radial-gradient(90%_70%_at_75%_10%,rgba(27,62,158,0.55),rgba(4,10,30,0)_60%),radial-gradient(60%_50%_at_10%_100%,rgba(0,1,139,0.5),rgba(4,10,30,0)_70%)]"
+        />
+        <Container className="relative pt-12 pb-16 md:pt-16 md:pb-20">
+          <div className="grid items-start gap-12 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-16">
+            <div>
+              <div className="flex items-center gap-3">
+                <span className="h-px w-8 bg-led/60" aria-hidden="true" />
+                <p className="eyebrow text-led">Zero-Outbound&nbsp;&nbsp;·&nbsp;&nbsp;Air-Gap</p>
+              </div>
 
-          <h1 id="hero-title" className="display mt-5 text-[clamp(2.125rem,4.4vw,3.75rem)] text-navy">
-            <span className="block">인터넷과 분리된</span>
-            <span className="block">독립형 데이터 안전금고.</span>
-          </h1>
+              <h1 id="hero-title" className="display mt-5 text-[clamp(1.875rem,2.9vw,2.625rem)]">
+                <span className="block">인터넷과 분리된</span>
+                <span className="block">독립형 데이터 안전금고.</span>
+              </h1>
 
-          <div className="mt-10 grid items-start gap-12 lg:mt-14 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-14">
-            <div className="lg:pt-6">
-              <p className="text-lg leading-relaxed font-bold text-key md:text-xl">
-                문서와 AI가 외부와 연결되지 않는 금고 안에서만 움직입니다. 유출 경로 원천 차단!
+              <p className="mt-5 max-w-xl text-[1.0625rem] leading-relaxed font-semibold text-led">
+                문서와 AI가 외부와 연결되지 않는 금고 안에서만 움직입니다. 유출 경로 원천 차단.
               </p>
-              <p className="mt-4 text-base leading-relaxed text-ink-2">
-                문서 보관도, AI 검색·요약도 이 한 대 안에서 끝납니다. 가정·사무실의 전용 폐쇄망(Private Wi-Fi) 안에서만 동작하고, PUF 보안키가
-                없으면 켜지지도 않습니다.
+              <p className="mt-3 max-w-xl text-[0.9375rem] leading-relaxed text-on-navy-2">
+                문서 보관도, AI 검색·요약도 이 한 대 안에서 끝납니다. 사무실의 전용 폐쇄망(Private Wi-Fi) 안에서만 동작하고, PUF 보안키가 없으면
+                켜지지도 않습니다.
               </p>
-              <div className="mt-7 flex flex-wrap gap-3">
-                <ButtonLink to="/purchase">
+
+              <div className="mt-8 flex flex-wrap gap-3">
+                <ButtonLink to="/purchase" variant="onNavy">
                   도입 문의하기 <ArrowRight size={18} aria-hidden="true" />
                 </ButtonLink>
-                <ButtonLink href={mailto("D-GO 실기기 시연 요청")} variant="secondary">
+                <ButtonLink href={mailto("D-GO 실기기 시연 요청")} variant="onNavyGhost">
                   실기기 시연 요청
                 </ButtonLink>
               </div>
-              <ul className="mt-7 flex flex-wrap gap-2" aria-label="하드웨어 사양">
+
+              <ul className="mt-8 flex flex-wrap gap-x-5 gap-y-2 border-t border-white/12 pt-5 text-[0.8125rem] text-on-navy-2" aria-label="하드웨어 사양">
                 {HARDWARE_CHIPS.map((c) => (
-                  <li key={c}>
-                    <Chip>{c}</Chip>
+                  <li key={c} className="flex items-center gap-2">
+                    <span className="h-1 w-1 rounded-full bg-led" aria-hidden="true" />
+                    {c}
                   </li>
                 ))}
               </ul>
@@ -76,23 +83,28 @@ export default function Home() {
             <ProductStage />
           </div>
 
-          <dl className="mt-14 grid gap-8 border-t border-line pt-10 sm:grid-cols-3 sm:gap-6 md:mt-16">
+          {/* proof bar */}
+          <dl className="mt-14 grid gap-px overflow-hidden border-y border-white/12 sm:grid-cols-3 md:mt-16">
             {PROOF_POINTS.map((p) => (
-              <div key={p.title} className="flex gap-5 sm:block">
-                <dt className="w-[6.75rem] flex-none sm:mb-3 sm:w-auto">
-                  <span className="mb-4 hidden h-[3px] w-10 bg-navy sm:block" aria-hidden="true" />
-                  <span className="display block text-[2.5rem] leading-none text-navy sm:text-[2.75rem] md:text-[3rem]">
-                    {p.figure}
-                    {p.unit && <span className="ml-0.5 text-[0.55em]">{p.unit}</span>}
-                  </span>
+              <div key={p.title} className="flex flex-col gap-1 border-t border-white/12 py-5 first:border-t-0 sm:border-t-0 sm:px-6 sm:py-6 sm:first:pl-0 sm:last:pr-0 sm:[&:not(:first-child)]:border-l sm:[&:not(:first-child)]:border-white/12">
+                <dt className="display text-[2.25rem] leading-none text-white md:text-[2.75rem]">
+                  {p.figure}
+                  {p.unit && <span className="ml-0.5 text-[0.5em]">{p.unit}</span>}
                 </dt>
                 <dd>
-                  <p className="text-lg font-bold text-ink">{p.title}</p>
-                  <p className="mt-1 text-[0.9375rem] leading-relaxed text-ink-2">{p.body}</p>
+                  <p className="font-bold text-white">{p.title}</p>
+                  <p className="mt-0.5 text-[0.875rem] leading-relaxed text-on-navy-2">{p.body}</p>
                 </dd>
               </div>
             ))}
           </dl>
+
+          <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3">
+            <img src="/logo/ICTK.png" alt="ICTK PUF" className="h-5 w-auto opacity-85" style={{ filter: "brightness(0) invert(1)" }} />
+            <img src="/logo/KC인증.svg" alt="KC 인증" className="h-6 w-auto opacity-80" style={{ filter: "brightness(0) invert(1)" }} />
+            <span className="font-mono text-[0.6875rem] tracking-wider text-on-navy-2">UL CLASS 125</span>
+            <span className="font-mono text-[0.6875rem] tracking-wider text-on-navy-2">MADE IN KOREA</span>
+          </div>
         </Container>
       </section>
 
