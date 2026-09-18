@@ -102,8 +102,8 @@ export default function Home() {
           <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3">
             <img src="/logo/ICTK.png" alt="ICTK PUF" className="h-5 w-auto opacity-85" style={{ filter: "brightness(0) invert(1)" }} />
             <img src="/logo/KC인증.svg" alt="KC 인증" className="h-6 w-auto opacity-80" style={{ filter: "brightness(0) invert(1)" }} />
-            <span className="font-mono text-[0.6875rem] tracking-wider text-on-navy-2">UL CLASS 125</span>
-            <span className="font-mono text-[0.6875rem] tracking-wider text-on-navy-2">MADE IN KOREA</span>
+            <span className="font-mono text-[0.75rem] tracking-wider text-on-navy-2">UL CLASS 125</span>
+            <span className="font-mono text-[0.75rem] tracking-wider text-on-navy-2">MADE IN KOREA</span>
           </div>
         </Container>
       </section>

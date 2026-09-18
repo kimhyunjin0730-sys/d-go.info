@@ -135,7 +135,7 @@ export default function ProductStage() {
                         onAnimationEnd={active && autoplay ? () => setIndex((index + 1) % BOOT_STEPS.length) : undefined}
                       />
                     </span>
-                    <span className="block font-mono text-[0.625rem] font-semibold tracking-[0.16em]">{s.code}</span>
+                    <span className="block font-mono text-[0.75rem] font-semibold tracking-[0.16em]">{s.code}</span>
                     <span className="mt-0.5 block text-[0.8125rem] font-semibold">{s.title}</span>
                   </button>
                 </li>

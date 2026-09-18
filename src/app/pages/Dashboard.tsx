@@ -150,7 +150,7 @@ export default function Dashboard() {
                   <DeviceScreen state={s.state} label={s.screenLabel} />
                 </Bezel>
                 <figcaption className="mt-3 text-center">
-                  <span className="block font-mono text-[0.6875rem] font-semibold tracking-[0.14em] text-key">{s.code}</span>
+                  <span className="block font-mono text-[0.75rem] font-semibold tracking-[0.14em] text-key">{s.code}</span>
                   <span className="mt-0.5 block text-[0.8125rem] leading-snug text-ink-2">{s.title}</span>
                 </figcaption>
               </figure>

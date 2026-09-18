@@ -318,7 +318,7 @@ export default function Technology() {
                     <p className="text-[0.8125rem] font-medium text-ink-3">{p.subtitle}</p>
                   </div>
                 </div>
-                <span className="font-mono text-[0.6875rem] font-semibold tracking-[0.12em] whitespace-nowrap text-key">{p.badge}</span>
+                <span className="font-mono text-[0.75rem] font-semibold tracking-[0.12em] whitespace-nowrap text-key">{p.badge}</span>
               </div>
               <ul className="mt-4 space-y-2 border-t border-line pt-4">
                 {p.features.map((f) => (

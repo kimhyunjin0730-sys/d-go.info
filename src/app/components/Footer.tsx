@@ -85,8 +85,8 @@ export default function Footer() {
             <div className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-3">
               <img src="/logo/ICTK.png" alt="ICTK PUF" className="h-5 w-auto opacity-90" style={WHITE_LOGO} />
               <img src="/logo/KC인증.svg" alt="KC 인증" className="h-6 w-auto opacity-90" style={WHITE_LOGO} />
-              <span className="rounded border border-white/25 px-2 py-0.5 font-mono text-[0.6875rem] tracking-wider text-on-navy-2">UL CLASS 125</span>
-              <span className="rounded border border-white/25 px-2 py-0.5 font-mono text-[0.6875rem] tracking-wider text-on-navy-2">MADE IN KOREA</span>
+              <span className="rounded border border-white/25 px-2 py-0.5 font-mono text-[0.75rem] tracking-wider text-on-navy-2">UL CLASS 125</span>
+              <span className="rounded border border-white/25 px-2 py-0.5 font-mono text-[0.75rem] tracking-wider text-on-navy-2">MADE IN KOREA</span>
             </div>
           </div>
         </div>

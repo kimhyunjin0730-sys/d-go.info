@@ -259,7 +259,7 @@ export default function Product() {
             <div key={s.label} className="flex flex-col gap-2 bg-white p-4 md:p-5">
               <dt className="flex items-center gap-2 text-ink-3">
                 <s.icon size={18} strokeWidth={1.75} className="flex-none text-key" aria-hidden="true" />
-                <span className="eyebrow text-[0.6875rem] md:text-[0.75rem]">{s.label}</span>
+                <span className="eyebrow text-[0.75rem] md:text-[0.75rem]">{s.label}</span>
               </dt>
               <dd className="text-[0.9375rem] leading-snug font-bold text-navy md:text-base">
                 {s.value.map((chunk, i) => (
