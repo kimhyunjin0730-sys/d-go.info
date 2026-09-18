@@ -6,8 +6,9 @@ import DeviceScreen from "./DeviceScreen";
 
 const STEP_MS = 4200;
 
-// Screen rectangle inside /images/product/dgo-front.* (measured from the source render)
+// Screen rectangle inside the product renders (measured from each source)
 const SCREEN_BOX = { left: "62.765%", top: "16.211%", width: "27.084%", height: "34.668%" };
+const SCREEN_BOX_HQ = { left: "61.217%", top: "10.539%", width: "26.733%", height: "44.321%" };
 
 function usePrefersReducedMotion() {
   const [reduced, setReduced] = useState(() =>
@@ -37,13 +38,13 @@ export function ProductImage({
       <picture>
         <source
           type="image/webp"
-          srcSet="/images/product/dgo-front-cut-900.webp 900w, /images/product/dgo-front-cut.webp 1600w"
+          srcSet="/images/product/dgo-front-hq-1200.webp 1200w, /images/product/dgo-front-hq.webp 2400w"
           sizes="(min-width: 1024px) 680px, 100vw"
         />
         <img
-          src="/images/product/dgo-front-cut-900.png"
-          width={1600}
-          height={697}
+          src="/images/product/dgo-front-hq-1200.png"
+          width={2400}
+          height={831}
           alt="D-GO Quantum Data Vault 정면 — 전원 노브와 LED, USB 포트, 전면 화면, 하단 금고 서랍"
           className={cn("block h-auto w-full", className)}
           loading={priority ? "eager" : "lazy"}
@@ -94,7 +95,7 @@ export default function ProductStage() {
           className="absolute inset-x-[8%] bottom-[-3%] h-[10%] rounded-[50%] bg-[radial-gradient(ellipse_at_center,rgba(89,236,255,0.18),rgba(5,10,30,0)_70%)]"
         />
         <ProductImage priority cutout />
-        <div className="absolute" style={SCREEN_BOX}>
+        <div className="absolute" style={SCREEN_BOX_HQ}>
           <DeviceScreen key={`sm-${step.state}`} state={step.state} fill label={step.screenLabel} />
         </div>
       </div>
