@@ -73,22 +73,23 @@ function Glance({ icon, children }: { icon: ReactNode; children: ReactNode }) {
   );
 }
 
-/** PUF key removed — the device refuses to run (design: 하드웨어 보안 접근 차단). */
+/** PUF key removed — the alert covers the dimmed dashboard (design: 하드웨어 보안 접근 차단). */
 function KeyScreen() {
   return (
     <>
       <Glance icon={<ShieldAlert style={{ color: "var(--dsc-red)" }} strokeWidth={2} />}>PUF 키 필요</Glance>
-      <div className="ds-full">
-        <div className="ds-center">
-          <div className="ds-alert">
-            <TriangleAlert strokeWidth={2} />
-            <p className="ds-alert-title">하드웨어 보안 접근 차단</p>
-            <p className="ds-alert-body">
-              PUF 하드웨어 키가 연결되지 않았습니다.
-              <br />
-              사용하시려면 PUF 키를 연결해 주세요.
-            </p>
-          </div>
+      <div className="ds-full ds-locked">
+        <div className="ds-behind">
+          <Dashboard />
+        </div>
+        <div className="ds-alert">
+          <TriangleAlert strokeWidth={2} />
+          <p className="ds-alert-title">하드웨어 보안 접근 차단</p>
+          <p className="ds-alert-body">
+            PUF 하드웨어 키가 연결되지 않았습니다.
+            <br />
+            사용하시려면 PUF 키를 연결해 주세요.
+          </p>
         </div>
       </div>
     </>
@@ -191,6 +192,15 @@ function AccessScreen() {
     <>
       <Glance icon={<DoorOpen style={{ color: "var(--dsc-amber)" }} strokeWidth={2} />}>금고 열림</Glance>
       <div className="ds-full">
+        <Dashboard />
+      </div>
+    </>
+  );
+}
+
+function Dashboard() {
+  return (
+    <>
         <div className="ds-bar-top">
           <h4>
             <Shield strokeWidth={2} /> D-GO Security Vault
@@ -282,7 +292,6 @@ function AccessScreen() {
             </div>
           </div>
         </div>
-      </div>
     </>
   );
 }

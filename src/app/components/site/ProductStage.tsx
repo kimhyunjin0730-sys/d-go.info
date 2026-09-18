@@ -7,7 +7,7 @@ import DeviceScreen from "./DeviceScreen";
 const STEP_MS = 4200;
 
 // Screen rectangle inside /images/product/dgo-front.* (measured from the source render)
-const SCREEN_BOX = { left: "62.765%", top: "16.211%", width: "27.084%", height: "34.668%" };
+const SCREEN_BOX = { left: "63.625%", top: "19.512%", width: "27.062%", height: "35.151%" };
 
 function usePrefersReducedMotion() {
   const [reduced, setReduced] = useState(() =>
