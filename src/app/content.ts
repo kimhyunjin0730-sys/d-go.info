@@ -24,8 +24,8 @@ export function mailto(subject?: string, body?: string) {
 }
 
 export const SALES_PARTNERS = [
-  "진앤현시큐리티",
   "ICTK",
+  "퍼플넷",
   "MTT GLOBAL",
   "쿠도커뮤니케이션",
   "솔모정보기술",
