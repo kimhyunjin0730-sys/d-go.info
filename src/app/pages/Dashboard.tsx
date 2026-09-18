@@ -14,6 +14,7 @@ import {
   TriangleAlert,
 } from "lucide-react";
 import type { ReactNode } from "react";
+import type { ScreenState } from "../content";
 import { BOOT_STEPS, mailto } from "../content";
 import { ButtonLink } from "../components/site/Button";
 import DeviceScreen, { DeviceBezel as Bezel } from "../components/site/DeviceScreen";
@@ -21,7 +22,11 @@ import { Container, PageHero, Section, SectionIntro } from "../components/site/L
 import { cn } from "../components/ui/utils";
 
 const ACCESS_STEP = BOOT_STEPS.find((s) => s.state === "access")!;
-const OTHER_STEPS = BOOT_STEPS.filter((s) => s.state !== "access");
+/** Other device screens shown under the dashboard — the boot steps plus device pairing. */
+const SCREEN_STRIP: { code: string; state: ScreenState; title: string; screenLabel: string }[] = [
+  ...BOOT_STEPS.filter((s) => s.state !== "access").map((s) => ({ code: s.code, state: s.state, title: s.title, screenLabel: s.screenLabel })),
+  { code: "PAIR", state: "pair", title: "신규 기기 승인", screenLabel: "본체 화면 — 신규 디바이스 페어링(6자리 코드)" },
+];
 
 const PARTITIONS = [
   { grade: "C", label: "일반", use: 75, bar: "bg-ink-3" },
@@ -132,13 +137,13 @@ export default function Dashboard() {
         />
         <figure className="mx-auto max-w-3xl">
           <Bezel className="rounded-[18px] p-2 md:p-2.5">
-            <DeviceScreen state="access" label={`${ACCESS_STEP.screenLabel}: 금고 열림, 암호화 문서 128건, 로컬 AI 계약서 요약 중, 외부 통신 0건`} />
+            <DeviceScreen state="access" label={`${ACCESS_STEP.screenLabel}: 금고 열림, 암호화 문서 128건, SoC 온도 48.2도, PUF 모듈 정상, 연결 기기 iPhone 14 Pro Max, 최근 접근 로그`} />
           </Bezel>
           <figcaption className="mt-4 text-center text-sm font-semibold text-navy">{ACCESS_STEP.screenLabel}</figcaption>
         </figure>
 
-        <ul className="mx-auto mt-10 grid max-w-3xl grid-cols-3 gap-3 md:gap-5">
-          {OTHER_STEPS.map((s) => (
+        <ul className="mx-auto mt-10 grid max-w-3xl gap-4 sm:grid-cols-2 md:gap-6">
+          {SCREEN_STRIP.map((s) => (
             <li key={s.code}>
               <figure>
                 <Bezel>

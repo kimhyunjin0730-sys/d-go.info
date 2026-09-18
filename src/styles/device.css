@@ -1,7 +1,9 @@
 /*
  * DeviceScreen — replica of the D-GO front display.
- * Everything inside is sized in em off a cqw base, so the UI scales with
- * the screen: a thumbnail on the product photo, a full panel elsewhere.
+ * Follows the "D-GO Vault UI 디자인 설계 화면" (2026-07-27) deck: dark navy with a
+ * blue glow from the bottom, outlined cards, amber vault door, green PUF status.
+ * Everything is sized in em off a cqw base, so one component serves a thumbnail
+ * on the product photo and a full panel on the dashboard page.
  */
 
 .ds {
@@ -11,12 +13,23 @@
   overflow: hidden;
   border-radius: 10px;
   background:
-    radial-gradient(120% 95% at 50% 0%, #121B63 0%, #070B2E 55%, #02030F 100%);
-  color: #E8EDFF;
+    radial-gradient(75% 65% at 50% 118%, #1B3E9E 0%, rgba(11, 25, 73, 0.55) 45%, rgba(2, 7, 26, 0) 78%),
+    linear-gradient(180deg, #04081E 0%, #02071A 60%, #030A22 100%);
+  color: #E9EDFB;
   font-family: var(--font-sans);
   line-height: 1.25;
   word-break: keep-all;
   isolation: isolate;
+
+  --dsc-card: rgba(9, 14, 36, 0.72);
+  --dsc-line: rgba(255, 255, 255, 0.12);
+  --dsc-dim: rgba(233, 237, 251, 0.58);
+  --dsc-amber: #F5A524;
+  --dsc-green: #35D48A;
+  --dsc-blue: #3B82F6;
+  --dsc-violet: #9B8CFA;
+  --dsc-red: #FF4D4D;
+  --dsc-cyan: #22D3EE;
 }
 
 .ds--fill {
@@ -33,7 +46,7 @@
   inset: 0;
   z-index: 2;
   pointer-events: none;
-  background: linear-gradient(118deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0) 36%);
+  background: linear-gradient(118deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0) 36%);
 }
 
 .ds-inner {
@@ -41,8 +54,8 @@
   inset: 0;
   display: flex;
   flex-direction: column;
-  padding: 4.2cqw 5cqw;
-  font-size: 3.3cqw;
+  padding: 4cqw 4.6cqw;
+  font-size: 3.2cqw;
   animation: ds-in 380ms ease-out both;
 }
 
@@ -51,15 +64,9 @@
   to { opacity: 1; }
 }
 
-.ds-mono {
-  font-family: var(--font-mono);
-  letter-spacing: 0.08em;
-}
+.ds-dim { color: var(--dsc-dim); }
 
-.ds-dim { color: rgba(232, 237, 255, 0.62); }
-.ds-led { color: var(--led); }
-
-/* ---------- glance (small) vs full ---------- */
+/* ---------- glance (thumbnail) vs full ---------- */
 
 .ds-glance {
   flex: 1;
@@ -67,13 +74,13 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 5cqw;
-  font-size: 10.5cqw;
+  gap: 4cqw;
+  font-size: 9cqw;
   font-weight: 700;
   text-align: center;
 }
 
-.ds-glance svg { width: 2.1em; height: 2.1em; }
+.ds-glance svg { width: 2em; height: 2em; }
 
 .ds-full { display: none; }
 
@@ -87,35 +94,35 @@
   }
 }
 
-/* small full screens (cards) get a larger base so text stays legible */
-@container ds (min-width: 230px) and (max-width: 420px) {
-  .ds-inner { font-size: 4cqw; padding: 4cqw 4.6cqw; }
+/* small full screens (step cards) need a larger base to stay legible */
+@container ds (min-width: 230px) and (max-width: 460px) {
+  .ds-inner { font-size: 3.9cqw; padding: 3.8cqw 4.2cqw; }
 }
 
-.ds-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1em;
-  font-size: 0.72em;
-}
+/* ---------- shared bits ---------- */
 
-.ds-status {
+.ds-pill {
   display: inline-flex;
   align-items: center;
-  gap: 0.5em;
+  gap: 0.4em;
+  padding: 0.3em 0.75em;
+  border-radius: 999px;
+  border: 1px solid currentColor;
+  font-size: 0.72em;
+  font-weight: 600;
+  white-space: nowrap;
 }
 
-.ds-status::before {
+.ds-pill::before {
   content: "";
-  width: 0.6em;
-  height: 0.6em;
+  width: 0.4em;
+  height: 0.4em;
   border-radius: 999px;
   background: currentColor;
 }
 
-.ds-status--locked { color: #FF6B78; }
-.ds-status--ok { color: #5BE3A6; }
+.ds-pill--green { color: var(--dsc-green); }
+.ds-pill--cyan { color: var(--dsc-cyan); }
 
 .ds-center {
   flex: 1;
@@ -125,33 +132,29 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  gap: 0.55em;
+  gap: 0.6em;
 }
 
-/* ---------- KEY ---------- */
-
-.ds-keyslot {
-  display: grid;
-  place-items: center;
-  width: 3.6em;
-  height: 3.6em;
-  border: 1.5px dashed rgba(89, 236, 255, 0.55);
-  border-radius: 0.9em;
-  color: var(--led);
-  animation: ds-breathe 2.4s ease-in-out infinite;
-}
-
-.ds-keyslot svg { width: 1.8em; height: 1.8em; }
-
-@keyframes ds-breathe {
-  0%, 100% { opacity: 0.45; }
-  50% { opacity: 1; }
-}
-
-.ds-title { font-size: 1.3em; font-weight: 700; }
+.ds-heading { font-size: 1.3em; font-weight: 700; letter-spacing: -0.01em; }
 .ds-sub { font-size: 0.82em; }
 
-/* ---------- BOOT ---------- */
+/* ---------- KEY — PUF key removed (Phase5_1) ---------- */
+
+.ds-alert {
+  width: min(86%, 30em);
+  padding: 1em 1.2em;
+  border: 1.5px solid var(--dsc-red);
+  border-radius: 0.8em;
+  background: rgba(8, 10, 28, 0.92);
+  box-shadow: 0 0 2.2em rgba(255, 77, 77, 0.25);
+  text-align: center;
+}
+
+.ds-alert svg { width: 1.9em; height: 1.9em; color: var(--dsc-red); }
+.ds-alert-title { margin-top: 0.35em; font-size: 1.15em; font-weight: 700; }
+.ds-alert-body { margin-top: 0.35em; font-size: 0.78em; color: var(--dsc-dim); line-height: 1.5; }
+
+/* ---------- BOOT — PUF authentication (Phase1_3) ---------- */
 
 .ds-ring {
   position: relative;
@@ -159,13 +162,18 @@
   height: 5.4em;
 }
 
-.ds-ring svg.ds-ring-track { position: absolute; inset: 0; width: 100%; height: 100%; transform: rotate(-90deg); }
+.ds-ring svg.ds-ring-track {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
 
 .ds-ring-progress {
-  stroke: var(--led);
   stroke-dasharray: 289;
   stroke-dashoffset: 289;
-  animation: ds-ring 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) 150ms forwards;
+  animation: ds-ring 1.3s cubic-bezier(0.2, 0.8, 0.2, 1) 150ms forwards;
 }
 
 @keyframes ds-ring {
@@ -179,142 +187,234 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 0.15em;
-  color: var(--led);
+  gap: 0.05em;
 }
 
-.ds-ring-core svg { width: 1.7em; height: 1.7em; }
-.ds-ring-core span { font-size: 0.62em; font-weight: 600; color: #E8EDFF; }
+.ds-ring-core svg { width: 1.5em; height: 1.5em; color: var(--dsc-cyan); }
+.ds-ring-core b { font-size: 0.85em; font-weight: 700; }
+.ds-ring-core span { font-size: 0.6em; color: var(--dsc-dim); }
 
-/* ---------- AUTH ---------- */
+/* ---------- AUTH — admin passcode (Phase2_1) ---------- */
 
-.ds-auth {
-  flex: 1;
-  min-height: 0;
-  display: grid;
-  grid-template-columns: 1.15fr 1fr;
-  gap: 0.9em;
-  margin-top: 0.7em;
+.ds-dots { display: flex; justify-content: center; gap: 0.55em; }
+.ds-dots i {
+  width: 0.48em;
+  height: 0.48em;
+  border-radius: 999px;
+  background: rgba(233, 237, 251, 0.25);
 }
-
-.ds-tiers { display: flex; flex-direction: column; gap: 0.38em; }
-
-.ds-tier {
-  display: flex;
-  align-items: center;
-  gap: 0.6em;
-  padding: 0.42em 0.6em;
-  border-radius: 0.45em;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  font-size: 0.8em;
-}
-
-.ds-tier b {
-  display: grid;
-  place-items: center;
-  width: 1.6em;
-  height: 1.6em;
-  border-radius: 0.35em;
-  background: rgba(255, 255, 255, 0.12);
-  font-family: var(--font-mono);
-}
-
-.ds-tier small { margin-left: auto; font-size: 0.85em; color: rgba(232, 237, 255, 0.62); }
-.ds-tier svg { width: 1em; height: 1em; margin-left: auto; color: #5BE3A6; }
-
-.ds-tier--active {
-  background: var(--key);
-  border-color: var(--key);
-}
-
-.ds-tier--active b { background: rgba(255, 255, 255, 0.22); }
-.ds-tier--active small { color: #FFFFFF; animation: ds-breathe 1.6s ease-in-out infinite; }
-
-.ds-pin { display: flex; flex-direction: column; align-items: center; gap: 0.45em; }
-
-.ds-dots { display: flex; gap: 0.4em; }
-.ds-dots i { width: 0.55em; height: 0.55em; border-radius: 999px; border: 1px solid rgba(232, 237, 255, 0.55); }
-.ds-dots i.on { background: var(--led); border-color: var(--led); }
+.ds-dots i.on { background: #FFFFFF; }
 
 .ds-keypad {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.28em;
-  width: 100%;
+  grid-template-columns: repeat(3, 2.9em);
+  gap: 0.38em;
+  justify-content: center;
 }
 
 .ds-keypad span {
   display: grid;
   place-items: center;
-  height: 1.55em;
-  border-radius: 0.35em;
-  border: 1px solid rgba(232, 237, 255, 0.18);
-  font-family: var(--font-mono);
-  font-size: 0.72em;
-  color: rgba(232, 237, 255, 0.85);
+  height: 1.7em;
+  border-radius: 0.5em;
+  border: 1px solid var(--dsc-line);
+  background: rgba(13, 16, 38, 0.9);
+  font-size: 0.82em;
+  font-weight: 600;
 }
 
-.ds-keypad span.ok { border-color: var(--led); color: var(--led); }
+.ds-keypad span.ok,
+.ds-keypad span.clr { border-color: rgba(53, 212, 138, 0.65); color: var(--dsc-green); }
 
-/* ---------- ACCESS ---------- */
+/* ---------- PAIR — new device pairing (Phase3_4) ---------- */
 
-.ds-grid {
+.ds-code {
+  display: flex;
+  gap: 0.3em;
+  padding: 0.45em 0.65em;
+  border-radius: 0.6em;
+  border: 1px solid rgba(59, 130, 246, 0.5);
+  background: rgba(13, 31, 82, 0.75);
+}
+
+.ds-code b {
+  min-width: 1.1em;
+  font-size: 1.6em;
+  font-weight: 700;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+
+.ds-choice { display: flex; gap: 0.5em; }
+
+.ds-choice span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  padding: 0.4em 0.85em;
+  border-radius: 0.5em;
+  border: 1px solid var(--dsc-line);
+  font-size: 0.75em;
+  font-weight: 600;
+}
+
+.ds-choice span.yes { background: var(--dsc-blue); border-color: var(--dsc-blue); }
+.ds-choice svg { width: 1.1em; height: 1.1em; }
+
+/* ---------- ACCESS — Security Vault dashboard (Phase4_1) ---------- */
+
+.ds-bar-top {
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+  padding-bottom: 0.55em;
+}
+
+.ds-bar-top h4 {
+  display: flex;
+  align-items: center;
+  gap: 0.35em;
+  font-size: 0.92em;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.ds-bar-top h4 svg { width: 1.1em; height: 1.1em; color: var(--dsc-amber); }
+
+.ds-meta {
+  display: none;
+  margin-left: auto;
+  align-items: center;
+  gap: 0.85em;
+  font-size: 0.7em;
+  color: var(--dsc-dim);
+}
+
+.ds-meta .off { color: var(--dsc-red); }
+
+@container ds (min-width: 460px) {
+  .ds-meta { display: flex; }
+}
+
+.ds-cards {
   flex: 1;
   min-height: 0;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  gap: 0.5em;
-  margin-top: 0.7em;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.45em;
 }
 
-.ds-tile {
+@container ds (min-width: 460px) {
+  .ds-cards {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-rows: 1.1fr 1fr;
+  }
+  .ds-card--logs { grid-column: span 2; }
+}
+
+.ds-card {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  gap: 0.35em;
   min-height: 0;
-  padding: 0.6em 0.7em;
-  border-radius: 0.55em;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0.55em 0.65em;
+  border-radius: 0.6em;
+  border: 1px solid var(--dsc-line);
+  background: var(--dsc-card);
   font-size: 0.78em;
 }
 
-.ds-tile--open { background: var(--key); border-color: var(--key); }
-.ds-tile svg { width: 1.3em; height: 1.3em; }
-
-.ds-tile strong { font-size: 1.5em; font-weight: 700; line-height: 1.1; }
-.ds-tile strong small { font-size: 0.55em; font-weight: 500; margin-left: 0.2em; }
-
-.ds-bar {
-  position: relative;
-  height: 0.4em;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.12);
-  overflow: hidden;
+.ds-card > h5 {
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+  font-size: 1em;
+  font-weight: 600;
+  color: var(--dsc-dim);
 }
 
-.ds-bar::after {
+.ds-card > h5 svg { width: 1.05em; height: 1.05em; }
+
+.ds-card--vault { border-color: rgba(245, 165, 36, 0.6); }
+.ds-card--vault > h5 { color: var(--dsc-amber); }
+.ds-card--device { border-color: rgba(59, 130, 246, 0.5); }
+.ds-card--device > h5 { color: var(--dsc-blue); }
+.ds-card--health > h5 svg { color: var(--dsc-violet); }
+
+.ds-toggle {
+  margin-left: auto;
+  width: 1.9em;
+  height: 1em;
+  border-radius: 999px;
+  background: var(--dsc-amber);
+  position: relative;
+  flex: none;
+}
+
+.ds-toggle::after {
   content: "";
   position: absolute;
-  inset: 0 auto 0 0;
-  width: 0;
-  border-radius: inherit;
-  background: var(--led);
-  animation: ds-fill 2.6s ease-in-out 300ms infinite;
+  top: 0.14em;
+  right: 0.14em;
+  width: 0.72em;
+  height: 0.72em;
+  border-radius: 999px;
+  background: #FFFFFF;
 }
 
-@keyframes ds-fill {
-  0% { width: 0; }
-  70% { width: 100%; }
-  100% { width: 100%; opacity: 0; }
+.ds-state { font-size: 1.3em; font-weight: 700; color: var(--dsc-amber); }
+.ds-metric { font-size: 1.6em; font-weight: 700; line-height: 1; }
+.ds-metric small { font-size: 0.5em; font-weight: 500; margin-left: 0.25em; color: var(--dsc-dim); }
+
+.ds-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5em;
+  white-space: nowrap;
+  font-size: 0.95em;
+  padding-top: 0.35em;
+  border-top: 1px solid var(--dsc-line);
+}
+
+.ds-row b { font-weight: 700; }
+.ds-blue { color: var(--dsc-blue); }
+.ds-green { color: var(--dsc-green); }
+
+.ds-logs { display: flex; flex-direction: column; gap: 0.3em; min-height: 0; overflow: hidden; }
+
+.ds-log {
+  display: flex;
+  align-items: center;
+  gap: 0.55em;
+  font-size: 0.92em;
+  white-space: nowrap;
+}
+
+.ds-log time { color: var(--dsc-dim); font-variant-numeric: tabular-nums; }
+.ds-log span { overflow: hidden; text-overflow: ellipsis; }
+
+.ds-tag {
+  margin-left: auto;
+  padding: 0.05em 0.6em;
+  border-radius: 999px;
+  font-size: 0.85em;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.ds-tag--app { background: var(--dsc-blue); }
+.ds-tag--files { background: rgba(53, 212, 138, 0.9); color: #04281A; }
+
+/* secondary rows only when there is room */
+.ds-opt { display: none; }
+
+@container ds (min-width: 380px) {
+  .ds-opt { display: flex; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .ds-ring-progress { stroke-dashoffset: 0; animation: none; }
-  .ds-bar::after { width: 64%; animation: none; }
-  .ds-keyslot, .ds-tier--active small { animation: none; opacity: 1; }
 }
 
 /* ---------- Product stage step progress ---------- */
@@ -331,8 +431,6 @@
 .stage-fill--run {
   animation: stage-fill var(--stage-ms, 3600ms) linear forwards;
 }
-
-.stage-paused .stage-fill--run { animation-play-state: paused; }
 
 @keyframes stage-fill {
   to { width: 100%; }

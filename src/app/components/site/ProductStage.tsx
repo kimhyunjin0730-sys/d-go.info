@@ -47,7 +47,6 @@ export default function ProductStage() {
   const reducedMotion = usePrefersReducedMotion();
   const [index, setIndex] = useState(0);
   const [playing, setPlaying] = useState(!reducedMotion);
-  const [hovered, setHovered] = useState(false);
 
   useEffect(() => {
     if (reducedMotion) setPlaying(false);
@@ -57,11 +56,7 @@ export default function ProductStage() {
   const autoplay = playing && !reducedMotion;
 
   return (
-    <figure
-      className={cn("m-0", hovered && "stage-paused")}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-    >
+    <figure className="m-0">
       <div className="relative">
         <ProductImage priority />
         <div className="absolute" style={SCREEN_BOX}>

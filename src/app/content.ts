@@ -31,7 +31,7 @@ export const SALES_PARTNERS = [
   "워킹랩",
 ] as const;
 
-export type ScreenState = "key" | "boot" | "auth" | "access";
+export type ScreenState = "key" | "boot" | "auth" | "pair" | "access";
 
 /** 전원을 켤 때마다 — 기기 본체의 매 가동 흐름 */
 export const BOOT_STEPS: {
@@ -50,7 +50,7 @@ export const BOOT_STEPS: {
     tag: "PUF USB 삽입",
     body: "등록된 전용 키(복제 불가 PUF USB)를 본체에 꽂습니다.",
     strong: "키가 없으면 전원조차 켜지지 않습니다.",
-    screenLabel: "본체 화면 — PUF 보안키 대기",
+    screenLabel: "본체 화면 — PUF 키 미연결, 하드웨어 보안 접근 차단",
   },
   {
     code: "BOOT",
@@ -59,7 +59,7 @@ export const BOOT_STEPS: {
     tag: "보안키 인증 시",
     body: "본체 화면에서 인증 결과를 확인합니다.",
     strong: "올바른 키일 때만 기동하며, 키를 뽑으면 그 순간 전체 잠금됩니다.",
-    screenLabel: "본체 화면 — PUF 인증 완료",
+    screenLabel: "본체 화면 — PUF 인증 완료(Safety Verified)",
   },
   {
     code: "AUTH",
@@ -68,7 +68,7 @@ export const BOOT_STEPS: {
     tag: "C·D·E 권한 승인",
     body: "문서 중요도에 따라 3단계 — C 일반(ID·비밀번호), D 보호(+2차 인증), E 기밀(+스마트폰 생체인증).",
     strong: "중요한 문서일수록 여는 방법이 엄격해집니다.",
-    screenLabel: "본체 화면 — 비밀번호 인증",
+    screenLabel: "본체 화면 — 관리자 비밀번호 확인",
   },
   {
     code: "ACCESS",
@@ -77,7 +77,7 @@ export const BOOT_STEPS: {
     tag: "C·D·E 범위 열람",
     body: "승인된 범위의 문서만 열리고, 인터넷 없이 문서 검색·요약을 시작합니다. 실물 보관은 내장 금고 서랍(A4)으로.",
     strong: "동시에 로컬 AI가 가동됩니다.",
-    screenLabel: "본체 화면 — 대시보드(금고 열림)",
+    screenLabel: "본체 화면 — D-GO Security Vault 대시보드",
   },
 ];
 
