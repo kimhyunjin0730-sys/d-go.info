@@ -180,6 +180,14 @@
     line-height: 1.12;
   }
 
+  /* Lighter cut of the display face — for the page's largest headline */
+  .display-light {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    line-height: 1.16;
+  }
+
   /* Legacy helpers still referenced by shadcn/ui wrappers */
   .badge {
     font-size: 0.72rem;

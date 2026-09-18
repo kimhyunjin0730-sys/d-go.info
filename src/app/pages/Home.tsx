@@ -48,7 +48,7 @@ export default function Home() {
                 <p className="eyebrow text-led">Zero-Outbound&nbsp;&nbsp;·&nbsp;&nbsp;Air-Gap</p>
               </div>
 
-              <h1 id="hero-title" className="display mt-5 text-[clamp(1.875rem,2.9vw,2.625rem)]">
+              <h1 id="hero-title" className="display-light mt-5 text-[clamp(1.875rem,3vw,2.75rem)]">
                 <span className="block">인터넷과 분리된</span>
                 <span className="block">독립형 데이터 안전금고.</span>
               </h1>
