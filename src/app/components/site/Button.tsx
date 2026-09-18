@@ -22,12 +22,15 @@ export function ButtonLink({
   to,
   href,
   variant = "primary",
+  external = false,
   className,
   children,
 }: {
   to?: string;
   href?: string;
   variant?: Variant;
+  /** Opens in a new tab — for links that leave the site. */
+  external?: boolean;
   className?: string;
   children: ReactNode;
 }) {
@@ -40,7 +43,7 @@ export function ButtonLink({
     );
   }
   return (
-    <a href={href} className={cls}>
+    <a href={href} className={cls} {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}>
       {children}
     </a>
   );

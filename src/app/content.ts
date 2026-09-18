@@ -7,6 +7,8 @@ export const CONTACT = {
   tel: "tel:18000705",
   company: "(주)진앤현시큐리티",
   addressLines: ["경기 하남시 미사대로 540", "현대지식산업센터 한강미사2차 비동 614호"],
+  kakaoChannel: "https://pf.kakao.com/_QtXnX",
+  kakaoChat: "https://pf.kakao.com/_QtXnX/chat",
   hours: "평일 09:00–18:00",
   holidays: "주말·공휴일 휴무",
   site: "www.d-go.info",

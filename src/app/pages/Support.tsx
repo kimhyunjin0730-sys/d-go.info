@@ -166,7 +166,16 @@ export default function Support() {
               </span>
               <h3 className="mt-4 text-lg font-bold text-ink">카카오톡 채널</h3>
               <p className="mt-1 text-xl font-bold tracking-tight text-navy">24시간 고객 지원</p>
-              <p className="mt-0.5 text-sm text-ink-3">QR 스캔으로 채널 추가</p>
+              <p className="mt-0.5 text-sm text-ink-3">채팅으로 바로 문의하거나, 휴대폰으로 QR을 스캔해 채널을 추가하세요.</p>
+              <div className="mt-4 flex flex-wrap gap-2">
+                <ButtonLink href={CONTACT.kakaoChat} external className="h-10 min-h-10 px-4 text-sm">
+                  <MessageCircle size={16} aria-hidden="true" />
+                  채팅 시작하기
+                </ButtonLink>
+                <ButtonLink href={CONTACT.kakaoChannel} external variant="secondary" className="h-10 min-h-10 px-4 text-sm">
+                  채널 홈 열기
+                </ButtonLink>
+              </div>
             </div>
             <div className="mt-5 flex items-center justify-center rounded-xl border border-panel-line bg-white p-4 md:mt-0 md:w-56 md:flex-none lg:mt-5 lg:w-auto lg:flex-1">
               {/* The PNG ships on a light-gray canvas with wide margins: crop to the code + label and lift the gray to white. */}

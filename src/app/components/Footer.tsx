@@ -54,8 +54,15 @@ export default function Footer() {
                   <Phone size={16} aria-hidden="true" /> {CONTACT.phone}
                 </a>
               </li>
-              <li className="flex items-center gap-2.5">
-                <MessageCircle size={16} aria-hidden="true" /> 카카오톡 채널 (24시간 고객 지원)
+              <li>
+                <a
+                  href={CONTACT.kakaoChat}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex min-h-9 items-center gap-2.5 transition-colors duration-200 hover:text-white"
+                >
+                  <MessageCircle size={16} aria-hidden="true" /> 카카오톡 채널 (24시간 고객 지원)
+                </a>
               </li>
               <li className="flex items-start gap-2.5">
                 <MapPin size={16} className="mt-0.5 flex-none" aria-hidden="true" />
