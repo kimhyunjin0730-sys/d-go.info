@@ -13,17 +13,26 @@ const NAV_LINKS = [
   { path: "/support", label: "문의" },
 ];
 
+/**
+ * Official lockup artwork from the 2026 collateral (marketing/그래픽).
+ * The wordmark is part of the image — the logo's G is drawn, not typeset.
+ */
 export function BrandLockup({ tone = "light", className }: { tone?: "light" | "dark"; className?: string }) {
+  const dark = tone === "dark";
   return (
-    <span className={cn("flex items-center gap-2.5", className)}>
-      <img src="/logo/dgo-mark-96.png" alt="" width={40} height={40} className="h-9 w-9" />
-      <span className="flex flex-col leading-none">
-        <span className={cn("display text-[1.375rem] tracking-[0.02em]", tone === "light" ? "text-key" : "text-white")}>D-GO</span>
-        <span className={cn("mt-0.5 text-[0.6875rem] font-medium tracking-[0.01em]", tone === "light" ? "text-ink-2" : "text-on-navy-2")}>
-          Quantum Data Vault
-        </span>
-      </span>
-    </span>
+    <img
+      src={dark ? "/logo/dgo-lockup-dark.png" : "/logo/dgo-lockup.png"}
+      srcSet={
+        dark
+          ? "/logo/dgo-lockup-dark-300.png 300w, /logo/dgo-lockup-dark.png 600w"
+          : "/logo/dgo-lockup-300.png 300w, /logo/dgo-lockup.png 600w"
+      }
+      sizes="180px"
+      width={600}
+      height={dark ? 175 : 176}
+      alt="D-GO Quantum Data Vault"
+      className={cn("h-11 w-auto", className)}
+    />
   );
 }
 
