@@ -1,0 +1,35 @@
+{
+  "title": "D-GO 앱의 두 가지 기능",
+  "lead": "금고를 관리하는 디고 금고관리와 데이터를 보호하는 디고 안전폴더를 함께 제공합니다.",
+  "detailsLabel": "앱 관리 자세히 보기",
+  "vault": {
+    "title": "디고 금고관리",
+    "description": "연결된 금고의 상태와 관리 화면을 확인합니다."
+  },
+  "folder": {
+    "title": "디고 안전폴더",
+    "description": "파일과 음성 기록을 보호하고, 문서 인증과 키·인증서 관리를 제공합니다."
+  },
+  "features": {
+    "encryption": {
+      "title": "데이터 암호화·복호화",
+      "description": "데이터를 암호화하고, 이용할 때 복호화합니다."
+    },
+    "timestamp": {
+      "title": "문서시점인증",
+      "description": "문서의 시점 정보를 인증합니다."
+    },
+    "documentAccess": {
+      "title": "문서열람인증",
+      "description": "문서를 열람한 사실을 증명합니다."
+    },
+    "recording": {
+      "title": "음성녹음·저장",
+      "description": "음성을 녹음하고 저장합니다."
+    },
+    "credentials": {
+      "title": "키/인증서 관리",
+      "description": "키와 인증서를 관리합니다."
+    }
+  }
+}

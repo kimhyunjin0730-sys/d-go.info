@@ -1,6 +1,7 @@
-import { BookOpen, Clock, FileText, Info, KeyRound, Languages, Monitor, Smartphone, Upload } from "lucide-react";
+import { BookOpen, Clock, FileText, Info, Languages, Monitor, Smartphone } from "lucide-react";
 import { CONTACT, mailto } from "../content";
 import { ButtonLink } from "../components/site/Button";
+import AppFeatures from "../components/site/AppFeatures";
 import { AirGapDiagram, BootSequence, OnboardingFlows } from "../components/site/Diagrams";
 import { Eyebrow, PageHero, Section, SectionIntro } from "../components/site/Layout";
 
@@ -22,27 +23,6 @@ const CONNECT_CHECKS = [
   "앱 권한(위치, Wi-Fi)이 모두 허용되어 있나요?",
 ];
 
-const FEATURES = [
-  {
-    icon: Upload,
-    title: "파일 업로드",
-    body: "중요한 문서, 사진, 동영상을 암호화하여 안전하게 저장합니다.",
-    points: ["앱에서 “파일 추가” 버튼 선택", "파일 선택 후 자동 암호화 및 전송", "업로드 완료 후 원본은 자동 삭제 가능"],
-  },
-  {
-    icon: FileText,
-    title: "파일 조회",
-    body: "저장된 파일을 안전하게 조회하고 관리합니다.",
-    points: ["파일 목록에서 원하는 파일 선택", "PUF 인증 후 복호화하여 미리보기", "필요시 보안 USB로 내보내기"],
-  },
-  {
-    icon: KeyRound,
-    title: "보안키 관리",
-    body: "물리 키와 디지털 인증을 통한 이중 보안 시스템",
-    points: ["PUF 물리 키는 안전한 장소에 보관", "디지털 백업키는 별도 저장 매체에 보관", "복구 시나리오에 따라 이중 복구 가능"],
-  },
-];
-
 const FAQS = [
   {
     q: "(Android) 앱 설치 시 '출처를 알 수 없는 앱' 오류가 발생합니다",
@@ -58,7 +38,7 @@ const FAQS = [
   },
   {
     q: "보안키를 분실했어요",
-    a: "물리 키 분실: 등록된 모바일 앱으로 복구 가능. 디지털 인증 분실: 물리 키로 복구 가능. 둘 다 분실: 고객센터로 문의해주세요.",
+    a: "보안키를 분실하면 고객센터에 문의해 주세요. 등록된 기기와 인증서 상태에 따라 필요한 확인 절차를 안내드립니다.",
   },
 ];
 
@@ -182,27 +162,7 @@ export default function Manual() {
         </div>
       </Section>
 
-      {/* ── 주요 기능 안내 ── */}
-      <Section labelledBy="feature-title">
-        <SectionIntro id="feature-title" eyebrow="Features" title="주요 기능 안내" />
-        <ul className="grid gap-4 md:grid-cols-3 lg:gap-5">
-          {FEATURES.map((f) => (
-            <li key={f.title} className="rounded-2xl border border-panel-line bg-panel p-5 md:p-6">
-              <f.icon size={28} strokeWidth={1.6} className="text-key" aria-hidden="true" />
-              <h3 className="mt-3 text-lg font-bold text-navy">{f.title}</h3>
-              <p className="mt-1.5 text-[0.9375rem] leading-relaxed text-ink-2">{f.body}</p>
-              <ul className="mt-4 space-y-2 border-t border-panel-line pt-4">
-                {f.points.map((p) => (
-                  <li key={p} className="flex items-start gap-2.5 text-[0.9375rem] leading-relaxed text-ink">
-                    <span className="mt-[0.6rem] h-1.5 w-1.5 flex-none rounded-full bg-key" aria-hidden="true" />
-                    <span>{p}</span>
-                  </li>
-                ))}
-              </ul>
-            </li>
-          ))}
-        </ul>
-      </Section>
+      <AppFeatures />
 
       {/* ── FAQ ── */}
       <Section tone="mist" labelledBy="faq-title">

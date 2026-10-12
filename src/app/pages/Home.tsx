@@ -11,6 +11,7 @@ import {
   mailto,
 } from "../content";
 import { ButtonLink } from "../components/site/Button";
+import AppFeatures from "../components/site/AppFeatures";
 import { AirGapDiagram, BootSequence, OnboardingFlows, TierTable } from "../components/site/Diagrams";
 import { BandHeader, Container, Eyebrow, Section, SectionIntro } from "../components/site/Layout";
 import ProductStage from "../components/site/ProductStage";
@@ -152,6 +153,8 @@ export default function Home() {
           </div>
         </Container>
       </section>
+
+      <AppFeatures compact />
 
       {/* ── 전원을 켤 때마다 ── */}
       <section aria-labelledby="boot-title">

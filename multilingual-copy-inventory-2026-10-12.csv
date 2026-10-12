@@ -1,0 +1,604 @@
+source,line,ko_source_line,ja_draft,en_draft,status
+src/app/pages/Product.tsx,36,/** 사양 스트립 — 8항목 (value: 줄바꿈 가능한 덩어리 단위) */,,,candidate
+src/app/pages/Product.tsx,38,"{ icon: HardDrive, label: ""Storage"", value: [""외부 격리"", ""NVMe SSD""] },",,,candidate
+src/app/pages/Product.tsx,40,"{ icon: Cpu, label: ""Auth"", value: [""ICTK PUF 칩""] },",,,candidate
+src/app/pages/Product.tsx,43,"{ icon: Wifi, label: ""Link"", value: [""전용 폐쇄망 ·"", ""mTLS""] },",,,candidate
+src/app/pages/Product.tsx,44,"{ icon: BatteryCharging, label: ""UPS"", value: [""무정전 전원 공급""] },",,,candidate
+src/app/pages/Product.tsx,48,/** 주요 기능 */,,,candidate
+src/app/pages/Product.tsx,53,"title: ""물리적·디지털 하이브리드 금고"",",,,candidate
+src/app/pages/Product.tsx,54,"body: ""인감, OTP, 통장 등 실물 자산과 디지털 기밀 데이터를 함께 보관하는 올인원 보안 금고"",",,,candidate
+src/app/pages/Product.tsx,59,"title: ""이중 암호화"",",,,candidate
+src/app/pages/Product.tsx,60,"body: ""AES-256 + RSA-2048 이중 암호화로 도난·분실 시에도 데이터 유출 원천 차단"",",,,candidate
+src/app/pages/Product.tsx,62,"{ icon: Cpu, tag: ""PUF"", title: ""PUF 인증"", body: ""반도체 지문 기반 인증으로 복제 불가능한 보안 시스템 구현"" },",,,candidate
+src/app/pages/Product.tsx,66,"title: ""물리적 포트 통제"",",,,candidate
+src/app/pages/Product.tsx,67,"body: ""PUF 승인 시에만 USB-C 및 네트워크 드라이브가 물리적으로 활성화"",",,,candidate
+src/app/pages/Product.tsx,72,/** 4대 핵심 기능 */,,,candidate
+src/app/pages/Product.tsx,76,"title: ""인증 & 접근 관리"",",,,candidate
+src/app/pages/Product.tsx,78,"""PUF USB 하드웨어 인증 — 서버 기동 물리 열쇠 역할"",",,,candidate
+src/app/pages/Product.tsx,79,"""관리자 QR 코드 발급 + SSID/RSSI 근접 검증으로 신규 기기 등록"",",,,candidate
+src/app/pages/Product.tsx,80,"""본체 화면에 표시되는 6자리 코드로 신규 기기 승인"",",,,candidate
+src/app/pages/Product.tsx,81,"""mTLS 기반 인증서 발급, 비인가 기기 원천 차단"",",,,candidate
+src/app/pages/Product.tsx,82,"""데스크톱 접근 시 등록 모바일로 생체 인증 요청 전송"",",,,candidate
+src/app/pages/Product.tsx,87,"title: ""Local AI — 오프라인 파일 지능화"",",,,candidate
+src/app/pages/Product.tsx,89,"""Local RAG & LLM — 서버 내 AI가 내 파일 내용 학습·답변·요약"",",,,candidate
+src/app/pages/Product.tsx,90,"""폐쇄망 Local AI · NPU 6 TOPS 내장"",",,,candidate
+src/app/pages/Product.tsx,91,"""완전 폐쇄망 동작 — 데이터 외부 유출 제로"",",,,candidate
+src/app/pages/Product.tsx,92,"""“Local Notebook LM” 방식으로 문서 기반 Q&A 지원"",",,,candidate
+src/app/pages/Product.tsx,97,"title: ""E2EE 암호 볼트"",",,,candidate
+src/app/pages/Product.tsx,99,"""패스워드·연락처 등 민감 정보를 단말기에서 직접 암호화"",",,,candidate
+src/app/pages/Product.tsx,100,"""서버 관리자조차 내용 열람 불가 (End-to-End Encryption)"",",,,candidate
+src/app/pages/Product.tsx,101,"""AES-256 + RSA-2048 이중 암호화 적용"",",,,candidate
+src/app/pages/Product.tsx,106,"title: ""무결성 감사 & 모니터링"",",,,candidate
+src/app/pages/Product.tsx,108,"""접속 시각·읽기/쓰기/삭제 이력 수정 불가 시계열 DB 기록"",",,,candidate
+src/app/pages/Product.tsx,109,"""이상 접근 실시간 알림 — 탈취 시 키 자동 즉시 소멸"",",,,candidate
+src/app/pages/Product.tsx,110,"""온도·디스크·메모리·업타임 실시간 모니터링"",",,,candidate
+src/app/pages/Product.tsx,111,"""기기 간 파일 즉시 동기화 — 업무 연속성 보장"",",,,candidate
+src/app/pages/Product.tsx,116,/** 시스템 구성 */,,,candidate
+src/app/pages/Product.tsx,121,"title: ""하드웨어 · 공급 본체"",",,,candidate
+src/app/pages/Product.tsx,123,"{ label: ""임베디드 서버"", desc: ""리눅스 기반 임베디드 OS · 내부 서버 + 컨트롤 보드 일체형 구조"" },",,,candidate
+src/app/pages/Product.tsx,124,"{ label: ""로컬 AI 연산"", desc: ""NPU 6 TOPS · 폐쇄망 Local RAG LLM"" },",,,candidate
+src/app/pages/Product.tsx,125,"{ label: ""8인치 터치스크린"", desc: ""본체 전면 터치 키패드 및 문서 관리 UI 시스템 탑재"" },",,,candidate
+src/app/pages/Product.tsx,126,"{ label: ""개폐 제어 시스템"", desc: ""전자식 버튼 + PUF 인증 기반 모터 드라이버 금고 개폐 제어"" },",,,candidate
+src/app/pages/Product.tsx,127,"{ label: ""디지털 자산 저장"", desc: ""PUF 기반 고유 키 생성 · RAID 1 이중화 · SSD 이중화 저장 구조"" },",,,candidate
+src/app/pages/Product.tsx,128,"{ label: ""환경 센싱"", desc: ""온도·습도 모니터링 · 125°F 초과 시 자동 셧다운 기능"" },",,,candidate
+src/app/pages/Product.tsx,134,"title: ""소프트웨어"",",,,candidate
+src/app/pages/Product.tsx,142,/** 상세 사양 */,,,candidate
+src/app/pages/Product.tsx,144,"{ label: ""타겟 하드웨어"", value: ""리눅스 기반 고성능 AI SBC 탑재"" },",,,candidate
+src/app/pages/Product.tsx,145,"{ label: ""로컬 AI"", value: ""폐쇄망 Local RAG LLM · NPU\u00a06\u00a0TOPS"" },",,,candidate
+src/app/pages/Product.tsx,146,"{ label: ""물리적 수납 규격"", value: ""320mm × 230mm × 40mm (A4 서류 수납 최적화)"" },",,,candidate
+src/app/pages/Product.tsx,147,"{ label: ""물리적 보관함"", value: ""인감도장 · 계약서 · 통장 · 등기권리증 · OTP · 보안카드"" },",,,candidate
+src/app/pages/Product.tsx,148,"{ label: ""스토리지"", value: ""외부 격리 NVMe SSD · 계층형 보안 파티션 (C/D/E)"" },",,,candidate
+src/app/pages/Product.tsx,149,"{ label: ""암호화"", value: ""AES-256 + RSA-2048 이중 암호화"" },",,,candidate
+src/app/pages/Product.tsx,150,"{ label: ""네트워크"", value: ""Air-Gap · Zero-Outbound · 화이트리스트 업데이트"" },",,,candidate
+src/app/pages/Product.tsx,151,"{ label: ""통신"", value: ""전용 폐쇄망(Private Wi-Fi) · 상호 인증 mTLS"" },",,,candidate
+src/app/pages/Product.tsx,152,"{ label: ""지원 플랫폼"", value: ""Windows · macOS · Linux (PC 앱) · iOS · Android (모바일 앱)"" },",,,candidate
+src/app/pages/Product.tsx,153,"{ label: ""웹브라우저"", value: ""보안 취약성 방지를 위해 원천 차단"" },",,,candidate
+src/app/pages/Product.tsx,154,"{ label: ""모니터링"", value: ""온도 · 디스크 · 메모리 · 업타임 실시간 대시보드"" },",,,candidate
+src/app/pages/Product.tsx,157,/** 타겟 고객 */,,,candidate
+src/app/pages/Product.tsx,159,"{ icon: Scale, title: ""전문직 종사자"", desc: ""변호사·회계사·세무사 — 비밀 유지 의무가 있는 계약서를 AI로 다루고 싶은 분"" },",,,candidate
+src/app/pages/Product.tsx,160,"{ icon: FlaskConical, title: ""연구소 · 제조"", desc: ""도면·미공개 기술자료를 유출 없이 축적하려는 곳"" },",,,candidate
+src/app/pages/Product.tsx,161,"{ icon: Home, title: ""스마트홈 사용자"", desc: ""클라우드 월정액 대체·개인정보 완전 자가 통제"" },",,,candidate
+src/app/pages/Product.tsx,162,"{ icon: Landmark, title: ""의료·공공기관"", desc: ""개인정보가 포함된 문서를 규제 안에서 활용 · 감사 로그 완비"" },",,,candidate
+src/app/pages/Product.tsx,165,/** PUF 물리 인증 — 사이트 공통 카피(BOOT_STEPS · PROOF_POINTS · FAQ)에서 발췌 */,,,candidate
+src/app/pages/Product.tsx,166,"const PUF_POINTS = [""키가 없으면 전원조차 켜지지 않습니다"", ""키를 뽑는 순간 전체 잠금"", ""탈취·분해 시 보안키 자동 소멸""];",,,candidate
+src/app/pages/Product.tsx,202,"lead=""인터넷에 연결되지 않는 ‘독립형 데이터 안전금고’입니다. 문서 보관도, AI 검색·요약도, 이 한 대 안에서 모두 끝납니다.""",,,candidate
+src/app/pages/Product.tsx,208,제품 개요,,,candidate
+src/app/pages/Product.tsx,217,외부 클라우드에 의존하지 않고 가정·사무실의 폐쇄망(Private Wi-Fi) 내에서만 동작하는 초강력 보안 파일·모니터링 서버.,,,candidate
+src/app/pages/Product.tsx,220,물리적 하드웨어 인증과 계층형 보안 파티션을 결합한 차세대 개인형 물리적·디지털 데이터 금고입니다.,,,candidate
+src/app/pages/Product.tsx,225,"<ul className=""flex flex-wrap gap-2"" aria-label=""하드웨어 사양"">",,,candidate
+src/app/pages/Product.tsx,232,"<ul className=""mt-6 flex flex-wrap items-center gap-x-5 gap-y-3 border-t border-line pt-6"" aria-label=""인증 및 제조"">",,,candidate
+src/app/pages/Product.tsx,237,"<img src=""/logo/KC인증.svg"" alt=""KC 인증"" width={198} height={306} className=""h-7 w-auto"" />",,,candidate
+src/app/pages/Product.tsx,255,핵심 사양,,,candidate
+src/app/pages/Product.tsx,279,"<SectionIntro id=""features-title"" eyebrow=""Key Features"" title=""주요 기능"" />",,,candidate
+src/app/pages/Product.tsx,303,"<SectionIntro id=""capabilities-title"" eyebrow=""Core Capabilities"" title=""4대 핵심 기능"" />",,,candidate
+src/app/pages/Product.tsx,331,"<SectionIntro id=""system-title"" eyebrow=""System"" title=""시스템 구성"" />",,,candidate
+src/app/pages/Product.tsx,360,"title=""데이터 보안 라이프사이클""",,,candidate
+src/app/pages/Product.tsx,361,"lead=""파일과 음성 기록을 입력하고, 암호화해 보관하고, 접근을 관리하는 흐름""",,,candidate
+src/app/pages/Product.tsx,374,"<span className=""sr-only"">1단계. </span>모바일 입력",,,candidate
+src/app/pages/Product.tsx,379,"<p className=""font-bold text-ink"">파일·음성 입력</p>",,,candidate
+src/app/pages/Product.tsx,380,"<p className=""mt-0.5 text-sm leading-relaxed text-ink-2"">파일 추가와 음성녹음·저장</p>",,,candidate
+src/app/pages/Product.tsx,385,디고 안전폴더로 데이터 보호,,,candidate
+src/app/pages/Product.tsx,401,"<span className=""sr-only"">2단계. </span>금고 암호화 분배",,,candidate
+src/app/pages/Product.tsx,405,"<p className=""font-bold text-ink"">PUF 키 생성 및 AES 인증</p>",,,candidate
+src/app/pages/Product.tsx,408,"<p className=""pt-2 text-sm font-semibold text-ink-2"">파티션 자동 분류 (C/D/E)</p>",,,candidate
+src/app/pages/Product.tsx,409,"<ul className=""mt-2 grid grid-cols-3 gap-1.5"" aria-label=""보안 파티션"">",,,candidate
+src/app/pages/Product.tsx,411,"<span className=""font-mono text-key"">C</span> 일반",,,candidate
+src/app/pages/Product.tsx,414,"<span className=""font-mono text-key"">D</span> 보호",,,candidate
+src/app/pages/Product.tsx,417,"<span className=""font-mono"">E</span> 기밀",,,candidate
+src/app/pages/Product.tsx,435,"<span className=""sr-only"">3단계. </span>출력 제어",,,candidate
+src/app/pages/Product.tsx,445,PUF 인증 후에만 활성화,,,candidate
+src/app/pages/Product.tsx,449,네트워크 및 물리 포트 통제,,,candidate
+src/app/pages/Product.tsx,463,"title=""PUF + 3단 보안 등급""",,,candidate
+src/app/pages/Product.tsx,464,"lead=""PUF · 2FA · 생체인증을 단계별로 결합 — 민감도별 접근 분리""",,,candidate
+src/app/pages/Product.tsx,470,"<p className=""eyebrow text-led"">Step 1 · 서버 기동</p>",,,candidate
+src/app/pages/Product.tsx,475,"<h3 className=""mt-1 text-2xl font-bold md:text-[1.75rem]"">물리 인증 (PUF USB)</h3>",,,candidate
+src/app/pages/Product.tsx,476,"<p className=""mt-2 text-base leading-relaxed text-on-navy-2"">복제 불가능 하드웨어 인증으로 서버 기동 제어</p>",,,candidate
+src/app/pages/Product.tsx,491,<Eyebrow>Step 2 · 문서 접근</Eyebrow>,,,candidate
+src/app/pages/Product.tsx,492,"<h3 className=""mt-2 text-2xl font-bold text-navy"">3단 보안 등급</h3>",,,candidate
+src/app/pages/Product.tsx,493,"<p className=""mt-1 text-sm text-ink-2"">중요한 문서일수록 여는 방법이 엄격해집니다.</p>",,,candidate
+src/app/pages/Product.tsx,500,"<strong className=""font-bold text-navy"">E 기밀</strong> 문서는 모바일 생체 <span className=""whitespace-nowrap"">인증(얼굴·지문)에</span> 성공해야 화면에 표시됩니다.",,,candidate
+src/app/pages/Product.tsx,511,"title=""전원을 켤 때마다 —""",,,candidate
+src/app/pages/Product.tsx,512,"accent=""인터넷 없는 로컬 AI 가동""",,,candidate
+src/app/pages/Product.tsx,513,"aside=""기기 본체의 매 가동 흐름입니다. 모든 단계가 외부와 연결 없이 끝납니다.""",,,candidate
+src/app/pages/Product.tsx,524,"<SectionIntro id=""detail-specs-title"" eyebrow=""Detailed Specs"" title=""상세 사양"" className=""mb-0 md:mb-0"" />",,,candidate
+src/app/pages/Product.tsx,528,"“A4 계약서를 접지 않고 그대로, 인감도장은 서버 깊숙한 곳에.”",,,candidate
+src/app/pages/Product.tsx,535,"<caption className=""sr-only"">D-GO 상세 사양</caption>",,,candidate
+src/app/pages/Product.tsx,553,"<SectionIntro id=""targets-title"" eyebrow=""Target Customers"" title=""타겟 고객"" />",,,candidate
+src/app/pages/Product.tsx,573,인증 및 품질,,,candidate
+src/app/pages/Product.tsx,582,"<p className=""mt-1 text-sm text-ink-2"">반도체 지문 인증</p>",,,candidate
+src/app/pages/Product.tsx,586,"<img src=""/logo/KC인증.svg"" alt="""" width={198} height={306} className=""h-11 w-auto"" />",,,candidate
+src/app/pages/Product.tsx,588,"<h3 className=""mt-3 font-bold text-navy"">KC 인증</h3>",,,candidate
+src/app/pages/Product.tsx,589,"<p className=""mt-1 text-sm text-ink-2"">국가 안전 인증</p>",,,candidate
+src/app/pages/Product.tsx,596,"<p className=""mt-1 text-sm text-ink-2"">내화·내구성 인증</p>",,,candidate
+src/app/pages/Product.tsx,603,"<p className=""mt-1 text-sm text-ink-2"">국내 생산</p>",,,candidate
+src/app/pages/Product.tsx,614,"문서도 AI도 금고 안에서,",,,candidate
+src/app/pages/Product.tsx,616,"<span className=""text-led"">실제 기기로</span> 확인하세요.",,,candidate
+src/app/pages/Product.tsx,619,"PUF 키 인증부터 로컬 AI 검색·요약, 내장 금고 서랍까지 실제 기기로 보여드립니다. 법인·단체 도입 상담도 함께 받습니다.",,,candidate
+src/app/pages/Product.tsx,624,"도입 문의하기 <ArrowRight size={18} aria-hidden=""true"" />",,,candidate
+src/app/pages/Product.tsx,626,"<ButtonLink href={mailto(""D-GO 실기기 시연 요청"")} variant=""onNavyGhost"">",,,candidate
+src/app/pages/Product.tsx,627,시연 요청하기,,,candidate
+src/app/pages/Manual.tsx,9,"{ icon: Monitor, title: ""PC 앱"", body: ""D-GO 전용 관리 앱"", meta: ""Windows · macOS · Linux"" },",,,candidate
+src/app/pages/Manual.tsx,10,"{ icon: Smartphone, title: ""모바일 앱"", body: ""D-GO 전용 관리 앱"", meta: ""iOS · Android"" },",,,candidate
+src/app/pages/Manual.tsx,14,"{ icon: FileText, title: ""Quick Start 가이드"", body: ""빠른 시작 안내서"", meta: ""PDF · 한글"" },",,,candidate
+src/app/pages/Manual.tsx,15,"{ icon: BookOpen, title: ""전체 매뉴얼"", body: ""상세 사용 설명서"", meta: ""PDF · 한글"" },",,,candidate
+src/app/pages/Manual.tsx,20,"""본체와 같은 전용 폐쇄망(Private Wi-Fi)에 연결되어 있나요?"",",,,candidate
+src/app/pages/Manual.tsx,21,"""PUF 보안키가 본체에 꽂혀 있나요?"",",,,candidate
+src/app/pages/Manual.tsx,22,"""본체 전원이 연결되어 있나요?"",",,,candidate
+src/app/pages/Manual.tsx,23,"""앱 권한(위치, Wi-Fi)이 모두 허용되어 있나요?"",",,,candidate
+src/app/pages/Manual.tsx,28,"q: ""(Android) 앱 설치 시 '출처를 알 수 없는 앱' 오류가 발생합니다"",",,,candidate
+src/app/pages/Manual.tsx,29,"a: ""Android 기기 설정 > 보안 > 출처를 알 수 없는 앱 설치 허용을 활성화해주세요. 설치 후에는 다시 비활성화하시는 것을 권장합니다."",",,,candidate
+src/app/pages/Manual.tsx,32,"q: ""기기 등록이 되지 않아요"",",,,candidate
+src/app/pages/Manual.tsx,33,"a: ""① 본체와 같은 전용 폐쇄망(Private Wi-Fi)에 연결되어 있는지 ② PUF 보안키가 본체에 꽂혀 있는지 ③ 본체 전원이 연결되어 있는지 ④ 앱 권한(위치, Wi-Fi)이 모두 허용되어 있는지 확인하세요. 기기 등록은 근접 확인과 PUF 검증을 거치므로 본체 가까이에서 진행해 주세요."",",,,candidate
+src/app/pages/Manual.tsx,36,"q: ""파일을 업로드했는데 앱에서 보이지 않아요"",",,,candidate
+src/app/pages/Manual.tsx,37,"a: ""파일 목록 화면에서 아래로 당겨 새로고침 해보세요. 대용량 파일의 경우 암호화 및 전송에 시간이 걸릴 수 있습니다."",",,,candidate
+src/app/pages/Manual.tsx,40,"q: ""보안키를 분실했어요"",",,,candidate
+src/app/pages/Manual.tsx,41,"a: ""보안키를 분실하면 고객센터에 문의해 주세요. 등록된 기기와 인증서 상태에 따라 필요한 확인 절차를 안내드립니다."",",,,candidate
+src/app/pages/Manual.tsx,61,준비 중,,,candidate
+src/app/pages/Manual.tsx,72,"<PageHero eyebrow=""Manual"" title=""사용 매뉴얼"" lead=""D-GO Quantum Data Vault를 시작하는 모든 것 — 설치부터 고급 기능까지 단계별 안내"" />",,,candidate
+src/app/pages/Manual.tsx,76,"<SectionIntro id=""download-title"" eyebrow=""Downloads"" title=""다운로드"" />",,,candidate
+src/app/pages/Manual.tsx,81,"설치 파일과 PDF 매뉴얼은 정식 배포를 준비하고 있습니다. 먼저 받아보시려면{"" ""}",,,candidate
+src/app/pages/Manual.tsx,82,"<a href={mailto(""D-GO 설치 파일·매뉴얼 요청"")} className=""font-semibold whitespace-nowrap text-key underline-offset-4 hover:underline"">",,,candidate
+src/app/pages/Manual.tsx,85,로 요청해 주세요.,,,candidate
+src/app/pages/Manual.tsx,92,전용 앱,,,candidate
+src/app/pages/Manual.tsx,102,매뉴얼 PDF,,,candidate
+src/app/pages/Manual.tsx,118,"title=""처음 도입할 때는""",,,candidate
+src/app/pages/Manual.tsx,119,"lead=""관리자와 팀원 모두 최초 1회만 진행합니다.""",,,candidate
+src/app/pages/Manual.tsx,129,"title=""전원을 켤 때마다""",,,candidate
+src/app/pages/Manual.tsx,130,"lead=""기기 본체의 매 가동 흐름입니다. 모든 단계가 외부와 연결 없이 끝납니다.""",,,candidate
+src/app/pages/Manual.tsx,139,"연결 방법 — 전용 폐쇄망 <span className=""text-ink-3"">(Private Wi-Fi)</span>",,,candidate
+src/app/pages/Manual.tsx,145,연결 전 확인하세요,,,candidate
+src/app/pages/Manual.tsx,173,자주 묻는 질문,,,candidate
+src/app/pages/Manual.tsx,186,"<p className=""text-base font-semibold text-navy"">더 궁금한 사항이 있으신가요?</p>",,,candidate
+src/app/pages/Manual.tsx,187,<ButtonLink href={mailto()}>고객센터 문의하기</ButtonLink>,,,candidate
+src/app/pages/Technology.tsx,35,"title: ""PUF 기반 암호 제어"",",,,candidate
+src/app/pages/Technology.tsx,38,"""반도체 고유 지문을 이용한 암호 키 생성"",",,,candidate
+src/app/pages/Technology.tsx,39,"""메모리 휘발성 키 관리로 복제 불가"",",,,candidate
+src/app/pages/Technology.tsx,40,"""Zero-Outbound 암호화 (외부 인터넷 원천 차단)"",",,,candidate
+src/app/pages/Technology.tsx,41,"""본체 내부에서 모든 암호화 작업 완결"",",,,candidate
+src/app/pages/Technology.tsx,47,"title: ""물리-디지털 이중 복구"",",,,candidate
+src/app/pages/Technology.tsx,50,"""디지털 인증 분실 시 물리 키로 복구"",",,,candidate
+src/app/pages/Technology.tsx,51,"""PUF 전자키 + 하드웨어 정보 조합"",",,,candidate
+src/app/pages/Technology.tsx,52,"""전자식 버튼과 모터 제어 연동"",",,,candidate
+src/app/pages/Technology.tsx,53,"""복구 시나리오 다중 경로 제공"",",,,candidate
+src/app/pages/Technology.tsx,59,"title: ""환경 센싱 & 데이터 보호"",",,,candidate
+src/app/pages/Technology.tsx,61,"features: [""125°F(52°C) 초과 시 자동 셧다운"", ""RAID 1 실시간 미러링"", ""UPS 무정전 전원 공급"", ""충격·진동 감지 및 알림""],",,,candidate
+src/app/pages/Technology.tsx,66,"title: ""하이브리드 2FA + Secure Port"",",,,candidate
+src/app/pages/Technology.tsx,69,"""키패드 + PUF 하드웨어 키 이중 인증"",",,,candidate
+src/app/pages/Technology.tsx,70,"""PUF 승인 시에만 USB-C 포트 활성화"",",,,candidate
+src/app/pages/Technology.tsx,71,"""네트워크 드라이브 동적 제어"",",,,candidate
+src/app/pages/Technology.tsx,72,"""모든 접근 시도 로그 기록"",",,,candidate
+src/app/pages/Technology.tsx,77,/** 페이지 내 기술 항목 요약 */,,,candidate
+src/app/pages/Technology.tsx,79,"{ term: ""보안칩"", value: ""ICTK PUF (복제 불가 반도체 지문)"" },",,,candidate
+src/app/pages/Technology.tsx,80,"{ term: ""암호화"", value: ""AES-256 · RSA-2048 이중 암호화"" },",,,candidate
+src/app/pages/Technology.tsx,81,"{ term: ""장치 통신"", value: ""상호 인증 통신 mTLS"" },",,,candidate
+src/app/pages/Technology.tsx,82,"{ term: ""무결성"", value: ""SHA-256 + TSA 시점인증"" },",,,candidate
+src/app/pages/Technology.tsx,83,"{ term: ""로컬 AI"", value: ""NPU 6 TOPS · Local RAG LLM"" },",,,candidate
+src/app/pages/Technology.tsx,84,"{ term: ""본체"", value: ""리눅스 임베디드 OS · 8\"" 터치스크린"" },",,,candidate
+src/app/pages/Technology.tsx,90,"{ icon: HardDrive, title: ""이중화 스토리지"", items: [""RAID 1 미러링"", ""C/D/E 보안파티션""] },",,,candidate
+src/app/pages/Technology.tsx,91,"{ icon: Thermometer, title: ""환경 제어"", items: [""내장 UPS 탑재"", ""125°F 이상 시 셧다운""] },",,,candidate
+src/app/pages/Technology.tsx,92,"{ icon: Settings, title: ""물리 개폐 시스템"", items: [""PUF 인증 연동"", ""모터 드라이버 제어""] },",,,candidate
+src/app/pages/Technology.tsx,93,"{ icon: Usb, title: ""Secure Port"", items: [""PUF 인가 시 활성"", ""USB-C 포트 접근통제""] },",,,candidate
+src/app/pages/Technology.tsx,97,"{ layer: ""Layer 0"", name: ""물리적 격리"", desc: ""전용 폐쇄망만 사용 · 인터넷 연결 경로 없음"" },",,,candidate
+src/app/pages/Technology.tsx,98,"{ layer: ""Layer 1"", name: ""장치 인증"", desc: ""PUF 인증 + 상호 인증 통신(mTLS)으로 등록 장치만 접근"" },",,,candidate
+src/app/pages/Technology.tsx,99,"{ layer: ""Layer 2"", name: ""근접 조건"", desc: ""거리 이탈 시 자동 파일 잠금"" },",,,candidate
+src/app/pages/Technology.tsx,100,"{ layer: ""Layer 3"", name: ""사용자 인증"", desc: ""C·D·E 등급별 인증 (ID·비밀번호 / 2단계 인증 / 생체인증)"" },",,,candidate
+src/app/pages/Technology.tsx,101,"{ layer: ""Layer 4"", name: ""데이터 암호화"", desc: ""AES-256 이중 암호화"" },",,,candidate
+src/app/pages/Technology.tsx,102,"{ layer: ""Layer 5"", name: ""무결성 검증"", desc: ""SHA-256 + TSA 시점인증"" },",,,candidate
+src/app/pages/Technology.tsx,103,"{ layer: ""Layer 6"", name: ""악성코드 검사"", desc: ""입력 파일 실시간 스캔"" },",,,candidate
+src/app/pages/Technology.tsx,104,"{ layer: ""Layer 7"", name: ""감사 추적"", desc: ""모든 접근·반출 이력 로그 체인"" },",,,candidate
+src/app/pages/Technology.tsx,107,"/** Cumulative factors per grade — C: ID·PW, D: +2단계, E: +스마트폰 생체인증 */",,,candidate
+src/app/pages/Technology.tsx,108,"const TIER_FACTORS = [""아이디·비밀번호"", ""2단계 인증"", ""스마트폰 생체인증""];",,,candidate
+src/app/pages/Technology.tsx,111,"{ icon: HardDrive, num: ""7.1"", title: ""저장장치 보안"", items: [""보드 탈착 시 NVMe SSD 데이터 파기 기술 연구""] },",,,candidate
+src/app/pages/Technology.tsx,115,"title: ""로컬 AI 기능 확장"",",,,candidate
+src/app/pages/Technology.tsx,116,"items: [""Local NotebookLM 기능"", ""위키형 정보 시스템""],",,,candidate
+src/app/pages/Technology.tsx,117,"note: ""로컬 LLM 문서 검색·요약은 현재 기본 탑재"",",,,candidate
+src/app/pages/Technology.tsx,119,"{ icon: Camera, num: ""7.3"", title: ""하드웨어 확장"", items: [""카메라 기반 인감도장 시스템 연구""] },",,,candidate
+src/app/pages/Technology.tsx,123,"title: ""통신 및 추적 기능"",",,,candidate
+src/app/pages/Technology.tsx,124,"items: [""독립 통신 보드(Wi-Fi, BLDC, GPS) 장착"", ""전원 차단 시 신호 전송 (Heartbeat)"", ""지정 클라이언트로 알림 전달"", ""위치 추적 기능 검토""],",,,candidate
+src/app/pages/Technology.tsx,129,"{ item: ""데이터 위치"", existing: ""클라우드에 복사본 존재"", dgo: ""Air-Gap · Zero-Outbound. 물리적 장치에만 존재"" },",,,candidate
+src/app/pages/Technology.tsx,130,"{ item: ""장치 연결"", existing: ""누구나 접근 가능"", dgo: ""PUF 인증 장치만 연결 허용"" },",,,candidate
+src/app/pages/Technology.tsx,131,"{ item: ""분실 시"", existing: ""데이터 노출 위험"", dgo: ""보안키 자동 소멸로 데이터 보호"" },",,,candidate
+src/app/pages/Technology.tsx,132,"{ item: ""자산 관리"", existing: ""디지털 자산만"", dgo: ""아날로그 + 디지털 통합 관리"" },",,,candidate
+src/app/pages/Technology.tsx,133,"{ item: ""원본 증명"", existing: ""진위 증명 불가"", dgo: ""시점인증(TSA)으로 법적 효력"" },",,,candidate
+src/app/pages/Technology.tsx,134,"{ item: ""접근 제어"", existing: ""항상 접근 가능"", dgo: ""근접 조건 + 장치 인증 이중 잠금"" },",,,candidate
+src/app/pages/Technology.tsx,135,"{ item: ""AI 활용"", existing: ""문서를 외부 AI 서비스로 전송"", dgo: ""폐쇄망 Local RAG LLM — 금고 안에서 검색·요약"" },",,,candidate
+src/app/pages/Technology.tsx,140,"q: ""Zero-Outbound가 정확히 무엇인가요?"",",,,candidate
+src/app/pages/Technology.tsx,141,"a: ""외부 인터넷으로의 데이터 송신 경로 자체를 원천 차단하는 보안 모델입니다. D-GO Quantum Data Vault는 폐쇄망(Private Wi-Fi) 안에서만 동작하며, 모든 암호화/복호화 작업을 본체 내부에서 처리합니다. 키는 PUF 칩에서 생성되어 메모리에 휘발성으로 보관됩니다."",",,,candidate
+src/app/pages/Technology.tsx,144,"q: ""PUF 물리 키를 잃어버리면 어떻게 되나요?"",",,,candidate
+src/app/pages/Technology.tsx,145,"a: ""디지털 인증과 물리 키의 이중 복구 시스템을 제공합니다. 물리 키 분실 시 등록된 모바일 앱과 하드웨어 정보 조합으로 PUF 키를 재생성할 수 있습니다."",",,,candidate
+src/app/pages/Technology.tsx,148,"q: ""양자 암호화는 실제로 적용되나요?"",",,,candidate
+src/app/pages/Technology.tsx,149,"a: ""D-GO Quantum Data Vault는 '양자 시대에 대비한 데이터 금고'를 의미합니다. 현재는 AES-256 + RSA-2048 이중 암호화를 사용하며, 향후 양자내성암호(PQC) 알고리즘 적용을 준비 중입니다."",",,,candidate
+src/app/pages/Technology.tsx,160,"lead=""외부 인터넷 원천 차단 — 하드웨어 단독으로 완성되는 폐쇄망 보안 아키텍처. ICTK PUF 칩과 Air-Gap 구조로 진정한 데이터 주권을 실현합니다.""",,,candidate
+src/app/pages/Technology.tsx,168,"연결 방법 — 전용 폐쇄망 <span className=""text-ink-3"">(Private Wi-Fi)</span>",,,candidate
+src/app/pages/Technology.tsx,174,핵심 보안 사양,,,candidate
+src/app/pages/Technology.tsx,193,"title=""시스템 아키텍처""",,,candidate
+src/app/pages/Technology.tsx,194,"lead=""전용 앱과 금고 본체가 인터넷을 거치지 않는 폐쇄망으로만 연결됩니다.""",,,candidate
+src/app/pages/Technology.tsx,206,"<p className=""text-sm text-ink-2"">PC·모바일 전용 앱</p>",,,candidate
+src/app/pages/Technology.tsx,218,전송 후 데이터 자동 파기,,,candidate
+src/app/pages/Technology.tsx,233,"전용 폐쇄망 <span className=""whitespace-nowrap"">(Private Wi-Fi)</span>",,,candidate
+src/app/pages/Technology.tsx,251,"Embedded Server <span className=""text-sm font-medium text-on-navy-2"">(금고 본체)</span>",,,candidate
+src/app/pages/Technology.tsx,253,"<p className=""text-[0.8125rem] text-on-navy-2"">리눅스 기반 임베디드 OS</p>",,,candidate
+src/app/pages/Technology.tsx,256,"<span className=""rounded-full border border-white/30 px-3 py-1 text-xs font-semibold whitespace-nowrap text-white"">8"" 터치스크린 내장</span>",,,candidate
+src/app/pages/Technology.tsx,263,"PUF Core Logic <span className=""font-semibold text-navy"">(암호/제어 중심)</span>",,,candidate
+src/app/pages/Technology.tsx,266,외부 인터넷 원천 차단(Zero-Outbound) 수행. 모든 입출력 폐쇄망 내부 처리.,,,candidate
+src/app/pages/Technology.tsx,267,"<br className=""hidden sm:block"" /> 비상시 물리 USB 키 + HW 정보로 이중 복구(Dual Recovery)",,,candidate
+src/app/pages/Technology.tsx,293,"<p className=""mt-1.5 text-[0.8125rem] text-ink-2"">폐쇄망 Local RAG LLM (문서 검색·요약)</p>",,,candidate
+src/app/pages/Technology.tsx,302,단절된 네트워크와 하드웨어 암호화의 결합으로 서버 해킹 원천 차단,,,candidate
+src/app/pages/Technology.tsx,308,"<SectionIntro id=""pillars-title"" eyebrow=""Core Technology"" title=""4가지 핵심 기술"" lead=""D-GO Quantum Data Vault를 지탱하는 네 가지 기술적 기둥"" />",,,candidate
+src/app/pages/Technology.tsx,342,"title=""보안 계층""",,,candidate
+src/app/pages/Technology.tsx,343,"lead=""물리적 격리부터 감사 추적까지, 여덟 겹의 보호 장치가 차례로 작동합니다.""",,,candidate
+src/app/pages/Technology.tsx,364,"title=""보안 등급 기반 파티션 관리""",,,candidate
+src/app/pages/Technology.tsx,365,"lead=""파일 민감도에 따라 C / D / E 3단계 파티션으로 자동 분류·보호합니다. 중요한 문서일수록 여는 방법이 엄격해집니다.""",,,candidate
+src/app/pages/Technology.tsx,380,"<span className=""sr-only"">{t.grade}등급 </span>",,,candidate
+src/app/pages/Technology.tsx,386,"<dt className={cn(""text-[0.8125rem] font-medium"", top ? ""text-white/80"" : ""text-ink-3"")}>인증</dt>",,,candidate
+src/app/pages/Technology.tsx,387,"<dd className=""mt-0.5 font-bold"">{top ? ""+스마트폰 생체인증"" : t.auth}</dd>",,,candidate
+src/app/pages/Technology.tsx,390,"<dt className={cn(""text-[0.8125rem] font-medium"", top ? ""text-white/80"" : ""text-ink-3"")}>대상 문서</dt>",,,candidate
+src/app/pages/Technology.tsx,394,"<ul className=""mt-5 flex flex-wrap gap-1.5"" aria-label={`${t.grade}등급에 필요한 인증`}>",,,candidate
+src/app/pages/Technology.tsx,418,"<h3 className=""font-bold text-navy"">자동 분류</h3>",,,candidate
+src/app/pages/Technology.tsx,420,"사용자 태그 기반으로 파일이 자동 분류되며, 보안 등급에 따라 C / D / E 파티션에 자동 할당됩니다.",,,candidate
+src/app/pages/Technology.tsx,431,"title=""향후 연구 및 개발 계획""",,,candidate
+src/app/pages/Technology.tsx,432,"lead=""AI 기반 기능과 물리 보안 기술을 결합해 차세대 보안 금고 플랫폼으로 확장합니다.""",,,candidate
+src/app/pages/Technology.tsx,467,"<SectionIntro id=""compare-title"" eyebrow=""Comparison"" title=""핵심 차별점"" />",,,candidate
+src/app/pages/Technology.tsx,474,"<dt className=""text-sm text-ink-3"">기존 제품</dt>",,,candidate
+src/app/pages/Technology.tsx,487,"<caption className=""sr-only"">기존 제품과 D-GO Quantum Data Vault 비교</caption>",,,candidate
+src/app/pages/Technology.tsx,491,비교 항목,,,candidate
+src/app/pages/Technology.tsx,494,기존 제품,,,candidate
+src/app/pages/Technology.tsx,522,기술 FAQ,,,candidate
+src/app/pages/Technology.tsx,541,"구조로 막는 보안,",,,candidate
+src/app/pages/Technology.tsx,543,"<span className=""text-led"">실제 기기로</span> 확인하세요.",,,candidate
+src/app/pages/Technology.tsx,546,"PUF 인증부터 폐쇄망 안의 AI 검색·요약까지, 실제 기기로 보여드립니다. 법인·단체 도입 상담도 함께 받습니다.",,,candidate
+src/app/pages/Technology.tsx,551,"도입 문의하기 <ArrowRight size={18} aria-hidden=""true"" />",,,candidate
+src/app/pages/Technology.tsx,553,"<ButtonLink href={mailto(""D-GO 실기기 시연 요청"")} variant=""onNavyGhost"">",,,candidate
+src/app/pages/Technology.tsx,554,시연 요청하기,,,candidate
+src/app/pages/Purchase.tsx,11,"title: ""법인 도입"",",,,candidate
+src/app/pages/Purchase.tsx,12,"body: ""기업 및 기관을 위한 대량 구매 및 맞춤형 솔루션"",",,,candidate
+src/app/pages/Purchase.tsx,13,"points: [""볼륨 할인 제공"", ""전담 기술 지원"", ""맞춤형 설치 및 교육"", ""연간 유지보수 계약""],",,,candidate
+src/app/pages/Purchase.tsx,14,"cta: ""법인 문의하기"",",,,candidate
+src/app/pages/Purchase.tsx,15,"href: mailto(""법인 도입 문의""),",,,candidate
+src/app/pages/Purchase.tsx,20,"title: ""개인·소규모 구매"",",,,candidate
+src/app/pages/Purchase.tsx,21,"body: ""개인 사용자 및 소규모 사업장을 위한 구매"",",,,candidate
+src/app/pages/Purchase.tsx,22,"points: [""단품 구매 가능"", ""온라인 설치 가이드"", ""이메일/전화 기술 지원"", ""제품 보증 서비스""],",,,candidate
+src/app/pages/Purchase.tsx,23,"cta: ""구매 문의하기"",",,,candidate
+src/app/pages/Purchase.tsx,24,"href: mailto(""개인 구매 문의""),",,,candidate
+src/app/pages/Purchase.tsx,29,"const QUOTE_REQUIRED = [""회사명 또는 소속"", ""담당자 성함 및 연락처"", ""희망 수량"", ""사용 용도 (간략히)""];",,,candidate
+src/app/pages/Purchase.tsx,30,"const QUOTE_OPTIONAL = [""희망 도입 시기"", ""특수 요구사항 (커스터마이징 등)"", ""기술 지원 범위""];",,,candidate
+src/app/pages/Purchase.tsx,33,"""D-GO Quantum Data Vault 견적 요청"",",,,candidate
+src/app/pages/Purchase.tsx,34,"""회사명: \n담당자: \n연락처: \n희망 수량: \n사용 용도: \n\n기타 문의사항: "",",,,candidate
+src/app/pages/Purchase.tsx,40,"<PageHero eyebrow=""Purchase"" title=""구매 안내"" lead=""법인·단체 도입 문의 환영합니다 — 전문 상담을 통해 최적의 솔루션을 제공합니다"" />",,,candidate
+src/app/pages/Purchase.tsx,44,"<SectionIntro id=""inquiry-title"" eyebrow=""Contact Sales"" title=""법인·단체 도입 문의"" lead=""규모에 맞는 맞춤형 솔루션을 제안해드립니다"" />",,,candidate
+src/app/pages/Purchase.tsx,55,"<h3 className=""mt-4 text-lg font-bold text-ink"">이메일 문의</h3>",,,candidate
+src/app/pages/Purchase.tsx,57,"<p className=""mt-1 text-[0.9375rem] text-ink-2"">24시간 접수 가능</p>",,,candidate
+src/app/pages/Purchase.tsx,59,"메일 보내기 <ArrowRight size={16} className=""transition-transform duration-200 group-hover:translate-x-0.5"" aria-hidden=""true"" />",,,candidate
+src/app/pages/Purchase.tsx,71,"<h3 className=""mt-4 text-lg font-bold text-ink"">전화 상담</h3>",,,candidate
+src/app/pages/Purchase.tsx,75,"전화 걸기 <ArrowRight size={16} className=""transition-transform duration-200 group-hover:translate-x-0.5"" aria-hidden=""true"" />",,,candidate
+src/app/pages/Purchase.tsx,84,"<span className=""font-bold text-navy"">평균 응답 시간</span>{"" ""}",,,candidate
+src/app/pages/Purchase.tsx,85,"<span className=""block sm:ml-2 sm:inline"">이메일: 24시간 이내 · 전화: 즉시 상담 (운영시간 내)</span>",,,candidate
+src/app/pages/Purchase.tsx,92,"<SectionIntro id=""adopt-title"" eyebrow=""Easy Adoption"" title=""도입 방식"" lead=""구독 계약도, 설치 공사도 필요 없습니다."" />",,,candidate
+src/app/pages/Purchase.tsx,94,"<p className=""flex items-center bg-navy px-6 py-4 text-lg font-bold text-white lg:justify-center"">도입도 간단</p>",,,candidate
+src/app/pages/Purchase.tsx,114,"<SectionIntro id=""type-title"" eyebrow=""Purchase Types"" title=""구매 유형"" />",,,candidate
+src/app/pages/Purchase.tsx,144,"title=""견적 요청""",,,candidate
+src/app/pages/Purchase.tsx,145,"lead=""아래 정보를 포함하여 문의해주시면 신속하게 견적을 안내해드리겠습니다""",,,candidate
+src/app/pages/Purchase.tsx,151,필수 정보,,,candidate
+src/app/pages/Purchase.tsx,152,"<span aria-hidden=""true"" className=""rounded-full bg-key px-2 py-0.5 text-xs font-semibold text-white"">필수</span>",,,candidate
+src/app/pages/Purchase.tsx,165,선택 정보,,,candidate
+src/app/pages/Purchase.tsx,166,"<span aria-hidden=""true"" className=""rounded-full border border-line bg-mist px-2 py-0.5 text-xs font-semibold text-ink-3"">선택</span>",,,candidate
+src/app/pages/Purchase.tsx,179,"<p className=""text-sm text-ink-3"">버튼을 누르면 항목이 채워진 이메일 양식이 열립니다.</p>",,,candidate
+src/app/pages/Purchase.tsx,182,견적 요청 이메일 보내기,,,candidate
+src/app/pages/Purchase.tsx,193,"title=""판매 파트너""",,,candidate
+src/app/pages/Purchase.tsx,194,"lead=""공식 판매 파트너를 통해서도 도입 상담을 받으실 수 있습니다.""",,,candidate
+src/app/pages/Purchase.tsx,198,"<h3 className=""text-lg font-bold text-navy"">공식 판매 파트너</h3>",,,candidate
+src/app/pages/Purchase.tsx,209,"<h3 className=""mt-3 text-lg font-bold text-navy"">기술 협약</h3>",,,candidate
+src/app/pages/Purchase.tsx,211,본 제품은 국내 PUF 기술 선도 기업 ICTK와의 기술 협약을 통해 제조됩니다.,,,candidate
+src/app/pages/Purchase.tsx,222,"title=""구매 상담 안내""",,,candidate
+src/app/pages/Purchase.tsx,223,"lead=""궁금한 점이 있으시다면 언제든 문의해주세요. 전문 상담원이 친절하게 안내해드리겠습니다.""",,,candidate
+src/app/pages/Purchase.tsx,229,운영 시간,,,candidate
+src/app/pages/Purchase.tsx,234,"<li className=""py-3 text-ink-2"">이메일 24시간 접수 가능</li>",,,candidate
+src/app/pages/Purchase.tsx,240,연락처,,,candidate
+src/app/pages/Purchase.tsx,245,"<Mail size={15} aria-hidden=""true"" /> 이메일",,,candidate
+src/app/pages/Purchase.tsx,255,"<Phone size={15} aria-hidden=""true"" /> 전화",,,candidate
+src/app/pages/Purchase.tsx,265,"<MapPin size={15} className=""mt-1 flex-none"" aria-hidden=""true"" /> 주소",,,candidate
+src/app/pages/Dashboard.tsx,26,"{ code: ""PAIR"", state: ""pair"", title: ""신규 기기 승인"", screenLabel: ""본체 화면 — 신규 디바이스 페어링(6자리 코드)"" },",,,candidate
+src/app/pages/Dashboard.tsx,30,"{ grade: ""C"", label: ""일반"", use: 75, bar: ""bg-ink-3"" },",,,candidate
+src/app/pages/Dashboard.tsx,31,"{ grade: ""D"", label: ""보호"", use: 30, bar: ""bg-key"" },",,,candidate
+src/app/pages/Dashboard.tsx,32,"{ grade: ""E"", label: ""기밀"", use: 10, bar: ""bg-navy"" },",,,candidate
+src/app/pages/Dashboard.tsx,36,"{ time: ""2026-04-16 14:32"", action: ""파일 업로드"", target: ""contract_2026.pdf"" },",,,candidate
+src/app/pages/Dashboard.tsx,37,"{ time: ""2026-04-16 10:15"", action: ""금고 개방"", target: ""PUF 인증 성공"" },",,,candidate
+src/app/pages/Dashboard.tsx,38,"{ time: ""2026-04-15 18:47"", action: ""데이터 조회"", target: ""financial_report.xlsx"" },",,,candidate
+src/app/pages/Dashboard.tsx,39,"{ time: ""2026-04-15 09:23"", action: ""금고 개방"", target: ""PUF 인증 성공"" },",,,candidate
+src/app/pages/Dashboard.tsx,43,"{ name: ""USB-C 포트"", desc: ""데이터 전송 및 충전"" },",,,candidate
+src/app/pages/Dashboard.tsx,44,"{ name: ""네트워크 드라이브"", desc: ""전용 폐쇄망 접근"" },",,,candidate
+src/app/pages/Dashboard.tsx,110,"<PageHero eyebrow=""D-GO App"" title=""앱·금고관리"" lead=""디고 금고관리와 디고 안전폴더의 기능을 살펴보고, 본체 대시보드에서 확인하는 정보를 알아보세요."" />",,,candidate
+src/app/pages/Dashboard.tsx,119,"title=""본체 화면에서도 한눈에""",,,candidate
+src/app/pages/Dashboard.tsx,120,"lead=""금고가 열리면 본체 터치스크린에 대시보드가 뜨고, 같은 정보를 PC·모바일 앱에서도 확인합니다.""",,,candidate
+src/app/pages/Dashboard.tsx,125,"<DeviceScreen state=""access"" label={`${ACCESS_STEP.screenLabel}: 금고 열림, 암호화 문서 128건, SoC 온도 48.2도, PUF 모듈 정상, 연결 기기 iPhone 14 Pro Max, 최근 접근 로그`} />",,,candidate
+src/app/pages/Dashboard.tsx,149,"<SectionIntro id=""widgets-title"" eyebrow=""Features"" title=""주요 기능"" lead=""기기 상태부터 보안 알림까지, 대시보드에서 확인하는 항목입니다."" />",,,candidate
+src/app/pages/Dashboard.tsx,153,"title=""기기 상태""",,,candidate
+src/app/pages/Dashboard.tsx,154,"desc=""내부 온도·습도 실시간 모니터링""",,,candidate
+src/app/pages/Dashboard.tsx,158,정상,,,candidate
+src/app/pages/Dashboard.tsx,163,"<Meter label=""온도"" value=""23°C"" percent={45} note=""UL CLASS 125 경계선: 52°C"" />",,,candidate
+src/app/pages/Dashboard.tsx,164,"<Meter label=""습도"" value=""42%"" percent={42} />",,,candidate
+src/app/pages/Dashboard.tsx,168,"<Widget icon={HardDrive} title=""저장소 용량"" desc=""SSD 용량 및 RAID 1 상태"" status={<Pill tone=""ok"">RAID 1</Pill>}>",,,candidate
+src/app/pages/Dashboard.tsx,170,"<Meter label=""사용 중"" value=""256 GB / 512 GB"" percent={50} />",,,candidate
+src/app/pages/Dashboard.tsx,173,실시간 미러링 활성,,,candidate
+src/app/pages/Dashboard.tsx,178,"<Widget icon={Battery} title=""UPS 상태"" desc=""배터리 잔량 및 전원 상태"" status={<Pill tone=""ok"">충전 중</Pill>}>",,,candidate
+src/app/pages/Dashboard.tsx,180,"<Meter label=""배터리"" value=""95%"" percent={95} />",,,candidate
+src/app/pages/Dashboard.tsx,183,"<dt className=""text-ink-2"">외부 전원</dt>",,,candidate
+src/app/pages/Dashboard.tsx,184,"<dd className=""font-semibold text-status-ok"">연결됨</dd>",,,candidate
+src/app/pages/Dashboard.tsx,187,"<dt className=""text-ink-2"">예상 백업 시간</dt>",,,candidate
+src/app/pages/Dashboard.tsx,189,"<span className=""font-mono text-[0.8125rem]"">4.2</span>시간",,,candidate
+src/app/pages/Dashboard.tsx,196,"<Widget icon={TriangleAlert} title=""보안 알림"" desc=""충격·파괴 시도 감지"" status={<Pill tone=""ok"">0 건</Pill>}>",,,candidate
+src/app/pages/Dashboard.tsx,199,"<p className=""mt-2 font-bold text-status-ok"">이상 없음</p>",,,candidate
+src/app/pages/Dashboard.tsx,200,"<p className=""mt-0.5 text-sm text-ink-3"">모든 센서 정상 작동 중</p>",,,candidate
+src/app/pages/Dashboard.tsx,206,"title=""파티션 관리""",,,candidate
+src/app/pages/Dashboard.tsx,207,"desc=""보안 등급별 저장 공간 현황""",,,candidate
+src/app/pages/Dashboard.tsx,208,"status={<Pill tone=""key"">C/D/E 등급</Pill>}",,,candidate
+src/app/pages/Dashboard.tsx,220,"title=""접근 이력""",,,candidate
+src/app/pages/Dashboard.tsx,221,"desc=""개폐 이력 및 데이터 접근 타임라인""",,,candidate
+src/app/pages/Dashboard.tsx,222,status={<Pill>최근 7일</Pill>},,,candidate
+src/app/pages/Dashboard.tsx,230,"<span className=""sr-only"">성공: </span>",,,candidate
+src/app/pages/Dashboard.tsx,250,"title=""Secure Port 제어""",,,candidate
+src/app/pages/Dashboard.tsx,251,"lead=""USB-C 포트와 네트워크 드라이브는 평소 잠겨 있고, PUF 승인 후에만 활성화됩니다.""",,,candidate
+src/app/pages/Dashboard.tsx,261,"<h3 className=""text-lg font-bold text-navy"">USB-C 포트 상태</h3>",,,candidate
+src/app/pages/Dashboard.tsx,262,"<p className=""text-sm text-ink-2"">PUF 승인 후에만 포트 활성화</p>",,,candidate
+src/app/pages/Dashboard.tsx,275,비활성,,,candidate
+src/app/pages/Dashboard.tsx,282,"<p className=""font-bold text-key"">보안 안내</p>",,,candidate
+src/app/pages/Dashboard.tsx,283,"<p className=""mt-1"">포트 활성화는 PUF 인증 후 앱에서만 가능합니다.</p>",,,candidate
+src/app/pages/Dashboard.tsx,284,<p>무단 접근 시도는 자동으로 차단되며 로그에 기록됩니다.</p>,,,candidate
+src/app/pages/Dashboard.tsx,295,"대시보드와 본체 화면,",,,candidate
+src/app/pages/Dashboard.tsx,297,"<span className=""text-led"">실제 기기로</span> 확인하세요.",,,candidate
+src/app/pages/Dashboard.tsx,300,"키 인증부터 금고 열림, 앱 대시보드까지 실제 기기로 보여드립니다. 법인·단체 도입 상담도 함께 받습니다.",,,candidate
+src/app/pages/Dashboard.tsx,305,"도입 문의하기 <ArrowRight size={18} aria-hidden=""true"" />",,,candidate
+src/app/pages/Dashboard.tsx,307,"<ButtonLink href={mailto(""D-GO 실기기 시연 요청"")} variant=""onNavyGhost"">",,,candidate
+src/app/pages/Dashboard.tsx,308,시연 요청하기,,,candidate
+src/app/pages/Support.tsx,8,"const INQUIRY_TYPES = [""제품 구매"", ""기술 지원"", ""법인·단체 도입"", ""파트너십·총판"", ""A/S 문의"", ""기타""];",,,candidate
+src/app/pages/Support.tsx,12,"category: ""구매"",",,,candidate
+src/app/pages/Support.tsx,13,"q: ""개인도 구매할 수 있나요?"",",,,candidate
+src/app/pages/Support.tsx,14,"a: ""네, 개인 구매 가능합니다. 법인·단체 도입뿐만 아니라 개인 사용자를 위한 단품 구매도 지원합니다. 자세한 사항은 구매 페이지를 참고하시거나 문의해주세요."",",,,candidate
+src/app/pages/Support.tsx,17,"category: ""구매"",",,,candidate
+src/app/pages/Support.tsx,18,"q: ""납품 기간은 얼마나 걸리나요?"",",,,candidate
+src/app/pages/Support.tsx,19,"a: ""주문 확정 후 약 2-3주 소요됩니다. 수량 및 커스터마이징 여부에 따라 달라질 수 있으며, 정확한 일정은 주문 시 안내드립니다."",",,,candidate
+src/app/pages/Support.tsx,22,"category: ""배송"",",,,candidate
+src/app/pages/Support.tsx,23,"q: ""배송 지역 제한이 있나요?"",",,,candidate
+src/app/pages/Support.tsx,24,"a: ""국내 전 지역 배송 가능합니다. 제주·도서 지역은 추가 배송료가 발생할 수 있습니다. 해외 배송은 별도 문의해주세요."",",,,candidate
+src/app/pages/Support.tsx,28,"q: ""제품 보증 기간은 어떻게 되나요?"",",,,candidate
+src/app/pages/Support.tsx,29,"a: ""구매일로부터 1년간 무상 A/S를 제공합니다. 하드웨어 결함 시 수리 또는 교체해드리며, 사용자 과실로 인한 고장은 유상 수리입니다."",",,,candidate
+src/app/pages/Support.tsx,33,"q: ""고장 시 데이터는 어떻게 되나요?"",",,,candidate
+src/app/pages/Support.tsx,34,"a: ""RAID 1 미러링으로 데이터는 안전하게 보호됩니다. A/S 시에도 데이터는 암호화 상태로 유지되며, PUF 인증 없이는 접근할 수 없습니다."",",,,candidate
+src/app/pages/Support.tsx,37,"category: ""기술"",",,,candidate
+src/app/pages/Support.tsx,38,"q: ""Windows/Mac 모두 지원하나요?"",",,,candidate
+src/app/pages/Support.tsx,39,"a: ""네. 전용 앱이 PC(Windows·macOS·Linux)와 모바일(iOS·Android)을 지원합니다. 보안을 위해 웹 브라우저 접속은 차단되며, 전용 앱으로만 접속합니다."",",,,candidate
+src/app/pages/Support.tsx,42,"category: ""보증"",",,,candidate
+src/app/pages/Support.tsx,43,"q: ""환불 정책은 어떻게 되나요?"",",,,candidate
+src/app/pages/Support.tsx,44,"a: ""제품 수령 후 7일 이내 미개봉 상태에 한해 환불 가능합니다. 개봉 후에는 제품 결함이 있을 경우에만 교환·환불이 가능합니다."",",,,candidate
+src/app/pages/Support.tsx,47,"category: ""보증"",",,,candidate
+src/app/pages/Support.tsx,48,"q: ""연장 보증이 가능한가요?"",",,,candidate
+src/app/pages/Support.tsx,49,"a: ""네, 법인 구매 시 연간 유지보수 계약을 통해 보증 기간을 연장할 수 있습니다. 자세한 사항은 영업팀에 문의해주세요."",",,,candidate
+src/app/pages/Support.tsx,95,"<PageHero eyebrow=""Support"" title=""고객 지원"" lead=""D-GO Quantum Data Vault 사용 중 궁금한 점이 있으신가요? 언제든 문의해주세요."" />",,,candidate
+src/app/pages/Support.tsx,99,"<SectionIntro id=""contact-title"" eyebrow=""Contact"" title=""연락처"" />",,,candidate
+src/app/pages/Support.tsx,107,"<h3 className=""mt-4 text-lg font-bold text-ink"">이메일</h3>",,,candidate
+src/app/pages/Support.tsx,109,"<p className=""mt-0.5 text-sm text-ink-3"">24시간 접수</p>",,,candidate
+src/app/pages/Support.tsx,112,보내기,,,candidate
+src/app/pages/Support.tsx,125,"aria-label={copyState === ""idle"" ? `이메일 주소 ${CONTACT.email} 복사` : undefined}",,,candidate
+src/app/pages/Support.tsx,128,"{copyState === ""copied"" ? ""복사됨"" : copyState === ""failed"" ? ""복사 실패"" : ""복사""}",,,candidate
+src/app/pages/Support.tsx,133,"? ""이메일 주소가 복사되었습니다.""",,,candidate
+src/app/pages/Support.tsx,135,"? ""복사하지 못했습니다. 이메일 주소를 직접 선택해 복사해 주세요.""",,,candidate
+src/app/pages/Support.tsx,145,"<h3 className=""mt-4 text-lg font-bold text-ink"">전화</h3>",,,candidate
+src/app/pages/Support.tsx,151,전화 걸기,,,candidate
+src/app/pages/Support.tsx,167,"<h3 className=""mt-4 text-lg font-bold text-ink"">카카오톡 채널</h3>",,,candidate
+src/app/pages/Support.tsx,168,"<p className=""mt-1 text-xl font-bold tracking-tight text-navy"">24시간 고객 지원</p>",,,candidate
+src/app/pages/Support.tsx,169,"<p className=""mt-0.5 text-sm text-ink-3"">채팅으로 바로 문의하거나, 휴대폰으로 QR을 스캔해 채널을 추가하세요.</p>",,,candidate
+src/app/pages/Support.tsx,173,채팅 시작하기,,,candidate
+src/app/pages/Support.tsx,176,채널 홈 열기,,,candidate
+src/app/pages/Support.tsx,185,"alt=""D-GO 카카오톡 채널 QR""",,,candidate
+src/app/pages/Support.tsx,200,"<h3 className=""mt-4 text-lg font-bold text-ink"">운영 시간</h3>",,,candidate
+src/app/pages/Support.tsx,204,"<li className=""text-ink-3"">이메일은 24시간 접수</li>",,,candidate
+src/app/pages/Support.tsx,213,"<h3 className=""mt-4 text-lg font-bold text-ink"">주소</h3>",,,candidate
+src/app/pages/Support.tsx,225,"<SectionIntro id=""inquiry-title"" eyebrow=""Inquiry"" title=""문의하기"" lead=""아래 버튼을 클릭하면 이메일 앱이 열립니다"" />",,,candidate
+src/app/pages/Support.tsx,230,문의 유형,,,candidate
+src/app/pages/Support.tsx,236,href={mailto(`문의: ${type}`)},,,candidate
+src/app/pages/Support.tsx,247,"<h3 className=""text-lg font-bold text-navy"">일반 문의</h3>",,,candidate
+src/app/pages/Support.tsx,248,"<p className=""mt-1.5 text-[0.9375rem] leading-relaxed text-ink-2"">문의 유형을 선택하지 않고 바로 이메일을 보내실 수 있습니다.</p>",,,candidate
+src/app/pages/Support.tsx,252,이메일 앱 열기,,,candidate
+src/app/pages/Support.tsx,257,"<span className=""font-semibold text-key"">안내:</span> 메일 앱이 열리지 않으면{"" ""}",,,candidate
+src/app/pages/Support.tsx,258,"<span className=""font-semibold whitespace-nowrap text-navy"">{CONTACT.email}</span>로 직접 보내주세요.",,,candidate
+src/app/pages/Support.tsx,271,자주 묻는 질문,,,candidate
+src/app/pages/Support.tsx,273,"<p className=""mt-2 text-[0.9375rem] text-ink-2"">구매·A/S·배송·보증 관련 FAQ</p>",,,candidate
+src/app/pages/Support.tsx,291,"<p className=""text-base font-semibold text-navy"">원하는 답변을 찾지 못하셨나요?</p>",,,candidate
+src/app/pages/Support.tsx,294,직접 문의하기,,,candidate
+src/app/pages/Support.tsx,301,"<SectionIntro id=""notice-title"" eyebrow=""Security Notice"" title=""보안 공지"" lead=""제품 업데이트 및 보안 관련 중요 공지사항"" />",,,candidate
+src/app/pages/Support.tsx,305,"<h3 className=""text-lg font-bold text-ink"">현재 공지사항 없음</h3>",,,candidate
+src/app/pages/Support.tsx,307,모든 시스템이 안정적으로 운영되고 있습니다. 중요한 업데이트나 보안 공지가 있을 경우 이곳에 게시됩니다.,,,candidate
+src/app/pages/Home.tsx,20,"{ icon: Cpu, title: ""반도체 지문키"", tag: ""PUF"", body: ""칩마다 다른 고유 지문으로 잠금 해제가 복제 불가. 탈취 시 자동 소멸."" },",,,candidate
+src/app/pages/Home.tsx,21,"{ icon: GlobeLock, title: ""외부 인터넷 망 원천 차단"", tag: ""Air-Gap · Zero-Outbound"", body: ""인터넷으로 나가는 통신 경로 자체가 없는 구조."" },",,,candidate
+src/app/pages/Home.tsx,22,"{ icon: Layers, title: ""3단계 접근등급"", tag: ""다계층 접근제어"", body: ""일반 C · 보호 D · 기밀 E — 문서를 등급별로 분리 보관."" },",,,candidate
+src/app/pages/Home.tsx,23,"{ icon: FileSearch, title: ""내장 AI 문서비서"", tag: ""폐쇄망 Local RAG LLM"", body: ""인터넷 없이, 기기 안에서 문서를 찾고 요약."" },",,,candidate
+src/app/pages/Home.tsx,24,"{ icon: Lock, title: ""이중 삼중 로컬데이터 암호화"", tag: ""E2EE 종단간 암호화"", body: ""단말에서 직접 암호화해 저장 — 서버 관리자도 내용을 열람할 수 없습니다."" },",,,candidate
+src/app/pages/Home.tsx,25,"{ icon: Archive, title: ""실물 보관 금고 내장"", tag: ""물리 보안 금고"", body: ""A4 계약서 · 인감 도장까지 실물로 수납."" },",,,candidate
+src/app/pages/Home.tsx,29,"{ q: ""인터넷 없이도 AI를 쓸 수 있나요?"", a: ""네. Local RAG & LLM이 본체 내부에서 동작해, 외부 유출 없이 금고 속 문서를 AI로 검색·요약합니다."" },",,,candidate
+src/app/pages/Home.tsx,30,"{ q: ""도난·분해되면 어떻게 되나요?"", a: ""PUF 보안키가 즉시 자동 소멸합니다. 물리적으로 탈취되어도 복호화할 수 없습니다."" },",,,candidate
+src/app/pages/Home.tsx,31,"{ q: ""설치가 어렵지 않나요?"", a: ""개봉 후 5분이면 설치가 끝납니다. D-GO 전용 카카오톡 채널에서 24시간 지원합니다."" },",,,candidate
+src/app/pages/Home.tsx,32,"{ q: ""누가 사용하면 좋을까요?"", a: ""변호사·회계사 등 전문직, 연구소·제조사, 의료·공공기관처럼 외부로 내보낼 수 없는 문서를 다루는 곳에 맞춰 설계했습니다."" },",,,candidate
+src/app/pages/Home.tsx,53,"<span className=""block"">인터넷과 분리된</span>",,,candidate
+src/app/pages/Home.tsx,54,"<span className=""block"">독립형 데이터 안전금고.</span>",,,candidate
+src/app/pages/Home.tsx,58,문서와 AI가 외부와 연결되지 않는 금고 안에서만 움직입니다. 유출 경로 원천 차단.,,,candidate
+src/app/pages/Home.tsx,61,"문서 보관도, AI 검색·요약도 이 한 대 안에서 끝납니다. 사무실의 전용 폐쇄망(Private Wi-Fi) 안에서만 동작하고, PUF 보안키가 없으면",,,candidate
+src/app/pages/Home.tsx,62,켜지지도 않습니다.,,,candidate
+src/app/pages/Home.tsx,67,"도입 문의하기 <ArrowRight size={18} aria-hidden=""true"" />",,,candidate
+src/app/pages/Home.tsx,69,"<ButtonLink href={mailto(""D-GO 실기기 시연 요청"")} variant=""onNavyGhost"">",,,candidate
+src/app/pages/Home.tsx,70,실기기 시연 요청,,,candidate
+src/app/pages/Home.tsx,74,"<ul className=""mt-8 flex flex-wrap gap-x-5 gap-y-2 border-t border-white/12 pt-5 text-[0.8125rem] text-on-navy-2"" aria-label=""하드웨어 사양"">",,,candidate
+src/app/pages/Home.tsx,105,"<img src=""/logo/KC인증.svg"" alt=""KC 인증"" className=""h-6 w-auto opacity-80"" style={{ filter: ""brightness(0) invert(1)"" }} />",,,candidate
+src/app/pages/Home.tsx,116,"title=""유출 경로 원천 차단.""",,,candidate
+src/app/pages/Home.tsx,117,"aside=""인터넷과 완전히 분리된 사내 설치형 AI 보안 금고 — Quantum Data Vault D-GO""",,,candidate
+src/app/pages/Home.tsx,133,"<span className=""block text-lg font-bold text-navy"">PUF 키가 없으면 켜지지도 않습니다</span>",,,candidate
+src/app/pages/Home.tsx,134,"<span className=""mt-1 block text-sm text-ink-3"">AES-256 암호화 · RSA-2048 · 상호 인증 통신 mTLS</span>",,,candidate
+src/app/pages/Home.tsx,138,"제품 상세 보기 <ArrowRight size={16} aria-hidden=""true"" />",,,candidate
+src/app/pages/Home.tsx,141,"기술 아키텍처 <ArrowRight size={16} aria-hidden=""true"" />",,,candidate
+src/app/pages/Home.tsx,163,"title=""전원을 켤 때마다 —""",,,candidate
+src/app/pages/Home.tsx,164,"accent=""인터넷 없는 로컬 AI 가동""",,,candidate
+src/app/pages/Home.tsx,165,"aside=""기기 본체의 매 가동 흐름입니다. 모든 단계가 외부와 연결 없이 끝납니다.""",,,candidate
+src/app/pages/Home.tsx,177,"연결 방법 — 전용 폐쇄망 <span className=""text-ink-3"">(Private Wi-Fi)</span>",,,candidate
+src/app/pages/Home.tsx,182,"<h2 className=""text-xl font-bold text-key md:text-2xl"">3단 보안 등급</h2>",,,candidate
+src/app/pages/Home.tsx,183,"<p className=""mt-1 text-sm text-ink-2"">중요한 문서일수록 여는 방법이 엄격해집니다.</p>",,,candidate
+src/app/pages/Home.tsx,191,"<SectionIntro id=""onboard-title"" eyebrow=""Onboarding"" title=""처음 도입할 때는"" lead=""아래 두 흐름은 최초 1회뿐입니다. 이후에는 키를 꽂고 켜기만 하면 됩니다."" />",,,candidate
+src/app/pages/Home.tsx,196,"<p className=""flex items-center bg-navy px-6 py-4 text-lg font-bold text-white lg:justify-center"">도입도 간단</p>",,,candidate
+src/app/pages/Home.tsx,210,이런 분들께,,,candidate
+src/app/pages/Home.tsx,229,자주 묻는 질문,,,candidate
+src/app/pages/Home.tsx,256,"“밖으로 내보내지 않는 AI”,",,,candidate
+src/app/pages/Home.tsx,258,"<span className=""text-led"">실제 기기로</span> 확인하세요.",,,candidate
+src/app/pages/Home.tsx,261,"키 인증부터 문서 검색·요약까지, 실제 기기로 보여드립니다. 법인·단체 도입 상담도 함께 받습니다.",,,candidate
+src/app/pages/Home.tsx,265,"<ButtonLink href={mailto(""D-GO 실기기 시연 요청"")} variant=""onNavy"">",,,candidate
+src/app/pages/Home.tsx,266,"시연 요청하기 <ArrowRight size={18} aria-hidden=""true"" />",,,candidate
+src/app/pages/NotFound.tsx,20,페이지를 찾을 수 없습니다,,,candidate
+src/app/pages/NotFound.tsx,22,"<p className=""mt-3 text-base leading-relaxed text-ink-2 md:text-lg"">요청하신 페이지가 존재하지 않거나 이동되었을 수 있습니다.</p>",,,candidate
+src/app/pages/NotFound.tsx,27,홈으로 가기,,,candidate
+src/app/pages/NotFound.tsx,35,이전 페이지,,,candidate
+src/app/pages/NotFound.tsx,40,"도움이 필요하신가요?{"" ""}",,,candidate
+src/app/pages/NotFound.tsx,44,로 문의해 주세요.,,,candidate
+src/app/components/site/ProductStage.tsx,47,"alt=""D-GO Quantum Data Vault 정면 — 전원 노브와 LED, USB 포트, 전면 화면, 하단 금고 서랍""",,,candidate
+src/app/components/site/ProductStage.tsx,62,"alt=""D-GO Quantum Data Vault 정면 — 전원 노브와 LED, USB 포트, 전면 화면, 하단 금고 서랍""",,,candidate
+src/app/components/site/ProductStage.tsx,105,"<p className=""eyebrow mb-2 text-led"">본체 화면</p>",,,candidate
+src/app/components/site/ProductStage.tsx,112,"<ol role=""group"" aria-label=""본체 가동 단계"" className=""grid grid-cols-2 gap-x-4 gap-y-2 sm:grid-cols-4"">",,,candidate
+src/app/components/site/ProductStage.tsx,157,"{playing ? ""자동 재생 멈춤"" : ""자동 재생""}",,,candidate
+src/app/components/site/Diagrams.tsx,6,/** 연결방법 — 전용 폐쇄망 (Private Wi-Fi): apps → D-GO server ✕ internet */,,,candidate
+src/app/components/site/Diagrams.tsx,9,"{ icon: Monitor, label: ""PC 앱"" },",,,candidate
+src/app/components/site/Diagrams.tsx,10,"{ icon: Smartphone, label: ""모바일 앱"" },",,,candidate
+src/app/components/site/Diagrams.tsx,11,"{ icon: KeyRound, label: ""PUF USB 키"" },",,,candidate
+src/app/components/site/Diagrams.tsx,31,D-GO 서버 연결,,,candidate
+src/app/components/site/Diagrams.tsx,44,인터넷 연결 없음,,,candidate
+src/app/components/site/Diagrams.tsx,48,"전용 앱으로만 접속하고, 웹 접속은 차단됩니다 — 애초에 인터넷과 연결되지 않는 구조입니다.",,,candidate
+src/app/components/site/Diagrams.tsx,51,"<span className=""sr-only"">지원 플랫폼: </span>",,,candidate
+src/app/components/site/Diagrams.tsx,58,/** 3단 보안 등급 — C 일반 / D 보호 / E 기밀 */,,,candidate
+src/app/components/site/Diagrams.tsx,62,"<caption className=""sr-only"">3단 보안 등급과 필요한 인증</caption>",,,candidate
+src/app/components/site/Diagrams.tsx,65,"<th scope=""col"">등급</th>",,,candidate
+src/app/components/site/Diagrams.tsx,66,"<th scope=""col"">인증</th>",,,candidate
+src/app/components/site/Diagrams.tsx,67,"<th scope=""col"">대상 문서</th>",,,candidate
+src/app/components/site/Diagrams.tsx,92,/** 처음 도입할 때는 — 관리자 / 팀원 최초 1회 흐름 */,,,candidate
+src/app/components/site/Diagrams.tsx,135,/** 전원을 켤 때마다 — KEY / BOOT / AUTH / ACCESS with the matching screens */,,,candidate
+src/app/components/site/Diagrams.tsx,152,"<span className=""sr-only"">{i + 1}단계. </span>",,,candidate
+src/app/components/site/DeviceScreen.tsx,31,"key: ""D-GO 본체 화면: PUF 키 제거됨, 하드웨어 보안 접근 차단"",",,,candidate
+src/app/components/site/DeviceScreen.tsx,32,"boot: ""D-GO 본체 화면: PUF 인증 완료(Safety Verified)"",",,,candidate
+src/app/components/site/DeviceScreen.tsx,33,"auth: ""D-GO 본체 화면: 관리자 비밀번호 확인 키패드"",",,,candidate
+src/app/components/site/DeviceScreen.tsx,34,"pair: ""D-GO 본체 화면: 신규 디바이스 페어링 6자리 코드"",",,,candidate
+src/app/components/site/DeviceScreen.tsx,35,"access: ""D-GO 본체 화면: D-GO Security Vault 대시보드, 금고 열림"",",,,candidate
+src/app/components/site/DeviceScreen.tsx,76,/** PUF key removed — the alert covers the dimmed dashboard (design: 하드웨어 보안 접근 차단). */,,,candidate
+src/app/components/site/DeviceScreen.tsx,80,"<Glance icon={<ShieldAlert style={{ color: ""var(--dsc-red)"" }} strokeWidth={2} />}>PUF 키 필요</Glance>",,,candidate
+src/app/components/site/DeviceScreen.tsx,87,"<p className=""ds-alert-title"">하드웨어 보안 접근 차단</p>",,,candidate
+src/app/components/site/DeviceScreen.tsx,89,PUF 하드웨어 키가 연결되지 않았습니다.,,,candidate
+src/app/components/site/DeviceScreen.tsx,91,사용하시려면 PUF 키를 연결해 주세요.,,,candidate
+src/app/components/site/DeviceScreen.tsx,124,"<span className=""ds-pill ds-pill--green"">인증이 성공적으로 완료되었습니다</span>",,,candidate
+src/app/components/site/DeviceScreen.tsx,131,/** Admin passcode keypad (design: 관리자 비밀번호 확인). */,,,candidate
+src/app/components/site/DeviceScreen.tsx,135,"<Glance icon={<Lock style={{ color: ""var(--dsc-green)"" }} strokeWidth={2} />}>비밀번호 확인</Glance>",,,candidate
+src/app/components/site/DeviceScreen.tsx,138,"<span className=""ds-pill ds-pill--green"">비밀번호 등록됨</span>",,,candidate
+src/app/components/site/DeviceScreen.tsx,139,"<p className=""ds-heading"">관리자 비밀번호 확인</p>",,,candidate
+src/app/components/site/DeviceScreen.tsx,159,/** New device pairing code shown on the vault (design: 신규 디바이스 페어링). */,,,candidate
+src/app/components/site/DeviceScreen.tsx,163,"<Glance icon={<Smartphone style={{ color: ""var(--dsc-blue)"" }} strokeWidth={2} />}>기기 승인</Glance>",,,candidate
+src/app/components/site/DeviceScreen.tsx,167,신규 디바이스 페어링,,,candidate
+src/app/components/site/DeviceScreen.tsx,169,"<p className=""ds-sub ds-dim"">모바일 앱에 표시된 6자리 코드가 아래와 같습니까?</p>",,,candidate
+src/app/components/site/DeviceScreen.tsx,177,<X strokeWidth={2.5} /> 일치하지 않음,,,candidate
+src/app/components/site/DeviceScreen.tsx,180,<Check strokeWidth={2.5} /> 일치함,,,candidate
+src/app/components/site/DeviceScreen.tsx,193,"<Glance icon={<DoorOpen style={{ color: ""var(--dsc-amber)"" }} strokeWidth={2} />}>금고 열림</Glance>",,,candidate
+src/app/components/site/DeviceScreen.tsx,216,"<Lock size={11} style={{ display: ""inline"", verticalAlign: ""-1px"" }} /> 화면잠금",,,candidate
+src/app/components/site/DeviceScreen.tsx,219,"<Power size={11} style={{ display: ""inline"", verticalAlign: ""-1px"" }} /> 전원끄기",,,candidate
+src/app/components/site/DeviceScreen.tsx,230,"<p className=""ds-state"">금고 열림</p>",,,candidate
+src/app/components/site/DeviceScreen.tsx,231,"<p className=""ds-dim ds-opt"">터치하여 금고 닫기</p>",,,candidate
+src/app/components/site/DeviceScreen.tsx,242,"사용 중인 스토리지 <b className=""ds-blue"">2.4GB</b>",,,candidate
+src/app/components/site/DeviceScreen.tsx,255,"PUF 모듈 <b className=""ds-green"">정상 (0x64)</b>",,,candidate
+src/app/components/site/DeviceScreen.tsx,264,mTLS 보안 세션 활성화,,,candidate
+src/app/components/site/DeviceScreen.tsx,268,안전하게 연결됨,,,candidate
+src/app/components/site/DeviceScreen.tsx,279,<span>Admin&apos;s iPhone 접속 승인</span>,,,candidate
+src/app/components/site/DeviceScreen.tsx,284,<span>금고 닫힘 확인 (물리 센서)</span>,,,candidate
+src/app/components/site/DeviceScreen.tsx,289,<span>신규 보안 문서 업로드 (3건)</span>,,,candidate
+src/app/components/Header.tsx,7,"{ path: ""/"", label: ""홈"" },",,,candidate
+src/app/components/Header.tsx,8,"{ path: ""/product"", label: ""제품"" },",,,candidate
+src/app/components/Header.tsx,9,"{ path: ""/technology"", label: ""기술"" },",,,candidate
+src/app/components/Header.tsx,10,"{ path: ""/dashboard"", label: ""앱·금고관리"" },",,,candidate
+src/app/components/Header.tsx,11,"{ path: ""/manual"", label: ""매뉴얼"" },",,,candidate
+src/app/components/Header.tsx,12,"{ path: ""/purchase"", label: ""구매"" },",,,candidate
+src/app/components/Header.tsx,13,"{ path: ""/support"", label: ""문의"" },",,,candidate
+src/app/components/Header.tsx,56,"<Link to=""/"" aria-label=""D-GO Quantum Data Vault 홈"" className=""rounded-md"">",,,candidate
+src/app/components/Header.tsx,60,"<nav aria-label=""주요 메뉴"" className=""hidden h-full items-stretch md:flex"">",,,candidate
+src/app/components/Header.tsx,72,도입 문의,,,candidate
+src/app/components/Header.tsx,80,"aria-label={open ? ""메뉴 닫기"" : ""메뉴 열기""}",,,candidate
+src/app/components/Header.tsx,88,"<nav id=""mobile-nav"" aria-label=""주요 메뉴"" className=""border-t border-line bg-white md:hidden"">",,,candidate
+src/app/components/Header.tsx,111,도입 문의,,,candidate
+src/app/components/Footer.tsx,7,"{ to: ""/product"", label: ""제품 소개"" },",,,candidate
+src/app/components/Footer.tsx,8,"{ to: ""/technology"", label: ""기술 정보"" },",,,candidate
+src/app/components/Footer.tsx,9,"{ to: ""/dashboard"", label: ""앱·금고관리"" },",,,candidate
+src/app/components/Footer.tsx,10,"{ to: ""/manual"", label: ""사용 매뉴얼"" },",,,candidate
+src/app/components/Footer.tsx,11,"{ to: ""/purchase"", label: ""구매 문의"" },",,,candidate
+src/app/components/Footer.tsx,12,"{ to: ""/support"", label: ""고객 지원"" },",,,candidate
+src/app/components/Footer.tsx,25,인터넷과 분리된,,,candidate
+src/app/components/Footer.tsx,27,독립형 데이터 안전금고.,,,candidate
+src/app/components/Footer.tsx,31,"<nav aria-label=""바로가기"">",,,candidate
+src/app/components/Footer.tsx,32,"<h2 className=""eyebrow mb-4 text-led"">바로가기</h2>",,,candidate
+src/app/components/Footer.tsx,45,"<h2 className=""eyebrow mb-4 text-led"">연락처</h2>",,,candidate
+src/app/components/Footer.tsx,64,"<MessageCircle size={16} aria-hidden=""true"" /> 카카오톡 채널 (24시간 고객 지원)",,,candidate
+src/app/components/Footer.tsx,79,"<h2 className=""eyebrow mb-4 text-led"">운영 시간</h2>",,,candidate
+src/app/components/Footer.tsx,87,"<img src=""/logo/KC인증.svg"" alt=""KC 인증"" className=""h-6 w-auto opacity-90"" style={WHITE_LOGO} />",,,candidate
+src/app/components/Footer.tsx,101,"<p className=""mt-3 text-[0.8125rem] text-on-navy-2/80"">본 제품은 국내 PUF 기술 선도 기업 ICTK와의 기술 협약을 통해 제조됩니다.</p>",,,candidate
+src/app/content.ts,8,"company: ""(주)진앤현시큐리티"",",,,candidate
+src/app/content.ts,9,"addressLines: [""경기 하남시 미사대로 540"", ""현대지식산업센터 한강미사2차 비동 614호""],",,,candidate
+src/app/content.ts,12,"hours: ""평일 09:00–18:00"",",,,candidate
+src/app/content.ts,13,"holidays: ""주말·공휴일 휴무"",",,,candidate
+src/app/content.ts,28,"""퍼플넷"",",,,candidate
+src/app/content.ts,30,"""쿠도커뮤니케이션"",",,,candidate
+src/app/content.ts,31,"""솔모정보기술"",",,,candidate
+src/app/content.ts,32,"""보헤미안 OS"",",,,candidate
+src/app/content.ts,33,"""워킹랩"",",,,candidate
+src/app/content.ts,38,/** 전원을 켤 때마다 — 기기 본체의 매 가동 흐름 */,,,candidate
+src/app/content.ts,51,"title: ""물리키 연결"",",,,candidate
+src/app/content.ts,52,"tag: ""PUF USB 삽입"",",,,candidate
+src/app/content.ts,53,"body: ""등록된 전용 키(복제 불가 PUF USB)를 본체에 꽂습니다."",",,,candidate
+src/app/content.ts,54,"strong: ""키가 없으면 전원조차 켜지지 않습니다."",",,,candidate
+src/app/content.ts,55,"screenLabel: ""본체 화면 — PUF 키 미연결, 하드웨어 보안 접근 차단"",",,,candidate
+src/app/content.ts,60,"title: ""인가부팅"",",,,candidate
+src/app/content.ts,61,"tag: ""보안키 인증 시"",",,,candidate
+src/app/content.ts,62,"body: ""본체 화면에서 인증 결과를 확인합니다."",",,,candidate
+src/app/content.ts,63,"strong: ""올바른 키일 때만 기동하며, 키를 뽑으면 그 순간 전체 잠금됩니다."",",,,candidate
+src/app/content.ts,64,"screenLabel: ""본체 화면 — PUF 인증 완료(Safety Verified)"",",,,candidate
+src/app/content.ts,69,"title: ""등급별 보안 인증"",",,,candidate
+src/app/content.ts,70,"tag: ""C·D·E 권한 승인"",",,,candidate
+src/app/content.ts,71,"body: ""문서 중요도에 따라 3단계 — C 일반(ID·비밀번호), D 보호(+2차 인증), E 기밀(+스마트폰 생체인증)."",",,,candidate
+src/app/content.ts,72,"strong: ""중요한 문서일수록 여는 방법이 엄격해집니다."",",,,candidate
+src/app/content.ts,73,"screenLabel: ""본체 화면 — 관리자 비밀번호 확인"",",,,candidate
+src/app/content.ts,78,"title: ""배정 등급 접근"",",,,candidate
+src/app/content.ts,79,"tag: ""C·D·E 범위 열람"",",,,candidate
+src/app/content.ts,80,"body: ""승인된 범위의 문서만 열리고, 인터넷 없이 문서 검색·요약을 시작합니다. 실물 보관은 내장 금고 서랍(A4)으로."",",,,candidate
+src/app/content.ts,81,"strong: ""동시에 로컬 AI가 가동됩니다."",",,,candidate
+src/app/content.ts,82,"screenLabel: ""본체 화면 — D-GO Security Vault 대시보드"",",,,candidate
+src/app/content.ts,86,/** 0건 · PUF · 0원 */,,,candidate
+src/app/content.ts,88,"{ figure: ""0"", unit: ""건"", title: ""외부누출"", body: ""나가는 통신 경로 자체가 없는 폐쇄망 구조"" },",,,candidate
+src/app/content.ts,89,"{ figure: ""PUF"", unit: """", title: ""복제 불가 보안칩"", body: ""반도체 지문 인증 · 키를 뽑는 순간 전체 잠금"" },",,,candidate
+src/app/content.ts,90,"{ figure: ""0"", unit: ""원"", title: ""구독료 없는 구축형"", body: ""영구 라이선스 · 로컬 AI 검색 및 요약 내장"" },",,,candidate
+src/app/content.ts,95,"{ label: ""Keep"", title: ""문서도 실물도, 하나의 금고에"", body: ""계약서 데이터와 함께 인감·원본 같은 실물까지 함께 보관합니다."" },",,,candidate
+src/app/content.ts,96,"{ label: ""Protect"", title: ""애초에, 나갈 길이 없다"", body: ""인터넷과 물리적으로 분리. 클라우드에 보내지 않고 사용합니다."" },",,,candidate
+src/app/content.ts,97,"{ label: ""Use AI"", title: ""금고 안에서, AI가 돕는다"", body: ""금고 속 문서를 AI가 검색·요약. 외부 전송도, 구독료도 없습니다."" },",,,candidate
+src/app/content.ts,100,/** 3단 보안 등급 */,,,candidate
+src/app/content.ts,102,"{ grade: ""C"", name: ""일반"", auth: ""아이디·비밀번호"", scope: ""일상 업무 문서"" },",,,candidate
+src/app/content.ts,103,"{ grade: ""D"", name: ""보호"", auth: ""+2단계 인증"", scope: ""계약·인사·재무"" },",,,candidate
+src/app/content.ts,104,"{ grade: ""E"", name: ""기밀"", auth: ""+생체인증"", scope: ""핵심 기밀·지식재산"" },",,,candidate
+src/app/content.ts,107,/** 이런 분들께 */,,,candidate
+src/app/content.ts,109,"{ title: ""법률 · 회계"", body: ""비밀 유지 의무가 있는 계약서를 AI로 다루고 싶은 분"" },",,,candidate
+src/app/content.ts,110,"{ title: ""연구 · 제조"", body: ""도면·미공개 기술자료를 유출 없이 축적하려는 분"" },",,,candidate
+src/app/content.ts,111,"{ title: ""의료 · 공공"", body: ""개인정보가 포함된 문서를 규제 안에서 활용하려는 분"" },",,,candidate
+src/app/content.ts,114,/** 처음 도입할 때는 — 최초 1회 */,,,candidate
+src/app/content.ts,117,"role: ""관리자"",",,,candidate
+src/app/content.ts,118,"note: ""최초 설정 · 도입 시 1회"",",,,candidate
+src/app/content.ts,120,"{ title: ""앱 설치"", sub: ""PC·모바일"" },",,,candidate
+src/app/content.ts,121,"{ title: ""기기 등록"", sub: ""근접 + PUF 검증"" },",,,candidate
+src/app/content.ts,122,"{ title: ""화면 승인"", sub: ""6자리 코드"" },",,,candidate
+src/app/content.ts,123,"{ title: ""관리자 등록"", sub: ""비밀번호 설정"" },",,,candidate
+src/app/content.ts,124,"{ title: ""대시보드"", sub: ""통합 관리"" },",,,candidate
+src/app/content.ts,128,"role: ""팀원"",",,,candidate
+src/app/content.ts,129,"note: ""초대·등록 · 관리자가 초대"",",,,candidate
+src/app/content.ts,131,"{ title: ""앱 설치"", sub: ""PC·모바일"" },",,,candidate
+src/app/content.ts,132,"{ title: ""초대 QR 스캔"", sub: ""1회용 QR"" },",,,candidate
+src/app/content.ts,133,"{ title: ""계정 생성"", sub: ""ID·비밀번호 등록"" },",,,candidate
+src/app/content.ts,134,"{ title: ""로그인"", sub: ""계정으로 접속"" },",,,candidate
+src/app/content.ts,135,"{ title: ""배정 등급 접근"", sub: ""C·D·E 범위"" },",,,candidate
+src/app/content.ts,140,/** 도입도 간단 */,,,candidate
+src/app/content.ts,142,"{ title: ""월 비용 없음"", body: ""구독료 없는 구축형 · 영구 라이선스"" },",,,candidate
+src/app/content.ts,143,"{ title: ""클라우드 계약·공사 없음"", body: ""외부 서비스 가입도, 망 공사도 필요 없습니다"" },",,,candidate
+src/app/content.ts,144,"{ title: ""책상 위 1대로 완결"", body: ""책상에 놓는 것만으로 설치가 끝납니다"" },",,,candidate
+src/app/content.ts,147,"export const HARDWARE_CHIPS = [""폐쇄망 Local AI NPU 6 TOPS"", ""AES-256 mTLS"", ""물리 보안 금고 내장""] as const;",,,candidate

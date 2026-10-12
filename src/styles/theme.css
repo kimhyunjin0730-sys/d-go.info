@@ -196,3 +196,13 @@
     font-weight: 600;
   }
 }
+
+/* Japanese needs character-based wrapping and complete Japanese glyph coverage. */
+html[lang="ja"] {
+  --font-sans: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+  --font-display: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+}
+html[lang="ja"] body { word-break: normal; line-break: strict; }
+html[lang="en"] body { word-break: normal; }
+html[lang="ja"] .display, html[lang="ja"] .display-light { line-height: 1.45; letter-spacing: 0; }
+html[lang="ja"] .eyebrow { letter-spacing: 0.04em; }

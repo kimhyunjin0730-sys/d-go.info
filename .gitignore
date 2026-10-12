@@ -42,3 +42,6 @@ shots/
 
 # Claude Code local files (config, worktrees, generated artifacts)
 .claude/
+
+# Retained pre-edit backups and safe build staging
+backups/

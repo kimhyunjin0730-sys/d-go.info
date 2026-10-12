@@ -1,0 +1,65 @@
+{
+  "hero": [
+    { "eyebrow": "D-GO Quantum Data Vault", "title": "Your data. In your own vault.", "lead": "Bring physical document storage and digital data protection together. Manage your vault and Secure Folder through the D-GO app." },
+    { "eyebrow": "Product", "title": "One vault for physical and digital assets.", "lead": "D-GO combines a physical storage compartment, protected digital storage and a management app for your home or office." },
+    { "eyebrow": "Technology", "title": "Protection starts with the device.", "lead": "PUF hardware authentication, a dedicated private network and encrypted storage form the foundation of D-GO’s security architecture." },
+    { "eyebrow": "D-GO App", "title": "Manage your vault. Protect your files.", "lead": "D-GO Vault Management and D-GO Secure Folder bring device management and data protection into one app." },
+    { "eyebrow": "User Guide", "title": "Get started with D-GO.", "lead": "Learn how to connect the device and explore the app’s features. Contact us for installation files and manuals." },
+    { "eyebrow": "Purchase", "title": "Find the right D-GO setup.", "lead": "Tell us your intended use, quantity and deployment needs. Our team can discuss a demonstration and quotation." },
+    { "eyebrow": "Support", "title": "How can we help?", "lead": "Contact us about D-GO products, device connections or technical support. Include your model and app version where possible." }
+  ],
+  "productCTA": "Explore the Product", "appCTA": "Explore the App", "manualCTA": "Read the Guide",
+  "benefitsTitle": "Storage and protection, together",
+  "benefitsLead": "Keep your documents and essential assets close, with dedicated hardware and app controls.",
+  "benefits": [
+    { "title": "Physical storage", "body": "Store original documents, seals and other physical assets in the built-in compartment." },
+    { "title": "Protected digital files", "body": "Use encryption and decryption to protect data in D-GO Secure Folder." },
+    { "title": "Device management", "body": "Check the connected vault’s status through the management interface." }
+  ],
+  "hardwareTitle": "The vault and its companion app",
+  "hardwareBody": "The device provides physical storage, digital storage and a touchscreen. The app provides Vault Management and Secure Folder functions.",
+  "hardwareFacts": ["Built-in physical storage compartment", "Touchscreen device interface", "PUF hardware authentication", "Dedicated private Wi-Fi network"],
+  "technologyTitle": "Layers of protection",
+  "technologyLead": "Hardware authentication, connection controls and data encryption serve different roles.",
+  "technology": [
+    { "title": "PUF hardware authentication", "body": "A physical hardware key works with the device’s PUF authentication mechanism to control access." },
+    { "title": "Private network", "body": "The companion app connects to the vault over its dedicated private network." },
+    { "title": "Encryption and decryption", "body": "D-GO Secure Folder provides data encryption and decryption functions." },
+    { "title": "Document timestamps", "body": "Document timestamping authenticates information about a document’s point in time." },
+    { "title": "Proof of document access", "body": "Document access certification provides evidence that a document was viewed." },
+    { "title": "Keys and certificates", "body": "The app includes functions for managing keys and certificates." }
+  ],
+  "technologyNote": "Document timestamping and proof of document access are separate functions. Ask our team about service integration and verification details for your deployment.",
+  "dashboardTitle": "The device dashboard at a glance",
+  "dashboardLead": "The touchscreen design brings vault-door status, file counts, storage use and the connected device into one view.",
+  "screen": { "label": "Illustrative D-GO device dashboard", "status": "Vault Door Status", "open": "Vault Open", "files": "Encrypted Files", "storage": "Used Storage", "connected": "Connected Device", "settings": "Device Settings", "lock": "Screen Lock", "power": "Power Off", "example": "Illustrative screen — values are examples, not live device data.", "appearance": "Light and dark modes, with normal and large text options." },
+  "connectionTitle": "Connect your device",
+  "connectionLead": "Use the device and companion app together on the dedicated network.",
+  "connectionSteps": [
+    { "title": "Prepare the vault", "body": "Connect the power supply and the registered PUF hardware key." },
+    { "title": "Connect to the private network", "body": "Connect your app device to the vault’s dedicated private Wi-Fi network." },
+    { "title": "Register the device", "body": "Follow the app’s registration flow and enter the six-digit code shown on the vault’s screen when prompted." },
+    { "title": "Open Vault Management", "body": "After registration, check the connected vault’s status in the management screen." }
+  ],
+  "downloadsTitle": "Apps and manuals", "downloadsLead": "Official installation files and PDF manuals are being prepared. Ask our team about the version for your device and operating system.",
+  "downloads": ["Desktop app", "Mobile app", "Quick Start guide", "Full user manual"], "preparing": "In preparation", "requestFiles": "Request Files and Manuals",
+  "troubleshootTitle": "Before you contact support",
+  "checks": ["Check the power connection and PUF hardware key.", "Check that the app device is connected to the vault’s private network.", "Follow the app’s instructions for permissions and registration.", "If a hardware key is lost, contact support for guidance."],
+  "salesTitle": "Tell us what you need",
+  "salesSteps": [
+    { "title": "Share your requirements", "body": "Include your organisation, contact details, quantity and intended use." },
+    { "title": "Discuss the setup", "body": "Ask about device demonstrations, deployment, installation and support." },
+    { "title": "Confirm the quotation", "body": "Pricing, shipping, regional availability and warranty terms will be confirmed for your order." }
+  ],
+  "regionalNote": "For enquiries outside Korea, please contact us by email. Delivery, local support and warranty arrangements depend on the destination and quotation.",
+  "emailTitle": "Email our team", "emailBody": "Use the form below to prepare an email, or contact us directly.",
+  "form": { "title": "Prepare Your Enquiry", "name": "Name", "email": "Email", "organisation": "Organisation (optional)", "quantity": "Quantity (optional)", "message": "Your enquiry", "submit": "Open Email Draft", "note": "This opens a draft in your email app. Review and send it there; this website does not submit the enquiry automatically.", "subjectSales": "D-GO purchase enquiry", "subjectSupport": "D-GO support enquiry", "bodyIntro": "Enquiry from the D-GO English website", "type": "Enquiry type", "types": ["Purchase / quotation", "Technical support", "Demonstration", "Partnership", "Other"] },
+  "ctaTitle": "See D-GO in action.", "ctaBody": "Contact us to discuss the vault, app functions and your deployment requirements.",
+  "faqTitle": "Common questions",
+  "faqs": [
+    { "q": "Where can I get the app and manual?", "a": "Contact our team by email for availability and the appropriate installation files and manuals." },
+    { "q": "How do I register a new device?", "a": "Connect to the private network and follow the app’s registration instructions. The vault displays a six-digit pairing code." },
+    { "q": "What should I do if I lose the hardware key?", "a": "Contact support. The required checks depend on your registered devices and certificates." },
+    { "q": "Can I order from outside Korea?", "a": "Please email us with your destination and requirements so we can confirm availability, shipping and support arrangements." }
+  ]
+}

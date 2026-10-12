@@ -17,16 +17,17 @@ import {
   Layers,
   Lock,
   Scale,
-  Scan,
+  Mic,
   ScrollText,
   ShieldCheck,
   Thermometer,
-  Trash2,
   Usb,
   Wifi,
 } from "lucide-react";
 import { HARDWARE_CHIPS, mailto } from "../content";
 import { ButtonLink } from "../components/site/Button";
+import AppFeatures from "../components/site/AppFeatures";
+import appCopy from "../locales/ko/app.json";
 import { BootSequence, TierTable } from "../components/site/Diagrams";
 import { BandHeader, Chip, Container, Eyebrow, PageHero, Section, SectionIntro } from "../components/site/Layout";
 import { ProductImage } from "../components/site/ProductStage";
@@ -65,7 +66,7 @@ const FEATURES = [
     title: "물리적 포트 통제",
     body: "PUF 승인 시에만 USB-C 및 네트워크 드라이브가 물리적으로 활성화",
   },
-  { icon: Scan, tag: "MEDIA SECURITY", title: "보안 미디어 생성", body: "촬영 즉시 OCR PDF 변환 및 모바일 데이터 즉시 파기" },
+  { icon: Mic, tag: "AUDIO STORAGE", title: appCopy.features.recording.title, body: appCopy.features.recording.description },
 ];
 
 /** 4대 핵심 기능 */
@@ -132,11 +133,8 @@ const SYSTEM = [
     eyebrow: "Software",
     title: "소프트웨어",
     items: [
-      { label: "데이터 금고 관리", desc: "입력·출력·현황 조회 (파일은 Vault에만 존재)" },
-      { label: "시점인증 연결", desc: "SHA-256 해시 + TSA 타임스탬프 자동 발급 · 법적 효력 확보" },
-      { label: "보안 검사", desc: "유입 파일 악성코드 실시간 스캔 · 무결성 검증" },
-      { label: "모바일 백업 지원", desc: "모바일 기기의 크롬 기록, 연락처, 중요 파일 자동 백업 보호" },
-      { label: "자격 증명 보관", desc: "웹사이트 ID 및 패스워드를 위한 안전한 보관소 기능 탑재" },
+      { label: appCopy.vault.title, desc: appCopy.vault.description },
+      ...Object.values(appCopy.features).map((feature) => ({ label: feature.title, desc: feature.description })),
     ],
   },
 ];
@@ -249,6 +247,8 @@ export default function Product() {
         </div>
       </Section>
 
+      <AppFeatures compact />
+
       {/* ── 사양 스트립 ── */}
       <Section tone="mist" labelledBy="specs-title" className="py-10 md:py-12">
         <h2 id="specs-title" className="sr-only">
@@ -343,7 +343,7 @@ export default function Product() {
                 {g.items.map((item) => (
                   <div key={item.label} className="grid gap-1 py-3.5 sm:grid-cols-[9rem_1fr] sm:gap-4 md:grid-cols-1 md:gap-1 lg:grid-cols-[9rem_1fr] lg:gap-4">
                     <dt className="text-[0.9375rem] font-bold text-navy">{item.label}</dt>
-                    <dd className="text-[0.9375rem] leading-relaxed text-ink-2">{item.desc}</dd>
+                    {item.desc && <dd className="text-[0.9375rem] leading-relaxed text-ink-2">{item.desc}</dd>}
                   </div>
                 ))}
               </dl>
@@ -358,7 +358,7 @@ export default function Product() {
           id="lifecycle-title"
           eyebrow="Data Lifecycle"
           title="데이터 보안 라이프사이클"
-          lead="생성부터 저장, 폐기까지 완벽하게 통제되는 데이터 흐름"
+          lead="파일과 음성 기록을 입력하고, 암호화해 보관하고, 접근을 관리하는 흐름"
         />
         <ol className="mx-auto grid max-w-xl gap-10 lg:max-w-none lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)_minmax(0,1fr)] lg:gap-12">
           {/* 1 — 모바일 입력 */}
@@ -374,15 +374,15 @@ export default function Product() {
                 <span className="sr-only">1단계. </span>모바일 입력
               </h3>
               <div className="mt-4 flex gap-3 rounded-xl border border-line p-4">
-                <Scan size={20} strokeWidth={1.75} className="mt-0.5 flex-none text-key" aria-hidden="true" />
+                <Mic size={20} strokeWidth={1.75} className="mt-0.5 flex-none text-key" aria-hidden="true" />
                 <div>
-                  <p className="font-bold text-ink">보안 캡처</p>
-                  <p className="mt-0.5 text-sm leading-relaxed text-ink-2">문서 촬영(OCR) &amp; 음성 녹취(STT)</p>
+                  <p className="font-bold text-ink">파일·음성 입력</p>
+                  <p className="mt-0.5 text-sm leading-relaxed text-ink-2">파일 추가와 음성녹음·저장</p>
                 </div>
               </div>
               <p className="mt-3 flex items-center gap-2 rounded-xl bg-mist px-4 py-3 text-sm font-semibold text-navy lg:mt-auto">
-                <Trash2 size={16} strokeWidth={2} className="flex-none text-key" aria-hidden="true" />
-                서버 전송 후 원본 즉시 파기
+                <Lock size={16} strokeWidth={2} className="flex-none text-key" aria-hidden="true" />
+                디고 안전폴더로 데이터 보호
               </p>
             </div>
             <FlowConnector icon={Wifi} />

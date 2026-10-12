@@ -1,3 +1,4 @@
+import appCopy from "../locales/ko/app.json";
 import {
   ArrowDown,
   ArrowRight,
@@ -83,7 +84,7 @@ const SPECS = [
   { term: "본체", value: "리눅스 임베디드 OS · 8\" 터치스크린" },
 ];
 
-const CLIENT_FEATURES = ["대시보드 모니터링", "문서 스캔 (OCR PDF)", "음성 녹취 및 STT"];
+const CLIENT_FEATURES = [appCopy.vault.title, ...Object.values(appCopy.features).map((feature) => feature.title)];
 
 const SUBSYSTEMS = [
   { icon: HardDrive, title: "이중화 스토리지", items: ["RAID 1 미러링", "C/D/E 보안파티션"] },

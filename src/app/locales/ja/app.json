@@ -1,0 +1,35 @@
+{
+  "title": "D-GO アプリの2つの機能",
+  "lead": "金庫を管理する D-GO 金庫管理と、データを保護する D-GO セキュアフォルダーを提供します。",
+  "detailsLabel": "アプリ管理の詳細を見る",
+  "vault": {
+    "title": "D-GO 金庫管理",
+    "description": "接続中の金庫の状態や管理画面を確認できます。"
+  },
+  "folder": {
+    "title": "D-GO セキュアフォルダー",
+    "description": "ファイルや音声記録を保護し、文書の認証や鍵・証明書の管理を行えます。"
+  },
+  "features": {
+    "encryption": {
+      "title": "データの暗号化・復号",
+      "description": "データを暗号化し、利用時に復号します。"
+    },
+    "timestamp": {
+      "title": "文書のタイムスタンプ",
+      "description": "文書の時点情報を認証します。"
+    },
+    "documentAccess": {
+      "title": "文書閲覧証明",
+      "description": "文書を閲覧した事実を証明します。"
+    },
+    "recording": {
+      "title": "音声の録音・保存",
+      "description": "音声を録音して保存します。"
+    },
+    "credentials": {
+      "title": "鍵・証明書管理",
+      "description": "鍵と証明書を管理します。"
+    }
+  }
+}

@@ -1,0 +1,77 @@
+import type { Locale } from "./config";
+
+const ko = {
+  nav: ["홈", "제품", "기술", "앱 관리", "본체 모니터", "매뉴얼", "구매", "문의"],
+  navigation: "주요 메뉴", language: "언어 선택", openMenu: "메뉴 열기", closeMenu: "메뉴 닫기",
+  sales: "도입 문의", home: "홈으로 가기", back: "이전 페이지", links: "바로가기", contact: "연락처",
+  tagline: "인터넷과 분리된 독립형 데이터 안전금고.", hoursTitle: "운영 시간",
+  hours: "평일 09:00–18:00 (한국 시간, UTC+9)", holidays: "한국 공휴일·주말 휴무",
+  address: "경기 하남시 미사대로 540, 현대지식산업센터 한강미사2차 비동 614호",
+  kakao: "카카오톡 채널", company: "(주)진앤현시큐리티", partners: "Sales Partners",
+  partnerNote: "본 제품은 ICTK와의 기술 협약을 통해 제조됩니다.", koreaPhone: "한국 내 전화 상담",
+  productAlt: "D-GO 금고 본체 정면", copyright: "All rights reserved.",
+  notFound: "페이지를 찾을 수 없습니다", notFoundBody: "요청하신 페이지가 존재하지 않거나 이동되었을 수 있습니다.",
+  help: "도움이 필요하면 이메일로 문의해 주세요.",
+  titles: ["독립형 데이터 안전금고", "제품 소개", "보안 기술", "앱 관리", "본체 모니터", "사용 매뉴얼", "구매 안내", "고객 지원"],
+  descriptions: [
+    "D-GO의 금고 본체, 금고관리 앱과 안전폴더를 소개합니다.",
+    "D-GO 본체와 앱의 구성, 데이터 보호 및 관리 기능을 알아보세요.",
+    "D-GO의 PUF 하드웨어 인증, 전용 네트워크와 데이터 보호 구조를 소개합니다.",
+    "디고 금고관리와 안전폴더의 암복호화·시점인증·열람 증명·녹음·키 및 인증서 관리 기능을 알아보세요.",
+    "D-GO 금고 본체의 터치스크린, 개폐 상태와 하드웨어 모니터링 화면을 확인하세요.",
+    "D-GO 설치·연결 안내와 앱 및 매뉴얼 배포 정보를 확인하세요.",
+    "D-GO 제품 도입, 시연과 견적을 문의하세요.",
+    "D-GO 제품 및 기술 지원 문의 방법을 안내합니다.",
+  ],
+};
+type CommonCopy = { [K in keyof typeof ko]: (typeof ko)[K] extends string[] ? string[] : string };
+
+const en: CommonCopy = {
+  nav: ["Home", "Product", "Technology", "App", "Device Screen", "Manual", "Purchase", "Support"],
+  navigation: "Main navigation", language: "Select language", openMenu: "Open menu", closeMenu: "Close menu",
+  sales: "Contact Sales", home: "Back to Home", back: "Go Back", links: "Quick Links", contact: "Contact",
+  tagline: "A standalone data vault on a private network.", hoursTitle: "Office Hours",
+  hours: "Weekdays, 09:00–18:00 Korea time (UTC+9)", holidays: "Closed on weekends and Korean public holidays",
+  address: "Suite 614, Building B, Hangang Misa 2, 540 Misa-daero, Hanam-si, Gyeonggi-do, Republic of Korea",
+  kakao: "KakaoTalk channel (Korea)", company: "Jin & Hyun Security", partners: "Sales Partners",
+  partnerNote: "Manufactured through a technology partnership with ICTK.", koreaPhone: "Telephone enquiries within Korea",
+  productAlt: "Front view of the D-GO vault", copyright: "All rights reserved.",
+  notFound: "Page Not Found", notFoundBody: "This page may have moved, or the address may be incorrect.",
+  help: "For assistance, contact us by email.",
+  titles: ["Standalone Data Vault", "Product Overview", "Security Technology", "App Management", "Device Monitor", "User Guide", "Purchase Enquiries", "Customer Support"],
+  descriptions: [
+    "Explore the D-GO vault, Vault Management app and Secure Folder.",
+    "Discover D-GO hardware and app features for protecting and managing your data.",
+    "Learn about D-GO PUF hardware authentication, private networking and data protection.",
+    "Explore encryption, document timestamps, proof of document access, audio recording, and key and certificate management.",
+    "Explore the D-GO device touchscreen, vault-door status and hardware monitoring interface.",
+    "Find D-GO setup guidance and app and manual availability information.",
+    "Contact the D-GO team for a demonstration, quotation or deployment enquiry.",
+    "Find product and technical support contact information for D-GO.",
+  ],
+};
+const ja: CommonCopy = {
+  nav: ["ホーム", "製品", "技術", "アプリ", "本体画面", "マニュアル", "購入", "お問い合わせ"],
+  navigation: "メインメニュー", language: "言語を選択", openMenu: "メニューを開く", closeMenu: "メニューを閉じる",
+  sales: "導入のご相談", home: "ホームに戻る", back: "前のページに戻る", links: "関連ページ", contact: "連絡先",
+  tagline: "専用ネットワークで利用する独立型データ金庫。", hoursTitle: "営業時間",
+  hours: "平日 09:00–18:00（韓国時間、UTC+9）", holidays: "土日・韓国の祝日は休業",
+  address: "韓国 京畿道 河南市 ミサ大路540、漢江ミサ2次 B棟614号",
+  kakao: "KakaoTalkチャンネル（韓国）", company: "Jin & Hyun Security", partners: "販売パートナー",
+  partnerNote: "ICTKとの技術提携により製造されています。", koreaPhone: "韓国内からの電話相談",
+  productAlt: "D-GO金庫本体の正面", copyright: "All rights reserved.",
+  notFound: "ページが見つかりません", notFoundBody: "ページが移動したか、URLが正しくない可能性があります。",
+  help: "お困りの場合はメールでお問い合わせください。",
+  titles: ["独立型データ金庫", "製品紹介", "セキュリティ技術", "アプリ管理", "本体画面", "ご利用ガイド", "購入のご相談", "サポート"],
+  descriptions: [
+    "D-GO本体、金庫管理アプリとセキュアフォルダーをご紹介します。",
+    "D-GO本体とアプリの構成、データ保護・管理機能をご覧ください。",
+    "PUFハードウェア認証、専用ネットワークとデータ保護の仕組みをご紹介します。",
+    "暗号化・復号、文書タイムスタンプ、閲覧証明、音声録音、鍵・証明書管理をご紹介します。",
+    "D-GO本体のタッチスクリーン、開閉状態とハードウェアのモニター画面をご覧ください。",
+    "D-GOの接続ガイドとアプリ・マニュアルの配布情報をご確認ください。",
+    "D-GOのデモ、見積もりや導入についてご相談ください。",
+    "D-GO製品や技術サポートに関するお問い合わせ先をご案内します。",
+  ],
+};
+export const COMMON: Record<Locale, CommonCopy> = { ko, ja, en };

@@ -1,4 +1,69 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "routes": [
+    {
+      "src": "/index\\.html",
+      "status": 308,
+      "headers": {
+        "Location": "/"
+      }
+    },
+    {
+      "src": "/(ja|en)/index\\.html",
+      "status": 308,
+      "headers": {
+        "Location": "/$1/"
+      }
+    },
+    {
+      "src": "/(ja|en)/(product|technology|dashboard|device-screen|manual|purchase|support)\\.html",
+      "status": 308,
+      "headers": {
+        "Location": "/$1/$2"
+      }
+    },
+    {
+      "src": "/(product|technology|dashboard|device-screen|manual|purchase|support)\\.html",
+      "status": 308,
+      "headers": {
+        "Location": "/$1"
+      }
+    },
+    {
+      "src": "/",
+      "dest": "/index.html"
+    },
+    {
+      "src": "/(ja|en)/?",
+      "dest": "/$1/index.html"
+    },
+    {
+      "src": "/(ja|en)/(product|technology|dashboard|device-screen|manual|purchase|support)/?",
+      "dest": "/$1/$2.html"
+    },
+    {
+      "src": "/(product|technology|dashboard|device-screen|manual|purchase|support)/?",
+      "dest": "/$1.html"
+    },
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/ja(?:/.*)?",
+      "dest": "/ja/404.html",
+      "status": 404
+    },
+    {
+      "src": "/en(?:/.*)?",
+      "dest": "/en/404.html",
+      "status": 404
+    },
+    {
+      "src": "/.*",
+      "dest": "/404.html",
+      "status": 404
+    }
+  ]
 }
