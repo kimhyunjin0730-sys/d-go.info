@@ -1,3 +1,5 @@
+import LocalizedContent from "../i18n/LocalizedContent";
+import { useLocale } from "../i18n/useLocale";
 import { ArrowLeft, House } from "lucide-react";
 import { useLocation, useNavigate } from "react-router";
 import { CONTACT, mailto } from "../content";
@@ -5,14 +7,15 @@ import { ButtonLink, buttonClass } from "../components/site/Button";
 import { Container } from "../components/site/Layout";
 
 export default function NotFound() {
+  const { path } = useLocale();
   const navigate = useNavigate();
   const location = useLocation();
 
   // "default" key = the visitor landed here directly, so there is no in-app page to go back to.
-  const goBack = () => (location.key === "default" ? navigate("/") : navigate(-1));
+  const goBack = () => (location.key === "default" ? navigate(path("/")) : navigate(-1));
 
   return (
-    <section aria-labelledby="notfound-title" className="flex min-h-[70vh] items-center bg-white">
+    <LocalizedContent>{<section aria-labelledby="notfound-title" className="flex min-h-[70vh] items-center bg-white">
       <Container className="py-16 md:py-24">
         <div className="mx-auto max-w-2xl text-center">
           <p className="display text-[clamp(4.5rem,15vw,7.5rem)] leading-none text-navy">404</p>
@@ -45,6 +48,6 @@ export default function NotFound() {
           </p>
         </div>
       </Container>
-    </section>
+    </section>}</LocalizedContent>
   );
 }

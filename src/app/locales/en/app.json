@@ -1,14 +1,14 @@
 {
-  "title": "Two Functions of the D-GO App",
-  "lead": "D-GO Vault Management manages your vault, while D-GO Secure Folder protects your data.",
-  "detailsLabel": "Explore App Management",
+  "title": "D-GO App Features",
+  "lead": "Manage your vault with D-GO Vault Management and protect your data with D-GO Secure Folder.",
+  "detailsLabel": "Explore App Features",
   "vault": {
     "title": "D-GO Vault Management",
-    "description": "View the status and management screens of your connected vault."
+    "description": "Monitor the status of your connected vault through the app."
   },
   "folder": {
     "title": "D-GO Secure Folder",
-    "description": "Protect files and audio recordings, with document authentication and key and certificate management."
+    "description": "Protect files and audio recordings, timestamp documents, provide proof of document viewing, and manage keys and certificates."
   },
   "features": {
     "encryption": {
@@ -17,10 +17,10 @@
     },
     "timestamp": {
       "title": "Document Timestamping",
-      "description": "Authenticate a document’s timestamp information."
+      "description": "Verify that a document existed at a specific point in time."
     },
     "documentAccess": {
-      "title": "Proof of Document Access",
+      "title": "Proof of Document Viewing",
       "description": "Provides evidence that a document was viewed."
     },
     "recording": {

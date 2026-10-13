@@ -206,3 +206,6 @@ html[lang="ja"] body { word-break: normal; line-break: strict; }
 html[lang="en"] body { word-break: normal; }
 html[lang="ja"] .display, html[lang="ja"] .display-light { line-height: 1.45; letter-spacing: 0; }
 html[lang="ja"] .eyebrow { letter-spacing: 0.04em; }
+
+/* Let translated copy wrap within the same grid tracks in every language. */
+main .grid > * { min-width: 0; }

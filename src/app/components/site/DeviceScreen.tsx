@@ -1,3 +1,4 @@
+import LocalizedContent from "../../i18n/LocalizedContent";
 import type { ReactNode } from "react";
 import {
   Activity,
@@ -47,7 +48,7 @@ export default function DeviceScreen({
   label?: string;
 }) {
   return (
-    <div role="img" aria-label={label ?? LABELS[state]} className={cn("ds", fill && "ds--fill", className)}>
+    <LocalizedContent>{<div role="img" aria-label={label ?? LABELS[state]} className={cn("ds", fill && "ds--fill", className)}>
       <div className="ds-inner" aria-hidden="true">
         {state === "key" && <KeyScreen />}
         {state === "boot" && <BootScreen />}
@@ -55,28 +56,28 @@ export default function DeviceScreen({
         {state === "pair" && <PairScreen />}
         {state === "access" && <AccessScreen />}
       </div>
-    </div>
+    </div>}</LocalizedContent>
   );
 }
 
 /** Dark device frame around a DeviceScreen. */
 export function DeviceBezel({ children, className }: { children: ReactNode; className?: string }) {
-  return <div className={cn("rounded-[14px] bg-[#1B1E2C] p-[5px] shadow-[0_18px_40px_-24px_rgba(0,1,71,0.6)]", className)}>{children}</div>;
+  return <LocalizedContent>{<div className={cn("rounded-[14px] bg-[#1B1E2C] p-[5px] shadow-[0_18px_40px_-24px_rgba(0,1,71,0.6)]", className)}>{children}</div>}</LocalizedContent>;
 }
 
 function Glance({ icon, children }: { icon: ReactNode; children: ReactNode }) {
   return (
-    <div className="ds-glance">
+    <LocalizedContent>{<div className="ds-glance">
       {icon}
       <span>{children}</span>
-    </div>
+    </div>}</LocalizedContent>
   );
 }
 
 /** PUF key removed — the alert covers the dimmed dashboard (design: 하드웨어 보안 접근 차단). */
 function KeyScreen() {
   return (
-    <>
+    <LocalizedContent>{<>
       <Glance icon={<ShieldAlert style={{ color: "var(--dsc-red)" }} strokeWidth={2} />}>PUF 키 필요</Glance>
       <div className="ds-full ds-locked">
         <div className="ds-behind">
@@ -92,14 +93,14 @@ function KeyScreen() {
           </p>
         </div>
       </div>
-    </>
+    </>}</LocalizedContent>
   );
 }
 
 /** PUF authentication succeeded (design: Safety Verified!). */
 function BootScreen() {
   return (
-    <>
+    <LocalizedContent>{<>
       <Glance icon={<ShieldCheck style={{ color: "var(--dsc-cyan)" }} strokeWidth={2} />}>Verified</Glance>
       <div className="ds-full">
         <div className="ds-center">
@@ -124,14 +125,14 @@ function BootScreen() {
           <span className="ds-pill ds-pill--green">인증이 성공적으로 완료되었습니다</span>
         </div>
       </div>
-    </>
+    </>}</LocalizedContent>
   );
 }
 
 /** Admin passcode keypad (design: 관리자 비밀번호 확인). */
 function AuthScreen() {
   return (
-    <>
+    <LocalizedContent>{<>
       <Glance icon={<Lock style={{ color: "var(--dsc-green)" }} strokeWidth={2} />}>비밀번호 확인</Glance>
       <div className="ds-full">
         <div className="ds-center" style={{ gap: "0.5em" }}>
@@ -152,14 +153,14 @@ function AuthScreen() {
           </div>
         </div>
       </div>
-    </>
+    </>}</LocalizedContent>
   );
 }
 
 /** New device pairing code shown on the vault (design: 신규 디바이스 페어링). */
 function PairScreen() {
   return (
-    <>
+    <LocalizedContent>{<>
       <Glance icon={<Smartphone style={{ color: "var(--dsc-blue)" }} strokeWidth={2} />}>기기 승인</Glance>
       <div className="ds-full">
         <div className="ds-center" style={{ gap: "0.55em" }}>
@@ -182,25 +183,25 @@ function PairScreen() {
           </div>
         </div>
       </div>
-    </>
+    </>}</LocalizedContent>
   );
 }
 
 /** Security Vault dashboard (design: Phase4_1). */
 function AccessScreen() {
   return (
-    <>
+    <LocalizedContent>{<>
       <Glance icon={<DoorOpen style={{ color: "var(--dsc-amber)" }} strokeWidth={2} />}>금고 열림</Glance>
       <div className="ds-full">
         <Dashboard />
       </div>
-    </>
+    </>}</LocalizedContent>
   );
 }
 
 function Dashboard() {
   return (
-    <>
+    <LocalizedContent>{<>
         <div className="ds-bar-top">
           <h4>
             <Shield strokeWidth={2} /> D-GO Security Vault
@@ -292,6 +293,6 @@ function Dashboard() {
             </div>
           </div>
         </div>
-    </>
+    </>}</LocalizedContent>
   );
 }

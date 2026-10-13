@@ -90,7 +90,7 @@ async function navigate(route, width = 320) {
   await pause(100);
 }
 try {
-  await send("Page.enable"); await send("Page.setLifecycleEventsEnabled", {enabled:true}); await send("Runtime.enable");
+  await send("Page.enable"); await send("Page.setLifecycleEventsEnabled", {enabled:true}); await send("Runtime.discardConsoleEntries"); await send("Runtime.enable"); await send("Network.enable"); await send("Network.setCacheDisabled", {cacheDisabled:true});
   await navigate("/dashboard");
   await evaluate(`localStorage.removeItem("dgo-language")`);
   for (const lang of locales) {
@@ -141,8 +141,10 @@ try {
   await evaluate(`document.documentElement.style.fontSize=''`);
   for (const lang of ["en", "ja"]) {
     await navigate(`/${lang}/support`, 320);
-    assert.ok(await evaluate(`!document.querySelector('form').checkValidity()`), "Empty enquiry should fail required validation");
-    assert.equal(await evaluate(`document.querySelector('input[type="email"]').getAttribute('autocomplete')`), "email");
+    const enquiries = await evaluate(`Array.from(document.querySelectorAll('main a[href^="mailto:"]')).map(a => a.href)`);
+    assert.ok(enquiries.length >= 6, "Shared support page provides enquiry links");
+    assert.ok(enquiries.every(href => !/[가-힣]/.test(decodeURIComponent(href))), "Enquiry subjects use the selected language");
+    assert.equal(await evaluate(`document.querySelector('main form')`), null, "Support uses the shared Korean mailto layout");
   }
   const output = path.join(root, "shots", `multilingual-${Date.now()}`);
   await mkdir(output, { recursive: true });
@@ -153,5 +155,5 @@ try {
     await writeFile(path.join(output, `${lang}-dashboard-${width}.png`), Buffer.from(capture.data, "base64"), { flag: "wx" });
   }
   assert.deepEqual(runtimeErrors, [], "Browser runtime/hydration errors");
-  console.log(`Browser: 24 routes at 320px, language switch with query/hash, reload, mobile navigation, 200% text, form validation and hydration passed. Screenshots: ${output}`);
+  console.log(`Browser: 24 routes at 320px, language switch with query/hash, reload, mobile navigation, 200% text, localized enquiry links and hydration passed. Screenshots: ${output}`);
 } finally { socket.close(); }

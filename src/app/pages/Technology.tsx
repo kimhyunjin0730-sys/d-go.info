@@ -1,3 +1,4 @@
+import LocalizedContent from "../i18n/LocalizedContent";
 import appCopy from "../locales/ko/app.json";
 import {
   ArrowDown,
@@ -152,7 +153,7 @@ const FAQS = [
 
 export default function Technology() {
   return (
-    <div className="w-full">
+    <LocalizedContent>{<div className="w-full">
       <PageHero
         eyebrow="Technology"
         title="Zero-Outbound,"
@@ -556,6 +557,6 @@ export default function Technology() {
           </div>
         </Container>
       </section>
-    </div>
+    </div>}</LocalizedContent>
   );
 }

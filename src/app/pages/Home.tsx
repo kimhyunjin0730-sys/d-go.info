@@ -1,3 +1,4 @@
+import LocalizedContent from "../i18n/LocalizedContent";
 import { Archive, ArrowRight, Cpu, FileSearch, GlobeLock, Layers, Lock } from "lucide-react";
 import { Link } from "react-router";
 import {
@@ -34,7 +35,7 @@ const FAQS = [
 
 export default function Home() {
   return (
-    <div className="w-full">
+    <LocalizedContent>{<div className="w-full">
       {/* ── Hero ── */}
       <section aria-labelledby="hero-title" className="relative overflow-hidden bg-[#040A1E] text-white">
         <div
@@ -271,6 +272,6 @@ export default function Home() {
           </div>
         </Container>
       </section>
-    </div>
+    </div>}</LocalizedContent>
   );
 }

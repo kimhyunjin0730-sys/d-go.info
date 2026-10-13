@@ -1,3 +1,4 @@
+import LocalizedContent from "../i18n/LocalizedContent";
 import { BookOpen, Clock, FileText, Info, Languages, Monitor, Smartphone } from "lucide-react";
 import { CONTACT, mailto } from "../content";
 import { ButtonLink } from "../components/site/Button";
@@ -47,7 +48,7 @@ type DownloadItem = (typeof APP_DOWNLOADS)[number];
 function DownloadCard({ item }: { item: DownloadItem }) {
   const Icon = item.icon;
   return (
-    <li className="flex gap-4 rounded-2xl border border-line bg-white p-5 md:flex-col md:p-6">
+    <LocalizedContent>{<li className="flex gap-4 rounded-2xl border border-line bg-white p-5 md:flex-col md:p-6">
       <span className="grid h-11 w-11 flex-none place-items-center rounded-xl bg-mist text-key" aria-hidden="true">
         <Icon size={22} strokeWidth={1.75} />
       </span>
@@ -62,13 +63,13 @@ function DownloadCard({ item }: { item: DownloadItem }) {
           </span>
         </p>
       </div>
-    </li>
+    </li>}</LocalizedContent>
   );
 }
 
 export default function Manual() {
   return (
-    <div className="w-full">
+    <LocalizedContent>{<div className="w-full">
       <PageHero eyebrow="Manual" title="사용 매뉴얼" lead="D-GO Quantum Data Vault를 시작하는 모든 것 — 설치부터 고급 기능까지 단계별 안내" />
 
       {/* ── 다운로드 ── */}
@@ -187,6 +188,6 @@ export default function Manual() {
           <ButtonLink href={mailto()}>고객센터 문의하기</ButtonLink>
         </div>
       </Section>
-    </div>
+    </div>}</LocalizedContent>
   );
 }

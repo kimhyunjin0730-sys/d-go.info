@@ -1,3 +1,4 @@
+import LocalizedContent from "../i18n/LocalizedContent";
 import {
   Archive,
   ArrowRight,
@@ -173,28 +174,28 @@ const MONO_LOGO = { filter: "brightness(0)" };
 
 function IconTile({ icon: Icon, className }: { icon: typeof Lock; className?: string }) {
   return (
-    <span className={cn("grid h-12 w-12 flex-none place-items-center rounded-xl bg-panel text-key", className)} aria-hidden="true">
+    <LocalizedContent>{<span className={cn("grid h-12 w-12 flex-none place-items-center rounded-xl bg-panel text-key", className)} aria-hidden="true">
       <Icon size={24} strokeWidth={1.75} />
-    </span>
+    </span>}</LocalizedContent>
   );
 }
 
 function FlowConnector({ icon: Icon = ChevronRight }: { icon?: typeof Lock }) {
   return (
-    <span
+    <LocalizedContent>{<span
       className="absolute top-full left-1/2 flex h-10 -translate-x-1/2 items-center justify-center lg:top-1/2 lg:left-full lg:h-auto lg:w-12 lg:translate-x-0 lg:-translate-y-1/2"
       aria-hidden="true"
     >
       <span className="grid h-9 w-9 place-items-center rounded-full bg-navy text-white">
         <Icon size={Icon === ChevronRight ? 20 : 17} strokeWidth={2.25} className={Icon === ChevronRight ? "rotate-90 lg:rotate-0" : undefined} />
       </span>
-    </span>
+    </span>}</LocalizedContent>
   );
 }
 
 export default function Product() {
   return (
-    <div className="w-full">
+    <LocalizedContent>{<div className="w-full">
       <PageHero
         eyebrow="Product"
         title="D-GO"
@@ -629,6 +630,6 @@ export default function Product() {
           </div>
         </Container>
       </section>
-    </div>
+    </div>}</LocalizedContent>
   );
 }

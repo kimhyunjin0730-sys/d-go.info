@@ -1,3 +1,4 @@
+import LocalizedContent from "../../i18n/LocalizedContent";
 import { ChevronRight, Globe, KeyRound, Monitor, Smartphone, X } from "lucide-react";
 import { BOOT_STEPS, ONBOARDING, PLATFORMS, TIERS } from "../../content";
 import { cn } from "../ui/utils";
@@ -11,13 +12,13 @@ export function AirGapDiagram({ className }: { className?: string }) {
     { icon: KeyRound, label: "PUF USB 키" },
   ];
   return (
-    <div className={className}>
+    <LocalizedContent>{<div className={className}>
       <div className="flex flex-col items-stretch gap-3 md:flex-row md:items-center">
         <ul className="grid grid-cols-3 gap-2 md:flex md:flex-col">
           {sources.map(({ icon: Icon, label }) => (
             <li
               key={label}
-              className="flex flex-col items-center gap-1.5 rounded-lg border border-line bg-white px-2 py-3 text-center text-sm font-semibold whitespace-nowrap text-navy md:flex-row md:gap-2 md:px-3.5 md:py-2.5"
+              className="flex flex-col items-center gap-1.5 rounded-lg border border-line bg-white px-2 py-3 text-center text-sm font-semibold text-navy md:flex-row md:gap-2 md:px-3.5 md:py-2.5"
             >
               <Icon size={18} strokeWidth={1.75} className="text-key" aria-hidden="true" />
               {label}
@@ -51,14 +52,14 @@ export function AirGapDiagram({ className }: { className?: string }) {
         <span className="sr-only">지원 플랫폼: </span>
         {PLATFORMS.join(" · ")}
       </p>
-    </div>
+    </div>}</LocalizedContent>
   );
 }
 
 /** 3단 보안 등급 — C 일반 / D 보호 / E 기밀 */
 export function TierTable({ className }: { className?: string }) {
   return (
-    <table className={cn("w-full border-separate border-spacing-y-1.5 text-left", className)}>
+    <LocalizedContent>{<table className={cn("w-full border-separate border-spacing-y-1.5 text-left", className)}>
       <caption className="sr-only">3단 보안 등급과 필요한 인증</caption>
       <thead className="sr-only">
         <tr>
@@ -77,7 +78,7 @@ export function TierTable({ className }: { className?: string }) {
                 <span className="ml-2 text-base font-bold">{t.name}</span>
               </th>
               <td className="rounded-r-lg px-4 py-3.5 text-right text-sm sm:rounded-none sm:px-2 sm:text-left">
-                <span className="block font-semibold whitespace-nowrap">{t.auth}</span>
+                <span className="block font-semibold">{t.auth}</span>
                 <span className={cn("mt-0.5 block text-[0.8125rem] sm:hidden", top ? "text-white/90" : "text-ink-2")}>{t.scope}</span>
               </td>
               <td className={cn("hidden rounded-r-lg px-4 py-3.5 text-right text-sm sm:table-cell", top ? "text-white/90" : "text-ink-2")}>{t.scope}</td>
@@ -85,14 +86,14 @@ export function TierTable({ className }: { className?: string }) {
           );
         })}
       </tbody>
-    </table>
+    </table>}</LocalizedContent>
   );
 }
 
 /** 처음 도입할 때는 — 관리자 / 팀원 최초 1회 흐름 */
 export function OnboardingFlows({ className }: { className?: string }) {
   return (
-    <div className={cn("space-y-4", className)}>
+    <LocalizedContent>{<div className={cn("space-y-4", className)}>
       {ONBOARDING.map((flow, fi) => (
         <div key={flow.role} className="grid gap-3 lg:grid-cols-[180px_1fr] lg:items-stretch">
           <div className={cn("rounded-lg px-4 py-3 text-white", fi === 0 ? "bg-navy" : "bg-key")}>
@@ -128,14 +129,14 @@ export function OnboardingFlows({ className }: { className?: string }) {
           </ol>
         </div>
       ))}
-    </div>
+    </div>}</LocalizedContent>
   );
 }
 
 /** 전원을 켤 때마다 — KEY / BOOT / AUTH / ACCESS with the matching screens */
 export function BootSequence({ className }: { className?: string }) {
   return (
-    <ol className={cn("grid gap-x-5 gap-y-10 sm:grid-cols-2 xl:grid-cols-4", className)}>
+    <LocalizedContent>{<ol className={cn("grid gap-x-5 gap-y-10 sm:grid-cols-2 xl:grid-cols-4", className)}>
       {BOOT_STEPS.map((s, i) => (
         <li key={s.code} className="flex flex-col">
           <DeviceBezel>
@@ -157,6 +158,6 @@ export function BootSequence({ className }: { className?: string }) {
           <p className="mt-2 text-[0.9375rem] leading-relaxed font-semibold text-key">{s.strong}</p>
         </li>
       ))}
-    </ol>
+    </ol>}</LocalizedContent>
   );
 }

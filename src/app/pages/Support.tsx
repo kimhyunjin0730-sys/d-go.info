@@ -1,3 +1,4 @@
+import LocalizedContent from "../i18n/LocalizedContent";
 import { Check, CircleCheck, Clock, Copy, Mail, MapPin, MessageCircle, MessageSquare, Phone } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { CONTACT, mailto } from "../content";
@@ -91,7 +92,7 @@ export default function Support() {
   };
 
   return (
-    <div className="w-full">
+    <LocalizedContent>{<div className="w-full">
       <PageHero eyebrow="Support" title="고객 지원" lead="D-GO Quantum Data Vault 사용 중 궁금한 점이 있으신가요? 언제든 문의해주세요." />
 
       {/* ── 연락처 ── */}
@@ -309,6 +310,6 @@ export default function Support() {
           </div>
         </div>
       </Section>
-    </div>
+    </div>}</LocalizedContent>
   );
 }

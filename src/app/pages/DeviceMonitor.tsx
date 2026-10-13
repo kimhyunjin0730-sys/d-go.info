@@ -1,3 +1,4 @@
+import LocalizedContent from "../i18n/LocalizedContent";
 import {
   Activity,
   ArrowRight,
@@ -45,7 +46,7 @@ const PORTS = [
 
 function Pill({ tone = "neutral", children }: { tone?: "ok" | "neutral" | "key"; children: ReactNode }) {
   return (
-    <span
+    <LocalizedContent>{<span
       className={cn(
         "inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-semibold whitespace-nowrap",
         tone === "ok" && "bg-status-ok/10 text-status-ok",
@@ -54,13 +55,13 @@ function Pill({ tone = "neutral", children }: { tone?: "ok" | "neutral" | "key";
       )}
     >
       {children}
-    </span>
+    </span>}</LocalizedContent>
   );
 }
 
 function Meter({ label, value, percent, bar = "bg-key", note }: { label: string; value: string; percent: number; bar?: string; note?: string }) {
   return (
-    <div>
+    <LocalizedContent>{<div>
       <div className="flex items-baseline justify-between gap-3 text-sm">
         <span className="text-ink-2">{label}</span>
         <span className="font-mono text-[0.8125rem] font-semibold text-navy">{value}</span>
@@ -69,7 +70,7 @@ function Meter({ label, value, percent, bar = "bg-key", note }: { label: string;
         <div className={cn("h-full rounded-full", bar)} style={{ width: `${percent}%` }} />
       </div>
       {note && <p className="mt-1 text-xs text-ink-3">{note}</p>}
-    </div>
+    </div>}</LocalizedContent>
   );
 }
 
@@ -89,7 +90,7 @@ function Widget({
   children: ReactNode;
 }) {
   return (
-    <li className={cn("flex flex-col rounded-2xl border border-line bg-white p-5 md:p-6", className)}>
+    <LocalizedContent>{<li className={cn("flex min-w-0 flex-col rounded-2xl border border-line bg-white p-5 md:p-6", className)}>
       <div className="flex items-start justify-between gap-3">
         <span className="grid h-10 w-10 flex-none place-items-center rounded-xl border border-panel-line bg-panel text-key" aria-hidden="true">
           <Icon size={20} strokeWidth={1.75} />
@@ -99,13 +100,13 @@ function Widget({
       <h3 className="mt-4 text-lg font-bold text-navy">{title}</h3>
       <p className="mt-0.5 text-sm text-ink-2">{desc}</p>
       <div className="mt-4 flex-1">{children}</div>
-    </li>
+    </li>}</LocalizedContent>
   );
 }
 
 export default function DeviceMonitor() {
   return (
-    <div className="w-full">
+    <LocalizedContent>{<div className="w-full">
       <PageHero eyebrow="Device Monitor" title="본체 모니터" lead="금고 본체의 터치스크린과 하드웨어 상태 화면을 살펴보세요." />
 
       {/* ── 본체 화면 ── */}
@@ -144,7 +145,7 @@ export default function DeviceMonitor() {
       {/* ── 주요 기능 ── */}
       <Section tone="mist" labelledBy="widgets-title">
         <SectionIntro id="widgets-title" eyebrow="Features" title="주요 기능" lead="기기 상태부터 보안 알림까지, 대시보드에서 확인하는 항목입니다." />
-        <ul className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+        <ul className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
           <Widget
             icon={Thermometer}
             title="기기 상태"
@@ -307,6 +308,6 @@ export default function DeviceMonitor() {
           </div>
         </Container>
       </section>
-    </div>
+    </div>}</LocalizedContent>
   );
 }

@@ -1,3 +1,4 @@
+import LocalizedContent from "../../i18n/LocalizedContent";
 import { Pause, Play } from "lucide-react";
 import { useEffect, useState } from "react";
 import { BOOT_STEPS } from "../../content";
@@ -10,11 +11,11 @@ const STEP_MS = 4200;
 const SCREEN_BOX = { left: "63.625%", top: "19.512%", width: "27.062%", height: "35.151%" };
 
 function usePrefersReducedMotion() {
-  const [reduced, setReduced] = useState(() =>
-    typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches,
-  );
+  // Use the same initial state on the server and client, then apply the device preference.
+  const [reduced, setReduced] = useState(false);
   useEffect(() => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setReduced(mq.matches);
     const onChange = () => setReduced(mq.matches);
     mq.addEventListener("change", onChange);
     return () => mq.removeEventListener("change", onChange);
@@ -34,7 +35,7 @@ export function ProductImage({
 }) {
   if (cutout) {
     return (
-      <picture>
+      <LocalizedContent>{<picture>
         <source
           type="image/webp"
           srcSet="/images/product/dgo-front-cut-900.webp 900w, /images/product/dgo-front-cut.webp 1600w"
@@ -49,11 +50,11 @@ export function ProductImage({
           loading={priority ? "eager" : "lazy"}
           {...(priority ? { fetchpriority: "high" } : {})}
         />
-      </picture>
+      </picture>}</LocalizedContent>
     );
   }
   return (
-    <picture>
+    <LocalizedContent>{<picture>
       <source type="image/webp" srcSet="/images/product/dgo-front-800.webp 800w, /images/product/dgo-front.webp 1600w" sizes="(min-width: 1024px) 640px, 100vw" />
       <img
         src="/images/product/dgo-front.jpg"
@@ -64,7 +65,7 @@ export function ProductImage({
         loading={priority ? "eager" : "lazy"}
         {...(priority ? { fetchpriority: "high" } : {})}
       />
-    </picture>
+    </picture>}</LocalizedContent>
   );
 }
 
@@ -86,7 +87,7 @@ export default function ProductStage() {
   const autoplay = playing && !reducedMotion;
 
   return (
-    <figure className="m-0">
+    <LocalizedContent>{<figure className="m-0">
       {/* the unit itself, standing on the dark hero */}
       <div className="relative">
         <span
@@ -159,6 +160,6 @@ export default function ProductStage() {
           )}
         </div>
       </figcaption>
-    </figure>
+    </figure>}</LocalizedContent>
   );
 }

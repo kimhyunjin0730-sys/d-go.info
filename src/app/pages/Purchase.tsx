@@ -1,3 +1,4 @@
+import LocalizedContent from "../i18n/LocalizedContent";
 import { ArrowRight, Building2, CircleCheck, Clock, CloudOff, Handshake, Mail, MapPin, MonitorCheck, Phone, Users, Wallet } from "lucide-react";
 import { CONTACT, EASY_ADOPTION, SALES_PARTNERS, mailto } from "../content";
 import { ButtonLink } from "../components/site/Button";
@@ -36,7 +37,7 @@ const QUOTE_MAILTO = mailto(
 
 export default function Purchase() {
   return (
-    <div className="w-full">
+    <LocalizedContent>{<div className="w-full">
       <PageHero eyebrow="Purchase" title="구매 안내" lead="법인·단체 도입 문의 환영합니다 — 전문 상담을 통해 최적의 솔루션을 제공합니다" />
 
       {/* ── 법인·단체 도입 문의 ── */}
@@ -274,6 +275,6 @@ export default function Purchase() {
           </div>
         </div>
       </Section>
-    </div>
+    </div>}</LocalizedContent>
   );
 }
