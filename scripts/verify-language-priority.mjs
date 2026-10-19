@@ -17,7 +17,9 @@ function entry(time, preference = null, pathname = "/", storageDisabled = false)
   assert.equal(style.visibility === "hidden", redirect !== null);
   return redirect;
 }
-assert.equal(entry("2026-10-19T23:59:59+09:00"), null);
+assert.equal(entry("2026-10-18T23:59:59+09:00"), null);
+assert.equal(entry("2026-10-19T00:00:00+09:00"), "/ja/?source=campaign#app-features");
+assert.equal(entry("2026-10-19T12:00:00+09:00"), "/ja/?source=campaign#app-features");
 assert.equal(entry("2026-10-20T00:00:00+09:00"), "/ja/?source=campaign#app-features");
 assert.equal(entry("2026-11-30T23:59:59+09:00"), "/ja/?source=campaign#app-features");
 assert.equal(entry("2026-12-01T00:00:00+09:00"), null);

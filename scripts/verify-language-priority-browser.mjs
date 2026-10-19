@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-const origin = "http://127.0.0.1:4173";
+const origin = process.env.DGO_TEST_ORIGIN || "http://127.0.0.1:4173";
 const targets = await (await fetch("http://127.0.0.1:9333/json/list")).json();
 const target = targets.find((item) => item.type === "page");
 assert.ok(target, "Chrome page target");
@@ -43,11 +43,12 @@ async function navigate(route, width = 320) {
 }
 
 try {
- await send("Page.enable"); await send("Page.setLifecycleEventsEnabled", {enabled:true}); await send("Runtime.enable");
+ await send("Page.enable"); await send("Page.setLifecycleEventsEnabled", {enabled:true}); await send("Runtime.discardConsoleEntries"); await send("Runtime.enable"); await send("Network.enable"); await send("Network.setCacheDisabled", {cacheDisabled:true});
  let caseId = 0;
  for(const [time, preference, route, expected] of [
-  ["2026-10-19T23:59:59+09:00",null,"/","/"],
-  ["2026-10-20T00:00:00+09:00",null,"/","/ja/"],
+  ["2026-10-18T23:59:59+09:00",null,"/","/"],
+  ["2026-10-19T00:00:00+09:00",null,"/","/ja/"],
+  ["2026-10-19T12:00:00+09:00",null,"/","/ja/"],
   ["2026-11-30T23:59:59+09:00",null,"/","/ja/"],
   ["2026-12-01T00:00:00+09:00",null,"/","/"],
   ["2026-11-01T12:00:00+09:00","ko","/","/"],
