@@ -80,7 +80,7 @@
     "Device screen — PUF authentication complete"
   ],
   "등급별 보안 인증": [
-    "保護レベルに応じた認証",
+    "保護レベル別の認証",
     "Security tier authentication"
   ],
   "C·D·E 권한 승인": [
@@ -100,11 +100,11 @@
     "Device screen — administrator password verification"
   ],
   "배정 등급 접근": [
-    "割り当てられたレベルにアクセス",
+    "許可された保護レベルにアクセス",
     "Access your assigned tier"
   ],
   "C·D·E 범위 열람": [
-    "C・D・Eの許可範囲を閲覧",
+    "許可されたC・D・Eの文書を閲覧",
     "View authorised C, D and E content"
   ],
   "승인된 범위의 문서만 열리고, 인터넷 없이 문서 검색·요약을 시작합니다. 실물 보관은 내장 금고 서랍(A4)으로.": [
@@ -112,11 +112,11 @@
     "Access authorised documents and search or summarise them offline. Store physical items in the built-in A4 document drawer."
   ],
   "동시에 로컬 AI가 가동됩니다.": [
-    "同時にローカルAIが起動します。",
+    "同時にローカルAIの利用が可能になります。",
     "Local AI starts at the same time."
   ],
   "본체 화면 — D-GO Security Vault 대시보드": [
-    "本体画面 — D-GO Security Vaultダッシュボード",
+    "本体画面 — ダッシュボード",
     "Device screen — D-GO Security Vault dashboard"
   ],
   "건": [
@@ -144,7 +144,7 @@
     "KRW"
   ],
   "구독료 없는 구축형": [
-    "サブスクリプション不要の据置型",
+    "サブスクリプション不要の据え置き型",
     "No subscription fees"
   ],
   "영구 라이선스 · 로컬 AI 검색 및 요약 내장": [
@@ -316,7 +316,7 @@
     "Connect using your account"
   ],
   "C·D·E 범위": [
-    "C・D・Eの許可範囲",
+    "C・D・Eのアクセス権限",
     "Authorised C, D and E tiers"
   ],
   "월 비용 없음": [
@@ -352,7 +352,7 @@
     "Built-in physical vault"
   ],
   "반도체 지문키": [
-    "半導体固有の特徴を利用するキー",
+    "半導体固有の特徴を利用したキー",
     "Semiconductor fingerprint key"
   ],
   "칩마다 다른 고유 지문으로 잠금 해제가 복제 불가. 탈취 시 자동 소멸.": [
@@ -368,7 +368,7 @@
     "Designed without an outbound internet communication path."
   ],
   "3단계 접근등급": [
-    "3段階のアクセスレベル",
+    "3段階の保護レベル",
     "Three access tiers"
   ],
   "다계층 접근제어": [
@@ -404,11 +404,11 @@
     "Data is encrypted on the client device before storage, so even server administrators cannot view its contents."
   ],
   "실물 보관 금고 내장": [
-    "紙の書類などを保管する金庫を内蔵",
+    "書類・印鑑用の金庫を内蔵",
     "Built-in storage for physical assets"
   ],
   "물리 보안 금고": [
-    "物理セキュリティ金庫",
+    "書類・印鑑用の金庫",
     "Physical security vault"
   ],
   "A4 계약서 · 인감 도장까지 실물로 수납.": [
@@ -464,7 +464,7 @@
     "Store, search and summarise documents on one device. It operates only on your office’s private Wi-Fi network and requires a PUF security key to start."
   ],
   "도입 문의하기": [
-    "導入について問い合わせる",
+    "導入に関するお問い合わせ",
     "Contact Sales"
   ],
   "D-GO 실기기 시연 요청": [
@@ -488,7 +488,7 @@
     "Eliminate outbound communication paths."
   ],
   "인터넷과 완전히 분리된 사내 설치형 AI 보안 금고 — Quantum Data Vault D-GO": [
-    "インターネットから分離した据置型AIセキュリティ金庫 — Quantum Data Vault D-GO",
+    "インターネットから分離した据え置き型AIセキュリティ金庫 — Quantum Data Vault D-GO",
     "An on-premises AI security vault separated from the internet — Quantum Data Vault D-GO"
   ],
   "PUF 키가 없으면 켜지지도 않습니다": [
@@ -624,7 +624,7 @@
     "PUF USB hardware authentication controls server startup"
   ],
   "관리자 QR 코드 발급 + SSID/RSSI 근접 검증으로 신규 기기 등록": [
-    "管理者のQRコードとSSID／RSSIによる近接確認で新しいデバイスを登録",
+    "管理者が発行するQRコードとSSID／RSSIによる近接確認で、新しいデバイスを登録",
     "Register devices using administrator-issued QR codes and SSID/RSSI proximity checks"
   ],
   "본체 화면에 표시되는 6자리 코드로 신규 기기 승인": [
@@ -660,7 +660,7 @@
     "Document-based questions and answers using a Local Notebook LM approach"
   ],
   "E2EE 암호 볼트": [
-    "E2EE暗号化ボルト",
+    "E2EE暗号化保管庫",
     "E2EE encrypted vault"
   ],
   "패스워드·연락처 등 민감 정보를 단말기에서 직접 암호화": [
@@ -696,7 +696,7 @@
     "Synchronise files between devices to support business continuity"
   ],
   "하드웨어 · 공급 본체": [
-    "ハードウェア・本体",
+    "ハードウェア・金庫本体",
     "Hardware — vault unit"
   ],
   "임베디드 서버": [
@@ -776,7 +776,7 @@
     "320 mm × 230 mm × 40 mm (designed for A4 documents)"
   ],
   "물리적 보관함": [
-    "物理保管スペース",
+    "書類・印鑑の収納スペース",
     "Physical storage compartment"
   ],
   "인감도장 · 계약서 · 통장 · 등기권리증 · OTP · 보안카드": [
@@ -1012,15 +1012,15 @@
     "E Confidential"
   ],
   "문서는 모바일 생체": [
-    "文書の表示には、",
+    "に分類された文書は、スマートフォンの",
     "Documents are displayed only after"
   ],
   "인증(얼굴·지문)에": [
-    "スマートフォンの顔・指紋認証に",
+    "生体認証（顔・指紋）に",
     "mobile biometric authentication"
   ],
   "성공해야 화면에 표시됩니다.": [
-    "成功する必要があります。",
+    "成功した場合のみ表示されます。",
     "(face or fingerprint) succeeds."
   ],
   "상세 사양": [
@@ -1088,7 +1088,7 @@
     "Complete encryption operations within the device"
   ],
   "물리-디지털 이중 복구": [
-    "物理・デジタルの二重復旧",
+    "物理キーとデジタル認証による復旧",
     "Physical and digital recovery"
   ],
   "디지털 인증 분실 시 물리 키로 복구": [
@@ -1596,7 +1596,7 @@
     "Technical FAQs"
   ],
   "구조로 막는 보안,": [
-    "構成から実現するセキュリティを、",
+    "システム構成から実現するセキュリティを、",
     "Security built into the architecture."
   ],
   "PUF 인증부터 폐쇄망 안의 AI 검색·요약까지, 실제 기기로 보여드립니다. 법인·단체 도입 상담도 함께 받습니다.": [
@@ -1628,7 +1628,7 @@
     "File upload"
   ],
   "금고 개방": [
-    "金庫を解錠",
+    "金庫の扉を開く",
     "Vault unlocked"
   ],
   "PUF 인증 성공": [
@@ -1664,7 +1664,7 @@
     "Explore the vault’s touchscreen and hardware status screens."
   ],
   "본체 터치스크린에서 한눈에": [
-    "本体のタッチスクリーンで状態を確認",
+    "本体画面で状態を確認",
     "Vault status on the touchscreen"
   ],
   "금고 본체의 터치스크린에 표시되는 개폐 상태, 저장 현황과 연결 기기 화면입니다.": [
@@ -1672,11 +1672,11 @@
     "The vault’s touchscreen shows door status, storage usage and connected devices."
   ],
   "{0}: 금고 열림, 암호화 문서 128건, SoC 온도 48.2도, PUF 모듈 정상, 연결 기기 iPhone 14 Pro Max, 최근 접근 로그": [
-    "{0}：金庫解錠、暗号化文書128件、SoC温度48.2°C、PUFモジュール正常、接続デバイスiPhone 14 Pro Max、最近のアクセス履歴",
+    "{0}：扉が開いた状態、暗号化文書128件、SoC温度48.2°C、PUFモジュール正常、接続デバイスiPhone 14 Pro Max、最近のアクセス履歴",
     "{0}: vault open, 128 encrypted documents, SoC temperature 48.2°C, PUF module normal, connected iPhone 14 Pro Max, recent access logs"
   ],
   "기기 상태부터 보안 알림까지, 대시보드에서 확인하는 항목입니다.": [
-    "デバイスの状態やセキュリティ通知をダッシュボードで確認できます。",
+    "デバイスの状態からセキュリティ通知まで、ダッシュボードに表示される項目をご紹介します。",
     "Review device status and security alerts on the dashboard."
   ],
   "기기 상태": [
@@ -1744,7 +1744,7 @@
     "Connected"
   ],
   "예상 백업 시간": [
-    "推定バックアップ時間",
+    "推定バックアップ稼働時間",
     "Estimated backup time"
   ],
   "시간": [
@@ -1972,7 +1972,7 @@
     "Contact us for further assistance."
   ],
   "고객센터 문의하기": [
-    "サポートに問い合わせる",
+    "サポートへのお問い合わせ",
     "Contact Support"
   ],
   "법인 도입": [
@@ -2000,7 +2000,7 @@
     "Annual maintenance agreement"
   ],
   "법인 문의하기": [
-    "法人導入について問い合わせる",
+    "法人導入のお問い合わせ",
     "Corporate Enquiries"
   ],
   "법인 도입 문의": [
@@ -2032,7 +2032,7 @@
     "Product warranty service"
   ],
   "구매 문의하기": [
-    "購入について問い合わせる",
+    "購入に関するお問い合わせ",
     "Purchase Enquiries"
   ],
   "개인 구매 문의": [
@@ -2064,7 +2064,7 @@
     "Special requirements, including customisation"
   ],
   "기술 지원 범위": [
-    "技術サポートの範囲",
+    "技術サポートのご希望範囲",
     "Technical support requirements"
   ],
   "D-GO Quantum Data Vault 견적 요청": [
@@ -2160,7 +2160,7 @@
     "The button opens your email app with a quotation request template."
   ],
   "견적 요청 이메일 보내기": [
-    "見積もり依頼メールを作成する",
+    "見積もり依頼メールを作成",
     "Compose Quotation Request"
   ],
   "판매 파트너": [
@@ -2168,7 +2168,7 @@
     "Sales partners"
   ],
   "공식 판매 파트너를 통해서도 도입 상담을 받으실 수 있습니다.": [
-    "正規販売パートナーでも導入のご相談を承ります。",
+    "正規販売パートナーを通じて、導入についてご相談いただけます。",
     "Deployment consultations are also available through our authorised sales partners."
   ],
   "공식 판매 파트너": [
@@ -2272,11 +2272,11 @@
     "Delivery is available throughout Korea. Additional charges may apply to Jeju and island destinations. Please contact us about international delivery."
   ],
   "제품 보증 기간은 어떻게 되나요?": [
-    "保証期間を教えてください。",
+    "製品の保証期間を教えてください。",
     "What is the warranty period?"
   ],
   "구매일로부터 1년간 무상 A/S를 제공합니다. 하드웨어 결함 시 수리 또는 교체해드리며, 사용자 과실로 인한 고장은 유상 수리입니다.": [
-    "購入日から1年間、無償の修理サービスを提供します。ハードウェアの不具合には修理・交換で対応し、お客様の取り扱いによる故障は有償修理となります。",
+    "購入日から1年間、無償の修理サービスを提供します。ハードウェアの不具合には修理または交換で対応し、誤った取り扱いによる故障は有償修理となります。",
     "A one-year service warranty applies from the purchase date. Hardware defects are repaired or replaced; damage caused by user handling is subject to repair charges."
   ],
   "고장 시 데이터는 어떻게 되나요?": [
@@ -2408,7 +2408,7 @@
     "General enquiries"
   ],
   "문의 유형을 선택하지 않고 바로 이메일을 보내실 수 있습니다.": [
-    "種類を選択せず、直接メールでお問い合わせいただけます。",
+    "お問い合わせの種類を選択せずに、直接メールを作成できます。",
     "Contact us directly by email without selecting an enquiry type."
   ],
   "이메일 앱 열기": [
@@ -2444,7 +2444,7 @@
     "Security notices"
   ],
   "제품 업데이트 및 보안 관련 중요 공지사항": [
-    "製品更新・セキュリティに関する重要なお知らせ",
+    "製品アップデートとセキュリティに関する重要なお知らせ",
     "Important product updates and security notices"
   ],
   "현재 공지사항 없음": [
@@ -2520,7 +2520,7 @@
     "D-GO device screen: six-digit pairing code for a new device"
   ],
   "D-GO 본체 화면: D-GO Security Vault 대시보드, 금고 열림": [
-    "D-GO本体画面：D-GO Security Vaultダッシュボード・金庫解錠",
+    "D-GO本体画面：D-GO Security Vaultダッシュボード・扉が開いた状態",
     "D-GO device screen: D-GO Security Vault dashboard, vault open"
   ],
   "PUF 키 필요": [
@@ -2576,7 +2576,7 @@
     "Match"
   ],
   "금고 열림": [
-    "金庫解錠",
+    "扉が開いています",
     "Vault open"
   ],
   "화면잠금": [
@@ -2588,7 +2588,7 @@
     "Power off"
   ],
   "터치하여 금고 닫기": [
-    "タッチして金庫を施錠",
+    "タッチして扉を閉じる",
     "Tap to lock the vault"
   ],
   "사용 중인 스토리지": [
@@ -2616,7 +2616,7 @@
     "Admin’s iPhone connection approved"
   ],
   "금고 닫힘 확인 (물리 센서)": [
-    "物理センサーで金庫の施錠を確認",
+    "物理センサーで扉が閉じたことを確認",
     "Vault closed — physical sensor confirmed"
   ],
   "신규 보안 문서 업로드 (3건)": [
@@ -2628,7 +2628,7 @@
     "D-GO App Features"
   ],
   "금고를 관리하는 디고 금고관리와 데이터를 보호하는 디고 안전폴더를 함께 제공합니다.": [
-    "金庫を管理する D-GO 金庫管理と、データを保護する D-GO セキュアフォルダーを提供します。",
+    "金庫の状態を管理する「D-GO 金庫管理」と、データを保護する「D-GO セキュアフォルダー」を利用できます。",
     "Manage your vault with D-GO Vault Management and protect your data with D-GO Secure Folder."
   ],
   "앱 관리 자세히 보기": [
@@ -2640,7 +2640,7 @@
     "D-GO Vault Management"
   ],
   "연결된 금고의 상태와 관리 화면을 확인합니다.": [
-    "接続中の金庫の状態や管理画面を確認できます。",
+    "接続中の金庫の状態を、アプリの管理画面で確認できます。",
     "Monitor the status of your connected vault through the app."
   ],
   "디고 안전폴더": [

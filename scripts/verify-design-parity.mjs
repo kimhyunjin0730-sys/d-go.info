@@ -43,7 +43,7 @@ async function navigate(route, width = 320) {
 
 try {
  await send('Page.enable');await send('Page.setLifecycleEventsEnabled',{enabled:true});await send('Runtime.discardConsoleEntries');await send('Runtime.enable');await send('Network.enable');await send('Network.setCacheDisabled',{cacheDisabled:true});await send('Emulation.setEmulatedMedia',{features:[{name:'prefers-reduced-motion',value:'reduce'}]});
- await navigate('/dashboard');await evaluate(`localStorage.removeItem('dgo-language')`);
+ await navigate('/dashboard');await evaluate(`localStorage.setItem('dgo-language','ko')`);
  const shots=path.join(root,'shots','design-parity-'+Date.now());await mkdir(shots,{recursive:true});
  for(const width of [320,1440])for(const slug of ['', 'product','technology','dashboard','device-screen','manual','purchase','support','missing-page']){
  let reference;for(const locale of ['ko','ja','en']){

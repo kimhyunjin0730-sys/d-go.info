@@ -92,7 +92,7 @@ async function navigate(route, width = 320) {
 try {
   await send("Page.enable"); await send("Page.setLifecycleEventsEnabled", {enabled:true}); await send("Runtime.discardConsoleEntries"); await send("Runtime.enable"); await send("Network.enable"); await send("Network.setCacheDisabled", {cacheDisabled:true});
   await navigate("/dashboard");
-  await evaluate(`localStorage.removeItem("dgo-language")`);
+  await evaluate(`localStorage.setItem("dgo-language", "ko")`);
   for (const lang of locales) {
     for (const slug of slugs) {
       const route = localePath(lang, slug);
