@@ -1,0 +1,63 @@
+/* Shared phone/tablet behaviour; the same content and artwork serve every locale. */
+.site-header { --site-header-height: 68px; }
+.site-header-bar {
+  min-height: calc(68px + env(safe-area-inset-top, 0px));
+  padding-top: calc(10px + env(safe-area-inset-top, 0px));
+  padding-bottom: 10px;
+}
+.site-nav-backdrop {
+  position: fixed;
+  inset: var(--site-header-height) 0 0;
+  z-index: 0;
+  border: 0;
+  background: rgb(4 10 30 / 36%);
+  cursor: pointer;
+  touch-action: none;
+}
+.site-mobile-nav {
+  position: absolute;
+  inset: 100% 0 auto;
+  z-index: 1;
+  max-height: calc(100vh - var(--site-header-height));
+  max-height: calc(100dvh - var(--site-header-height));
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  background: white;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  border-radius: 0 0 18px 18px;
+  box-shadow: 0 16px 32px rgb(4 10 30 / 14%);
+}
+.site-mobile-links {
+  display: grid;
+  gap: 4px 16px;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding: 12px max(16px, env(safe-area-inset-right, 0px)) calc(16px + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px));
+}
+.site-mobile-link { display: flex; align-items: center; min-height: 46px; padding: 8px 12px; border-radius: 8px; font-size: 1rem; font-weight: 500; line-height: 1.5; }
+.site-mobile-sales { grid-column: 1 / -1; padding-top: 8px; }
+.product-stage { max-width: 680px; }
+@media (min-width: 600px) {
+  .site-mobile-links { grid-template-columns: repeat(2, minmax(0, 1fr)); padding-inline: max(24px, env(safe-area-inset-left, 0px)); }
+  .site-mobile-link { min-height: 48px; }
+}
+@media (min-width: 1280px) { .product-stage { max-width: none; } }
+@media (max-height: 640px) { .app-preview-details { position: static; } }
+@media (orientation: landscape) and (max-height: 500px) {
+  .site-mobile-links { gap: 2px 16px; padding-top: 8px; }
+  .site-mobile-link { min-height: 44px; padding-block: 6px; }
+}
+
+/* Keep text and images clear of camera cutouts in either orientation. */
+.site-container, .site-header-bar {
+  --site-gutter: 1rem;
+  padding-left: max(var(--site-gutter), env(safe-area-inset-left, 0px));
+  padding-right: max(var(--site-gutter), env(safe-area-inset-right, 0px));
+}
+@media (min-width: 640px) { .site-container, .site-header-bar { --site-gutter: 1.5rem; } }
+@media (min-width: 1024px) { .site-container, .site-header-bar { --site-gutter: 2rem; } }
+
+/* A fixed header stays visible when document scrolling is locked. */
+.site-header--open { position: fixed; top: 0; left: 0; right: var(--site-scrollbar-width, 0px); }

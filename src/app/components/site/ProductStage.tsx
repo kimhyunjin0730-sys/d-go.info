@@ -39,7 +39,7 @@ export function ProductImage({
         <source
           type="image/webp"
           srcSet="/images/product/dgo-front-cut-900.webp 900w, /images/product/dgo-front-cut.webp 1600w"
-          sizes="(min-width: 1024px) 680px, 100vw"
+          sizes="(min-width: 1280px) 640px, (min-width: 720px) 680px, calc(100vw - 32px)"
         />
         <img
           src="/images/product/dgo-front-cut-900.png"
@@ -87,7 +87,7 @@ export default function ProductStage() {
   const autoplay = playing && !reducedMotion;
 
   return (
-    <LocalizedContent>{<figure className="m-0">
+    <LocalizedContent>{<figure className="product-stage m-0 w-full justify-self-center">
       {/* the unit itself, standing on the dark hero */}
       <div className="relative">
         <span

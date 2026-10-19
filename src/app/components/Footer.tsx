@@ -9,7 +9,7 @@ export default function Footer() {
   const { locale, common, path } = useLocale();
   return (
     <footer className="bg-navy-deep text-white">
-      <div className="mx-auto w-full max-w-[1200px] px-4 py-12 sm:px-6 md:py-16 lg:px-8">
+      <div className="site-container mx-auto w-full max-w-[1200px] px-4 py-12 sm:px-6 md:py-16 lg:px-8">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.3fr_0.8fr_1.2fr_1fr]">
           <div><BrandLockup tone="dark" /><p className="mt-5 text-[0.9375rem] leading-relaxed text-on-navy-2">{common.tagline}</p></div>
           <nav aria-label={common.links}>

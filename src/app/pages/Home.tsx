@@ -43,7 +43,7 @@ export default function Home() {
           className="absolute inset-0 bg-[radial-gradient(90%_70%_at_75%_10%,rgba(27,62,158,0.55),rgba(4,10,30,0)_60%),radial-gradient(60%_50%_at_10%_100%,rgba(0,1,139,0.5),rgba(4,10,30,0)_70%)]"
         />
         <Container className="relative pt-12 pb-16 md:pt-16 md:pb-20">
-          <div className="grid items-start gap-12 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-16">
+          <div className="grid items-start gap-12 xl:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] xl:gap-16">
             <div>
               <div className="flex items-center gap-3">
                 <span className="h-px w-8 bg-led/60" aria-hidden="true" />

@@ -40,7 +40,7 @@ export default function AppScreenPreview() {
           </div>
           <figcaption className="mt-4 text-sm leading-relaxed text-ink-2">{copy.caption}</figcaption>
         </figure>
-        <div className="min-w-0 md:sticky md:top-28">
+        <div className="app-preview-details min-w-0 md:sticky md:top-28">
           <div role="group" aria-label={copy.choose} className="grid gap-2">
             {SCREENS.map((key, i) => <button key={key} type="button" data-app-screen={key} aria-pressed={screen === key} onClick={() => designProps.onScreen(key)} className={`min-h-12 rounded-xl border px-4 py-3 text-left text-sm font-semibold ${screen === key ? "border-key bg-key text-white" : "border-line bg-white text-navy hover:bg-mist"}`}>{copy.tabs[i]}</button>)}
           </div>

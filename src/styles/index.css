@@ -2,3 +2,5 @@
 @import './tailwind.css';
 @import './theme.css';
 @import './device.css';
+
+@import './responsive.css';

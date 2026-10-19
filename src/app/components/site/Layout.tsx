@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import { cn } from "../ui/utils";
 
 export function Container({ className, children }: { className?: string; children: ReactNode }) {
-  return <div className={cn("mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-8", className)}>{children}</div>;
+  return <div className={cn("site-container mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-8", className)}>{children}</div>;
 }
 
 type Tone = "white" | "mist" | "navy";
