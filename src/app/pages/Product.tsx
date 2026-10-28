@@ -291,7 +291,7 @@ export default function Product() {
               <f.icon size={30} strokeWidth={1.6} className="mt-0.5 flex-none text-key" aria-hidden="true" />
               <div>
                 <h3 className="text-lg font-bold text-key">{f.title}</h3>
-                <p className="mt-1.5 inline-flex rounded-full border border-ink/25 bg-white px-2.5 py-0.5 text-xs font-medium text-ink-2">{f.tag}</p>
+                <p className="mt-1.5 inline-flex rounded-full border border-ink/25 bg-white px-2.5 py-0.5 text-xs font-medium text-ink-2" translate={f.tag === "PUF" ? "no" : undefined}>{f.tag}</p>
                 <p className="mt-2.5 text-[0.9375rem] leading-relaxed text-ink-2">{f.body}</p>
               </div>
             </li>
@@ -472,7 +472,7 @@ export default function Product() {
                 <Fingerprint size={40} strokeWidth={1.5} className="flex-none text-led" aria-hidden="true" />
               </div>
               <div>
-                <p className="font-mono text-sm font-semibold tracking-[0.14em] text-on-navy-2">PUF</p>
+                <p className="font-mono text-sm font-semibold tracking-[0.14em] text-on-navy-2" translate="no">PUF</p>
                 <h3 className="mt-1 text-2xl font-bold md:text-[1.75rem]">물리 인증 (PUF USB)</h3>
                 <p className="mt-2 text-base leading-relaxed text-on-navy-2">복제 불가능 하드웨어 인증으로 서버 기동 제어</p>
               </div>

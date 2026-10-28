@@ -90,7 +90,7 @@ export default function Home() {
             {PROOF_POINTS.map((p) => (
               <div key={p.title} className="flex flex-col gap-1 border-t border-white/12 py-5 first:border-t-0 sm:border-t-0 sm:px-6 sm:py-6 sm:first:pl-0 sm:last:pr-0 sm:[&:not(:first-child)]:border-l sm:[&:not(:first-child)]:border-white/12">
                 <dt className="display text-[2.25rem] leading-none text-white md:text-[2.75rem]">
-                  {p.figure}
+                  <span translate="no">{p.figure}</span>
                   {p.unit && <span className="ml-0.5 text-[0.5em]">{p.unit}</span>}
                 </dt>
                 <dd>
@@ -124,7 +124,7 @@ export default function Home() {
                 <f.icon size={30} strokeWidth={1.6} className="mt-0.5 flex-none text-key" aria-hidden="true" />
                 <div>
                   <h3 className="text-lg font-bold text-key">{f.title}</h3>
-                  <p className="mt-1.5 inline-flex rounded-full border border-ink/25 bg-white px-2.5 py-0.5 text-xs font-medium text-ink-2">{f.tag}</p>
+                  <p className="mt-1.5 inline-flex rounded-full border border-ink/25 bg-white px-2.5 py-0.5 text-xs font-medium text-ink-2" translate={f.tag === "PUF" ? "no" : undefined}>{f.tag}</p>
                   <p className="mt-2.5 text-[0.9375rem] leading-relaxed text-ink-2">{f.body}</p>
                 </div>
               </li>
